@@ -1,4 +1,5 @@
 import os
+from collections import defaultdict
 from nltk.translate.bleu_score import corpus_bleu, SmoothingFunction
 from tqdm import tqdm
 
@@ -27,7 +28,7 @@ for task in tqdm(os.listdir(reference_dir), desc='Loading reference translations
                                 for ref_file in os.listdir(python_ref_dir) if ref_file.endswith('.py')]
 
 # Load the translated files and calculate BLEU scores
-bleu_scores = {trans_type: [] for trans_type in translation_dirs}
+bleu_scores = defaultdict(lambda: defaultdict(list))
 for trans_type, trans_dir in translation_dirs.items():
     print(f"Processing {trans_type} translations:")
     for language in tqdm(os.listdir(trans_dir), desc=f'Processing languages for {trans_type}'):
@@ -41,7 +42,7 @@ for trans_type, trans_dir in translation_dirs.items():
                     try:
                         score = corpus_bleu([references[problem_name]], [candidate],
                                             smoothing_function=SmoothingFunction().method1)
-                        bleu_scores[trans_type].append(score)
+                        bleu_scores[trans_type][language].append(score)
                     except AssertionError as e:
                         print(f"AssertionError: {e}")
                         print(f"Task causing error: {problem_name}")
@@ -50,10 +51,22 @@ for trans_type, trans_dir in translation_dirs.items():
                         print(f"Candidate translation for task {problem_name}: {candidate}")
                         continue
 
-# Compute the average BLEU scores for each translation type
-average_bleu_scores = {trans_type: sum(scores) / len(scores) if scores else 0
-                       for trans_type, scores in bleu_scores.items()}
+# Compute the average BLEU scores for each translation type and language
+def report_bleu():
+    average_bleu_scores = defaultdict(dict)
+    cumulative_bleu_scores = defaultdict(list)
+    for trans_type, languages in bleu_scores.items():
+        print(f"Average BLEU score for {trans_type} translations:")
+        for language, scores in languages.items():
+            if scores:
+                avg_score = sum(scores) / len(scores)
+                average_bleu_scores[trans_type][language] = avg_score
+                cumulative_bleu_scores[trans_type].extend(scores)  # For cumulative average
+                print(f"  {language}: {avg_score:.4f}")
+        # Calculate the cumulative average BLEU score for the translation type
+        if cumulative_bleu_scores[trans_type]:
+            cumul_avg_score = sum(cumulative_bleu_scores[trans_type]) / len(cumulative_bleu_scores[trans_type])
+            print(f"  Cumulative average: {cumul_avg_score:.4f}\n")
 
-# Print out the average BLEU scores for each translation type
-for trans_type, avg_score in average_bleu_scores.items():
-    print(f"Average BLEU score for {trans_type} translations: {avg_score:.4f}")
+if __name__ == "__main__":
+    report_bleu()

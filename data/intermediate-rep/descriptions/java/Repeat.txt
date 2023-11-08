@@ -1,0 +1,1 @@
+This code defines a class called Repeat with a main method that calls the repeat method with a value of 3 and a lambda function that prints "Example" followed by the input value. The repeat method takes an integer n and a Consumer function as parameters, and uses IntStream to iterate n times and apply the Consumer function to each iteration.

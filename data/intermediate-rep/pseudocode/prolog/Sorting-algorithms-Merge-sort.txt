@@ -1,0 +1,36 @@
+```
+function msort( L, S )
+    if L is empty
+        S = empty
+    else if L has only one element
+        S = L
+    else
+        split(L, L1, L2)
+        msort(L1, S1)
+        msort(L2, S2)
+        merge(S1, S2, S)
+
+function split( LIST, L, R )
+    if LIST is empty
+        L = empty
+        R = empty
+    else if LIST has only one element
+        L = LIST
+        R = empty
+    else
+        L = first element of LIST
+        R = second element of LIST
+        split(rest of LIST, LT, RT)
+
+function merge( LS, RS, M )
+    if LS is empty
+        M = RS
+    else if RS is empty
+        M = LS
+    else if first element of LS is less than or equal to first element of RS
+        M = first element of LS
+        merge(rest of LS, RS, T)
+    else
+        M = first element of RS
+        merge(LS, rest of RS, T)
+```

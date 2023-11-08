@@ -1,0 +1,5 @@
+1. Set a list or array of values to be collected
+2. Create a function to print the values
+3. Use a map function to iterate through the list of values and apply the print function to each value
+4. Use the collect function to store the printed values in a new list or array
+5. End the process.

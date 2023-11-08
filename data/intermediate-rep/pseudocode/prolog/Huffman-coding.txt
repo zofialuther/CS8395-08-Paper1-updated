@@ -1,0 +1,75 @@
+```
+function huffman:
+    L = 'this is an example for huffman encoding'
+    LA = atom_chars(L)
+    LS = msort(LA)
+    PL = packList(LS)
+    PLS = sort(PL)
+    A = build_tree(PLS)
+    C = coding(A, [])
+    SC = sort(C)
+    print 'Symbol   Weight                            Code'
+    for each element in SC:
+        print_code(element)
+
+function build_tree(T, AF):
+    if length(T) >= 2:
+        V1R1 = T[0]
+        V2R2 = T[1]
+        V = V1 + V2
+        A = [V, V1R1, V2R2]
+        if length(T) == 2:
+            AF = A
+        else:
+            NT = sort([A|T])
+            build_tree(NT, AF)
+
+function coding(A, Code, CF):
+    FG = A[1]
+    FD = A[2]
+    if is_node(FG):
+        C1 = coding(FG, [0 | Code])
+    else:
+        C1 = leaf_coding(FG, [0 | Code])
+    if is_node(FD):
+        C2 = coding(FD, [1 | Code])
+    else:
+        C2 = leaf_coding(FD, [1 | Code])
+    CF = append(C1, C2)
+
+function leaf_coding(A, Code, CF):
+    reverse(Code)
+    CF = [[A[1], A[2], Code]]
+
+function is_node(A):
+    if A is a node:
+        return true
+    else:
+        return false
+
+function print_code(N, Car, Code):
+    print Car + ' : ' + N + ' : ' + Code
+
+function packList(L):
+    if L is empty:
+        return []
+    else if length(L) == 1:
+        return [[1, L[0]]]
+    else:
+        X = L[0]
+        Rest = L[1:]
+        XRun = run(X, Rest)
+        Packed = packList(Rest)
+        return [XRun|Packed]
+
+function run(V, L, XRun, RRest):
+    if L is empty:
+        XRun = [1, V]
+        RRest = []
+    else if V == L[0]:
+        run(V, L[1:], [N1, V], RRest)
+        N1 = N + 1
+    else if V != L[0]:
+        XRun = [1, V]
+        RRest = L[0:]
+```

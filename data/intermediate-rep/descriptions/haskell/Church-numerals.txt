@@ -1,0 +1,1 @@
+This code implements the Church encoding, a way to represent natural numbers using only functions. The code includes functions for performing arithmetic operations on Church numerals, as well as functions to convert them to and from regular integers. The main function demonstrates the use of the Church numerals by performing various operations and printing the results.

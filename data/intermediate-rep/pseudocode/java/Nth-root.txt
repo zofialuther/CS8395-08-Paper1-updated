@@ -1,0 +1,17 @@
+FUNCTION nthroot
+  PARAMETER n, x
+  ASSERT (n > 1 && x > 0)
+  np = n - 1
+  g1 = x
+  g2 = iter(g1, np, n, x)
+  WHILE g1 != g2
+    g1 = iter(g1, np, n, x)
+    g2 = iter(iter(g2, np, n, x), np, n, x)
+  END WHILE
+  RETURN g1
+END FUNCTION
+
+FUNCTION iter
+  PARAMETER g, np, n, x
+  RETURN (np * g + x / g^np) / n
+END FUNCTION

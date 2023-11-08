@@ -1,0 +1,22 @@
+FUNCTION quibble(words)
+    qText = "{"
+    FOR wIndex from 0 to length of words
+        qText += words[wIndex]
+        IF wIndex == length of words - 1
+            qText += ""
+        ELSE IF wIndex == length of words - 2
+            qText += " and "
+        ELSE
+            qText += ", "
+    END FOR
+    qText += "}"
+    RETURN qText
+END FUNCTION
+
+FUNCTION main(args)
+    PRINT quibble({})
+    PRINT quibble({"ABC"})
+    PRINT quibble({"ABC", "DEF"})
+    PRINT quibble({"ABC", "DEF", "G"})
+    PRINT quibble({"ABC", "DEF", "G", "H"})
+END FUNCTION

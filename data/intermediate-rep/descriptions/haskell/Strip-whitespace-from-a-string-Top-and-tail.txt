@@ -1,0 +1,1 @@
+This code defines three functions for trimming whitespace from a string. The trimLeft function removes leading whitespace, trimRight removes trailing whitespace, and trim removes both leading and trailing whitespace using the other two functions. The functions use the dropWhile and dropWhileEnd functions from the Data.List module to achieve this.

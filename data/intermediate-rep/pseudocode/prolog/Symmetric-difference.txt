@@ -1,0 +1,17 @@
+```
+sym_diff: 
+    A = ['John', 'Serena', 'Bob', 'Mary', 'Serena'] 
+    B = ['Jim', 'Mary', 'John', 'Jim', 'Bob'] 
+    display('A : ' + A) 
+    display('B : ' + B) 
+    SA = convertListToSet(A) 
+    SB = convertListToSet(B) 
+    display('set from A : ' + SA) 
+    display('set from B : ' + SB) 
+    DAB = setSubtraction(SA, SB) 
+    display('difference A\\B : ' + DAB) 
+    DBA = setSubtraction(SB, SA) 
+    display('difference B\\A : ' + DBA) 
+    Diff = setUnion(DAB, DBA) 
+    display('symmetric difference : ' + Diff)
+```

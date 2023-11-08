@@ -1,0 +1,1 @@
+This code uses the mapM_ function to apply the print function to each element in the collect list, without collecting the results. This means that it will print each element in the collect list to the console without returning a new list.

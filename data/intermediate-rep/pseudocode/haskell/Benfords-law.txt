@@ -1,0 +1,9 @@
+1. Import the required libraries
+2. Define a function fstdigit that takes an Integer as input and returns an Int
+3. Set the value of n to 1000
+4. Create a list fibs with the initial values 1 and 1, and then use zipWith to generate the Fibonacci sequence
+5. Map the fstdigit function to the first n elements of fibs and store the result in fibdata
+6. Create a frequency map freqs using the values in fibdata
+7. Define a table tab as a list of tuples containing Int, Double, and Double values
+8. Iterate through the values 1 to 9 and calculate the frequency and log value for each value, storing it in tab
+9. Print the tab using the print function.

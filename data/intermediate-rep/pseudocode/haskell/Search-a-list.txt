@@ -1,0 +1,5 @@
+1. Define a list of needles
+2. Define a list of haystack
+3. Create a function that takes a single argument x and returns a tuple (x, elemIndices x haystack)
+4. Use the map function to apply the function to each element in the list of needles
+5. Print the result of the map function.

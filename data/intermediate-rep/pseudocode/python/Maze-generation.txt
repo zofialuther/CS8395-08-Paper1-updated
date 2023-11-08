@@ -1,0 +1,29 @@
+```
+from random import shuffle, randrange
+
+function make_maze(w = 16, h = 8)
+    vis = create 2D array with dimensions w+1 by h+1 filled with 0s
+    ver = create 2D array with dimensions w by h filled with "|  "
+    hor = create 2D array with dimensions w by h filled with "+--"
+
+    function walk(x, y)
+        vis[y][x] = 1
+
+        d = create list with coordinates (x-1, y), (x, y+1), (x+1, y), (x, y-1)
+        shuffle(d)
+        for each coordinate (xx, yy) in d
+            if vis[yy][xx] is not 0, continue to the next iteration
+            if xx is equal to x, set hor[max(y, yy)][x] to "+  "
+            if yy is equal to y, set ver[y][max(x, xx)] to "   "
+            call walk(xx, yy)
+
+    call walk(randrange(w), randrange(h))
+
+    s = ""
+    for each pair (a, b) in zip(hor, ver)
+        s += concatenate all elements in a with a line break and concatenate all elements in b with a line break
+    return s
+
+if __name__ is equal to '__main__'
+    call the function make_maze()
+```

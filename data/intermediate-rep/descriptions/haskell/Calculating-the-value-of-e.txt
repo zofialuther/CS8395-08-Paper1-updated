@@ -1,0 +1,1 @@
+This code calculates an approximation of the mathematical constant "e" using the formula for the Taylor series expansion. The eApprox function takes an integer parameter "n" which represents the number of iterations to use in the approximation. The main function tests the eApprox function by calculating the approximation of "e" after 20 iterations and prints the result.

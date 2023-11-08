@@ -1,0 +1,7 @@
+1. Import the Control.Concurrent module
+
+2. Define the main function
+   - Read the input for seconds
+   - Print "Sleeping..."
+   - Delay the thread by the number of seconds entered multiplied by 1000000
+   - Print "Awake!"

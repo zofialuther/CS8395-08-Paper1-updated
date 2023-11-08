@@ -1,0 +1,6 @@
+1. Set true to True
+2. Set false to False
+3. Set null to None
+4. Set data to the result of evaluating the string '{ "foo": 1, "bar": [10, "apples"] }'
+5. Print the value of data
+6. End of pseudocode

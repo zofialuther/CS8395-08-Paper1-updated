@@ -1,0 +1,3 @@
+This code defines a function called equilibriumIndices that takes a list of integers and returns a list of indices where the sum of elements to the left is equal to the sum of elements to the right. It uses the scanl1 and scanr1 functions to calculate the cumulative sums from the left and right, and then zips these sums with the list of indices. It then filters the zipped list to only include the indices where the left and right sums are equal.
+
+The main function tests the equilibriumIndices function with different input lists and prints the results.

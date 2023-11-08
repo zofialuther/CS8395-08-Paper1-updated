@@ -1,0 +1,11 @@
+function factors(array)
+    for i from 1 to 100
+        output = ""
+        for pair in array
+            if i is divisible by pair[0]
+                output += pair[1]
+        if output is ""
+            output = i
+        print output
+    end for
+end function

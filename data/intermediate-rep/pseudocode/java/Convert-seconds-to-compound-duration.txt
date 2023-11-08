@@ -1,0 +1,36 @@
+
+function duration(seconds) {
+    string = new StringBuilder();
+    if (seconds >= 604800) {
+        string.append("%,d wk".formatted(seconds / 604_800));
+        seconds = seconds % 604_800;
+    }
+    if (seconds >= 86400) {
+        if (!string.isEmpty()) {
+            string.append(", ");
+        }
+        string.append("%d d".formatted(seconds / 86400));
+        seconds = seconds % 86400;
+    }
+    if (seconds >= 3600) {
+        if (!string.isEmpty()) {
+            string.append(", ");
+        }
+        string.append("%d hr".formatted(seconds / 3600));
+        seconds = seconds % 3600;
+    }
+    if (seconds >= 60) {
+        if (!string.isEmpty()) {
+            string.append(", ");
+        }
+        string.append("%d min".formatted(seconds / 60));
+        seconds = seconds % 60;
+    }
+    if (seconds > 0) {
+        if (!string.isEmpty()) {
+            string.append(", ");
+        }
+        string.append("%d sec".formatted(seconds));
+    }
+    return string.toString();
+}

@@ -1,0 +1,1 @@
+This code defines operations for vectors and scalars, including dot product, cross product, scalar triple product, and vector triple product. It also includes sample vectors a, b, c, and d of type Vector Int. The main function prints the results of various vector operations using the defined functions.

@@ -1,0 +1,17 @@
+1. Import necessary modules
+2. Define function gapful with input parameter n
+3. Check if n modulo firstLastDigit of n is equal to 0
+4. Define firstLastDigit function to reverse the digits of n and then multiply first and last digit by 10 and add them
+5. Define function toPalinDrome with input parameter n
+6. Filter a list with values greater than 100 and satisfying gapful function
+7. Define function go with input parameters p and n''
+8. If n'' is 0, return p
+9. Otherwise, recursively call go with updated p and n''
+10. Define function gapfulPalindromes
+11. Sort the concatenated list of toPalinDrome function from 1 to 99999
+12. Define function endsWith with input parameter n
+13. Filter the list of gapfulPalindromes whose modulo 10 is equal to n
+14. Define function showSets with input tuple (k, r)
+15. Concatenate k with description and unlines of the results of r function on endsWith for numbers 1 to 9
+16. Define main function
+17. Map through the list of tuples and print the results after applying showSets function on each tuple.

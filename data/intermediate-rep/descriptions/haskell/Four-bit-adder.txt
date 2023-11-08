@@ -1,0 +1,1 @@
+This code defines a half adder and a full adder function using the uncurry function to combine logical operations. The full adder function takes three inputs (carry, a, and b) and uses the half adder function to perform the addition. The adder4 function takes a list of inputs and uses mapAccumR to apply the full adder function to each set of inputs, producing a list of results.

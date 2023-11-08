@@ -1,0 +1,9 @@
+```
+BEGIN
+    SET total = 0
+    FOR each number IN array
+        total = total + number
+    END FOR
+    PRINT total
+END
+```

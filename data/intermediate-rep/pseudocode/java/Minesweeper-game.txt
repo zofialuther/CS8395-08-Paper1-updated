@@ -1,0 +1,52 @@
+Pseudocode for Main.java:
+
+function intErrorTrap(x, y):
+    max = 0
+    min = 0
+    input = 0
+    loopEnd = false
+
+    if x < y:
+        min = x
+        max = y
+    else:
+        min = y
+        max = x
+
+    do:
+        display "Please enter an integer between " + min + " to " + max + "."
+        userInput = get user input
+
+        try:
+            input = convert userInput to integer
+
+            if input > max:
+                loopEnd = false
+                display "Input is invalid."
+                return -1
+            else if input < min:
+                loopEnd = false
+                display "Input is invalid."
+                return -1
+            else:
+                loopEnd = true
+                display input + " is a valid input."
+                return input
+        catch (Exception e):
+            loopEnd = false
+            discard userInput
+            display "Input is invalid."
+            return 0
+    while loopEnd is false
+
+function main(args):
+    display "Enter width."
+    x = intErrorTrap(0, 60)
+    
+    display "Enter height."
+    y = intErrorTrap(0, 30)
+    
+    display "Enter difficulty."
+    d = intErrorTrap(0, 100)
+
+    create new Minesweeper(x, y, d)

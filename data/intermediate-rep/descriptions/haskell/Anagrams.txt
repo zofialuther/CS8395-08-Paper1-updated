@@ -1,0 +1,1 @@
+This code reads a file containing a list of words, then groups the words based on whether they are anagrams of each other. It then finds the group with the most words and prints out those words.

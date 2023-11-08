@@ -1,0 +1,23 @@
+procedure main(A)
+    threads := []
+    L := list(*A)
+    for i := 1 to *A do 
+        put(threads, thread L[i] := primedecomp(A[i]))
+    end for
+    wait(!threads)
+
+    maxminF := L[maxminI := 1][1]
+    for i := 2 to *L do 
+        if maxminF <= L[i][1] then 
+            maxminI := i
+        end if
+    end for
+    writes((A[maxminI]||": ")|(!L[maxminI]||" ")|"\n")
+end
+
+procedure primedecomp(n)         
+    put(F := [], genfactors(n))
+    return F
+end
+
+link factors

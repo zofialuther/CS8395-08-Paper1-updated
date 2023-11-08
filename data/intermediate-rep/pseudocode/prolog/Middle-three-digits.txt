@@ -1,0 +1,16 @@
+```
+function middle_3_digits(Number, [D1,D2,D3]) {
+    verify_middle_3_able(Number, Digits);
+    append(FrontDigits, [D1,D2,D3| BackDigits], Digits);
+    same_length(FrontDigits, BackDigits);
+}
+
+function verify_middle_3_able(Number, Digits) {
+    if (typeof Number != "number") throw "TypeError: Number must be a number";
+    var AbsNumber = Math.abs(Number);
+    var Digits = AbsNumber.toString().split('');
+    var NumDigits = Digits.length;
+    if (3 > NumDigits) throw "DomainError: Number must have at least 3 digits";
+    if (NumDigits % 2 === 0) throw "DomainError: Number must have an odd number of digits";
+}
+```

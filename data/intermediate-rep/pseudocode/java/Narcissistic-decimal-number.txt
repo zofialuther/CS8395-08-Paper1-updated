@@ -1,0 +1,23 @@
+START
+  Import necessary packages
+
+  Declare numbersToCalculate as 25
+  Declare numbersCalculated as 0
+
+  Define main function
+    Iterate through a stream of integers from 0 to Integer.MAX_VALUE
+      Convert integer to string and get its length
+      Initialize addedDigits as 0
+
+      Iterate through each digit in the integer
+        Convert digit to integer value
+        Add the value raised to the power of the length to addedDigits
+
+      If the integer is equal to addedDigits
+        Increment numbersCalculated
+        Print addedDigits
+
+      If numbersCalculated is equal to numbersToCalculate
+        Exit the program
+
+END

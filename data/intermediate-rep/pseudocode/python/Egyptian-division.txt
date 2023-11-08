@@ -1,0 +1,24 @@
+```
+import itertools
+
+function egyptian_divmod(dividend, divisor)
+    assert divisor is not equal to 0
+    pwrs = [1]
+    dbls = [divisor]
+    while dbls[-1] is less than or equal to dividend
+        pwrs.append(pwrs[-1] multiplied by 2)
+        dbls.append(pwrs[-1] multiplied by divisor)
+    ans = 0
+    accum = 0
+    for each pwr, dbl in zip(pwrs[-2 to -1], dbls[-2 to -1])
+        if accum plus dbl is less than or equal to dividend
+            accum = accum plus dbl
+            ans = ans plus pwr
+    return ans, absolute value of (accum minus dividend)
+
+if __name__ is equal to "__main__"
+    for each i, j in product of range(13), range(1, 13)
+        assert egyptian_divmod(i, j) is equal to divmod(i, j)
+    i, j = 580, 34
+    print("%i divided by %i using the Egyption method is %i remainder %i" % egyptian_divmod(i, j))
+```

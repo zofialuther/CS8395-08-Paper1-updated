@@ -1,0 +1,23 @@
+```
+function puzzle:
+    L = [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12]
+    for i from 1 to 12:
+        L[i] in range 0 to 1
+    set element 1 of L to 1
+    
+    A2 = (A7 + A8 + A9 + A10 + A11 + A12)
+    A3 = (A2 + A4 + A6 + A8 + A10 + A12)
+    A4 = (A5 => (A6 and A7))
+    A5 = (A2 + A3 + A4)
+    A6 = (A1 + A3 + A5 + A7 + A9 + A11)
+    A7 = (A2 + A3)
+    A8 = (A7 =>  (A5 and A6))
+    A9 = (A1 + A2 + A3 + A4 + A5 + A6)
+    A10 = (A11 and A12)
+    A11 = (A7 + A8 + A9)
+    A12 = (A1 + A2 + A3 + A4 + A5 + A6 + A7 + A8 + A9 + A10 + A11)
+    
+    label L
+    for i from 1 to 12:
+        write 'Statement ' + i + ' is ' + L[i]
+```

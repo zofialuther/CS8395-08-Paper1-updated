@@ -1,0 +1,1 @@
+This Python code defines a function to calculate Unsigned Lah numbers (L(n, k)) and then uses that function to generate a table of Lah numbers for n from 0 to 12. It also finds the maximum value from the L(100, *) row and prints it. The code imports the `comb` and `factorial` functions from the `math` module to perform the necessary calculations.

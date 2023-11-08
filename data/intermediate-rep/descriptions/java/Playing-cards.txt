@@ -1,0 +1,1 @@
+This code defines an enumeration called Suit, which represents the four different suits in a standard deck of playing cards: Diamonds, Spades, Hearts, and Clubs. This enumeration can be used to represent and manipulate the different suits in card games and other related applications.

@@ -1,0 +1,11 @@
+1. Import urllib
+2. Import defaultdict from collections
+3. Set words as the result of splitting the content of the URL "http://wiki.puzzlers.org/pub/wordlists/unixdict.txt" after reading it using urllib.urlopen
+4. Get the length of the words list and store it
+5. Create a defaultdict named anagram to map sorted characters to anagrams
+6. Iterate through each word in the words list
+7. Sort the characters in the word and add the word to the list of anagrams corresponding to the sorted characters
+8. Find the maximum length of the lists of anagrams and store it as count
+9. Iterate through each list of anagrams
+10. If the length of the list is equal to or greater than count, print the list
+11. Store the value of count for future reference

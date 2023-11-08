@@ -1,0 +1,5 @@
+1. Set example1 to 3
+2. Set example2 to 3.0
+3. Set example3 to True
+4. Set example4 to "hello"
+5. Set example1 to "goodbye"

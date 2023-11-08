@@ -1,0 +1,1 @@
+This code uses the itertools module to create an infinite iterator that starts at 0 and increments by 1 each time it is called. It then loops through this iterator, printing each new value as it is generated. This will continue indefinitely, printing an infinite sequence of numbers.

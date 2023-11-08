@@ -1,0 +1,1 @@
+This Java program, ShowAsciiTable, generates and displays the ASCII table from character code 32 to 127. It prints the character code along with the corresponding character for each value, and also includes special labels for space and delete characters. The output is formatted to display 6 characters per line for easier readability.

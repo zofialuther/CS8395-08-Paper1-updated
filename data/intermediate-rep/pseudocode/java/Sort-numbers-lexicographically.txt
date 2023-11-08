@@ -1,0 +1,25 @@
+FUNCTION lexOrder(n)
+    first = 1
+    last = n
+    IF n < 1 THEN
+        first = n
+        last = 1
+    END IF
+    result = []
+    FOR i from first to last
+        result.append(toString(i))
+    END FOR
+    result.sort()
+    FOR i from 0 to result.length
+        result[i] = toInteger(result[i])
+    END FOR
+    RETURN result
+END FUNCTION
+
+MAIN
+    PRINT "In lexicographical order:\n"
+    ints = [0, 5, 13, 21, -22]
+    FOR n in ints
+        PRINT n + ": " + lexOrder(n)
+    END FOR
+END MAIN

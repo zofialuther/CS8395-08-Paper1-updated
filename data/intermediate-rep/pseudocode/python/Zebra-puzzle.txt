@@ -1,0 +1,8 @@
+```
+Create a new problem
+Add variables: Nation, Color, Smoke, Pet, and Drink with values from 1 to 5
+Add constraint: all values in each list are different
+Add constraint: actual constraints for the problem
+Get the solution
+Print the answers for Nation, Color, Smoke, Pet, and Drink
+```

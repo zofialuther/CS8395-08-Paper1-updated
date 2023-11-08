@@ -1,0 +1,11 @@
+```
+function main() {
+  print_SPAM();
+}
+
+function print_SPAM() {
+  console.log("SPAM");
+}
+
+main();
+```

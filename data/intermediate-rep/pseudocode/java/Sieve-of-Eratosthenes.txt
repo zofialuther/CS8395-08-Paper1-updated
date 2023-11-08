@@ -1,0 +1,44 @@
+```
+class InfiniteSieve implements Iterator<BigInteger> {
+
+    class NonPrimeSequence implements Comparable<NonPrimeSequence> {
+        BigInteger currentMultiple;
+        BigInteger prime;
+
+        NonPrimeSequence(BigInteger p) {
+            prime = p;
+            currentMultiple = p.multiply(p);
+        }
+        compareTo(NonPrimeSequence other) {
+            return currentMultiple.compareTo(other.currentMultiple);
+        }
+    }
+
+    BigInteger i = 2;
+    final PriorityQueue<NonPrimeSequence> nonprimes = new PriorityQueue<NonPrimeSequence>();
+
+    hasNext() {
+        return true;
+    }
+    next() {
+        for ( ; nonprimes is not empty and i equals nonprimes.peek().currentMultiple; i = i + 1) {
+            while (nonprimes.peek().currentMultiple equals i) {
+                x = nonprimes.poll();
+                x.currentMultiple = x.currentMultiple + x.prime;
+                nonprimes.offer(x);
+            }
+        }
+        nonprimes.offer(new NonPrimeSequence(i));
+        result = i;
+        i = i + 1;
+        return result;
+    }
+
+    main(args) {
+        sieve = new InfiniteSieve();
+        for (i = 0; i < 25; i++) {
+            print(sieve.next());
+        }
+    }
+}
+```

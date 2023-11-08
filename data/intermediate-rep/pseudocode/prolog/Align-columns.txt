@@ -1,0 +1,47 @@
+```
+function aligner() {
+  let L = "Given$a$text$file$of$many$lines,$where$fields$within$a$line$are$delineated$by$a$single$'dollar'$character,$write$a$program that$aligns$each$column$of$fields$by$ensuring$that$words$in$each$column$are$separated$by$at$least$one$space. Further,$allow$for$each$word$in$a$column$to$be$either$left$justified,$right$justified,$or$center$justified$within$its$column.";
+
+  let parsedLines = parse(L, 0, N, LP, []);
+
+  let N1 = N + 1;
+  let AL = `~~w~~t~~~w|`;
+  let AC = `~~t~~w~~t~~~w|`;
+  let AR = `~~t~~w~~~w|`;
+
+  console.log('Left justified:');
+  parsedLines.forEach(line => {
+    affiche(AL, line);
+  });
+  console.log('Centered justified:');
+  parsedLines.forEach(line => {
+    affiche(AC, line);
+  });
+  console.log('Right justified:');
+  parsedLines.forEach(line => {
+    affiche(AR, line);
+  });
+}
+
+function affiche(F, L) {
+  L.forEach(word => {
+    myFormat(F, word);
+  });
+  console.log('\n');
+}
+
+function myFormat(F, W) {
+  if (W === 13) {
+    console.log('\n');
+  } else {
+    let AF = sformat(F, [W]);
+    console.log(AF);
+  }
+}
+
+function parse(T, N, Max, LP, Result) {
+  // implementation of parse function
+}
+
+// Other helper functions and constants
+```

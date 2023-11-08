@@ -1,0 +1,1 @@
+This code uses Prolog to retrieve the command-line arguments passed to the program and then prints them to the console.

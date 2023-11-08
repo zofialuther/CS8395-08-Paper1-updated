@@ -1,0 +1,8 @@
+FUNCTION combinations_of_length(list, result):
+    IF list is empty
+        RETURN
+    ELSE
+        result.append(list)
+        combinations_of_length(list, result)
+        list.pop()
+        combinations_of_length(list, result)

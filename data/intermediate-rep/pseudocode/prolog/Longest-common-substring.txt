@@ -1,0 +1,34 @@
+```
+function common_sublist(A, B, M) {
+    append(_, Ma, A);
+    append(M, _, Ma);
+    append(_, Mb, B);
+    append(M, _, Mb);
+}
+
+function longest_list([], L, _, L) {
+    // base case
+}
+
+function longest_list([L|Ls], LongestList, LongestLength, Result) {
+    length(L, Len);
+    if (Len >= LongestLength) {
+        longest_list(Ls, L, Len, Result);
+    } else {
+        longest_list(Ls, LongestList, LongestLength, Result);
+    }
+}
+
+function longest_substring(A, B, Result) {
+    AChars = string_chars(A);
+    BChars = string_chars(B);
+    AllSubstrings = [];
+    for (each SubString in AllSubstrings) {
+        if (SubString != []) {
+            common_sublist(AChars, BChars, SubString);
+        }
+    }
+    LongestSubString = longest_list(AllSubstrings, [], 0);
+    Result = string_chars(LongestSubString);
+}
+```

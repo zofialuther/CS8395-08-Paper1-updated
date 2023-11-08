@@ -1,0 +1,13 @@
+1. Start
+2. Import Data.Char (isSpace)
+3. Import Data.List (dropWhileEnd)
+4. Function trimLeft with input String and output String
+5.     Set trimLeft to dropWhile isSpace
+6. End function
+7. Function trimRight with input String and output String
+8.     Set trimRight to dropWhileEnd isSpace
+9. End function
+10. Function trim with input String and output String
+11.     Set trim to trimLeft . trimRight
+12. End function
+13. End

@@ -1,0 +1,19 @@
+1. Import the random and re modules
+2. Create a list called chars with the characters "(",")","/","+","-","*"
+3. Create a while loop that runs indefinitely
+4. Inside the while loop, create two empty lists called charsandints and ints
+5. Use a for loop to generate 4 random integers between 1 and 10 and add them to the ints list as strings
+6. Concatenate the chars list and ints list to create the charsandints list
+7. Print "Numbers are:" followed by the values in the ints list
+8. Prompt the user to enter their guess and store it in a variable called guess
+9. Check if the guess is "q", if so, break the while loop
+10. Check if the guess is "|", if so, pass
+11. If the guess is neither "q" nor "|", create a flag variable and set it to True
+12. Use a for loop to iterate through each character in the guess
+13. Check if the character is not in the charsandints list or if the count of the character in the guess is greater than the count of the character in the charsandints list, if so, set the flag to False
+14. Use the re module to check if the guess contains two digits next to each other, if so, print "You cannot combine digits" and break the loop
+15. If the flag is True, print "Your result is:", followed by the result of evaluating the guess as a mathematical expression
+16. Check if the result is equal to 24, if so, print "You won" and break the loop
+17. If the result is not equal to 24, print "You lost" and break the loop
+18. If the flag is False, print "You cannot use anything other than" followed by the values in the charsandints list and break the loop
+19. Outside the while loop, print "Thanks for playing"

@@ -1,0 +1,26 @@
+1. Import necessary libraries:
+   - Data.List (minimumBy, tails, unfoldr, foldl1')
+   - System.Random (newStdGen, randomRs)
+   - Control.Arrow ((&&&))
+   - Data.Ord (comparing)
+
+2. Define a function to calculate the distance between two points in a 2D space:
+   - vecLeng [[a, b], [p, q]] = sqrt $ (a - p) ^ 2 + (b - q) ^ 2
+
+3. Define a function to find the closest pair of points:
+   - findClosestPair =
+     - foldl1'' ((minimumBy (comparing vecLeng) .) . (. return) . (:)) .
+     - concatMap (\(x:xs) -> map ((x :) . return) xs) . init . tails
+
+4. Define a test function to generate random points and find the closest pair:
+   - testCP = do
+     - g <- newStdGen
+     - let pts :: [[Double]]
+           - pts = take 1000 . unfoldr (Just . splitAt 2) $ randomRs (-1, 1) g
+     - print . (id &&& vecLeng) . findClosestPair $ pts
+
+5. Define the main function to run the test:
+   - main = testCP
+
+6. Define a helper function to simplify the foldl1' function:
+   - foldl1'' = foldl1'

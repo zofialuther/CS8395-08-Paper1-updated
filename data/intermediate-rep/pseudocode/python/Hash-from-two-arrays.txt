@@ -1,0 +1,7 @@
+1. Initialize keys as a list containing elements 'a', 'b', 'c'
+2. Initialize values as a list containing elements 1, 2, 3
+3. Initialize an empty dictionary hash
+4. Use a for loop to iterate through the result of the zip function on keys and values
+   4.1 For each pair of key and value, add an entry to the hash dictionary with key as the key and value as the value
+5. End loop
+6. Return the hash dictionary

@@ -1,0 +1,12 @@
+
+Pseudocode:
+
+if "abcdef" is equal to "abc\def"
+    print "True"
+else
+    print "False"
+
+if "abc\ndef" is equal to "abc\n\def"
+    print "True"
+else
+    print "False"

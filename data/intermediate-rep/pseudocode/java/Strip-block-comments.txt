@@ -1,0 +1,44 @@
+
+FUNCTION readFile(filename)
+    reader = new BufferedReader(new FileReader(filename))
+    TRY
+        fileContents = new StringBuilder()
+        buffer = new char[4096]
+        WHILE (reader.read(buffer, 0, 4096) > 0)
+            fileContents.append(buffer)
+        END WHILE
+        RETURN fileContents.toString()
+    FINALLY
+        reader.close()
+    END TRY
+END FUNCTION
+
+FUNCTION stripComments(beginToken, endToken, input)
+    output = new StringBuilder()
+    WHILE (true)
+        begin = input.indexOf(beginToken)
+        end = input.indexOf(endToken, begin + beginToken.length())
+        IF (begin == -1 OR end == -1)
+            output.append(input)
+            RETURN output.toString()
+        END IF
+        output.append(input.substring(0, begin))
+        input = input.substring(end + endToken.length())
+    END WHILE
+END FUNCTION
+
+FUNCTION main(args)
+    IF (args.length < 3)
+        PRINT "Usage: BeginToken EndToken FileToProcess"
+        EXIT 1
+    END IF
+    begin = args[0]
+    end = args[1]
+    input = args[2]
+    TRY
+        PRINT stripComments(begin, end, readFile(input))
+    CATCH (Exception e)
+        e.printStackTrace()
+        EXIT 1
+    END TRY
+END FUNCTION

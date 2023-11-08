@@ -1,0 +1,62 @@
+BEGIN
+  FUNCTION isPrime(n)
+    IF n = 2 THEN
+      RETURN true
+    END IF
+    IF n < 2 OR n is even THEN
+      RETURN false
+    END IF
+    maxFactor = sqrt(n)
+    FOR possibleFactor = 3 TO maxFactor BY 2
+      IF n % possibleFactor = 0 THEN
+        RETURN false
+      END IF
+    END FOR
+    RETURN true
+  END FUNCTION
+
+  FUNCTION findFactorMersenneNumber(primeP)
+    IF primeP <= 0 THEN
+      RAISE IllegalArgumentException
+    END IF
+    bigP = primeP as BigInteger
+    m = 2^primeP - 1
+    maxFactor = 2^((primeP + 1) / 2)
+    twoP = primeP * 2
+    possibleFactor = 1
+    possibleFactorBits12 = 0
+    twoPBits12 = primeP % 4
+
+    WHILE possibleFactor <= maxFactor
+      possibleFactor = possibleFactor + twoP
+      possibleFactorBits12 = (possibleFactorBits12 + twoPBits12) % 4
+      IF possibleFactorBits12 = 0 OR possibleFactorBits12 = 3 THEN
+        IF 2^bigP mod possibleFactor = 1 THEN
+          RETURN possibleFactor
+        END IF
+      END IF
+    END WHILE
+    RETURN null
+  END FUNCTION
+
+  FUNCTION checkMersenneNumber(p)
+    IF NOT isPrime(p) THEN
+      PRINT "M" + p + " is not prime"
+      RETURN
+    END IF
+    factor = findFactorMersenneNumber(p)
+    IF factor = null THEN
+      PRINT "M" + p + " is prime"
+    ELSE
+      PRINT "M" + p + " is not prime, has factor " + factor
+    END IF
+    RETURN
+  END FUNCTION
+
+  MAIN
+    FOR p = 1 TO 50
+      checkMersenneNumber(p)
+    END FOR
+    checkMersenneNumber(929)
+    RETURN
+END

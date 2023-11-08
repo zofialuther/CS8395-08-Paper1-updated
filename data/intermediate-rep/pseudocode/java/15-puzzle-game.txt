@@ -1,0 +1,62 @@
+```
+function FifteenPuzzle:
+    dim = 640
+    margin = 80
+    tileSize = (dim - 2 * margin) / 4
+    gridSize = tileSize * 4
+    setPreferredSize(new Dimension(dim, dim + margin))
+    setBackground(Color.WHITE)
+    setForeground(new Color(0x6495ED)) // cornflowerblue
+    setFont(new Font("SansSerif", Font.BOLD, 60))
+    gameOver = true
+    addMouseListener(new MouseAdapter()):
+        mousePressed(MouseEvent e):
+            if (gameOver):
+                newGame()
+            else:
+                ex = e.getX() - margin
+                ey = e.getY() - margin
+                if (ex < 0 || ex > gridSize || ey < 0 || ey > gridSize):
+                    return
+                c1 = ex / tileSize
+                r1 = ey / tileSize
+                c2 = blankPos % 4
+                r2 = blankPos / 4
+                clickPos = r1 * 4 + c1
+                dir = 0
+                if (c1 == c2 && Math.abs(r1 - r2) > 0):
+                    dir = (r1 - r2) > 0 ? 4 : -4
+                else if (r1 == r2 && Math.abs(c1 - c2) > 0):
+                    dir = (c1 - c2) > 0 ? 1 : -1
+                if (dir != 0):
+                    do:
+                        newBlankPos = blankPos + dir
+                        tiles[blankPos] = tiles[newBlankPos]
+                        blankPos = newBlankPos
+                    while (blankPos != clickPos)
+                    tiles[blankPos] = 0
+                gameOver = isSolved()
+            repaint()
+        newGame()
+    newGame()
+    while (!isSolvable()):
+        reset()
+        shuffle()
+        gameOver = false
+    reset()
+    for (i = 0; i < tiles.length; i++):
+        tiles[i] = (i + 1) % tiles.length
+    blankPos = tiles.length - 1
+    shuffle()
+    countInversions = 0
+    for (i = 0; i < 15; i++):
+        for (j = 0; j < i; j++):
+            if (tiles[j] > tiles[i]):
+                countInversions++
+    return countInversions % 2 == 0
+    isSolved()
+    drawGrid(Graphics2D g)
+    drawStartMessage(Graphics2D g)
+    paintComponent(Graphics gg)
+    main(String[] args)
+```

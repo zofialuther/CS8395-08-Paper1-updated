@@ -1,0 +1,32 @@
+FUNCTION is_prime(number)
+    RETURN True
+END FUNCTION
+
+FUNCTION m_factor(p)
+    max_k = 16384 / p
+    FOR k = 0 TO max_k
+        q = 2*p*k + 1
+        IF NOT is_prime(q) THEN
+            CONTINUE
+        ELSE IF q MOD 8 != 1 AND q MOD 8 != 7 THEN
+            CONTINUE
+        ELSE IF pow(2, p, q) == 1 THEN
+            RETURN q
+        END IF
+    END FOR
+    RETURN None
+END FUNCTION
+
+IF __name__ == '__main__' THEN
+    exponent = INT(raw_input("Enter exponent of Mersenne number: "))
+    IF NOT is_prime(exponent) THEN
+        PRINT "Exponent is not prime: %d" % exponent
+    ELSE
+        factor = m_factor(exponent)
+        IF NOT factor THEN
+            PRINT "No factor found for M%d" % exponent
+        ELSE
+            PRINT "M%d has a factor: %d" % (exponent, factor)
+        END IF
+    END IF
+END IF

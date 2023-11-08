@@ -1,0 +1,18 @@
+```
+1. Import the PCE library
+2. Define the mandelbrot predicate
+3. Create a new window with the title 'Mandelbrot Set'
+4. Set the size of the window to 700x650
+5. Create a new image object with width 700, height 650, and kind pixmap
+6. Iterate over the x and y coordinates of the image
+7. Get the RGB values for each pixel
+8. Calculate the new RGB values based on the given formula
+9. Set the pixel color of the image with the new RGB values
+10. Create a new bitmap with the image
+11. Display the bitmap on the window at position (0,0)
+12. Open the window
+13. Define the get_RGB predicate
+14. Calculate the new RGB values based on the given formula
+15. Define the compute_RGB predicate
+16. Recursively compute the RGB values based on the given formula
+```

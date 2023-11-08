@@ -1,0 +1,1 @@
+This code allows the user to play a simple game where they take 1, 2, or 3 tokens at a time. The program prompts the user to make a selection and then calculates the computer's selection based on the user's choice. The game continues until there are no tokens left, at which point the computer wins. The main function initiates the game with 12 tokens.

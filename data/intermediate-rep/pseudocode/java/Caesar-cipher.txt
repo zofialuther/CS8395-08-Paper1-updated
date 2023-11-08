@@ -1,0 +1,30 @@
+START
+  CLASS Cipher
+    FUNCTION main
+      str = "The quick brown fox Jumped over the lazy Dog"
+      PRINT encode(str, 12)
+      PRINT decode(encode(str, 12), 12)
+    END FUNCTION
+
+    FUNCTION decode(enc, offset)
+      RETURN encode(enc, 26-offset)
+    END FUNCTION
+
+    FUNCTION encode(enc, offset)
+      offset = offset % 26 + 26
+      encoded = ""
+      FOR i in enc
+        IF i is a letter
+          IF i is uppercase
+            encoded += (char) ('A' + (i - 'A' + offset) % 26 )
+          ELSE
+            encoded += (char) ('a' + (i - 'a' + offset) % 26 )
+          END IF
+        ELSE
+          encoded += i
+        END IF
+      END FOR
+      RETURN encoded
+    END FUNCTION
+  END CLASS
+END

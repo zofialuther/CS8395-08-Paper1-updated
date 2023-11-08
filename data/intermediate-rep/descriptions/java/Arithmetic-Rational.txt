@@ -1,0 +1,1 @@
+This Java program searches for perfect numbers in the range from 1 to 524,287. It uses the BigRational class to calculate the reciprocal sum of each number and checks if it equals 2, which indicates a perfect number. The program then prints out any perfect numbers found within the specified range.

@@ -1,0 +1,103 @@
+```
+function chinrest(A, N, X) {
+    sort(N);
+    let Nn = prime(N);
+    if (!Nn) {
+        console.log("Please enter prime numbers only");
+        return;
+    }
+    if (A.length !== Nn.length) {
+        console.log("Please enter equal length prime numbers only");
+        return;
+    }
+    let P = product(Nn);
+    let Mi = milist(P, Nn);
+    let Ci = cilist(Mi, Nn);
+    let Ac = mult_lists(Mi, Ci);
+    let Ad = mult_lists(Ac, A);
+    let S = sum_list(Ad);
+    X = S % P;
+}
+
+function prime(arr) {
+    let primeArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (fd_prime(arr[i])) {
+            primeArr.push(arr[i]);
+        } else {
+            return false;
+        }
+    }
+    return primeArr;
+}
+
+function product(arr) {
+    let P = 1;
+    for (let i = 0; i < arr.length; i++) {
+        P *= arr[i];
+    }
+    return P;
+}
+
+function milist(P, arr) {
+    let Mi = [];
+    for (let i = 0; i < arr.length; i++) {
+        Mi.push(Math.trunc(P / arr[i]));
+    }
+    return Mi;
+}
+
+function cilist(arr1, arr2) {
+    let Ci = [];
+    for (let i = 0; i < arr1.length; i++) {
+        Ci.push(modinv(arr1[i], arr2[i]));
+    }
+    return Ci;
+}
+
+function mult_lists(arr1, arr2) {
+    let result = [];
+    for (let i = 0; i < arr1.length; i++) {
+        result.push(arr1[i] * arr2[i]);
+    }
+    return result;
+}
+
+function sum_list(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+function modinv(A, B) {
+    let GCD = eeuclid(A, B);
+    if (GCD !== 1) {
+        return;
+    }
+    return P % B;
+}
+
+function eeuclid(A, B) {
+    if (A >= B) {
+        return a_b_p_s_(A, B, 1, 0, 0, 1, A);
+    } else {
+        return a_b_p_s_(B, A, 1, 0, 0, 1, A);
+    }
+}
+
+function a_b_p_s_(A, B, P1, S1, P2, S2, GCD) {
+    if (B === 0) {
+        return GCD;
+    }
+    
+    if (A > B) {
+        let Q = Math.trunc(A / B);
+        let B1 = A % B;
+        let P3 = P1 - (Q * P2);
+        let S3 = S1 - (Q * S2);
+        return a_b_p_s_(B, B1, P, S, P2, P3, S2, S3, GCD);
+    }
+}
+```

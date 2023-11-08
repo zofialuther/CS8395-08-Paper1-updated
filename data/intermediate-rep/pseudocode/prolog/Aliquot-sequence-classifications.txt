@@ -1,0 +1,66 @@
+```
+FUNCTION divisor_sum(N, Total)
+    divisor_sum_prime(N, 2, 2, Total1, 1, N1)
+    divisor_sum(N1, 3, Total, Total1)
+
+FUNCTION divisor_sum(1, _, Total, Total)
+    RETURN
+divisor_sum(N, Prime, Total, Running_total)
+    IF Prime * Prime <= N
+        divisor_sum_prime(N, Prime, Prime, P, 1, M)
+        Next_prime = Prime + 2
+        Running_total1 = P * Running_total
+        divisor_sum(M, Next_prime, Total, Running_total1)
+    ELSE
+        Total = (N + 1) * Running_total
+
+FUNCTION divisor_sum_prime(N, Prime, Power, Total, Running_total, M)
+    IF N mod Prime = 0
+        Running_total1 = Running_total + Power
+        Power1 = Power * Prime
+        N1 = N / Prime
+        divisor_sum_prime(N1, Prime, Power1, Total, Running_total1, M)
+    ELSE
+        Total = Running_total
+
+FUNCTION aliquot_sequence(N, Limit, Sequence, Class)
+    aliquot_sequence(N, Limit, [N], Sequence, Class)
+
+aliquot_sequence(_, 0, _, [], 'non-terminating')
+    RETURN
+aliquot_sequence(_, _, [0|_], [0], terminating)
+    RETURN
+aliquot_sequence(N, _, [N, N|_], [], perfect)
+    RETURN
+aliquot_sequence(N, _, [N, _, N|_], [N], amicable)
+    RETURN
+aliquot_sequence(N, _, [N|S], [N], sociable)
+    IF N is in S
+aliquot_sequence(_, _, [Term, Term|_], [], aspiring)
+    RETURN
+aliquot_sequence(_, _, [Term|S], [Term], cyclic)
+    IF Term is in S
+aliquot_sequence(N, Limit, [Term|S], [Term|Rest], Class)
+    divisor_sum(Term, Sum)
+    Term1 = Sum - Term
+    L1 = Limit - 1
+    aliquot_sequence(N, L1, [Term1, Term|S], Rest, Class)
+
+FUNCTION write_aliquot_sequence(N, Sequence, Class)
+    WRITE N, Class, "sequence:"
+    write_aliquot_sequence(Sequence)
+
+write_aliquot_sequence([])
+    RETURN
+write_aliquot_sequence([Term|Rest])
+    WRITE Term
+    write_aliquot_sequence(Rest)
+
+main
+    FOR N in 1 to 10
+        aliquot_sequence(N, 16, Sequence, Class)
+        write_aliquot_sequence(N, Sequence, Class)
+    FOR N in [11, 12, 28, 496, 220, 1184, 12496, 1264460, 790, 909, 562, 1064, 1488]
+        aliquot_sequence(N, 16, Sequence, Class)
+        write_aliquot_sequence(N, Sequence, Class)
+```

@@ -1,0 +1,9 @@
+1. Declare a variable arithmetic_integer and prompt the user to input a value.
+2. Read the input value and store it in the variable arithmetic_integer.
+3. Calculate the sum of 5 and arithmetic_integer and display the result as "5+arithmetic_integer is sum".
+4. Calculate the difference between 5 and arithmetic_integer and display the result as "5-arithmetic_integer is difference".
+5. Calculate the product of 5 and arithmetic_integer and display the result as "5*arithmetic_integer is product".
+6. Calculate the integer division of 5 by arithmetic_integer and display the result as "5//arithmetic_integer is integer division".
+7. Calculate the remainder of 5 divided by arithmetic_integer and display the result as "5 rem arithmetic_integer is remainder".
+8. Calculate the power of 5 raised to the power of arithmetic_integer and display the result as "5^arithmetic_integer is power".
+9. End the program with a true statement.

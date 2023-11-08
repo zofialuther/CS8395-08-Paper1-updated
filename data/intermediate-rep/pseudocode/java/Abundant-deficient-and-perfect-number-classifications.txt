@@ -1,0 +1,24 @@
+BEGIN
+    SET deficient = 0
+    SET perfect = 0
+    SET abundant = 0
+    
+    FOR i = 1 to 20,000
+        SET sum = properDivsSum(i)
+        IF sum < i THEN
+            INCREMENT deficient by 1
+        ELSE IF sum = i THEN
+            INCREMENT perfect by 1
+        ELSE
+            INCREMENT abundant by 1
+        END IF
+    END FOR
+    
+    PRINT "Deficient: " + deficient
+    PRINT "Perfect: " + perfect
+    PRINT "Abundant: " + abundant
+END
+
+FUNCTION properDivsSum(n)
+    RETURN sum of factors of n excluding n
+END FUNCTION

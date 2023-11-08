@@ -1,0 +1,92 @@
+```
+plaintextASCIICodeTable = () => {
+    return unlines(
+        concat(c.ljust(12, ' ') for c in xs) for xs in (
+            transpose(chunksOf(16)(
+                [asciiEntry(n) for n in enumFromTo(32)(127)]
+            ))
+        )
+    )
+}
+
+asciiEntry = (n) => {
+    k = asciiName(n)
+    if ('' === k) {
+        return k
+    } else {
+        return concat([str(n).rjust(3, ' '), ' : ', k])
+    }
+}
+
+asciiName = (n) => {
+    if (32 > n || 127 < n) {
+        return ''
+    } else if (32 === n) {
+        return 'Spc'
+    } else if (127 === n) {
+        return 'Del'
+    } else {
+        return String.fromCharCode(n)
+    }
+}
+
+main = () => {
+    print(asciiTable())
+}
+
+chunksOf = (n) => {
+    return (xs) => {
+        return reduce(
+            (a, i) => {
+                return a + [xs.slice(i, n + i)]
+            },
+            [],
+            range(0, xs.length, n)
+        )
+    }
+}
+
+concat = (xxs) => {
+    xs = [].concat(...xxs)
+    unit = ''
+    if (!xs.length) {
+        return unit
+    } else {
+        if (typeof xs[0] === 'string') {
+            return xs.join('')
+        } else {
+            return xs
+        }
+    }
+}
+
+enumFromTo = (m) => {
+    return (n) => {
+        return Array.from({ length: n - m + 1 }, (_, index) => index + m)
+    }
+}
+
+splitAt = (n) => {
+    return (xs) => {
+        return [xs.slice(0, n), xs.slice(n)]
+    }
+}
+
+transpose = (m) => {
+    if (m.length) {
+        inner = typeof m[0]
+        z = zip(...m)
+        return inner === 'object' ? z.map(inner) : z
+    } else {
+        return m
+    }
+}
+
+unlines = (xs) => {
+    return xs.join('\n')
+}
+
+if (require.main === module) {
+    main()
+}
+```

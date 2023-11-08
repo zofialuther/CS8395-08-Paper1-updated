@@ -1,0 +1,4 @@
+1. Open the file with the name 'filename'.
+2. Read the contents of the file.
+3. Close the file.
+4. Return the contents of the file.

@@ -1,0 +1,8 @@
+FUNCTION palindromic(str):
+    FOR i = 0 to (LENGTH(str) / 2) - 1
+        IF str[i] is not equal to str[(LENGTH(str) - 1) - i]
+            RETURN False
+        END IF
+    END FOR
+    RETURN True
+END FUNCTION

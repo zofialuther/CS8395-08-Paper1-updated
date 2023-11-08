@@ -1,0 +1,45 @@
+```
+function ctail(direction, list, In, Rev, Flag) {
+  if (direction == 'fwrd' && list.length >= 2) {
+    if (list[0] > list[1]) {
+      // swap the first two elements
+      temp = list[0];
+      list[0] = list[1];
+      list[1] = temp;
+      return ctail('fwrd', list, In, Rev, Flag);
+    }
+  } else if (direction == 'bkwd' && list.length >= 2) {
+    if (list[0] < list[1]) {
+      // swap the first two elements
+      temp = list[0];
+      list[0] = list[1];
+      list[1] = temp;
+      return ctail('bkwd', list, In, Rev, Flag);
+    }
+  }
+  In.push(list[0]);
+  return ctail(direction, list.slice(1), In, Rev, Flag);
+}
+
+function cocktailSort(In, Out) {
+  ctail('fwrd', In, [], [], 'unsorted');
+  if (Flag == 'sorted') {
+    Out.push(Rev[0]);
+    reverse(Rev.slice(1), Out);
+  } else {
+    ctail('bkwd', Rev, [Rev[0]], [], SortFlag);
+    if (SortFlag == 'sorted') {
+      Out.push(Tmp);
+    } else {
+      cocktailSort(Tmp, Out);
+    }
+  }
+}
+
+function test() {
+  In = [8, 9, 1, 3, 4, 2, 6, 5, 4];
+  console.log('input = ' + In);
+  cocktailSort(In, R);
+  console.log('-> ' + R);
+}
+```

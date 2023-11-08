@@ -1,0 +1,5 @@
+DECLARE i as integer and set it to 1024
+WHILE i is greater than 0
+    OUTPUT i
+    i = i divided by 2 (or i right shifted by 1)
+END WHILE

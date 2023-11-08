@@ -1,0 +1,56 @@
+```
+procedure dragonCurve(N)
+    dcg_dg(N, [left], DCL, [])
+    Side = 4
+    Angle = -N * (pi/4)
+    dcg_computePath(Side, Angle, DCL, point(180, 400), P, [])
+    D = new window('Dragon Curve')
+    send(D, size, size(800, 600))
+    Path = new path(poly)
+    send_list(Path, append, P)
+    send(D, display, Path)
+    send(D, open)
+
+procedure dcg_computePath(Side, Angle, [left | DCT], point(X1, Y1))
+    point(X1, Y1)
+    X2 = X1 + Side * cos(Angle)
+    Y2 = Y1 + Side * sin(Angle)
+    Angle1 = Angle + pi / 2
+    dcg_computePath(Side, Angle1, DCT, point(X2, Y2))
+
+procedure dcg_computePath(Side, Angle, [right | DCT], point(X1, Y1))
+    point(X1, Y1)
+    X2 = X1 + Side * cos(Angle)
+    Y2 = Y1 + Side * sin(Angle)
+    Angle1 = Angle - pi / 2
+    dcg_computePath(Side, Angle1, DCT, point(X2, Y2))
+
+procedure dcg_computePath(_Side, _Angle, [], point(X1, Y1))
+    point(X1, Y1)
+
+procedure dcg_dg(1, L)
+    L
+
+procedure dcg_dg(N, L)
+    dcg_dg(L, L1, [])
+    N1 = N - 1
+    dcg_dg(N1, L1)
+
+procedure dcg_dg(L)
+    L
+    left
+    inverse(L)
+
+procedure inverse([H | T])
+    inverse(T)
+    inverse(H)
+
+procedure inverse([])
+    []
+
+procedure inverse(left)
+    right
+
+procedure inverse(right)
+    left
+```

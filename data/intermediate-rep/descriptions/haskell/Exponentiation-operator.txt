@@ -1,0 +1,1 @@
+This code defines a custom operator (^) to calculate the power of a number. It takes a numeric value and an integral exponent as input. If the exponent is 0, the result is 1. If the exponent is greater than 0, it uses a recursive algorithm to calculate the power. If the exponent is negative, it throws an error.

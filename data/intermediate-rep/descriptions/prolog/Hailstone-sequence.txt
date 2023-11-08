@@ -1,0 +1,1 @@
+This code generates a Hailstone sequence for the number 27 and stores it in list X. It then checks that the length of X is 112 and that it starts with the sequence [27, 82, 41, 124] and ends with the sequence [8, 4, 2, 1].

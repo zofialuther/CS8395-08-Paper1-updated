@@ -1,0 +1,1 @@
+This code defines a predicate called rosetta_sleep that takes a single argument, Time. When called, it will print "Sleeping..." to the console, then pause for the specified amount of time before printing "Awake!" to indicate that the sleep period has ended. This can be used to simulate a delay in a program or to pause the execution for a certain amount of time.

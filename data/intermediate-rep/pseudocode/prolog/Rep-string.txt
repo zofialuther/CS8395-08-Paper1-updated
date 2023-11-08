@@ -1,0 +1,32 @@
+```
+FUNCTION test_for_repstring(String, (String, Result, Reps)):
+    IF setof(Rep, repstring(String, Rep), Reps) THEN
+        Result = 'no repstring'
+    ELSE
+        Result = 'repstrings'
+        Reps = []
+    END IF
+END FUNCTION
+
+FUNCTION repstring(Codes, R):
+    RepLength = generate random number between 1 and length of Codes
+    CREATE array R with length RepLength
+    CALL phrase(rep(R), prefix(Codes, R))
+END FUNCTION
+
+FUNCTION rep(X):
+    RETURN X, X
+END FUNCTION
+
+FUNCTION report_repstring((S,Result,Reps)):
+    PRINT S, Result
+    FOR EACH R in Reps:
+        PRINT R
+    END FOR
+END FUNCTION
+
+FUNCTION report_repstrings:
+    Results = maplist(test_for_repstring, test_strings)
+    CALL maplist(report_repstring, Results)
+END FUNCTION
+```

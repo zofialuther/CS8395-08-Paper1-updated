@@ -1,0 +1,30 @@
+```
+// Define a function to generate a Fibonacci sequence as a stream of long values
+function fibStream() {
+  // Start the stream with the first two Fibonacci numbers
+  return iterate(1, new LongUnaryOperator() {
+    // Initialize the last Fibonacci number as 0
+    long lastFib = 0;
+    
+    // Define the operation to generate the next Fibonacci number in the sequence
+    function applyAsLong( long operand ) {
+      // Calculate the next Fibonacci number by adding the previous two numbers
+      long ret = operand + lastFib;
+      // Update the last Fibonacci number for the next iteration
+      lastFib = operand;
+      // Return the next Fibonacci number
+      return ret;
+    }
+  });
+}
+
+// Define a function to calculate the nth Fibonacci number
+function fib(n) {
+  // Generate the Fibonacci sequence stream
+  stream = fibStream();
+  // Limit the stream to the first n numbers
+  limitedStream = stream.limit(n);
+  // Reduce the stream to find the nth Fibonacci number
+  return limitedStream.reduce((prev, last) -> last).getAsLong();
+}
+```

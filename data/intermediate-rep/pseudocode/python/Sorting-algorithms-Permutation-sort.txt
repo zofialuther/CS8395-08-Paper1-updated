@@ -1,0 +1,8 @@
+1. Import the necessary modules: itertools and more_itertools
+2. Define a function called is_sorted that takes a sequence as input
+3. Inside the function, use the windowed function to iterate through pairs of values in the sequence
+4. Check if each pair is in ascending order, return True if all pairs are sorted, otherwise return False
+5. Define a function called permutation_sort that takes a sequence as input
+6. Inside the function, use the permutations function to generate all possible permutations of the input sequence
+7. Iterate through each permutation and check if it is sorted using the is_sorted function
+8. Return the first sorted permutation found.

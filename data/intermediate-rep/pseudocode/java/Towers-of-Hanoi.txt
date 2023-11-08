@@ -1,0 +1,15 @@
+function moveDisks(disk, source, destination, auxiliary):
+    if disk == 1:
+        print "Move disk from pole", source, "to pole", destination
+    else:
+        moveDisks(disk - 1, source, auxiliary, destination)
+        print "Move disk from pole", source, "to pole", destination
+        moveDisks(disk - 1, auxiliary, destination, source)
+
+moveDisks(1, 1, 2, 3)
+moveDisks(1, 1, 3, 2)
+moveDisks(1, 2, 3, 1)
+moveDisks(1, 1, 2, 3)
+moveDisks(1, 3, 1, 2)
+moveDisks(1, 3, 2, 1)
+moveDisks(1, 1, 2, 3)

@@ -1,0 +1,1 @@
+This code calculates the arithmetic-geometric mean of two numbers: 1 and 1 divided by the square root of 2. The arithmetic-geometric mean is found using a while loop to iteratively calculate the arithmetic and geometric means until the difference between them is less than a specified threshold. The result is then printed to the console.

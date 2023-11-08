@@ -1,0 +1,1 @@
+This code defines a data type called Fruit, which has three possible values: Apple, Banana, and Cherry. It also derives the Enum typeclass, allowing the Fruit type to be used in enumeration constructs and making it easy to convert between its values and their corresponding integer representations.

@@ -1,0 +1,21 @@
+1. Import the Fraction class from the fractions module
+2. Define a new representation for the Fraction class using a lambda function to return the numerator and denominator as a string
+3. Create a list comprehension that iterates over the range of 10
+4. For each value in the range, call the vdc function with the current value and a base of Fraction(2)
+5. Append the result of the vdc function to a list
+6. Print the list of results
+
+Pseudocode:
+```
+import Fraction from fractions module
+
+Fraction.__repr__ = lambda x: '%i/%i' % (x.numerator, x.denominator)
+
+result_list = []
+
+for i in range(10):
+    result = vdc(i, base=Fraction(2))
+    result_list.append(result)
+
+print(result_list)
+```

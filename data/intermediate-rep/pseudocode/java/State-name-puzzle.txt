@@ -1,0 +1,19 @@
+1. Import java.util.*
+2. Import java.util.stream.*
+3. Create a class called StateNamePuzzle
+4. Create a static String array called states and initialize it with state names
+5. Create a main method that takes String array args as input
+6. Inside the main method, call the solve method and pass the states array as a list
+7. Create a static method called solve that takes a List of Strings called input as input
+8. Inside the solve method:
+   - Create a Map called orig and use the input stream to collect the state names into the map, removing spaces and converting to lowercase
+   - Create a new ArrayList from the keySet of the orig map
+   - Create a new HashMap called map
+   - Use a for loop to iterate through the input list
+   - Inside the loop, use another for loop to create pairs of state names
+   - Calculate a key using the sorted characters of the concatenated pair
+   - Check if the key exists in the map, if not, create a new list and add the pair to it, then put it in the map
+   - Use another loop to iterate through the map
+   - Inside the loop, use another loop to compare pairs and print the pairs that satisfy the condition
+   - The condition checks if the distinct count of state names in the pairs is less than 4, if so, continue to the next iteration
+   - Print the pairs that satisfy the condition in the specified format

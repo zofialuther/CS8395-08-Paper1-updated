@@ -1,0 +1,6 @@
+1. Import necessary modules
+2. Define count function that takes an integer x and a list of integers and returns the count of x in the list
+3. Define allBaseNNumsOfLength function that takes an integer n and returns all combinations of n digits of base n
+4. Define isSelfDescribing function that takes a list of integers and returns True if the list is self-describing, False otherwise
+5. Define decimalize function that takes a list of integers and returns the integer in base-10
+6. Define main function that prints the concatenated result of decimalize for each filtered self-describing number from allBaseNNumsOfLength from 1 to 8.

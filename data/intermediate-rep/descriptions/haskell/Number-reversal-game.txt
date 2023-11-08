@@ -1,0 +1,5 @@
+This code is a Haskell program that implements a number reversal game. The game starts with a goal of arranging the numbers 1 through 9 in ascending order. The program uses the Knuth shuffle algorithm to initially shuffle the numbers. It then prompts the user to input the number of flips they want to make to try and arrange the numbers in the correct order.
+
+The program includes functions for shuffling the numbers, flipping the numbers at a specific position, and prompting the user for input. It also includes a function for playing the number reversal game, which continues until the numbers are arranged in the correct order.
+
+Overall, this code creates a interactive game where the user can try to arrange the numbers 1 through 9 in ascending order using a limited number of flips.

@@ -1,0 +1,29 @@
+```
+function tt_divisors(X, N, TT) {
+    Q = X / N
+    if (0 is X mod N) {
+        if (Q = N) {
+            TT1 = N + TT
+        } else {
+            TT1 = N + Q + TT
+        }
+    } else {
+        TT1 = TT
+    }
+    if (sqrt(X) > N + 1) {
+        N1 = N + 1
+        tt_divisors(X, N1, TT1)
+    } else {
+        TT1 = X
+    }
+}
+
+function perfect(X) {
+    tt_divisors(X, 2, 1)
+}
+
+function perfect_numbers(N, L) {
+    LN = numlist(2, N)
+    L = filter(perfect, LN)
+}
+```

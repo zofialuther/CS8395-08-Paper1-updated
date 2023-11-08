@@ -1,0 +1,41 @@
+```
+initialize go to 1
+
+L = [1 | _]
+
+print_niven(L, 1)
+
+gen_niven(1, L)
+
+
+function print_niven([X|T], N):
+    when X is ground:
+        if go is 1 and N < 20:
+            output X
+            N1 = N + 1
+            call print_niven(T, N1)
+        else if X > 1000:
+            output X
+            set go to 0
+        else:
+            N1 = N + 1
+            call print_niven(T, N1)
+
+
+function gen_niven(X, [N | T]):
+    if go is 1:
+        X1 = X + 1
+        calculate sum of digits of X and store in S
+        if X mod S = 0:
+            N = X
+            call gen_niven(X1, T)
+        else:
+            call gen_niven(X1, [N | T])
+
+
+function sum_of_digit(N, S):
+    convert N to list of characters LC
+    for each character X in LC:
+        convert X to number and store in LN
+    sum all elements in LN and store in S
+```

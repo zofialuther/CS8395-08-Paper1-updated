@@ -1,0 +1,54 @@
+```
+1. self_describling :-
+2.     for I from 1 to 10 do
+3.         findall(N, self_describling(I,N), L)
+4.         print "Len I, Numbers L"
+5.     end for
+6.
+7. self_describling(Len, N) :-
+8.     create list L of length Len
+9.     Len1 = Len - 1
+10.     H = L[0], T = L[1:]
+11.     H in 1..Len1
+12.     Len2 = Len - 2
+13.     T in 0..Len2
+14.     sum(L) = Len
+15.     H1 = H + 1
+16.     V = L[H1]
+17.     V > 0
+18.     label(L)
+19.     sort L
+20.     packList(L, LNP)
+21.     create NumList from 0 to Len1
+22.     verif(LNP, NumList, L)
+23.     convert L to number N
+24.
+25. self_describling(N) :-
+26.     convert N to list L
+27.     sort L
+28.     packList(L, LNP)
+29.     create Len from length of L
+30.     create NumList from 0 to Len1
+31.     verif(LNP, NumList, L)
+32.
+33. verif([], [], []) :- true
+34. verif([], [N|S], [0|T]) :-
+35.     verif([], S, T)
+36. verif([[V, N]|R], [N|S], [V|T]) :-
+37.     verif(R, S, T)
+38. verif([[V, N1]|R], [N|S], [0|T]) :-
+39.     N < N1
+40.     verif([[V,N1]|R], S, T)
+41.
+42. packList([],[]) :- true
+43. packList([X],[[1,X]]) :- true
+44. packList([X|Rest],[XRun|Packed]):-
+45.     run(X,Rest, XRun,RRest)
+46. run(Var,[],[1, Var],[]):- true
+47. run(Var,[Var|LRest],[N1, Var],RRest):-
+48.     N > 0
+49.     N1 = N + 1
+50.     run(Var,LRest,[N, Var],RRest)
+51. run(Var,[Other|RRest], [1, Var],[Other|RRest]):-
+52.     Var != Other
+```

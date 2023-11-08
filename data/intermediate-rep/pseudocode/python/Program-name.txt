@@ -1,0 +1,6 @@
+1. Import the inspect module
+2. Define a function called main
+3. Inside the main function, get the file path of the current program using inspect.getfile(inspect.currentframe()) and store it in a variable called program
+4. Print the file path using the print function with the format "Program: %s" % program
+5. Check if the current module is the main module using if __name__ == "__main__":
+6. If it is the main module, call the main function.

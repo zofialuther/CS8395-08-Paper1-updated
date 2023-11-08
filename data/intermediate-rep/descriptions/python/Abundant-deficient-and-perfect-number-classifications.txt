@@ -1,0 +1,1 @@
+The nthArrow function takes a function f and returns a new function that applies f to the nth element of a tuple, leaving the other elements unchanged. The returned function takes a tuple and an index n, and returns a new tuple with the nth element transformed by f. If the index n is out of range, the original tuple is returned.

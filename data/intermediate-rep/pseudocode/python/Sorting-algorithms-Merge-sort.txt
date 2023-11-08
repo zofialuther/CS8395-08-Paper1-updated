@@ -1,0 +1,21 @@
+FUNCTION merge(left, right):
+    result = []
+    left_idx = 0
+    right_idx = 0
+    WHILE left_idx < LENGTH(left) AND right_idx < LENGTH(right):
+        IF left[left_idx] <= right[right_idx] THEN
+            result.append(left[left_idx])
+            left_idx = left_idx + 1
+        ELSE
+            result.append(right[right_idx])
+            right_idx = right_idx + 1
+        END IF
+    END WHILE
+    IF left_idx < LENGTH(left) THEN
+        result.extend(left[left_idx:])
+    END IF
+    IF right_idx < LENGTH(right) THEN
+        result.extend(right[right_idx:])
+    END IF
+    RETURN result
+END FUNCTION

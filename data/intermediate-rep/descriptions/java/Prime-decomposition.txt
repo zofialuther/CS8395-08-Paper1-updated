@@ -1,0 +1,1 @@
+This code is a method that takes a BigInteger as input and returns a boolean value indicating whether the input number is a prime number or not. The method checks if the input number is divisible only by 1 and itself, and if so, returns true. Otherwise, it returns false.

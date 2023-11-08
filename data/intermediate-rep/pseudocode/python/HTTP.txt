@@ -1,0 +1,2 @@
+1. Import the requests module
+2. Print the result of making a GET request to "http://rosettacode.org" and accessing the text attribute of the response object.

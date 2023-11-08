@@ -1,0 +1,7 @@
+This Java code defines a class called AmbTask, which contains a main method that creates a list of lists of strings representing words. The main method then calls the Amb method, passing in the list of words, and prints the result.
+
+The Amb method takes a list of lists of strings as input and uses a recursive approach to find and return a combination of words that form a chain, where the last letter of each word matches the first letter of the next word. If no such combination is found, it returns "No match found".
+
+The amb method is a helper method used by Amb to recursively iterate through the options and check for valid combinations of words. It uses a BiFunction to define the condition for a valid continuation of words.
+
+Overall, this code demonstrates a functional approach to finding and combining words based on specific criteria.

@@ -1,0 +1,4 @@
+1. Import the sys module
+2. Set program_name as the first argument in sys.argv
+3. Set arguments as all the arguments in sys.argv except for the first one
+4. Set count as the length of the arguments list

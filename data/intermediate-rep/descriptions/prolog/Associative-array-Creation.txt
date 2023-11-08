@@ -1,0 +1,1 @@
+This code defines a "mymap" predicate with two clauses, each representing a key-value pair. The query "?- mymap(key1,V)." asks for the value associated with the key "key1", and the result is "V = value1".

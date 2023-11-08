@@ -1,0 +1,64 @@
+```
+initialize cell, maze, and path as dynamic predicates
+
+maze_solve(Lig,Col):
+    retract all cell, maze, and path
+    for i in range 0 to Lig:
+        for j in range 0 to Col:
+            assert maze(i, j, [])
+    create window for maze
+    create entrance and exit
+    assert random cell
+    search for path
+    walk through the maze
+    display the path
+
+walk(Lig, Col):
+    if first element of path is equal to (Lig-1, Col-1):
+        remove first element from path
+        assert new path with (Lig, Col)
+    else:
+        remove first element from path
+        get the edges of the current maze cell
+        for each edge:
+            if the edge is not in the path:
+                assert new path with edge and current cell
+                walk(Lig, Col)
+
+display_path(_, []):
+    do nothing
+
+display_path(D, [[L, C] | R]):
+    create a box at coordinates (C*30+60, L*30+60)
+    recursively display the remaining path
+
+search(D, Lig, Col, L, C):
+    generate random direction
+    find next cell in that direction
+    assert the new cell
+    update maze with new edges
+    erase line between current and new cell
+    recursively search with new cell
+
+erase_line(D, L, C, L, C1):
+    if C is less than C1:
+        set C2 to C1
+    else:
+        set C2 to C
+    draw a white vertical line between (C2*30+50, L*30+51) and (C2*30+50, (L+1)*30+50)
+
+erase_line(D, L, C, L1, C):
+    draw a white horizontal line between (51+C*30, L*30+50) and (50+(C+1)*30, L*30+50)
+
+nextcell(Dir, Lig, Col, L, C, L1, C1):
+    try to move in the given direction
+    if not possible, try moving in other directions
+
+next(0, _Lig, _Col, L, C, L1, C):
+    if L is greater than 0 and cell at (L-1, C) does not exist:
+        set L1 to L-1
+        return true
+    else:
+        return false
+    (similarly for other directions)
+```

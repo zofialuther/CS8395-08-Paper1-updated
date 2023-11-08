@@ -1,0 +1,34 @@
+```
+function main
+  words = [
+    ["the", "that", "a"],
+    ["frog", "elephant", "thing"],
+    ["walked", "treaded", "grows"],
+    ["slowly", "quickly"]
+  ]
+  print Amb(words)
+
+function Amb(aOptions)
+  continues = (before, after) -> before.endsWith(after.substring(0, 1))
+  ambResult = amb(continues, aOptions, "")
+  if ambResult.isEmpty
+    return "No match found"
+  else
+    return ambResult.join(" ")
+
+function amb(aBiFunction, aOptions, aPrevious)
+  if aOptions.isEmpty
+    return new ArrayList
+
+  for option in aOptions[0]
+    if !aPrevious.isEmpty and !aBiFunction.apply(aPrevious, option)
+      continue
+    if aOptions.size == 1
+      return [option]
+    result = amb(aBiFunction, aOptions.subList(1, aOptions.size), option)
+    if !result.isEmpty
+      result.add(0, option)
+      return result
+
+  return new ArrayList
+```

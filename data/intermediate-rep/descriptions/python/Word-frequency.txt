@@ -1,0 +1,1 @@
+This code uses the collections, re, string, and sys modules to create a program that takes in a text file as its first command-line argument and an integer as its second command-line argument. It then counts the occurrences of each word in the text file, ignoring case, and prints the most common words along with their frequencies based on the integer provided.

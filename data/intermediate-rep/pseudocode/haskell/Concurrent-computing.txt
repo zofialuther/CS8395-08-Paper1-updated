@@ -1,0 +1,17 @@
+import Control.Concurrent
+
+function main() {
+  let process1 = function() {
+    putStrLn("Enjoy");
+  }
+  let process2 = function() {
+    putStrLn("Rosetta");
+  }
+  let process3 = function() {
+    putStrLn("Code");
+  }
+
+  let processes = [process1, process2, process3];
+
+  mapM_(forkIO, processes);
+}

@@ -1,0 +1,1 @@
+This code is declaring a file as a part of a multifile predicate. It is indicating that the file being referenced is one of the files in the multifile predicate.

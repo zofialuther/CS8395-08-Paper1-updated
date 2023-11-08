@@ -1,0 +1,1 @@
+This Prolog code defines a predicate combinations_of_length that generates all possible combinations of a given list of elements with a specified length. The predicate takes a list of elements and a list representing a combination, and recursively generates all combinations of the specified length.

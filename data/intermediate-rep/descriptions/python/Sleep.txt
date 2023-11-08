@@ -1,0 +1,1 @@
+This Python code takes user input for the number of seconds to sleep and then uses the time.sleep function to pause the program for that amount of time. It then prints "Awake!" when the sleep time is over. The code allows for input of fractions of a second.

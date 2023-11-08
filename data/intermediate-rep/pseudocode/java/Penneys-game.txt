@@ -1,0 +1,42 @@
+START
+    Import required libraries
+
+    FUNCTION main
+        Initialize Random object
+        Initialize compChoice as an empty string
+        Prompt user for playerChoice
+        IF rand.nextBoolean() is true THEN
+            Generate compChoice using random "HT" characters
+            Print "Computer chooses" followed by compChoice
+            Prompt user for playerChoice
+        ELSE
+            Prompt user for playerChoice
+            Set compChoice to "T"
+            IF the second character of playerChoice is 'T' THEN
+                Set compChoice to "H"
+            Append first 2 characters of playerChoice to compChoice
+            Print "Computer chooses" followed by compChoice
+
+        Initialize tossed as an empty string
+        WHILE true
+            Append a random "HT" character to tossed
+            Print "Tossed" followed by tossed
+            IF tossed ends with playerChoice THEN
+                Print "You win!"
+                Break the loop
+            IF tossed ends with compChoice THEN
+                Print "Computer wins!"
+                Break the loop
+        END WHILE
+    END FUNCTION
+
+    FUNCTION prompt with parameter otherChoice
+        Initialize Scanner object
+        Initialize s as an empty string
+        DO
+            Prompt user to choose a sequence
+            Read user input and store it in s after trimming and converting to uppercase
+        WHILE s does not match the pattern "[HT]{3}" OR s is equal to otherChoice
+        Return s
+    END FUNCTION
+END

@@ -1,0 +1,15 @@
+palindrome(Word):
+    List = convertToCharList(Word)
+    reverse(List, Reversed)
+    if List == Reversed:
+        return true
+    else:
+        return false
+
+begin_tests(palindrome):
+    test(valid_palindrome):
+        assert palindrome('ingirumimusnocteetconsumimurigni') == true
+    test(invalid_palindrome):
+        assert palindrome('this is not a palindrome') == false
+
+end_tests(palindrome)

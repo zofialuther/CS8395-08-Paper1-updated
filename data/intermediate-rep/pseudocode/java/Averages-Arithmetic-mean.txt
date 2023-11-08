@@ -1,0 +1,7 @@
+1. Start
+2. Define a function avg that takes a variable number of double values as input and returns a double value.
+3. Initialize a variable sum to 0.0
+4. For each double value x in the input array arr, do the following:
+    - Add x to the sum
+5. Return the sum divided by the length of the input array arr
+6. End

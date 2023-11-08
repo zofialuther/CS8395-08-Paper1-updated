@@ -1,0 +1,63 @@
+```
+use_module(library(clpfd)).
+
+dynamic top/1, bottom/1.
+
+rule1(L) :-
+    member((baker, F), L),
+    top(Top),
+    F #\= Top.
+
+rule2(L) :-
+    member((cooper, F), L),
+    bottom(Bottom),
+    F #\= Bottom.
+
+rule3(L) :-
+    member((fletcher, F), L),
+    top(Top),
+    bottom(Bottom),
+    F #\= Top,
+    F #\= Bottom.
+
+rule4(L) :-
+    member((miller, Fm), L),
+    member((cooper, Fc), L),
+    Fm #> Fc.
+
+rule5(L) :-
+    member((smith, Fs), L),
+    member((fletcher, Ff), L),
+    abs(Fs-Ff) #> 1.
+
+rule6(L) :-
+    member((cooper, Fc), L),
+    member((fletcher, Ff), L),
+    abs(Fc-Ff) #> 1.
+
+init(L) :-
+    assert(bottom(1)),
+    length(L, Top),
+    assert(top(Top)),
+    bagof(F, X^member((X, F), L), LF),
+    LF ins 1..Top,
+    all_different(LF),
+    rule1(L),
+    rule2(L),
+    rule3(L),
+    rule4(L),
+    rule5(L),
+    rule6(L).
+
+solve(L) :-
+    bagof(F, X^member((X, F), L), LF),
+    label(LF).
+
+dinners :-
+    retractall(top(_)),
+    retractall(bottom(_)),
+    L = [(baker, _Fb), (cooper, _Fc), (fletcher, _Ff), (miller, _Fm), (smith, _Fs)],
+    init(L),
+    solve(L),
+    maplist(writeln, L).
+```

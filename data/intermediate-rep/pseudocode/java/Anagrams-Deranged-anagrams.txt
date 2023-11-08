@@ -1,0 +1,19 @@
+1. Import necessary libraries: java.io.File, java.io.IOException, java.nio.file.Files, java.util.ArrayList, java.util.Arrays, java.util.Comparator, java.util.HashMap, java.util.List, java.util.Map
+2. Create a public class called DerangedAnagrams
+3. Create a main method
+4. Inside the main method, read all lines from the "unixdict.txt" file and store them in a List called words
+5. Call the printLongestDerangedAnagram method and pass the words list as a parameter
+6. Create a private static method called printLongestDerangedAnagram that takes a List of Strings as a parameter
+7. Sort the words list in descending order of length and then by natural order
+8. Create a HashMap called map to store the anagrams
+9. Iterate through each word in the words list
+10. Convert the word to a char array and sort it
+11. Create a key from the sorted char array
+12. Check if the key already exists in the map, if not, create a new ArrayList for the key
+13. Iterate through the anagrams list for the key
+14. Check if the word is deranged with any of the existing anagrams, if so, print the anagram and word and return
+15. If no deranged anagrams are found, add the word to the anagrams list for the key
+16. If no deranged anagrams are found, print "no result"
+17. Create a private static method called isDeranged that takes two String parameters (word1 and word2)
+18. Iterate through each character in the words and check if they are equal, if so, return false
+19. If no equal characters are found, return true

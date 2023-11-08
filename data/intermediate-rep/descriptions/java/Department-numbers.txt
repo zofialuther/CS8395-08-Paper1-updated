@@ -1,0 +1,1 @@
+This Java program, DepartmentNumbers, prints all valid combinations of department numbers for Police, Sanitation, and Fire, where the sum of the department numbers equals 12. It uses nested for loops to iterate through possible combinations and checks for valid combinations before printing them. The program then outputs the total number of valid combinations found.

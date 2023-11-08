@@ -1,0 +1,1 @@
+This code uses OpenGL and GLUT to draw a cuboid with visible faces using 2 triangles each. The vertices of the unit cube are scaled to the required dimensions. The faces are rotated into position and rendered with a perspective transformation. The colors of the faces are specified and the cuboid is then displayed in a window.

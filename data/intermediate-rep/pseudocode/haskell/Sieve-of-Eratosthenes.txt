@@ -1,0 +1,53 @@
+```
+function primes() {
+  return [2].concat(Y(function(s) {
+    return [3].concat(gaps(5, U(map(function(p) {
+      return [p*p, p*p+2*p, ...];
+    }))));
+  }));
+}
+
+function Y(g) {
+  return g(Y(g));
+}
+
+function gaps(k, s) {
+  if (k < s[0]) {
+    return [k].concat(gaps(k+2, s));
+  } else {
+    return gaps(k+2, s.slice(1));
+  }
+}
+
+function U(arr) {
+  if (arr.length === 0) {
+    return [];
+  } else {
+    return [arr[0]].concat(merge(arr[1], U(arr.slice(2))));
+  }
+}
+
+function pairs(arr) {
+  if (arr.length < 2) {
+    return [];
+  } else {
+    return [merge(arr[0], arr[1])].concat(pairs(arr.slice(2)));
+  }
+}
+
+function merge(xs, ys) {
+  if (xs.length === 0) {
+    return ys;
+  } else if (ys.length === 0) {
+    return xs;
+  } else {
+    if (xs[0] < ys[0]) {
+      return [xs[0]].concat(merge(xs.slice(1), ys));
+    } else if (ys[0] < xs[0]) {
+      return [ys[0]].concat(merge(xs, ys.slice(1)));
+    } else {
+      return [xs[0]].concat(merge(xs.slice(1), ys.slice(1)));
+    }
+  }
+}
+```

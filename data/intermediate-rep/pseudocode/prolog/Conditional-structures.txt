@@ -1,0 +1,4 @@
+START
+  WRITE "Hello, World!"
+  WRITE new line
+END

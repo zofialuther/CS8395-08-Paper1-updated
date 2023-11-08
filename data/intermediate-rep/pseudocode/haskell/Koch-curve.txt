@@ -1,0 +1,61 @@
+```
+FUNCTION kochSnowflake(n, a, b)
+    points = [a, equilateralApex(a, b), b]
+    x = points[0]
+    xs = points[1:]
+    result = []
+    FOR i FROM 0 TO LENGTH(points) - 2
+        result.append(kochCurve(n, points[i], points[i + 1]))
+    RETURN result
+
+FUNCTION kochCurve(n, ab, xy)
+    result = [ab]
+    result.extend(go(n, (ab, xy)))
+    RETURN result
+
+FUNCTION go(n, abxy)
+    ab = abxy[0]
+    xy = abxy[1]
+    IF n == 0
+        RETURN [xy]
+    ELSE
+        mpq = midThirdOfLine(ab, xy)
+        points = [ab, mpq[0], equilateralApex(mpq[0], mpq[1]), mpq[1], xy]
+        result = []
+        FOR i FROM 0 TO LENGTH(points) - 2
+            result.append(go(n-1, (points[i], points[i+1])))
+        RETURN result
+
+FUNCTION equilateralApex(a, b)
+    RETURN rotatedPoint(PI/3, a, b)
+
+FUNCTION rotatedPoint(theta, ox, oy, a, b)
+    dx = a - ox
+    dy = oy - b
+    rotated = rotatedVector(theta, (dx, dy))
+    RETURN (ox + rotated[0], oy - rotated[1])
+
+FUNCTION rotatedVector(angle, x, y)
+    RETURN (x * COS(angle) - y * SIN(angle), x * SIN(angle) + y * COS(angle))
+
+FUNCTION midThirdOfLine(a, b, x, y)
+    dx = (x - a) / 3
+    dy = (y - b) / 3
+    f = bimap(dx +, dy +)
+    p = f(a, b)
+    RETURN (p, f(p))
+
+FUNCTION main()
+    PRINT svgFromPoints(1024, kochSnowflake(4, (200, 600), (800, 600)))
+
+FUNCTION svgFromPoints(w, xys)
+    sw = STRING(w)
+    result = "<svg xmlns=\"http://www.w3.org/2000/svg\"\n"
+    result += "width=\"512\" height=\"512\" viewBox=\"5 5 " + sw + " " + sw + "\"> \n"
+    result += "<path d=\"M"
+    FOR point IN xys
+        result += STRING(point[0]) + " " + STRING(point[1]) + " "
+    result += "\" stroke-width=\"2\" stroke=\"red\" fill=\"transparent\"/>\n"
+    result += "</svg>"
+    RETURN result
+```

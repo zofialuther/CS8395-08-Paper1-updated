@@ -1,0 +1,29 @@
+```
+FUNCTION digSum(base: Integer, n: Integer) -> Integer
+  sum = 0
+  WHILE n != 0 DO
+    pair = (n % base, n // base)
+    sum = sum + pair[0]
+    n = pair[1]
+  END WHILE
+  RETURN sum
+END FUNCTION
+
+FUNCTION digRoot(base: Integer, n: Integer) -> (Integer, Integer)
+  sum = digSum(base, n)
+  WHILE sum >= base DO
+    n = n + 1
+    sum = digSum(base, n)
+  END WHILE
+  RETURN (n, sum)
+END FUNCTION
+
+FUNCTION main() -> Void
+  PRINT "in base 10:"
+  numbers = [627615, 39390, 588225, 393900588225]
+  FOR number IN numbers DO
+    result = digRoot(10, number)
+    PRINT number, result
+  END FOR
+END FUNCTION
+```

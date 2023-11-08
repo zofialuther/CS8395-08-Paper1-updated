@@ -1,0 +1,1 @@
+This Python code defines a function called ord that takes a number as input and returns its ordinal form (e.g. 1st, 2nd, 3rd, 4th, etc.). The main section of the code then prints out the ordinal forms of the numbers 0 to 25, 250 to 265, and 1000 to 1025, using the ord function.

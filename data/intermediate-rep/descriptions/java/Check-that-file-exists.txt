@@ -1,0 +1,1 @@
+This code checks if a file named "Abdu'l-Bahá.txt" exists in the current directory. It uses the exists() method to return true if the file exists and false if it does not. The file name is specified using Unicode encoding for the character "á" (U+00E1).

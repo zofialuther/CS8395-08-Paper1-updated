@@ -1,0 +1,36 @@
+```
+function lexicographical_sort(Numbers, Sorted_numbers)
+    number_strings(Numbers, Strings)
+    Sorted_strings = sort(Strings)
+    number_strings(Sorted_numbers, Sorted_strings)
+
+function number_strings([], [])
+    return
+function number_strings([Number|Numbers], [String|Strings])
+    number_string(Number, String)
+    number_strings(Numbers, Strings)
+
+function number_list(From, To, [])
+    if From > To
+        return
+    Rest = number_list(From + 1, To)
+    return [From|Rest]
+
+function lex_sorted_number_list(Number, List)
+    if Number < 1
+        Numbers = number_list(Number, 1)
+    else
+        Numbers = number_list(1, Number)
+    lexicographical_sort(Numbers, List)
+
+function test(Number)
+    List = lex_sorted_number_list(Number)
+    write('%w: %w\n', Number, List)
+
+function main
+    test(0)
+    test(5)
+    test(13)
+    test(21)
+    test(-22)
+```

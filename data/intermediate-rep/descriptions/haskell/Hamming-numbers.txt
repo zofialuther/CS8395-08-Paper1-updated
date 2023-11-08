@@ -1,0 +1,1 @@
+The code defines a function `hammings` that generates a list of Hamming numbers, which are numbers that only have 2, 3, or 5 as prime factors. The function uses a fold to generate the list by merging multiples of 2, 3, and 5 in a specific order. The `main` function then prints the first 20 Hamming numbers, the 1690th Hamming number, and the 1,000,000th Hamming number.

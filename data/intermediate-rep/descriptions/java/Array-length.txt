@@ -1,0 +1,1 @@
+This code creates an array of strings containing the words "apple" and "orange", and then assigns the length of the array to the variable "length".

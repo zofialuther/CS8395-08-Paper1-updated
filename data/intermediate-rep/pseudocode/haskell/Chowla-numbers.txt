@@ -1,0 +1,103 @@
+```
+FUNCTION chowla(n)
+    IF n = 1 THEN
+        RETURN 0
+    ELSE
+        RETURN f(n)
+    END IF
+END FUNCTION
+
+FUNCTION f(n)
+    factor_list = factorise(n)
+    product = 1
+    FOR EACH factor IN factor_list
+        factor_sum = 0
+        FOR i = 1 TO factor[1]
+            factor_sum = factor_sum + unPrime(factor[0])^i
+        END FOR
+        product = product * factor_sum
+    END FOR
+    RETURN product - (product - 1)
+END FUNCTION
+
+FUNCTION sumFactor(n, e)
+    factor_sum = 0
+    FOR i = 1 TO e
+        factor_sum = factor_sum + unPrime(n)^i
+    END FOR
+    RETURN factor_sum
+END FUNCTION
+
+FUNCTION chowlas(xs)
+    IF xs is empty THEN
+        RETURN empty list
+    ELSE
+        chunks = chunksOf(10^6, xs)
+        par_result = runPar(join(mapM(spawnP(fmap((,) <*> chowla), chunks))))
+        RETURN mapM(get, par_result)
+    END IF
+END FUNCTION
+
+FUNCTION chowlaPrimes(chowlas, range)
+    FUNCTION isPrime(n, m)
+        IF n = 1 THEN
+            RETURN False
+        ELSE
+            RETURN m = 0
+        END IF
+    END FUNCTION
+
+    FUNCTION count(chowlas)
+        count = 0
+        FOR EACH pair IN chowlas
+            IF isPrime(pair[0], pair[1]) THEN
+                count = count + 1
+            END IF
+        END FOR
+        RETURN count
+    END FUNCTION
+
+    FUNCTION between(min, max)
+        RETURN genericTake(max - (min - 1), genericDrop(min - 1))
+    END FUNCTION
+
+    RETURN (count(chowlas), range[1])
+END FUNCTION
+
+FUNCTION chowlaPerfects(chowlas)
+    FUNCTION isPerfect(n, c)
+        IF n = 1 THEN
+            RETURN False
+        ELSE
+            RETURN c = (n - 1)
+        END IF
+    END FUNCTION
+
+    RETURN filter(isPerfect, chowlas)
+END FUNCTION
+
+FUNCTION commas(a)
+    string = reverse(intercalate(",", chunksOf(3, reverse(show(a)))))
+    RETURN string
+END FUNCTION
+
+FUNCTION main()
+    cores = getNumProcessors()
+    setNumCapabilities(cores)
+    printf("Using %d cores\n", cores)
+
+    FOR EACH pair IN take(37, allChowlas)
+        printf("chowla(%2d) = %d\n", pair[0], pair[1])
+    END FOR
+
+    FOR EACH range IN chowlaP([(1, 10^2), (10^2 + 1, 10^3), (10^3 + 1, 10^4), (10^4 + 1, 10^5), (10^5 + 1, 10^6), (10^6 + 1, 10^7)])
+        printf("There are %8s primes < %10s\n", range[0], range[1])
+    END FOR
+
+    FOR EACH perfect IN perfects
+        printf("%10s is a perfect number.\n", commas(perfect))
+    END FOR
+
+    printf("There are %2d perfect numbers < 35,000,000\n", length(perfects))
+END FUNCTION
+```

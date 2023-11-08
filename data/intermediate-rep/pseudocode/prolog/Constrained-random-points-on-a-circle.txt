@@ -1,0 +1,27 @@
+```
+1. Load the clpfd library
+2. Define the predicate circle
+3. Use bagof to get a list of points from init(X,Y) and store it as BL
+4. Get the length of BL and store it as N
+5. Create a list L of length 100
+6. Use maplist to choose N points from BL and store them in L
+7. Call the draw_circle predicate with the list L as an argument
+
+8. Define the choose predicate with parameters BL, N, V
+9. Generate a random index I between 0 and N
+10. Get the element at index I from BL and store it as V
+
+11. Define the init predicate with parameters X1, Y1
+12. Define variables X and Y with domains between -15 and 15
+13. Add constraints for X^2 + Y^2 to be greater than or equal to 100 and less than or equal to 225
+14. Label the variables X and Y
+15. Calculate X1 as 10 times X plus 200
+16. Calculate Y1 as 10 times Y plus 200
+
+17. Define the draw_circle predicate with parameter L
+18. Create a new window D with the title 'Circle'
+19. Set the size of window D to 400x400
+20. For each point [X,Y] in L, create a circle C with radius 4, fill pattern color black, and center at point (X,Y)
+21. Display the circle C in window D
+22. Open window D
+```

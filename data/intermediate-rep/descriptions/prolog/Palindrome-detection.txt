@@ -1,0 +1,1 @@
+This code defines a predicate "palindrome" which takes a single argument "Word". It uses the "name" predicate to convert the "Word" into a list of characters, and then uses the "reverse" predicate to check if the list is the same forwards and backwards, hence determining if the "Word" is a palindrome.

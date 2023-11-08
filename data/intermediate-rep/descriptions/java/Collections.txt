@@ -1,0 +1,1 @@
+This code creates an ArrayList and adds integers to it using both the traditional method and the autoboxing feature. It also demonstrates how to define the type in the ArrayList using generics. Finally, it adds several values to the ArrayList to be summed later.

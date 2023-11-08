@@ -1,0 +1,1 @@
+This code defines a function called "check" that takes two parameters, x and y. It uses the Control.Exception library to catch any exceptions that may occur when attempting to divide x by y. If an exception is caught, the function returns True, otherwise it returns False.

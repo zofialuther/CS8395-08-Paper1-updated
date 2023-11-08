@@ -1,0 +1,70 @@
+```
+dining_philosophers :-
+    create_window('Dining philosophers', D),
+    create_window('Dining philosophers : statistics', S),
+    set_window_size(D, 800, 800),
+    
+    create_ellipse(400, 400, E),
+    set_ellipse_center(E, point(400, 400)),
+    display_window(D, E),
+
+    create_forks([F1, F2, F3, F4, F5]),
+    display_list(D, [F1,F2,F3,F4,F5]),
+
+    create_waiter([F1, F2, F3, F4, F5], Waiter),
+
+    create_plate(P1, 0),
+    create_plate(P2, 1),
+    create_plate(P3, 2),
+    create_plate(P4, 3),
+    create_plate(P5, 4),
+
+    create_point(0, Pt1),
+    create_point(1, Pt2),
+    create_point(2, Pt3),
+    create_point(3, Pt4),
+    create_point(4, Pt5),
+
+    create_philosopher('Aristotle', Waiter, P1, D, S, 0, Pt1, left, Ph1),
+    create_philosopher('Kant', Waiter, P2, D, S, 1, Pt2, left, Ph2),
+    create_philosopher('Spinoza', Waiter, P3, D, S, 2, Pt3, right, Ph3),
+    create_philosopher('Marx', Waiter, P4, D, S, 3, Pt4, right, Ph4),
+    create_philosopher('Russell', Waiter, P5, D, S, 4, Pt5, left, Ph5),
+
+    init_waiter_phi(Waiter, [Ph1, Ph2, Ph3, Ph4, Ph5]),
+
+    start_philosophers([Ph1, Ph2, Ph3, Ph4, Ph5]),
+
+    set_done_message(D, [Waiter, Ph1, Ph2, Ph3, Ph4, Ph5, S, D]).
+
+create_plate(P, N) :-
+    create_ellipse(80, 80, P),
+    X is 400 + 140 * cos(N * pi / 2.5),
+    Y is 400 + 140 * sin(N * pi / 2.5),
+    set_ellipse_center(P, point(X, Y)).
+
+create_point(N, point(X, Y)) :-
+    X is 400 + 220 * cos(N * pi / 2.5),
+    Y is 400 + 220 * sin(N * pi / 2.5) - 20.
+
+create_waiter([F1, F2, F3, F4, F5], Waiter) :-
+    create_waiter_object(Waiter),
+    set_waiter_forks(Waiter, F1, F2, F3, F4, F5).
+
+create_philosopher(Name, Waiter, Plate, D, S, Index, Point, Side, Ph) :-
+    create_philosopher_object(Name, Waiter, Plate, D, S, Index, Point, Side, Ph).
+
+init_waiter_phi(Waiter, [Ph1, Ph2, Ph3, Ph4, Ph5]) :-
+    set_waiter_philosophers(Waiter, Ph1, Ph2, Ph3, Ph4, Ph5).
+
+start_philosophers([Ph1, Ph2, Ph3, Ph4, Ph5]) :-
+    start_philosopher(Ph1),
+    start_philosopher(Ph2),
+    start_philosopher(Ph3),
+    start_philosopher(Ph4),
+    start_philosopher(Ph5).
+
+set_done_message(D, Messages) :-
+    send_done_message(D, Messages),
+    open_window(D).
+```

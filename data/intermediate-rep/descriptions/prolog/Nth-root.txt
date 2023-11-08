@@ -1,0 +1,1 @@
+This code defines a Prolog predicate for calculating the Nth root of a given number M. It utilizes the Newton-Raphson method for finding the root, and includes handling for both positive and negative exponents. The code also contains a special case for the square root to optimize the calculation.

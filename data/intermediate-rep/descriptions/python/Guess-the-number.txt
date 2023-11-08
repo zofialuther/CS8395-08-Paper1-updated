@@ -1,0 +1,1 @@
+This code generates a random number between 1 and 10 and prompts the user to guess the number. If the user's guess is incorrect, they are prompted to guess again until they guess the correct number. Once the correct number is guessed, the program prints "That's right!" and terminates.

@@ -1,0 +1,18 @@
+bogo_sort(L, Rl) {
+    Min = min_list(L)
+    do {
+        Rl = random_permutation(L)
+    } while (!is_sorted(Rl, Min))
+}
+
+is_sorted([], _) {
+    return true
+}
+
+is_sorted([N|T], P) {
+    if (N >= P) {
+        return is_sorted(T, N)
+    } else {
+        return false
+    }
+}

@@ -1,0 +1,25 @@
+Pseudocode:
+
+FUNCTION f生肖五行年份(y):
+    i年份 = y - 4
+    i天干 = i年份 % 10
+    i地支 = i年份 % 12
+    (h天干, p天干) = ats[i天干]
+    (h地支, p地支) = ads[i地支]
+    (h五行, p五行, e五行) = aws[i天干 // 2]
+    (h生肖, p生肖, e生肖) = axs[i地支]
+    (h阴阳, p阴阳) = ays[i年份 % 2]
+    RETURN [[y, h天干 + h地支, h五行, h生肖, h阴阳], [NULL, p天干 + p地支, p五行, p生肖, p阴阳], [NULL, i年份 % 60 + 1 + "/60", e五行, e生肖, NULL]]
+
+FUNCTION main():
+    FOR EACH year IN [1935, 1938, 1968, 1972, 1976, 1984, 2017]:
+        PRINT f生肖五行年份(year)
+
+FUNCTION showYear(y):
+    ns_xs = MAP (FIELDWIDTHS, f生肖五行年份(y))
+    RETURN UNLINES(MAP (UNCURRY(JUSTIFYLEFT), ZIP(ns_xs)))
+
+FIELDWIDTHS = [[6, 10, 7, 8, 3], [6, 11, 8, 8, 4], [6, 11, 8, 8, 4]]
+
+FUNCTION JUSTIFYLEFT(n, c, s):
+    RETURN TAKE(n, s + REPLICATE(n, c))

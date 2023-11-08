@@ -1,0 +1,19 @@
+```
+function ^^ (Base, Exp, Power) {
+    if (Exp < 0) {
+        Power = 1 / (Base ^^ (Exp * -1));
+    } else if (Exp > 0) {
+        Powers = new Array(Exp);
+        Power = 1;
+        for (i = 0; i < Exp; i++) {
+            Power = exp_folder(Base, Power, Powers[i], Power);
+        }
+    } else {
+        Power = 1;
+    }
+}
+
+function exp_folder(Base, Power, Powers, Result) {
+    Result = Base * Powers;
+}
+```

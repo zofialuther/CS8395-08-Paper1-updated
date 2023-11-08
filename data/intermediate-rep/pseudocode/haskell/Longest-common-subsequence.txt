@@ -1,0 +1,12 @@
+1. Import the required modules: 
+   - Data.Ord
+   - Data.List
+
+2. Define the function lcs that takes two input lists xs and ys:
+   - Find the intersection of all subsequences of xs and ys
+   - Use maximumBy to find the longest common subsequence based on length
+   - Return the longest common subsequence
+
+3. Define the main function:
+   - Call the lcs function with input strings "thisisatest" and "testing123testing"
+   - Print the result of the lcs function.

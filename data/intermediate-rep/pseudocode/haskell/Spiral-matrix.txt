@@ -1,0 +1,23 @@
+```
+FUNCTION spiral(h, w, s)
+    IF h = 0 THEN
+        RETURN [[]]
+    ELSE
+        RETURN [s .. s+w-1] : rot90(spiral(w, h-1, s+w))
+    END IF
+END FUNCTION
+
+FUNCTION rot90(matrix)
+    RETURN transpose(reverse(matrix))
+END FUNCTION
+
+FUNCTION main()
+    rows = spiral(10, 9, 1)
+    FOR EACH row IN rows DO
+        FOR EACH num IN row DO
+            PRINT printf("%4d", toInteger(num))
+        END FOR
+        PRINT ""
+    END FOR
+END FUNCTION
+```

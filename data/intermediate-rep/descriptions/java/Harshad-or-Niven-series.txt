@@ -1,0 +1,1 @@
+This Java code defines a class called Harshad, which includes a method to calculate the sum of the digits of a given number. The main method uses this method to find and print the first 20 Harshad numbers, which are numbers that are divisible by the sum of their digits. It then finds and prints the next Harshad number after 1001.

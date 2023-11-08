@@ -1,0 +1,1 @@
+This code defines a class called SumMultiples with a method that calculates the sum of all multiples of 3 or 5 within a given range. The main method calls this function with the value 1000 and prints the result to the console.

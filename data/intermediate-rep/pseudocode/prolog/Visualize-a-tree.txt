@@ -1,0 +1,24 @@
+```
+function display_tree(Direction) {
+    let A = 'Display tree ' + Direction;
+    let D = new window(A);
+    D.setSize(350, 200);
+    let T = new tree('Root');
+    T.setNeighbourGap(10);
+    let S1 = new node('Child1');
+    let S2 = new node('Child2');
+    T.addSon(S1);
+    T.addSon(S2);
+    let S11 = new node('Grandchild1');
+    let S12 = new node('Grandchild2');
+    S1.addSon(S11);
+    S1.addSon(S12);
+    let S21 = new node('Grandchild3');
+    let S22 = new node('Grandchild4');
+    S2.addSon(S21);
+    S2.addSon(S22);
+    T.setDirection(Direction);
+    D.display(T);
+    D.open();
+}
+```

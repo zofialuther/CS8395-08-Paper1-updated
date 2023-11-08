@@ -1,0 +1,9 @@
+1. Import the System.Random module
+2. Define the main function
+3. Call randomRIO (1,10) and pass the result to gameloop
+4. Define the gameloop function that takes an Int as a parameter and returns an IO action
+5. Inside gameloop, use a do block
+6. Read a line from the input and convert it to an Int
+7. Check if the input is equal to the random number
+8. If it is, print "You got it!"
+9. If it's not, print "Nope. Guess again." and call gameloop recursively with the same random number as the parameter.

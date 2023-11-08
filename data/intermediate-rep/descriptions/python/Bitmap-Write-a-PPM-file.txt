@@ -1,0 +1,1 @@
+This Python code defines a class Bitmap and methods to write PPM files in either P3 or P6 format. It also includes a simple drawing example and demonstrates writing the generated PPM file to a StringIO object and then to a binary file. The output of the generated PPM file is printed.

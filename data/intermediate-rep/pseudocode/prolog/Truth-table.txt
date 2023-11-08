@@ -1,0 +1,71 @@
+```
+function truth_table:
+    In = get current input
+    Line = read line to codes from In
+    A = atom codes from Line
+    Chars = atom chars from A
+
+    Tok = phrase(tok, Chars)
+    Expr, Vars = phrase(expr, Tok)
+    VarSet = list to set of Vars
+
+    print_expr(Expr, VarSet)
+
+function print_expr(Expr, Vars):
+    maplist(format(~p ), Vars)
+    format(~n)
+
+    eval_expr(Expr, Vars, Tvals, R)
+    maplist(format(~p ), Tvals)
+    format(~p~n, R)
+    fail
+    end function
+
+function tok([A|As]):
+    spaces(_)
+    chars([X|Xs])
+    A = atom codes from [X|Xs]
+    spaces(_)
+    tok(As)
+    end function
+
+function tok([A|As]):
+    spaces(_)
+    bracket(A)
+    spaces(_)
+    tok(As)
+    end function
+
+function tok([]):
+    end function
+
+function chars([X|Xs]):
+    char(X)
+    dif(X, ')')
+    dif(X, '(')
+    chars(Xs)
+    end function
+
+function chars([]):
+    end function
+
+function spaces([X|Xs]):
+    space(X)
+    spaces(Xs)
+    end function
+
+function spaces([]):
+    end function
+
+function bracket('('):
+    ['(']
+    end function
+
+function bracket(')'):
+    [')']
+    end function
+
+...
+
+(continue with the rest of the code)
+```

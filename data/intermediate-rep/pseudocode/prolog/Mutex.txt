@@ -1,0 +1,6 @@
+```
+function synchronized_goal(G):
+    acquire my_mutex
+    call G
+    release my_mutex
+```

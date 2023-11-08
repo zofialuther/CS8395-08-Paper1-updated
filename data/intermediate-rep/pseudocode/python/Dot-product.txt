@@ -1,0 +1,57 @@
+```
+FUNCTION dotProduct
+    PARAMETER xs
+
+    FUNCTION ys
+        IF length of xs is not equal to length of ys
+            RETURN Left('vector sizes differ')
+        ELSE
+            RETURN Right(sum of the result of map(mul, xs, ys))
+        END IF
+    END FUNCTION
+
+    RETURN ys
+END FUNCTION
+
+FUNCTION main
+    PRINT fTable(main.__doc__ + ':\n')(str)(str)(compose(either(append('Undefined :: '))(str))(dotProduct([1, 3, -5])))([[4, -2, -1, 8], [4, -2], [4, 2, -1], [4, -2, -1]])
+END FUNCTION
+
+FUNCTION Left
+    PARAMETER x
+    RETURN {'type': 'Either', 'Right': None, 'Left': x}
+END FUNCTION
+
+FUNCTION Right
+    PARAMETER x
+    RETURN {'type': 'Either', 'Left': None, 'Right': x}
+END FUNCTION
+
+FUNCTION append
+    PARAMETER xs
+    RETURN lambda ys: xs + ys
+END FUNCTION
+
+FUNCTION compose
+    PARAMETER g
+    RETURN lambda f: lambda x: g(f(x))
+END FUNCTION
+
+FUNCTION either
+    PARAMETER fl, fr, e
+    IF None is e['Right']
+        RETURN fl(e['Left'])
+    ELSE
+        RETURN fr(e['Right'])
+    END IF
+END FUNCTION
+
+FUNCTION fTable
+    PARAMETER s
+    RETURN lambda xShow: lambda fxShow: lambda f: lambda xs: go(xShow, fxShow, f, xs)
+END FUNCTION
+
+IF __name__ == '__main__'
+    CALL main()
+END IF
+```

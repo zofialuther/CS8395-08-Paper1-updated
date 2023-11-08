@@ -1,0 +1,4 @@
+1. Import the math module
+2. Calculate the value of e raised to the power of (pi * 1j)
+3. Add 1 to the calculated value
+4. Print the result, which is 1.2246467991473532e-16j

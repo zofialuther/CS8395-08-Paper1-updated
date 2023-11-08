@@ -1,0 +1,5 @@
+1. Create a new class called Class1
+2. Inside Class1, create a new instance of Class2 called c2
+3. Create a static method called main with a parameter of type String array called args
+4. Inside the main method, call the func1 method of c2
+5. Inside the main method, call the func2 method of c2

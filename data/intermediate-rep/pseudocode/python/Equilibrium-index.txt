@@ -1,0 +1,4 @@
+1. Set eqindexMultiPass function with parameter s
+2. Return a list comprehension that iterates through the range of the length of s
+3. Within the list comprehension, for each index i, check if the sum of s from the start to i is equal to the sum of s from i+1 to the end
+4. Print the result of eqindexMultiPass function with the input [-7, 1, 5, 2, -4, 3, 0]

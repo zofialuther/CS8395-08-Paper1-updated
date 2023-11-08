@@ -1,0 +1,1 @@
+This Java program calculates the sum of the function f(x) = 1/(x*x) for values of x ranging from 1 to 1000. The main method initializes the start and end values, then uses a for loop to iterate through each value of x and add the result of f(x) to the sum. Finally, the program prints the sum of f(x) for the given range.

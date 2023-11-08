@@ -1,0 +1,1 @@
+This code defines a function called countJewels that takes two input parameters: stones and jewels. It creates a set of the jewels and then uses a generator expression to iterate through the stones and count how many of them are in the set of jewels. Finally, it prints the count of jewels present in the given stones for two test cases.

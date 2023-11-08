@@ -1,0 +1,34 @@
+
+Function runUTM:
+  Input: program, halt state, initial state, tape
+  Output: final state of the tape
+
+  current_state = initial state
+  while current_state != halt state:
+    symbol = read current tape cell
+    action = execute program with current_state and symbol as parameters
+    write action to current tape cell
+    move tape head according to action
+    current_state = next state from action
+
+  return final tape state
+
+Function beaver:
+  Input: symbol, state
+  Output: action
+
+  if symbol == "a" and state == 0:
+    return Action 1 MRight "b"
+  else if symbol == "a" and state == 1:
+    return Action 1 MLeft  "c"
+  else if symbol == "b" and state == 0:
+    return Action 1 MLeft  "a"
+  else if symbol == "b" and state == 1:
+    return Action 1 MRight "b"
+  else if symbol == "c" and state == 0:
+    return Action 1 MLeft  "b"
+  else if symbol == "c" and state == 1:
+    return Action 1 Stay   "halt"
+
+tape2 = tape 0 [] []
+machine2 = runUTM beaver "halt" "a" tape2

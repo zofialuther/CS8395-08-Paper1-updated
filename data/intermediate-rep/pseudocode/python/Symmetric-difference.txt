@@ -1,0 +1,14 @@
+setA = {"John", "Bob", "Mary", "Serena"}
+setB = {"Jim", "Mary", "John", "Bob"}
+
+symmetric_difference = setA.symmetric_difference(setB)
+elements_in_A_not_in_B = setA.difference(setB)
+elements_in_B_not_in_A = setB.difference(setA)
+union = setA.union(setB)
+intersection = setA.intersection(setB)
+
+print(symmetric_difference) # {'Jim', 'Serena'}
+print(elements_in_A_not_in_B) # {'Serena'}
+print(elements_in_B_not_in_A) # {'Jim'}
+print(union) # {'John', 'Bob', 'Jim', 'Serena', 'Mary'}
+print(intersection) # {'Bob', 'John', 'Mary'}

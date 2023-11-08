@@ -1,0 +1,23 @@
+START
+    Import java.util.Locale
+    Function main
+        FOR n = 2 to 5
+            CALL unity(n)
+        END FOR
+    END Function
+
+    Function unity(n)
+        PRINT new line, n, ":"
+        FOR angle = 0 to 2 * PI with step (2 * PI) / n
+            real = cos(angle)
+            IF abs(real) < 1.0E-3
+                real = 0.0
+            END IF
+            imag = sin(angle)
+            IF abs(imag) < 1.0E-3
+                imag = 0.0
+            END IF
+            PRINT formatted coordinates (real, imag)
+        END FOR
+    END Function
+END

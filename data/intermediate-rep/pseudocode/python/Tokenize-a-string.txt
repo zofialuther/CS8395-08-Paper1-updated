@@ -1,0 +1,4 @@
+1. Define a string variable `input_string` and set it to 'Hello,How,Are,You,Today'
+2. Split the `input_string` by comma and store the result in a list variable `split_list`
+3. Join the elements in `split_list` using a period and store the result in a string variable `joined_string`
+4. Print `joined_string`

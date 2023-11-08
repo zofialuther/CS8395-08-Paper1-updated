@@ -1,0 +1,1 @@
+This code retrieves a list of words from a URL, then groups the words by their anagrams using a defaultdict. It then finds the group of anagrams with the maximum number of words and prints them out. Finally, it calculates and prints the count of the maximum number of anagrams in a group.

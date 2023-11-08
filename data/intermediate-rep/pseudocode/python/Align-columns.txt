@@ -1,0 +1,67 @@
+'''
+IMPORT StringIO
+
+textinfile = '''Given$a$text$file$of$many$lines,$where$fields$within$a$line$
+are$delineated$by$a$single$'dollar'$character,$write$a$program
+that$aligns$each$column$of$fields$by$ensuring$that$words$in$each$
+column$are$separated$by$at$least$one$space.
+Further,$allow$for$each$word$in$a$column$to$be$either$left$
+justified,$right$justified,$or$center$justified$within$its$column.'''
+
+j2justifier = dict(L=str.ljust, R=str.rjust, C=str.center)
+
+FUNCTION aligner(infile, justification = 'L'):
+  ASSERT justification in j2justifier, "justification can be L, R, or C; (Left, Right, or Centered)."
+  justifier = j2justifier[justification]
+
+  fieldsbyrow = []
+  FOR line IN infile:
+    row = line.strip().split('$')
+    fieldsbyrow.APPEND(row)
+
+  maxfields = 0
+  FOR fields IN fieldsbyrow:
+    IF len(fields) > maxfields:
+      maxfields = len(fields)
+
+  FOR fields IN fieldsbyrow:
+    FOR i IN RANGE(maxfields - len(fields)):
+      fields.APPEND('')
+
+  fieldsbycolumn = []
+  FOR i IN RANGE(maxfields):
+    column = []
+    FOR row IN fieldsbyrow:
+      column.APPEND(row[i])
+    fieldsbycolumn.APPEND(column)
+
+  colwidths = []
+  FOR column IN fieldsbycolumn:
+    maxwidth = 0
+    FOR field IN column:
+      IF len(field) > maxwidth:
+        maxwidth = len(field)
+    colwidths.APPEND(maxwidth)
+
+  justifiedfields = []
+  FOR i IN RANGE(len(fieldsbycolumn)):
+    column = fieldsbycolumn[i]
+    justifiedcolumn = []
+    FOR j IN RANGE(len(column)):
+      justifiedcolumn.APPEND(justifier(column[j], colwidths[i]))
+    justifiedfields.APPEND(justifiedcolumn)
+
+  justifiedrows = []
+  FOR i IN RANGE(len(justifiedfields[0])):
+    row = ''
+    FOR j IN RANGE(len(justifiedfields)):
+      row += justifiedfields[j][i] + ' '
+    justifiedrows.APPEND(row)
+
+  RETURN "\n".join(justifiedrows)
+
+FOR align IN 'Left Right Center'.split():
+  infile = StringIO(textinfile)
+  PRINT "\n# %s Column-aligned output:" % align
+  PRINT aligner(infile, align[0])
+'''

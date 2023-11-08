@@ -1,0 +1,11 @@
+```
+1. Define data types Suit, Rank, and Card
+2. Define type synonym Hand as a list of Card
+3. Define a function consumed to return a tuple with the input and an empty string
+4. Define instances of the Read type class for Suit, Rank, and Card
+5. Define a constant acesHigh as a list of Ranks
+6. Define a function isSucc to check if a list of elements is in sequential order
+7. Define a function nameHand to determine the name of a hand based on the cards in the hand
+8. Define a list of testHands containing pairs of strings and Hands
+9. Define the main function to output the name of each hand in the testHands list
+```

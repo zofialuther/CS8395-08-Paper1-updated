@@ -1,0 +1,1 @@
+This Prolog code defines a predicate div/4 which takes four arguments A, B, C, and Ex. It calculates the result of dividing A by B and assigns it to C. If an exception Ex is thrown during the division operation, it catches the exception and assigns the value "infinity" to C.

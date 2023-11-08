@@ -1,0 +1,19 @@
+leap_year(L) 
+    LIn = []
+    LOut = []
+    for i = 0 to L.length
+        if is_leap_year(L[i]) 
+            LIn.add(L[i])
+        else 
+            LOut.add(L[i])
+    print 'leap years : ', LIn
+    print 'not leap years : ', LOut
+
+is_leap_year(Year) 
+    R4 = Year % 4
+    R100 = Year % 100
+    R400 = Year % 400
+    if (R4 = 0 and R100 != 0) or R400 = 0
+        return true
+    else 
+        return false

@@ -1,0 +1,1 @@
+This code takes an array of integers as input and removes any duplicate values. It does this by iterating through the input array and adding each unique value to a list. Then, it creates a new array and populates it with the unique values from the list. Finally, it returns the new array with the duplicates removed.

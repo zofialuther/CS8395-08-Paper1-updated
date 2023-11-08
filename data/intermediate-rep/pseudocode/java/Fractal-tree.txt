@@ -1,0 +1,17 @@
+1. Import necessary packages: java.awt.Color, java.awt.Graphics, javax.swing.JFrame
+2. Create a class FractalTree that extends JFrame
+3. Define a constructor for FractalTree:
+   - Set the title to "Fractal Tree"
+   - Set the window size and position with setBounds(100, 100, 800, 600)
+   - Disable window resizing with setResizable(false)
+   - Set default close operation to EXIT_ON_CLOSE
+4. Define a private method drawTree that takes Graphics g, int x1, int y1, double angle, int depth as parameters:
+   - If depth is 0, return
+   - Calculate the coordinates x2 and y2 based on x1, y1, angle, and depth
+   - Draw a line from (x1, y1) to (x2, y2)
+   - Recursively call drawTree with updated parameters for the left and right branches
+5. Override the paint method:
+   - Set the color to black with g.setColor(Color.BLACK)
+   - Call drawTree with initial parameters for the trunk of the tree
+6. Define the main method:
+   - Create a new instance of FractalTree and make it visible with setVisible(true)

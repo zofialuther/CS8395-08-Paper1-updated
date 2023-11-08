@@ -1,0 +1,6 @@
+1. Import the itertools library
+2. Define a function dutch_flag_sort2 that takes in two parameters: items and order with a default value of colours_in_order
+3. Inside the function, return a list of the chained items using the from_iterable method of itertools.chain
+4. Use the filter function to filter the items based on the lambda function that checks if the color is equal to the current order
+5. Return the list of the filtered items
+6. End of the function definition

@@ -1,0 +1,9 @@
+1. Import the Data.Monoid module
+2. Define the main function with type IO ()
+3. Inside the main function:
+   a. Define xs as a list containing the numbers 1 to 10
+   b. Use putStrLn and unlines to print the results of the following operations:
+      i. Convert the list xs to Sum type, fold it using the <> operator with mempty, then get the Sum and convert it to a string using show
+      ii. Convert the list xs to Product type, fold it using the <> operator with mempty, then get the Product and convert it to a string using show
+      iii. Convert the list xs to strings, fold it using the <> operator with mempty, and convert it to a string using show
+      iv. Fold the words "Love is one damned thing after each other" using the <> operator with mempty, and convert it to a string using show.

@@ -1,0 +1,1 @@
+This code imports the Data.List and Data.Ord modules and defines a list of strings called wds. The main function then prints the longest string in the list using the maximumBy function from Data.List and the comparing function from Data.Ord to compare the length of the strings.

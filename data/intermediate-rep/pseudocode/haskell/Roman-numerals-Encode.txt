@@ -1,0 +1,22 @@
+FUNCTION digit(x, y, z, k)
+    SET array = [[x], [x, x], [x, x, x], [x, y], [y], [y, x], [y, x, x], [y, x, x, x], [x, z]]
+    RETURN array[k - 1]
+
+FUNCTION toRoman(x)
+    IF x = 0 THEN
+        RETURN ""
+    ELSE IF x < 0 THEN
+        PRINT "Negative roman numeral"
+    ELSE IF x >= 1000 THEN
+        RETURN 'M' + toRoman(x - 1000)
+    ELSE IF x >= 100 THEN
+        SET q, r = x divmod 100
+        RETURN digit('C', 'D', 'M', q) + toRoman(r)
+    ELSE IF x >= 10 THEN
+        SET q, r = x divmod 10
+        RETURN digit('X', 'L', 'C', q) + toRoman(r)
+    ELSE
+        RETURN digit('I', 'V', 'X', x)
+
+FUNCTION main()
+    PRINT toRoman([1999, 25, 944])

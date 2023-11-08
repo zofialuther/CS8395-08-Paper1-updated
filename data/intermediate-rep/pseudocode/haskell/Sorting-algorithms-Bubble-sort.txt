@@ -1,0 +1,15 @@
+function bsort (s)
+    t = _bsort(s)
+    if t == s
+        return t
+    else
+        return bsort(t)
+        
+function _bsort (s)
+    if s.length <= 1
+        return s
+    else
+        for i from 0 to s.length - 2
+            if s[i] > s[i+1]
+                swap(s[i], s[i+1])
+        return _bsort(s)

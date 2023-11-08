@@ -1,0 +1,36 @@
+```
+function digit_sum(N, Base, Sum):
+    digit_sum(N, Base, Sum, 0)
+
+function digit_sum(N, Base, Sum, S1):
+    if N < Base:
+        return Sum = S1 + N
+    else:
+        divmod(N, Base, M, Digit)
+        S2 = S1 + Digit
+        return digit_sum(M, Base, Sum, S2)
+
+function digital_root(N, Base, AP, DR):
+    digital_root(N, Base, AP, DR, 0)
+
+function digital_root(N, Base, AP, N, AP):
+    if N < Base:
+        return
+    else:
+        digit_sum(N, Base, Sum)
+        AP2 = AP + 1
+        return digital_root(Sum, Base, AP, DR, AP2)
+
+function test_digital_root(N, Base):
+    AP = 0
+    DR = 0
+    digital_root(N, Base, AP, DR)
+    print(N + " has additive persistence " + AP + " and digital root " + DR)
+
+function main:
+    test_digital_root(627615, 10)
+    test_digital_root(39390, 10)
+    test_digital_root(588225, 10)
+    test_digital_root(393900588225, 10)
+    test_digital_root(685943443231217865409, 10)
+```

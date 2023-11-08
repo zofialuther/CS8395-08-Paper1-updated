@@ -1,0 +1,66 @@
+ENUM IntToWords
+    DECLARE small AS String array
+    DECLARE tens AS String array
+    DECLARE big AS String array
+
+    FUNCTION main
+        DISPLAY int2Text(0)
+        DISPLAY int2Text(10)
+        DISPLAY int2Text(30)
+        DISPLAY int2Text(47)
+        DISPLAY int2Text(100)
+        DISPLAY int2Text(999)
+        DISPLAY int2Text(1000)
+        DISPLAY int2Text(9999)
+        DISPLAY int2Text(123_456)
+        DISPLAY int2Text(900_000_001)
+        DISPLAY int2Text(1_234_567_890)
+        DISPLAY int2Text(-987_654_321)
+        DISPLAY int2Text(Long.MAX_VALUE)
+        DISPLAY int2Text(Long.MIN_VALUE)
+
+    FUNCTION int2Text(number)
+        sb <- StringBuilder
+
+        IF number = 0 THEN
+            RETURN "zero"
+        
+        num <- -ABS(number)
+        unit <- 1
+
+        WHILE true DO
+            rem100 <- -num % 100
+            IF rem100 >= 20 THEN
+                IF rem100 % 10 = 0 THEN
+                    sb.insert(0, tens[rem100 / 10] + " ")
+                ELSE
+                    sb.insert(0, tens[rem100 / 10] + "-" + small[rem100 % 10] + " ")
+                END IF
+            ELSE IF rem100 != 0 THEN
+                sb.insert(0, small[rem100] + " ")
+            END IF
+
+            hundreds <- -num % 1000 / 100
+            IF hundreds != 0 THEN
+                sb.insert(0, small[hundreds] + " hundred ")
+            END IF
+
+            num <- num / 1000
+            IF num = 0 THEN
+                BREAK
+            END IF
+
+            rem1000 <- -num % 1000
+            IF rem1000 != 0 THEN
+                sb.insert(0, big[unit] + " ")
+            END IF
+            unit <- unit + 1
+        END WHILE
+
+        IF number < 0 THEN
+            sb.insert(0, "negative ")
+        END IF
+
+        RETURN sb.toString().trim()
+    END FUNCTION
+END ENUM

@@ -1,0 +1,19 @@
+```
+import Data.Bifunctor (first)
+import Data.List (unfoldr)
+import Data.Tuple (swap)
+
+function binaryDigits(n: integer) -> string
+    result = empty string
+    while n is not 0
+        digit = n mod 2
+        result = result + digit
+        n = n / 2
+    return result
+
+function main()
+    numbers = [5, 50, 9000]
+    for each number in numbers
+        digits = binaryDigits(number)
+        print number, "->", digits
+```

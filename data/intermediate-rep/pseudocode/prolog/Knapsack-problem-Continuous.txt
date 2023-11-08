@@ -1,0 +1,37 @@
+```
+Begin knapsack function
+    Define L as list of tuples (name, weights, value)
+    Generate initial state S0
+    Define N as the length of L
+    Create list LN containing numbers from 1 to N
+    Create_constraint_N(LN, L, S0, S1, [], LW, [], LV)
+    Constraint LW =< 15.0 in state S1 and store in S2
+    Maximize LV in state S2 and store in S3
+    Compute total length of words in list L and store in Len
+    Format A1 as '~~w~~t~~~w|' using Len
+    Format A2 as '~~t~~2f~~~w|' using 10
+    Format A3 as '~~t~~2f~~~w|' using 10
+    Print results using S3, A1, A2, A3, L, LN, 0, 0
+End knapsack function
+
+Define create_constraint_N function with parameters HN, TN, L, S1, SF, LW, LWF, LV, LVF
+    If both input lists are empty, return LW and LV as LWF and LVF
+    Else,
+        Create constraint [x(HN)] >= 0 in state S1 and store in S2
+        Create constraint [x(HN)] =< W in state S2 and store in S3
+        Calculate X as V/W
+        Recur with remaining elements
+
+Define compute_lenword function with parameters Name, W, V
+    If Name is empty, return N
+    If length of Name is greater than N, update N to be the length of Name
+    Recur with remaining elements
+
+Define print_results function with parameters S, A1, A2, A3, Name, W, V
+    If S is empty, format and print A1, A2, A3 with empty strings and 0s
+    Else,
+        Get value of x(N) from S and store in X
+        If X is 0, update W1 and V1
+        Else, calculate Vtemp as X * V/W and update W2 and V2
+        Recur with remaining elements
+```

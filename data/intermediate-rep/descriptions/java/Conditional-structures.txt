@@ -1,0 +1,1 @@
+This code checks if the object "obj" is not null and if the method "foo" on the object returns a truthy value. If both conditions are true, the method "aMethod" is called.

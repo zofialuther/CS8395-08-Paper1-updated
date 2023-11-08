@@ -1,0 +1,1 @@
+This code creates a window displaying an XOR pattern. It generates an image with a size of 512x512 pixels and fills it with a pattern where the color of each pixel is determined by performing a bitwise XOR operation on its coordinates. The resulting color values are used to create a visually striking pattern. The code then displays the image in a window for viewing.

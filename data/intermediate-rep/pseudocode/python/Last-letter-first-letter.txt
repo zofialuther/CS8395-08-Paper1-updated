@@ -1,0 +1,46 @@
+1. Start
+2. Import psyco
+3. Set nsolutions to 0
+4. Define search(sequences, ord_minc, curr_word, current_path, current_path_len, longest_path)
+    - Set global nsolutions
+    - Set current_path[current_path_len] to curr_word
+    - Increment current_path_len by 1
+    - If current_path_len is equal to the length of longest_path
+        - Increment nsolutions by 1
+    - Else if current_path_len is greater than the length of longest_path
+        - Set nsolutions to 1
+        - Set longest_path to the slice of current_path up to current_path_len
+    - Set last_char_index to ord(curr_word[-1]) - ord_minc
+    - If last_char_index is greater than or equal to 0 and less than the length of sequences
+        - For each pair in sequences[last_char_index]
+            - If pair[1] is False
+                - Set pair[1] to True
+                - Call search(sequences, ord_minc, pair[0], current_path, current_path_len, longest_path)
+                - Set pair[1] to False
+5. Define find_longest_chain(words)
+    - Set ord_minc to the ordinal value of the minimum character from the first character of each word in words
+    - Set ord_maxc to the ordinal value of the maximum character from the first character of each word in words
+    - Create an empty list sequences with a length of ord_maxc - ord_minc + 1
+    - For each word in words
+        - Append [word, False] to the list at index ord(word[0]) - ord_minc in sequences
+    - Create a list current_path filled with None with a length equal to the length of words
+    - Create an empty list longest_path
+    - For each seq in sequences
+        - For each pair in seq
+            - Set pair[1] to True
+            - Call search(sequences, ord_minc, pair[0], current_path, 0, longest_path)
+            - Set pair[1] to False
+    - Return longest_path
+6. Define main()
+    - Set global nsolutions
+    - Set pokemon to a list of lowercase strings from the given string
+    - Sort and remove duplicates from the pokemon list
+    - Set sol to the result of find_longest_chain(pokemon)
+    - Print "Maximum path length:" followed by the length of sol
+    - Print "Paths of that length:" followed by the value of nsolutions
+    - Print "Example path of that length:"
+    - For i in the range from 0 to the length of sol in steps of 7
+        - Print a string containing the elements of sol from index i to i+7
+7. Call psyco.full()
+8. Call main()
+9. End

@@ -1,0 +1,10 @@
+SET i = 1
+WHILE TRUE
+    OUTPUT i
+    IF i = 10 THEN
+        EXIT LOOP
+    END IF
+    OUTPUT ", "
+    INCREMENT i
+END WHILE
+OUTPUT new line

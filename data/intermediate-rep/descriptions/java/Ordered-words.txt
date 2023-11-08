@@ -1,0 +1,1 @@
+This Java program reads a file called "unixdict.txt" and filters out words that are ordered alphabetically. It then finds the longest ordered word and prints it to the console. The isOrdered method checks if a given word is ordered alphabetically by converting it to a stream of characters, sorting them, and then comparing the result to the original word.

@@ -1,0 +1,18 @@
+```
+foo(X):
+    if not integer(X) then
+        throw(b('not even an int'))
+    else if not between(1, 10, X) then
+        throw(a('must be between 1 & 10'))
+    else
+        print X is a valid number
+
+go(X):
+    try:
+        call foo(X)
+    catch E:
+        if E is of type a(Msg) then
+            print Msg
+        else
+            throw(E)
+```

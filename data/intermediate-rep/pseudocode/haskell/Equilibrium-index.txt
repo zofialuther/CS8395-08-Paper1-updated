@@ -1,0 +1,19 @@
+equilibriumIndices(xs)
+  leftSums = scanl1(+, xs) 
+  rightSums = scanr1(+, xs)
+  indices = [0 .. length(xs)-1]
+  result = []
+  for i from 0 to length(xs)-1
+    if leftSums[i] == rightSums[i]
+      result.append(i)
+  return result
+
+main()
+  arrays = [ [-7, 1, 5, 2, -4, 3, 0],
+            [2, 4, 6],
+            [2, 9, 2],
+            [1, -1, 1, -1, 1, -1, 1],
+            [1],
+            [] ]
+  for array in arrays
+    print(equilibriumIndices(array))

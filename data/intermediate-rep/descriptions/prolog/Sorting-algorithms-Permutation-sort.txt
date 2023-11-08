@@ -1,0 +1,1 @@
+This code defines a predicate permutation_sort that takes a list L and returns a permutation S of L that is sorted. It also defines a predicate sorted that checks if a list is sorted in ascending order, and a predicate permutation that generates all possible permutations of a list. The code uses recursion to check if the list is sorted and to generate permutations.

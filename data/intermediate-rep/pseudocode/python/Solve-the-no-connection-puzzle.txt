@@ -1,0 +1,22 @@
+START
+  FUNCTION pp(solution)
+    boardformat = r"""
+         A   B
+        /|\ /|\
+       / | X | \
+      /  |/ \|  \
+     C - D - E - F
+      \  |\ /|  /
+       \ | X | /
+        \|/ \|/
+         G   H"""
+    FOR letter, number IN zip("ABCDEFGH", solution):
+      boardformat = boardformat.replace(letter, str(number))
+    PRINT boardformat
+  END FUNCTION
+
+  IF __name__ == '__main__':
+    FOR i, s IN ENUMERATE(solutions, 1):
+      PRINT "\nSolution", i, end=''
+      pp(s)
+END

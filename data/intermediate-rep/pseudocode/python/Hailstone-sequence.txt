@@ -1,0 +1,15 @@
+1. Import the itertools module to use islice.
+2. Create a function called hailstone that takes a parameter n.
+3. Inside the hailstone function, use the yield keyword to generate the value of n.
+4. Use a while loop to continue generating the hailstone sequence until n is greater than 1.
+5. Inside the while loop, update the value of n using the hailstone sequence formula.
+6. Use the yield keyword to generate the updated value of n.
+7. If the condition is met, continue generating the hailstone sequence.
+8. At the end of the function, create an if statement to check if the current script is being executed as the main program.
+9. Inside the if statement, create a variable h and assign it the value of calling the hailstone function with the argument 27.
+10. Use the assert keyword to check if the first 4 values of the hailstone sequence match the expected values.
+11. Create a for loop to iterate a certain number of times.
+12. Use the next function to continue generating the hailstone sequence.
+13. Use the assert keyword to check if the next 4 values of the hailstone sequence match the expected values.
+14. Find the maximum length of the hailstone sequence for numbers less than 100,000.
+15. Print the maximum length and the corresponding number that achieves that maximum length.

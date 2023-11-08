@@ -1,0 +1,11 @@
+1. Import Data.List
+
+2. Define main function
+    a. Print the result of calling entropy function with the input "1223334444"
+
+3. Define entropy function that takes a list of items of type a and returns a result of type c, where a is orderable and c is a floating point number
+    a. Calculate the sum of the result of mapping lg function over the result of fq function applied to the result of mapping genericLength function over the result of grouping and sorting the input list
+    b. Define lg function that takes a parameter c and returns -c multiplied by the logarithm base 2 of c
+    c. Define fq function that takes a parameter c and returns the result of mapping each element of c divided by the sum of c
+
+Note: Pseudocode is an informal high-level description of an algorithm that uses the structural conventions of a programming language, but is intended for human reading rather than machine reading.

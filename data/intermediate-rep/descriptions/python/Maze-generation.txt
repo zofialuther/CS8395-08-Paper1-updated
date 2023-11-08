@@ -1,0 +1,1 @@
+This code generates a maze of a specified size using a recursive algorithm. It uses the random module to shuffle the maze creation process, resulting in a unique maze each time it is run. The maze is represented as a string of characters, with walls, intersections, and open paths. When the code is run, it will output the generated maze.

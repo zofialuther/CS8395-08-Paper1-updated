@@ -1,0 +1,4 @@
+If condition is true
+  return 3
+else
+  throw SomeException

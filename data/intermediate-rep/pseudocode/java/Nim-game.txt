@@ -1,0 +1,38 @@
+START
+  FUNCTION runGame(tokens)
+    PRINT "Nim game."
+    CREATE Scanner object called "in"
+    DO
+      SET humanInputOk to false
+      SET humanTokens to 0
+      WHILE humanInputOk is false
+        PRINT "Human takes how many tokens?  "
+        SET input to user input
+        TRY
+          SET humanTokens to integer value of input
+          IF humanTokens >= 1 AND humanTokens <= 3
+            SET humanInputOk to true
+          ELSE
+            PRINT "Try a number between 1 and 3."
+          END IF
+        CATCH NumberFormatException e
+          PRINT "Invalid input. Try a number between 1 and 3."
+        END TRY
+      END WHILE
+      DECREASE tokens by humanTokens
+      PRINT "You take " + humanTokens + " token(s). " + tokens + " token(s) remaining."
+      IF tokens is 0
+        PRINT "You win!!."
+        EXIT loop
+      END IF
+      SET computerTokens to 4 - humanTokens
+      DECREASE tokens by computerTokens
+      PRINT "Computer takes " + computerTokens + " token(s). " + tokens + " token(s) remaining."
+      IF tokens is 0
+        PRINT "Computer wins!!."
+      END IF
+    WHILE tokens > 0
+    CLOSE Scanner "in"
+  END FUNCTION
+  CALL runGame(12)
+END

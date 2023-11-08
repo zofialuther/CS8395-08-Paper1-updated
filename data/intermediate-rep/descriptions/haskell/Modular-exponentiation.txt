@@ -1,0 +1,1 @@
+This code defines a function called powerMod that calculates the result of raising a base number to an exponent and taking the result modulo a given number. It uses a technique called modular exponentiation to efficiently compute the result. The main function uses the powerMod function to calculate a very large exponentiation with a large modulo value.

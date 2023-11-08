@@ -1,0 +1,1 @@
+This code is a Java program that retrieves the current system time in milliseconds using the System.currentTimeMillis() method. It then uses the printf method to format and display the current time in two different ways: first, it prints the date in the format "YYYY-MM-DD", and then it prints the date in the format "Day of the week, Month Day, Year".

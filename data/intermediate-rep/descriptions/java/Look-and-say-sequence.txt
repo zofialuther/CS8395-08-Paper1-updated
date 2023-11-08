@@ -1,0 +1,1 @@
+This Java program contains a main method that starts by initializing a variable "num" with the value "1". It then enters a for loop that iterates 10 times, printing the value of "num" each time, and updating "num" by calling a method "lookandsay".

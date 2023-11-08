@@ -1,0 +1,1 @@
+This code imports the `Data.Complex` module and defines a function `eulerIdentityZeroIsh` that calculates the complex number representation of Euler's identity with a small deviation from zero. The main function then prints the result of `eulerIdentityZeroIsh` to the console.

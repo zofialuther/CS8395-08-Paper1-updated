@@ -1,0 +1,1 @@
+This Prolog code defines a predicate hanoi(N) that when called with a positive integer N, solves the Tower of Hanoi problem with N disks. The main logic is implemented in the move predicate, which recursively moves disks from one pole to another while adhering to the rules of the Tower of Hanoi. The inform predicate is used to print out the individual moves made by the algorithm.

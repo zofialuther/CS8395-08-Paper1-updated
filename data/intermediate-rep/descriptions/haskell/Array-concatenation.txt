@@ -1,0 +1,1 @@
+This code defines a function that concatenates two lists. The function works by recursively adding the elements of the first list to the second list, and if the first list is empty, it simply returns the second list.

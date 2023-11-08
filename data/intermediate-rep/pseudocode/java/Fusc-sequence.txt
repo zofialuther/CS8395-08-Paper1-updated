@@ -1,0 +1,21 @@
+BEGIN
+    OUTPUT "Show the first 61 fusc numbers (starting at zero) in a horizontal format"
+    FOR n = 0 TO 60
+        OUTPUT fusc[n]
+    
+    OUTPUT "Show the fusc number (and its index) whose length is greater than any previous fusc number length."
+    start = 0
+    FOR i = 0 TO 5
+        IF i != 0 THEN
+            val = 10^i
+        ELSE
+            val = -1
+        FOR j = start TO FUSC_MAX
+            IF fusc[j] > val THEN
+                OUTPUT "fusc[", j, "] = ", fusc[j]
+                start = j
+                BREAK
+            END IF
+        END FOR
+    END FOR
+END

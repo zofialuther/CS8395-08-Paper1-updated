@@ -1,0 +1,37 @@
+divisor(N, Divisor) 
+    UpperBound = round(sqrt(N))
+    for D = 1 to UpperBound
+        if N mod D == 0
+            Divisor = D
+        else
+            LargerDivisor = N / D
+            if LargerDivisor != D
+                Divisor = LargerDivisor
+
+proper_divisor(N, D)
+    call divisor(N, D)
+    if D != N
+        return true
+    else
+        return false
+
+assoc_num_divsSum_in_range(Low, High, Assoc)
+    Pairs = []
+    for Num = Low to High
+        DivSum = 0
+        for D in proper_divisor(Num)
+            DivSum = DivSum + D
+        add (Num-DivSum) to Pairs
+    Assoc = convert Pairs to associative array
+
+get_amicable_pair(Assoc, M-N)
+    N = Assoc[M]
+    if M < N
+        return (M-N)
+
+amicable_pairs_under_20000(Pairs)
+    Assoc = call assoc_num_divsSum_in_range(1, 20000)
+    Pairs = []
+    for each P in get_amicable_pair(Assoc)
+        add P to Pairs
+    return Pairs

@@ -1,0 +1,9 @@
+Pseudocode:
+
+function student(X, Y):
+    if taught(Y, X) is true:
+        return true
+    else:
+        return false
+
+taught(socrates, plato)

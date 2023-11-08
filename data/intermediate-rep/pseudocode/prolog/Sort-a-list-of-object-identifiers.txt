@@ -1,0 +1,36 @@
+```
+function main
+    Oid_list = ["1.3.6.1.4.1.11.2.17.19.3.4.0.10", 
+                "1.3.6.1.4.1.11.2.17.5.2.0.79", 
+                "1.3.6.1.4.1.11.2.17.19.3.4.0.4", 
+                "1.3.6.1.4.1.11150.3.4.0.1", 
+                "1.3.6.1.4.1.11.2.17.19.3.4.0.1", 
+                "1.3.6.1.4.1.11150.3.4.0"]
+    Sorted_list = sort_oid_list(Oid_list)
+    foreach Oid in Sorted_list
+        print Oid
+
+function sort_oid_list(Oid_list)
+    Parsed = parse_oid_list(Oid_list)
+    Sorted = sort(Parsed)
+    return Sorted
+
+function parse_oid_list(Oid_list)
+    Parsed = []
+    foreach Oid in Oid_list
+        Numbers = parse_oid(Oid)
+        Parsed.append(oid(Numbers, Oid))
+    return Parsed
+
+function parse_oid(Oid)
+    Strings = split_string(Oid, ".", ".")
+    Numbers = number_strings(Strings)
+    return Numbers
+
+function number_strings(Strings)
+    Numbers = []
+    foreach String in Strings
+        Number = convert_to_number(String)
+        Numbers.append(Number)
+    return Numbers
+```

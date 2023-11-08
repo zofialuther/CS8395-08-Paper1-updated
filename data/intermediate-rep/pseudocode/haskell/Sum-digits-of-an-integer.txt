@@ -1,0 +1,12 @@
+FUNCTION digsum
+  INPUT: base, n
+  a = 0
+  WHILE n != 0
+    q, r = n / base, n % base
+    a = a + r
+    n = q
+  RETURN a
+
+FUNCTION main
+  CALL digsum with base=16 and n=255
+  PRINT the result

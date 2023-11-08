@@ -1,0 +1,10 @@
+```
+import qualified Control.Exception as C
+
+function check(x, y):
+    try:
+        result = x / y
+        return False
+    catch anyException:
+        return True
+```

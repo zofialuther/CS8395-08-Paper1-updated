@@ -1,0 +1,26 @@
+1. odd_word_problem
+2.     L = read_line_to_codes(user_input)
+3.     Out = even_word(L, [])
+4.     Str = string_to_list(Out)
+5.     writeln(Str)
+6. 
+7. even_word(L, Acc) :-
+8.     even_word(L, Acc, []).
+9. 
+10. even_word(".", Acc, Acc).
+11. 
+12. even_word([H | T], Acc, Result) :-
+13.     char_type(H, alnum),
+14.     append(Acc, [H], NewAcc),
+15.     even_word(T, NewAcc, Result).
+16. 
+17. odd_word(".", R, R).
+18. 
+19. odd_word([H|T], R, Result) :-
+20.     char_type(H, alnum),
+21.     append([H], R, NewR),
+22.     odd_word(T, NewR, Result).
+23. 
+24. odd_word([H|T], R, Result) :-
+25.     append(R, [H], NewR),
+26.     even_word(T, [], NewR).

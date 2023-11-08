@@ -1,0 +1,1 @@
+This code iterates through a map and prints each key-value pair using the entrySet() method. It uses a for-each loop to iterate through the map and then prints each entry to the console.

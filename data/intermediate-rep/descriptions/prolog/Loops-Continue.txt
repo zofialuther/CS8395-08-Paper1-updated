@@ -1,0 +1,1 @@
+This Prolog code defines a predicate to print a list of numbers from a minimum value to a maximum value. The main predicate initializes the execution by calling the print_list predicate with a minimum value of 1 and a maximum value of 10. The print_list predicate recursively prints each number in the range, adding a newline after every multiple of 5.

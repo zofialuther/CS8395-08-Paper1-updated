@@ -1,0 +1,152 @@
+BEGIN
+  IMPORT Stack from java.util.Stack
+  
+  CLASS ArithmeticEvaluation
+    INTERFACE Expression
+      FUNCTION eval()
+    
+    ENUM Parentheses
+      LEFT
+    
+    ENUM BinaryOperator
+      ADD('+', 1)
+      SUB('-', 1)
+      MUL('*', 2)
+      DIV('/', 2)
+      
+      VARIABLE symbol
+      VARIABLE precedence
+      
+      FUNCTION eval(BigRational leftValue, BigRational rightValue)
+        SWITCH CASE this
+          CASE ADD
+            RETURN leftValue.add(rightValue)
+          CASE SUB
+            RETURN leftValue.subtract(rightValue)
+          CASE MUL
+            RETURN leftValue.multiply(rightValue)
+          CASE DIV
+            RETURN leftValue.divide(rightValue)
+        END SWITCH
+        THROW IllegalStateException
+      
+      FUNCTION forSymbol(char symbol)
+        FOR EACH operator in values()
+          IF operator.symbol == symbol
+            RETURN operator
+          END IF
+        END FOR EACH
+        THROW IllegalArgumentException
+      
+    CLASS Number IMPLEMENTS Expression
+      VARIABLE number
+      
+      FUNCTION Number(BigRational number)
+        this.number = number
+      
+      FUNCTION eval()
+        RETURN number
+      
+      FUNCTION toString()
+        RETURN number.toString()
+    
+    CLASS BinaryExpression IMPLEMENTS Expression
+      VARIABLE leftOperand
+      VARIABLE operator
+      VARIABLE rightOperand
+      
+      FUNCTION BinaryExpression(Expression leftOperand, BinaryOperator operator, Expression rightOperand)
+        this.leftOperand = leftOperand
+        this.operator = operator
+        this.rightOperand = rightOperand
+      
+      FUNCTION eval()
+        leftValue = leftOperand.eval()
+        rightValue = rightOperand.eval()
+        RETURN operator.eval(leftValue, rightValue)
+      
+      FUNCTION toString()
+        RETURN "(" + leftOperand + " " + operator.symbol + " " + rightOperand + ")"
+    
+    FUNCTION createNewOperand(BinaryOperator operator, Stack<Expression> operands)
+      rightOperand = operands.pop()
+      leftOperand = operands.pop()
+      operands.push(new BinaryExpression(leftOperand, operator, rightOperand))
+    
+    FUNCTION parse(String input)
+      curIndex = 0
+      afterOperand = false
+      operands = new Stack<Expression>()
+      operators = new Stack<Object>()
+      WHILE curIndex < length of input
+        startIndex = curIndex
+        c = input.charAt(curIndex++)
+        
+        IF Character.isWhitespace(c)
+          CONTINUE
+        END IF
+        
+        IF afterOperand
+          IF c == ')'
+            operator = operators.pop()
+            WHILE NOT operators.isEmpty() AND operator != Parentheses.LEFT
+              createNewOperand(operator, operands)
+            END WHILE
+            CONTINUE
+          END IF
+          afterOperand = false
+          operator = BinaryOperator.forSymbol(c)
+          WHILE NOT operators.isEmpty() AND operators.peek() != Parentheses.LEFT AND operators.peek().precedence >= operator.precedence
+            createNewOperand(operators.pop(), operands)
+          END WHILE
+          operators.push(operator)
+          CONTINUE
+        END IF
+        
+        IF c == '('
+          operators.push(Parentheses.LEFT)
+          CONTINUE
+        END IF
+        
+        afterOperand = true
+        WHILE curIndex < length of input
+          c = input.charAt(curIndex)
+          IF c < '0' OR c > '9' AND c != '.'
+            BREAK
+          END IF
+          curIndex++
+        END WHILE
+        operands.push(new Number(BigRational.valueOf(input.substring(startIndex, curIndex)))
+      END WHILE
+      
+      WHILE NOT operators.isEmpty()
+        operator = operators.pop()
+        IF operator == Parentheses.LEFT
+          THROW IllegalArgumentException
+        END IF
+        createNewOperand(operator, operands)
+      END WHILE
+      
+      expression = operands.pop()
+      IF NOT operands.isEmpty()
+        THROW IllegalArgumentException
+      END IF
+      RETURN expression
+    END FUNCTION
+    
+    FUNCTION main(String[] args)
+      testExpressions = [
+        "2+3",
+        "2+3/4",
+        "2*3-4",
+        "2*(3+4)+5/6",
+        "2 * (3 + (4 * 5 + (6 * 7) * 8) - 9) * 10",
+        "2*-3--4+-.25"
+      ]
+      FOR EACH testExpression in testExpressions
+        expression = parse(testExpression)
+        PRINT "Input: \"" + testExpression + "\", AST: \"" + expression + "\", value=" + expression.eval()
+      END FOR EACH
+    END FUNCTION
+  END CLASS
+END

@@ -1,0 +1,7 @@
+```
+// Declare a module called mymodule
+module mymodule {
+    // Declare a variable
+    variable
+}
+```

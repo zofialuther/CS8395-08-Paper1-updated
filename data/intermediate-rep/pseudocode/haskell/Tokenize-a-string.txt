@@ -1,0 +1,12 @@
+1. Import necessary libraries:
+   - import Data.Text (splitOn, intercalate)
+   - import qualified Data.Text.IO as T (putStrLn)
+
+2. Define the main function:
+   - main = T.putStrLn . intercalate "." $ splitOn "," "Hello,How,Are,You,Today"
+
+3. Pseudocode:
+   - Define main function
+   - Use splitOn to split the string "Hello,How,Are,You,Today" by ","
+   - Use intercalate to join the split strings with "."
+   - Output the result using T.putStrLn

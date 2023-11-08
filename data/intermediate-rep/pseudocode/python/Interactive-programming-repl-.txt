@@ -1,0 +1,4 @@
+FUNCTION f with parameters string1, string2, separator
+    RETURN separator.join([string1, '', string2])
+
+CALL f with arguments 'Rosetta', 'Code', ':'

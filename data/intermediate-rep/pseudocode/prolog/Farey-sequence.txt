@@ -1,0 +1,45 @@
+```
+task(1) :-
+    for I from 1 to 11
+        farey(I, F)
+        write(I), write(': ')
+        rwrite(F), newline
+    end for
+
+task(2) :-
+    for I from 1 to 10
+        I100 = I * 100
+        farey(I100, F)
+        N = length(F)
+        write('|F('), write(I100), write(')| = '), writeln(N)
+    end for
+
+farey(Order, Sequence) :-
+    S = bagof(R, I^J^(for J from 1 to Order, for I from 0 to J, R = I / J), S)
+    predsort(rcompare, S, Sequence)
+
+rprint(rdiv(A,B)) :-
+    write(A), write('/'), write(B)
+
+rprint(I) :-
+    if integer(I)
+        write(I), write('/'), write(1)
+    end if
+
+rwrite([]).
+rwrite([R]) :- rprint(R).
+rwrite([R, T|Rs]) :- rprint(R), write(', '), rwrite([T|Rs])
+
+rcompare(<, A, B) :-
+    if A < B
+        return true
+    end if
+rcompare(>, A, B) :-
+    if A > B
+        return true
+    end if
+rcompare(=, A, B) :-
+    if A <= B
+        return true
+    end if
+```

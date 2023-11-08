@@ -1,0 +1,11 @@
+1. Import the functools and tkinter modules
+2. Define the on_click function with parameters label and counter of type tk.Label and tk.IntVar respectively
+3. Inside on_click function, increment the counter by 1 and update the label text with the new count
+4. Define the main function
+5. Create a new tkinter window and set its geometry
+6. Create a label with initial text "There have been no clicks yet" and pack it into the window
+7. Create a tk.IntVar to store the counter
+8. Create a partial function update_counter which calls the on_click function with label and counter as arguments
+9. Create a button with text "click me" and command as update_counter, then pack it into the window
+10. Run the mainloop for the window
+11. Check if the script is being run as the main program, if so, call the main function.

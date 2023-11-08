@@ -1,0 +1,1 @@
+This code snippet imports the Random class from the java.util package and creates an array of integers with values 1, 2, and 3. It then uses the Random object to generate a random index within the length of the array and returns the value at that index. It also advises to re-use the Random object if this process is done multiple times for efficiency.

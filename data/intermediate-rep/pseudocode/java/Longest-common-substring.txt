@@ -1,0 +1,25 @@
+START
+  FUNCTION lcs(a, b)
+    IF length of a > length of b
+      RETURN lcs(b, a)
+    
+    res = ""
+    FOR ai = 0 TO length of a
+      FOR len = length of a - ai TO 0
+        FOR bi = 0 TO length of b - len
+          IF region of a matches region of b starting at ai and bi with length len AND len > length of res
+            res = substring of a starting at ai with length len
+          END IF
+        END FOR
+      END FOR
+    END FOR
+    RETURN res
+  END FUNCTION
+  
+  FUNCTION main
+    PRINT lcs("testing123testing", "thisisatest")
+    PRINT lcs("test", "thisisatest")
+    PRINT lcs("testing", "sting")
+    PRINT lcs("testing", "thisisasting")
+  END FUNCTION
+END

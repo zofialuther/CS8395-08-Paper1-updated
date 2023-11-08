@@ -1,0 +1,42 @@
+```
+import System.Random
+import Data.Array.IO
+import Control.Monad
+
+function isSortedBy (f, xs)
+    if length of xs is 0
+        return True
+    else
+        for each element i from 0 to length of xs - 2
+            if f(xs[i], xs[i+1]) is false
+                return False
+        end for
+        return True
+    end if
+end function
+
+function shuffle (xs)
+    n = length of xs
+    ar = newArray n xs
+    for each element i from 1 to n
+        j = randomRIO (i, n)
+        vi = readArray ar i
+        vj = readArray ar j
+        writeArray ar j vi
+        return vj
+    end for
+end function
+
+function bogosortBy (f, xs)
+    if isSortedBy(f, xs) is True
+        return xs
+    else
+        shuffled_xs = shuffle xs
+        return bogosortBy(f, shuffled_xs)
+    end if
+end function
+
+function bogosort (xs)
+    return bogosortBy(<, xs)
+end function
+```

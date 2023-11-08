@@ -1,0 +1,1 @@
+This Java program simulates a game of Nim, where players take turns removing 1 to 3 tokens from a pile. The program prompts the human player to input their move and then calculates the computer's move based on the human's input. The game continues until there are no tokens left, and the program announces the winner. The game is played using the console input and output.

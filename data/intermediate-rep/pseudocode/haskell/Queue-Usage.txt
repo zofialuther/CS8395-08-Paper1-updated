@@ -1,0 +1,38 @@
+```
+DEFINE emptyFifo
+DEFINE push
+DEFINE isEmpty
+DEFINE pop
+DEFINE foldl
+
+q = emptyFifo
+IF isEmpty(q) = True
+    PRINT True
+ELSE
+    q' = push(q, 1)
+    IF isEmpty(q') = False
+        PRINT False
+    ENDIF
+    q'' = foldl(push, q', [2..4])
+    (v, q''') = pop(q'')
+    IF v = Just 1
+        PRINT Just 1
+    ENDIF
+    (v', q'''') = pop(q''')
+    IF v' = Just 2
+        PRINT Just 2
+    ENDIF
+    (v'', q''''') = pop(q'''')
+    IF v'' = Just 3
+        PRINT Just 3
+    ENDIF
+    (v''', q'''''') = pop(q'''''')
+    IF v''' = Just 4
+        PRINT Just 4
+    ENDIF
+    (v'''', q''''''') = pop(q'''''')
+    IF v'''' = Nothing
+        PRINT Nothing
+    ENDIF
+ENDIF
+```

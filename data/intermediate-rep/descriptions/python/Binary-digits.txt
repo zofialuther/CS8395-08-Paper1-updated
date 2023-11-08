@@ -1,0 +1,1 @@
+This code uses a for loop to iterate through the numbers 0 to 15 and prints their binary representations using the format method. The output shows the binary representation of each number from 0 to 15 in a vertical list.

@@ -1,0 +1,33 @@
+```
+FUNCTION disSort1
+  INPUT: xs, is
+  is_ = sort(is)
+  (sub, rest) = partition((`elem` is_) . fst, zip([0..], xs))
+  result = map(snd, merge(rest, zip(is_, sort(map(snd, sub))))
+  RETURN result
+
+FUNCTION disSort2
+  INPUT: xs, is
+  as = listArray(0, length(xs)-1, xs)
+  sub = zip(sort(is), sort(map(as!, is)))
+  result = elems(as // sub)
+  RETURN result
+
+FUNCTION disSort3
+  INPUT: xs, is
+  as = runSTUArray(
+    do as <- newListArray(0, length(xs)-1, xs)
+       sub <- (zip(sort(is), sort(mapM(readArray(as), is)))
+       mapM_(uncurry(writeArray(as)), sub)
+       RETURN as
+     )
+  result = elems(as)
+  RETURN result
+
+FUNCTION main
+  xs = [7, 6, 5, 4, 3, 2, 1, 0]
+  is = [6, 1, 7]
+  print(disSort1(xs, is))
+  print(disSort2(xs, is))
+  print(disSort3(xs, is))
+```

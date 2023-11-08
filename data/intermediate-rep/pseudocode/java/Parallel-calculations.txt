@@ -1,0 +1,46 @@
+```
+// Define the interface ParallelCalculations
+public interface ParallelCalculations {
+  // Define the array of numbers
+  public static final long[] NUMBERS = {
+    12757923,
+    12878611,
+    12878893,
+    12757923,
+    15808973,
+    15780709,
+    197622519
+  };
+
+  // Define the main method
+  public static void main(String... arguments) {
+    // Perform parallel calculations on the numbers array
+    stream(NUMBERS)
+      .unordered()
+      .parallel()
+      // Map each number to its minimal prime factor
+      .mapToObj(ParallelCalculations::minimalPrimeFactor)
+      // Find the number with the largest minimal prime factor
+      .max(comparing(a -> a[0]))
+      // If a result is found, print it
+      .ifPresent(res -> out.printf(
+        "%d has the largest minimum prime factor: %d%n",
+        res[1],
+        res[0]
+      ));
+  }
+
+  // Define the method to calculate the minimal prime factor of a number
+  public static long[] minimalPrimeFactor(long n) {
+    // Loop through numbers to find the minimal prime factor
+    for (long i = 2; n >= i * i; i++) {
+      if (n % i == 0) {
+        // Return the minimal prime factor and the original number
+        return new long[]{i, n};
+      }
+    }
+    // If no minimal prime factor is found, return the number itself
+    return new long[]{n, n};
+  }
+}
+```

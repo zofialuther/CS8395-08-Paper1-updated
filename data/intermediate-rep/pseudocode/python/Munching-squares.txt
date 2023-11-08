@@ -1,0 +1,8 @@
+1. Import the Image and ImageDraw modules
+2. Create a new image with RGB format and size of (256, 256)
+3. Initialize a drawing tool to draw on the image
+4. Loop through x from 0 to 255
+5.    Loop through y from 0 to 255
+6.        Use the drawing tool to set the color of the pixel at position (x, y) to (0, x^y, 0)
+7. Delete the drawing tool
+8. Save the image as "xorpic.png" in PNG format

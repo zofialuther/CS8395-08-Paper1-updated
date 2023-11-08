@@ -1,0 +1,3 @@
+This Prolog code defines a predicate `accRev` to accumulate and reverse a list. It takes a list `[H|T]` and an accumulator `A`, and returns the reversed list `R`. The base case for the reversal is when the input list is empty, in which case the accumulator becomes the reversed list.
+
+The `rev` predicate is defined to take a list `L` and return its reversed form `R`, using the `accRev` predicate with an empty accumulator.

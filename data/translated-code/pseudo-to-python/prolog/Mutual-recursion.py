@@ -1,0 +1,19 @@
+def female(N, F):
+    if N == 0:
+        F = 1
+    else:
+        N1 = N - 1
+        R = 0
+        female(N1, R)
+        male(R, R1)
+        F = N - R1
+
+def male(N, F):
+    if N == 0:
+        F = 0
+    else:
+        N1 = N - 1
+        R = 0
+        male(N1, R)
+        female(R, R1)
+        F = N - R1

@@ -1,0 +1,1 @@
+This code defines a predicate ^^/3 which calculates the value of a power operation given a base and an exponent. It handles cases where the exponent is negative, positive, or zero. Additionally, it includes a helper predicate exp_folder/4 which is designed to work with foldl and a list of free variables to calculate the product of the base and powers.

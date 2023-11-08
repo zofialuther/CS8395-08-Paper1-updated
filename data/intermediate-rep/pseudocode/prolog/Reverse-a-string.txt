@@ -1,0 +1,13 @@
+```
+function accRev(L, A, R) {
+    if (L is not empty) {
+        accRev(T, [H|A], R)
+    } else {
+        R = A
+    }
+}
+
+function rev(L, R) {
+    accRev(L, [], R)
+}
+```

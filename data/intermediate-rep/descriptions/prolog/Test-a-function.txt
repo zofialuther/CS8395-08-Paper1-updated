@@ -1,0 +1,3 @@
+The code defines a predicate `palindrome` which takes a single argument `Word` and checks if it is a palindrome. It uses the `name` predicate to convert the word into a list of characters and then uses the `reverse` predicate to check if the list is the same forwards and backwards.
+
+The code also includes two test cases within the `begin_tests` and `end_tests` blocks. The first test case checks if the predicate correctly identifies a valid palindrome, while the second test case checks if the predicate correctly identifies an invalid palindrome and is expected to fail.

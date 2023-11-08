@@ -1,0 +1,17 @@
+FUNCTION options(lo, hi, total)
+    ds = [lo .. hi]
+    result = []
+    FOR x in ds
+        IF x is even THEN
+            FOR y in ds
+                IF y != x THEN
+                    z = total - (x + y)
+                    IF y != z AND lo <= z AND z <= hi THEN
+                        result.append((x, y, z))
+                    ENDIF
+                ENDIF
+            ENDFOR
+        ENDIF
+    ENDFOR
+    RETURN result
+ENDFUNCTION

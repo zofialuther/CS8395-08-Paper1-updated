@@ -1,0 +1,1 @@
+This Prolog code defines a predicate compose/3 which takes two functions F and G as input, and returns a new function FG that represents the composition of F and G. The composition function FG is defined using lambda expressions and applies the functions F and G to the input argument X to produce the final result Z.

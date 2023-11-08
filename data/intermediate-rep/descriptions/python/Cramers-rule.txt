@@ -1,0 +1,1 @@
+This code defines a function det(m,n) that calculates the determinant of a matrix using recursion. It then calculates the determinant of a matrix 'h' and its length 'w', and if the determinant is not zero, it finds the inverse of the matrix and prints the result.

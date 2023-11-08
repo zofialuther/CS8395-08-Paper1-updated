@@ -1,0 +1,1 @@
+This Prolog code uses the Constraint Logic Programming over Finite Domains (CLPFD) library to define a predicate `babbage/0` that finds the lowest number whose square ends in the digits 269696. The `babbage_/3` predicate recursively searches for a number and its square that satisfy the condition, and the `babbage/0` predicate prints the result using the `format/2` predicate.

@@ -1,0 +1,53 @@
+```
+% Create a string
+X = "a test string"
+
+% String assignment
+X = "a test string"
+Y = X
+
+% String comparison
+X = "a test string"
+Y = "a test string"
+X = Y
+
+X = "a test string"
+Y = "a different string"
+X ≠ Y
+
+% Test for empty string
+X = "a test string"
+Y = ""
+X ≠ Y
+
+X = ""
+Y = ""
+X ≠ Y
+
+% Append a byte to a string
+X = "a test string"
+Y = string_concat(X, "!")
+Y = "a test string!"
+
+% Extract a substring from a string
+X = "a test string"
+Y = sub_string(X, 2, 4, _)
+Y = "test"
+
+X = "a test string"
+sub_string(X, Before, Len, After, "test")
+Before = 2
+Len = 4
+After = 7
+
+% Replace every occurrence of a byte in a string with another string
+X = "a test string"
+Y = re_replace('t'/g, 'o', X)
+Y = "a oeso soring"
+
+% Join strings
+X = "a test string"
+Y = " with extra!"
+Z = string_concat(X, Y)
+Z = "a test string with extra!"
+```

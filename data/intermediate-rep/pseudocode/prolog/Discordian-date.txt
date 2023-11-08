@@ -1,0 +1,53 @@
+```
+FUNCTION main
+    CALL test(2022, 4, 20)
+    CALL test(2020, 5, 24)
+    CALL test(2020, 2, 29)
+    CALL test(2019, 7, 15)
+    CALL test(2025, 3, 19)
+    CALL test(2017, 12, 8)
+
+FUNCTION test(Gregorian_year, Gregorian_month, Gregorian_day)
+    ddate(Gregorian_year, Gregorian_month, Gregorian_day, Discordian_date)
+    FORMAT('...', [Gregorian_year, Gregorian_month, Gregorian_day, Discordian_date])
+
+FUNCTION ddate(Gregorian_year, 2, 29, Discordian_date)
+    convert_year(Gregorian_year, Discordian_year)
+    SWRITEF(Discordian_date, '...', [Discordian_year])
+    RETURN
+
+    convert_year(Gregorian_year, Discordian_year)
+    day_of_year(Gregorian_month, Gregorian_day, Daynum)
+    Season = Daynum // 73
+    Weekday = Daynum mod 5
+    Day_of_season = 1 + Daynum mod 73
+    season(Season, Season_name)
+    week_day(Weekday, Day_name)
+    IF holy_day(Season, Day_of_season, Holy_day) THEN
+        SWRITEF(Discordian_date, '...', [Day_name, Day_of_season, Season_name, Discordian_year, Holy_day])
+    ELSE
+        SWRITEF(Discordian_date, '...', [Day_name, Day_of_season, Season_name, Discordian_year])
+
+FUNCTION convert_year(Gregorian_year, Discordian_year)
+    Discordian_year = Gregorian_year + 1166
+
+FUNCTION day_of_year(M, D, N)
+    month_days(M, Days)
+    N = Days + D - 1
+
+FUNCTION month_days(1, 0)
+    ...
+    (other month_days definitions)
+
+FUNCTION season(0, 'Chaos')
+    ...
+    (other season definitions)
+
+FUNCTION week_day(0, 'Sweetmorn')
+    ...
+    (other week_day definitions)
+
+FUNCTION holy_day(0, 5, 'Mungday')
+    ...
+    (other holy_day definitions)
+```

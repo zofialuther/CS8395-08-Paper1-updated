@@ -1,0 +1,57 @@
+```
+function main:
+    for each Base in range(2, 16):
+        Min_index = Base * 4
+        Max_index = Base * 6
+        print_esthetic_numbers1(Base, Min_index, Max_index)
+    
+    print_esthetic_numbers2(1000, 9999, 16)
+    print_new_line()
+    print_esthetic_numbers2(100000000, 130000000, 8)
+
+function print_esthetic_numbers1(Base, Min_index, Max_index):
+    Format = convert_to_string(Base)
+    print("Esthetic numbers in base " + Base + " from index " + Min_index + " through index " + Max_index + ":")
+    print_esthetic_numbers1_helper(Base, Format, Min_index, Max_index, 0, 1)
+
+function print_esthetic_numbers1_helper(Base, Format, Min_index, Max_index, M, I):
+    while I <= Max_index:
+        N = next_esthetic_number(Base, M)
+        if I >= Min_index:
+            add_to_format(Format, N)
+        I = I + 1
+        print_esthetic_numbers1_helper(Base, Format, Min_index, Max_index, N, J)
+
+function print_esthetic_numbers2(Min, Max, Per_line):
+    print("Esthetic numbers in base 10 between " + Min + " and " + Max + ":")
+    M = Min - 1
+    count = 0
+    print_esthetic_numbers2_helper(Max, Per_line, M, count)
+
+function print_esthetic_numbers2_helper(Max, Per_line, M, Count):
+    while N <= Max:
+        N = next_esthetic_number(10, M)
+        print(N)
+        Count = Count + 1
+        if Count % Per_line == 0:
+            print_new_line()
+        print_esthetic_numbers2_helper(Max, Per_line, N, Count)
+
+function next_esthetic_number(Base, M):
+    N = M + 1
+    if N < Base:
+        return N
+    else:
+        A = M // Base
+        B = A % Base
+        if B == M % Base + 1 and B + 1 < Base:
+            return M + 2
+        else:
+            C = next_esthetic_number(Base, A)
+            D = C % Base
+            if D == 0:
+                E = 1
+            else:
+                E = D - 1
+            return C * Base + E
+```

@@ -1,0 +1,1 @@
+This code implements the Cooley-Tukey algorithm for the fast Fourier transform (FFT). It takes a list of complex numbers and computes their FFT using a divide-and-conquer approach. The main function demonstrates how to use the fft function by applying it to a sample input and printing the result.

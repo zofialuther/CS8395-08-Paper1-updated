@@ -1,0 +1,1 @@
+This code defines a function to determine if a number is perfect, meaning it is equal to the sum of its proper divisors. It also includes a main function to test and print all perfect numbers between 1 and 10000. The code uses a generic function to generate a list of integers from m to n.

@@ -1,0 +1,4 @@
+1. Set variable "input" to the string '123'
+2. Convert "input" to an integer and store it in a new variable "num"
+3. Add 1 to "num" and store the result in a new variable "next"
+4. Convert "next" to a string and store it in the variable "result"

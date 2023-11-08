@@ -1,0 +1,8 @@
+SET x = 0
+WHILE x < 30000 DO
+    IF pow(x, 2, 1000000) == 269696 THEN
+        PRINT x
+        BREAK
+    END IF
+    INCREMENT x
+END WHILE

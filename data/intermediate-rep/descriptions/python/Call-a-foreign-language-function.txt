@@ -1,0 +1,1 @@
+This code uses the ctypes library to access the C standard library and specifically the strcmp function. It compares two strings "abc" and "def" and returns -1, indicating that "abc" comes before "def" in lexicographical order. It then compares two identical strings "hello" and "hello" and returns 0, indicating that the two strings are equal.

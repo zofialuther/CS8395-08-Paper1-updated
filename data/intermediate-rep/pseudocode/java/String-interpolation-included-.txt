@@ -1,0 +1,5 @@
+1. Create a new StringBuilder object called 'string'
+2. Create a new Formatter object called 'formatter' and pass 'string' as a parameter
+3. Create a new String variable called 'adjective' and assign it the value "little"
+4. Use the formatter to format the string "Mary had a %s lamb" with the adjective variable
+5. Flush the formatter to output the formatted string.

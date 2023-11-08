@@ -1,0 +1,1 @@
+This Java program, called SumProd, calculates the sum and product of the elements in an array of integers. It uses the Arrays class to perform stream operations on the array, first calculating the sum using the sum() method and then using the reduce() method to calculate both the sum and product. The results are then printed to the console using the printf() method.

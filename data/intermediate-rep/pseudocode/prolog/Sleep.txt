@@ -1,0 +1,5 @@
+function rosetta_sleep(Time):
+    output "Sleeping..."
+    sleep(Time)
+    output "Awake!"
+end function

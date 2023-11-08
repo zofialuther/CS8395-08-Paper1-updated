@@ -1,0 +1,68 @@
+The given code is quite extensive and contains multiple functions, so here is a simplified pseudocode for the main function `drawTree2`:
+
+```
+FUNCTION drawTree2(blnCompact)
+    FUNCTION go(blnPruned, tree)
+        FUNCTION measured(x)
+            s = ' ' + str(x) + ' '
+            RETURN (length of s, s)
+        END FUNCTION
+        
+        FUNCTION lmrFromStrings(xs)
+            i = length of xs / 2
+            ls = xs[0:i], rs = xs[i:]
+            RETURN ls, rs[0], rs[1:]
+        END FUNCTION
+        
+        FUNCTION stringsFromLMR(lmr)
+            ls, m, rs = lmr
+            RETURN ls + [m] + rs
+        END FUNCTION
+        
+        FUNCTION fghOverLMR(f, g, h)
+            FUNCTION go(lmr)
+                ls, m, rs = lmr
+                RETURN ([f(x) for x in ls], g(m), [h(x) for x in rs])
+            END FUNCTION
+            RETURN go
+        END FUNCTION
+        
+        FUNCTION leftPad(n)
+            RETURN lambda s: (' ' * n) + s
+        END FUNCTION
+        
+        FUNCTION treeFix(l, m, r)
+            FUNCTION cfix(x)
+                RETURN lambda xs: x + xs
+            END FUNCTION
+            RETURN compose(stringsFromLMR)(fghOverLMR(cfix(l), cfix(m), cfix(r)))
+        END FUNCTION
+        
+        FUNCTION lmrBuild(w, f)
+            FUNCTION go(wsTree)
+                nChars, x = wsTree['root']
+                _x = ('─' * (w - nChars)) + x
+                xs = wsTree['nest']
+                lng = length of xs
+                
+                IF lng == 0 THEN
+                    RETURN ([], _x, [])
+                ELSE IF lng == 1 THEN
+                    RETURN fghOverLMR(rightAligned, lineLinked, rightAligned)(f(xs[0]))
+                ELSE
+                    lmrs = [f(x) for x in xs]
+                    RETURN fghOverLMR(rightAligned, linked, rightAligned)(lmrFromStrings(intercalate([] if blnCompact else ['│'])([treeFix(' ', '┌', '│')(lmrs[0])] + [treeFix('│', '├', '│')(x) for x in lmrs[1:-1]] + [treeFix('│', '└', ' ')(lmrs[-1])])))
+                END IF
+            END FUNCTION
+            RETURN lambda wsTree: go(wsTree)
+        END FUNCTION
+        
+        measuredTree = fmapTree(measured)(tree)
+        levelWidths = reduce(lambda a, xs: a + [max(x[0] for x in xs)], levels(measuredTree), [])
+        treeLines = stringsFromLMR(foldr(lmrBuild)(None)(levelWidths)(measuredTree))
+        RETURN [s for s in treeLines if any(c not in '│ ' for c in s)] if (not blnCompact and blnPruned) else treeLines
+    END FUNCTION
+    
+    RETURN lambda blnPruned: (lambda tree: '\n'.join(go(blnPruned, tree)))
+END FUNCTION
+```

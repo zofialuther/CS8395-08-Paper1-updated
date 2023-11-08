@@ -1,0 +1,71 @@
+```
+board = []
+given = []
+start = None
+
+function setup(s)
+    lines = s.splitlines()
+    ncols = length(lines[0].split())
+    nrows = length(lines)
+    board = create 2D array filled with -1, with dimensions (ncols + 2) x (nrows + 2)
+
+    for r = 0 to (nrows - 1)
+        for c = 0 to (ncols - 1)
+            cell = lines[r].split()[c]
+            if cell is "__" 
+                board[r + 1][c + 1] = 0
+                continue
+            else if cell is "."
+                continue
+            else
+                val = convert cell to integer
+                board[r + 1][c + 1] = val
+                add val to given list
+                if val is 1
+                    start = (r + 1, c + 1)
+    sort given list
+
+function solve(r, c, n, next=0)
+    if n > given[-1]
+        return true
+    if board[r][c] and board[r][c] is not n
+        return false
+    if board[r][c] is 0 and given[next] is n
+        return false
+
+    back = 0
+    if board[r][c] is n
+        next = next + 1
+        back = n
+
+    board[r][c] = n
+    for i = -1 to 1
+        for j = -1 to 1
+            if solve(r + i, c + j, n + 1, next)
+                return true
+    board[r][c] = back
+    return false
+
+function print_board()
+    d = {-1: "  ", 0: "__"}
+    bmax = maximum value in board
+    form = "%" + length of string representation of bmax + 1 + "s"
+    for r in board[1:-1]
+        print concatenate(form % d[get value from board at (r, c)] for c in r[1:-1])
+
+hi = """\
+__ 33 35 __ __  .  .  .
+__ __ 24 22 __  .  .  .
+__ __ __ 21 __ __  .  .
+__ 26 __ 13 40 11  .  .
+27 __ __ __  9 __  1  .
+ .  . __ __ 18 __ __  .
+ .  .  .  . __  7 __ __
+ .  .  .  .  .  .  5 __"""
+
+setup(hi)
+print_board()
+solve(start[0], start[1], 1)
+print
+print_board()
+```

@@ -1,0 +1,2 @@
+ghc = "-e"
+print("Hello")

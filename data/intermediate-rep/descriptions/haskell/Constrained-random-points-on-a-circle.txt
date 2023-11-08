@@ -1,0 +1,1 @@
+This code generates a randomized canvas of circle points using the Knuth shuffle algorithm. It first creates a grid of blank spaces and then selects and randomizes all circle points that meet certain constraints. It then "paints" the first 100 randomized circle points on the canvas and finally displays the canvas with the circle points printed out.

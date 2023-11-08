@@ -1,0 +1,27 @@
+Pseudocode for SleepSort:
+
+1. Import the CountDownLatch class from java.util.concurrent package.
+
+2. Define a class called SleepSort.
+
+3. Create a static method called sleepSortAndPrint that takes an array of integers as input.
+
+4. Inside sleepSortAndPrint method, create a CountDownLatch object called doneSignal with initial count equal to the length of the input array.
+
+5. Iterate through each integer in the input array using a for loop.
+
+6. Inside the loop, create a new thread for each integer using the Runnable interface.
+
+7. Inside the run method of the Runnable interface, decrement the count of doneSignal using countDown() method.
+
+8. Use a try-catch block to handle InterruptedException.
+
+9. Inside the try block, wait for all threads to finish using await() method on doneSignal.
+
+10. Use Thread.sleep() method to sleep for a duration equal to the current integer multiplied by 1000 milliseconds.
+
+11. Print the integer to the console.
+
+12. In the main method, create an array of integers by parsing the command line arguments.
+
+13. Call the sleepSortAndPrint method with the array of integers as input.

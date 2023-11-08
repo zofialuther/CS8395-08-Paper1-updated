@@ -1,0 +1,80 @@
+```
+FUNCTION isEsthetic(n, b)
+    IF n = 0
+        RETURN false
+    i = n MOD b
+    n2 = n / b
+    WHILE n2 > 0
+        j = n2 MOD b
+        IF ABS(i - j) != 1
+            RETURN false
+        n2 = n2 / b
+        i = j
+    RETURN true
+
+FUNCTION listEsths(n, n2, m, m2, perLine, all)
+    esths = new ArrayList<Long>
+    FUNCTION dfs(n, m, i)
+        IF n <= i AND i <= m
+            esths.add(i)
+        IF i = 0 OR i > m
+            RETURN
+        d = i MOD 10
+        i1 = i * 10 + d - 1
+        i2 = i1 + 2
+        IF d = 0
+            dfs(n, m, i2)
+        ELSE IF d = 9
+            dfs(n, m, i1)
+        ELSE
+            dfs(n, m, i1)
+            dfs(n, m, i2)
+    END FUNCTION
+    FOR i IN RANGE 0 TO 9
+        dfs(n2, m2, i)
+    END FOR
+    le = esths.size()
+    PRINT "Base 10: " + le + " esthetic numbers between " + n + " and " + m
+    IF all
+        FOR i IN RANGE 0 TO esths.size()
+            PRINT esths.get(i)
+            IF (i + 1) MOD perLine = 0
+                PRINT
+        END FOR
+    ELSE
+        FOR i IN RANGE 0 TO perLine
+            PRINT esths.get(i)
+        END FOR
+        PRINT
+        PRINT "............"
+        FOR i IN RANGE le - perLine TO le
+            PRINT esths.get(i)
+        END FOR
+    END IF
+    PRINT
+END FUNCTION
+
+FUNCTION main(args)
+    FOR b IN RANGE 2 TO 16
+        PRINT "Base " + b + ": " + 4 * b + "th to " + 6 * b + "th esthetic numbers:"
+        n = 1
+        c = 0
+        WHILE c < 6 * b
+            IF isEsthetic(n, b)
+                c = c + 1
+                IF c >= 4 * b
+                    PRINT Long.toString(n, b)
+            END IF
+            n = n + 1
+        END WHILE
+        PRINT
+    END FOR
+    PRINT
+
+    listEsths(1000, 1010, 9999, 9898, 16, true)
+    listEsths((long) 1e8, 101_010_101, 13 * (long) 1e7, 123_456_789, 9, true)
+    listEsths((long) 1e11, 101_010_101_010L, 13 * (long) 1e10, 123_456_789_898L, 7, false)
+    listEsths((long) 1e14, 101_010_101_010_101L, 13 * (long) 1e13, 123_456_789_898_989L, 5, false)
+    listEsths((long) 1e17, 101_010_101_010_101_010L, 13 * (long) 1e16, 123_456_789_898_989_898L, 4, false)
+END FUNCTION
+```

@@ -1,0 +1,53 @@
+```
+function main(args)
+    rules = readRules("markov_rules.txt")
+    tests = readTests("markov_tests.txt")
+    pattern = compilePattern("^([^#]*?)\\s+->\\s+(\\.?)(.*)")
+
+    for i from 0 to length(tests) - 1
+        origTest = tests[i]
+        captures = []
+
+        for rule in rules[i]
+            m = pattern.matcher(rule)
+            if m.find()
+                groups = []
+                for j from 0 to m.groupCount() - 1
+                    groups[j] = m.group(j + 1)
+                end for
+                captures.add(groups)
+            end if
+        end for
+
+        test = origTest
+        copy = test
+        for j from 0 to length(captures) - 1
+            c = captures[j]
+            test = replace(test, c[0], c[2])
+            if c[1] == "."
+                break
+            end if
+            if test != copy
+                j = -1 // redo loop
+                copy = test
+            end if
+        end for
+
+        print(origTest)
+        print(test)
+    end for
+end function
+
+function readTests(path)
+    return Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8)
+end function
+
+function readRules(path)
+    lines = Files.readAllBytes(Paths.get(path))
+    rules = []
+    for line in lines.split(System.lineSeparator() + System.lineSeparator())
+        rules.add(line.split(System.lineSeparator()))
+    end for
+    return rules
+end function
+```

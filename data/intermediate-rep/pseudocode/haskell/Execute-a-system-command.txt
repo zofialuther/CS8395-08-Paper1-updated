@@ -1,0 +1,7 @@
+```
+import System.Cmd
+
+function main() {
+  system("ls");
+}
+```

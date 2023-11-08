@@ -1,0 +1,17 @@
+function bubble_sort(seq)
+    changed = true
+    while changed
+        changed = false
+        for i = 0 to length(seq) - 1
+            if seq[i] > seq[i+1]
+                swap(seq[i], seq[i+1])
+                changed = true
+    return seq
+
+if __name__ == "__main__"
+    testset = create a list from 0 to 99
+    testcase = copy of testset
+    shuffle(testcase)
+    assert testcase is not equal to testset
+    bubble_sort(testcase)
+    assert testcase is equal to testset

@@ -1,0 +1,1 @@
+This code is a simple program that repeatedly divides a number by 2 and prints the result, starting with the number 1024. It uses the Control.Monad module to implement a loop that continues until the number becomes less than or equal to 0.

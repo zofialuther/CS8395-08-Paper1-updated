@@ -1,0 +1,24 @@
+FUNCTION mertens(count):
+    m = [None, 1]
+    FOR n = 2 to count+1:
+        m.append(1)
+        FOR k = 2 to n+1:
+            m[n] -= m[n//k]
+    RETURN m
+
+ms = mertens(1000)
+
+PRINT "The first 99 Mertens numbers are:"
+PRINT "  "
+col = 1
+FOR n in ms[1:100]:
+    PRINT "{:2d}".format(n)
+    col += 1
+    IF col == 10:
+        PRINT
+        col = 0
+
+zeroes = SUM(x==0 for x in ms)
+crosses = SUM(a!=0 and b==0 for a,b in zip(ms, ms[1:]))
+PRINT "M(N) equals zero {} times.".format(zeroes)
+PRINT "M(N) crosses zero {} times.".format(crosses)

@@ -1,0 +1,16 @@
+
+function double median(List<Double> values) {
+    List<Double> list = new ArrayList<>(values);
+    Collections.sort(list);
+    int mid = list.size() / 2;
+    switch (list.size() % 2) {
+        case 0:
+            double valueA = list.get(mid);
+            double valueB = list.get(mid + 1);
+            return (valueA + valueB) / 2;
+        case 1:
+            return list.get(mid);
+        default:
+            return 0;
+    }
+}

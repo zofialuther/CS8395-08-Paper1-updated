@@ -1,0 +1,6 @@
+1. Import the collections and sys modules
+2. Define a function called filecharcount that takes openfile as a parameter
+3. Inside the function, use a generator expression to iterate through each character in each line of the openfile and count the occurrences of each character using collections.Counter
+4. Sort the result of the counter and return it as a list of (character, count) tuples
+5. Open the file specified in the command line argument using sys.argv[1]
+6. Print the result of calling filecharcount with the opened file as the argument.

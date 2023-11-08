@@ -1,0 +1,22 @@
+```
+1. Declare module Main
+2. Import System.Random, Data.Word, Data.Array.Repa as Repa, Data.Array.Repa.IO.BMP
+3. Declare sqDistance function with parameters x1, y1, x2, y2 of type Word32
+4. Implement sqDistance function to calculate squared distance
+5. Declare centers function with parameters nCenters, nCells of type Int
+6. Implement centers function to generate an array of random centers
+7. Declare applyReduce2 function with parameters arr, f
+8. Implement applyReduce2 function to apply a reduction operation on the input array
+9. Declare minimize1D function with parameter arr
+10. Implement minimize1D function to find the minimum value in the input array
+11. Declare voronoi function with parameters nCenters, nCells of type Int
+12. Implement voronoi function to generate a Voronoi diagram using the centers and cells
+13. Declare genColorTable function with parameter n of type Int
+14. Implement genColorTable function to generate a color table array
+15. Declare colorize function with parameters ctable, array of Word32
+16. Implement colorize function to map the color table to the input array
+17. Define main function
+18. Set nsites to 150
+19. Generate color table using genColorTable function
+20. Compute and write the colorized Voronoi diagram to a BMP file
+```

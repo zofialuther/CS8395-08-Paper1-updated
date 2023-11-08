@@ -1,0 +1,22 @@
+FUNCTION getPrimes(start, end)
+    primes = empty array
+    FOR each number n in the range from start to end
+        IF isPrime(n) is true
+            add n to primes
+    RETURN primes
+
+FUNCTION isPrime(x)
+    IF x < 3 OR x % 2 == 0
+        RETURN x == 2
+    max = square root of x
+    FOR each number n from 3 to max, incrementing by 2
+        IF x % n == 0
+            RETURN false
+    RETURN true
+
+FUNCTION main
+    primes = getPrimes(0, 100)
+    FOR each prime p in primes
+        PRINT p, 
+    END FOR
+END FUNCTION

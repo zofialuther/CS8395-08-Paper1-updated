@@ -1,0 +1,49 @@
+START
+  IMPORT java.math.BigInteger
+  
+  CLASS Pi
+    INITIALIZE TWO = BigInteger.valueOf(2)
+    INITIALIZE THREE = BigInteger.valueOf(3)
+    INITIALIZE FOUR = BigInteger.valueOf(4)
+    INITIALIZE SEVEN = BigInteger.valueOf(7)
+    
+    INITIALIZE q = BigInteger.ONE
+    INITIALIZE r = BigInteger.ZERO
+    INITIALIZE t = BigInteger.ONE
+    INITIALIZE k = BigInteger.ONE
+    INITIALIZE n = BigInteger.valueOf(3)
+    INITIALIZE l = BigInteger.valueOf(3)
+    
+    FUNCTION calcPiDigits
+      INITIALIZE nn, nr
+      INITIALIZE first = true
+      WHILE true
+        IF FOUR.multiply(q).add(r).subtract(t).compareTo(n.multiply(t)) == -1
+          OUTPUT n
+          IF first
+            OUTPUT "."
+            first = false
+          nr = BigInteger.TEN.multiply(r.subtract(n.multiply(t)))
+          n = BigInteger.TEN.multiply(THREE.multiply(q).add(r)).divide(t).subtract(BigInteger.TEN.multiply(n))
+          q = q.multiply(BigInteger.TEN)
+          r = nr
+          FLUSH output
+        ELSE
+          nr = TWO.multiply(q).add(r).multiply(l)
+          nn = q.multiply((SEVEN.multiply(k))).add(TWO).add(r.multiply(l)).divide(t.multiply(l))
+          q = q.multiply(k)
+          t = t.multiply(l)
+          l = l.add(TWO)
+          k = k.add(BigInteger.ONE)
+          n = nn
+          r = nr
+        ENDIF
+      ENDWHILE
+    ENDFUNCTION
+    
+    FUNCTION main
+      p = new Pi()
+      p.calcPiDigits()
+    ENDFUNCTION
+  ENDCLASS
+END

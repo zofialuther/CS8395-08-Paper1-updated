@@ -1,0 +1,23 @@
+1. Create a new class called Ludic
+2. Create a method called ludicUpTo that takes an integer n as input and returns a list of integers
+3. Create an empty list called ludics
+4. Use a for loop to iterate from 1 to n and add each number to the ludics list
+5. Use a for loop to iterate through the ludics list
+6. Get the current ludic number from the list
+7. Calculate the index of the next number to remove
+8. Use a while loop to remove numbers from the list at the calculated index
+9. Update the removeCursor index for the next iteration
+10. Return the updated ludics list
+11. Create a method called getTriplets that takes a list of integers called ludics as input and returns a list of lists of integers
+12. Create an empty list called triplets
+13. Use a for loop to iterate through the ludics list
+14. Get the current ludic number from the list
+15. Check if ludics list contains ludic number + 2 and ludic number + 6
+16. If both conditions are true, create a new list called triplet and add the three numbers to it
+17. Add the triplet to the triplets list
+18. Return the triplets list
+19. Create a main method
+20. Print the first 25 Ludics using the ludicUpTo method with 110 as input
+21. Print the number of Ludics up to 1000 using the ludicUpTo method with 1000 as input
+22. Print the 2000th - 2005th Ludics using the ludicUpTo method with 22000 as input and using subList to get the specific range
+23. Print the Triplets up to 250 using the getTriplets method with ludicUpTo method with 250 as input

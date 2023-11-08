@@ -1,0 +1,157 @@
+```
+// create a class called SpellingOfOrdinalNumbers
+public class SpellingOfOrdinalNumbers {
+
+    // create a main method
+    public static void main(String[] args) {
+        // create a for loop to iterate through an array of numbers
+        for ( long test : new long[] {1,  2,  3,  4,  5,  11,  65,  100,  101,  272,  23456,  8007006005004003L} ) {
+            // print the number and its ordinal representation
+            System.out.printf("%d = %s%n", test, toOrdinal(test));
+        }
+    }
+
+    // create a map to store ordinal representations of numbers
+    private static Map<String,String> ordinalMap = new HashMap<>();
+    static {
+        // add ordinal representations to the map
+        ordinalMap.put("one", "first");
+        ordinalMap.put("two", "second");
+        ordinalMap.put("three", "third");
+        ordinalMap.put("five", "fifth");
+        ordinalMap.put("eight", "eighth");
+        ordinalMap.put("nine", "ninth");
+        ordinalMap.put("twelve", "twelfth");
+    }
+
+    // create a method to convert a number to its ordinal representation
+    private static String toOrdinal(long n) {
+        // convert the number to its string representation
+        String spelling = numToString(n);
+        // split the string into an array of words
+        String[] split = spelling.split(" ");
+        // get the last word
+        String last = split[split.length - 1];
+        // create a variable to store the replacement word
+        String replace = "";
+        // check if the last word contains a dash
+        if ( last.contains("-") ) {
+            // split the last word by dash
+            String[] lastSplit = last.split("-");
+            // get the second part of the word
+            String lastWithDash = lastSplit[1];
+            // create a variable to store the replacement word
+            String lastReplace = "";
+            // check if the ordinal map contains the second part of the word
+            if ( ordinalMap.containsKey(lastWithDash) ) {
+                // get the replacement word from the map
+                lastReplace = ordinalMap.get(lastWithDash);
+            }
+            // if the word ends with 'y'
+            else if ( lastWithDash.endsWith("y") ) {
+                // replace 'y' with 'ieth'
+                lastReplace = lastWithDash.substring(0, lastWithDash.length() - 1) + "ieth";
+            }
+            // if none of the above conditions are met
+            else {
+                // add 'th' to the word
+                lastReplace = lastWithDash + "th";
+            }
+            // combine the first part of the word with the replacement
+            replace = lastSplit[0] + "-" + lastReplace;
+        }
+        // if the last word does not contain a dash
+        else {
+            // check if the ordinal map contains the last word
+            if ( ordinalMap.containsKey(last) ) {
+                // get the replacement word from the map
+                replace = ordinalMap.get(last);
+            }
+            // if the word ends with 'y'
+            else if ( last.endsWith("y") ) {
+                // replace 'y' with 'ieth'
+                replace = last.substring(0, last.length() - 1) + "ieth";
+            }
+            // if none of the above conditions are met
+            else {
+                // add 'th' to the word
+                replace = last + "th";
+            }
+        }
+        // replace the last word in the array with the replacement word
+        split[split.length - 1] = replace;
+        // join the array of words into a single string and return it
+        return String.join(" ", split);
+    }
+
+    // create an array of number strings
+    private static final String[] nums = new String[] {
+            "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
+    };
+
+    // create an array of tens strings
+    private static final String[] tens = new String[] {"zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+
+    // create a method to convert a number to its string representation
+    private static final String numToString(long n) {
+        return numToStringHelper(n);
+    }
+
+    // create a helper method to recursively convert a number to its string representation
+    private static final String numToStringHelper(long n) {
+        // check if the number is negative
+        if ( n < 0 ) {
+            // return the string representation of the negative number
+            return "negative " + numToStringHelper(-n);
+        }
+        // convert the number to an integer
+        int index = (int) n;
+        // check if the number is less than or equal to 19
+        if ( n <= 19 ) {
+            // return the string representation of the number from the nums array
+            return nums[index];
+        }
+        // check if the number is less than or equal to 99
+        if ( n <= 99 ) {
+            // return the string representation of the number from the tens array
+            return tens[index/10] + (n % 10 > 0 ? "-" + numToStringHelper(n % 10) : "");
+        }
+        // create variables to store label and factor
+        String label = null;
+        long factor = 0;
+        // check the range of the number and set label and factor accordingly
+        if ( n <= 999 ) {
+            label = "hundred";
+            factor = 100;
+        }
+        else if ( n <= 999999) {
+            label = "thousand";
+            factor = 1000;
+        }
+        else if ( n <= 999999999) {
+            label = "million";
+            factor = 1000000;
+        }
+        else if ( n <= 999999999999L) {
+            label = "billion";
+            factor = 1000000000;
+        }
+        else if ( n <= 999999999999999L) {
+            label = "trillion";
+            factor = 1000000000000L;
+        }
+        else if ( n <= 999999999999999999L) {
+            label = "quadrillion";
+            factor = 1000000000000000L;
+        }
+        else {
+            label = "quintillion";
+            factor = 1000000000000000000L;
+        }
+        // recursively convert the number to string representation and append the label
+        return numToStringHelper(n / factor) + " " + label + (n % factor > 0 ? " " + numToStringHelper(n % factor ) : "");
+    }
+
+}
+```

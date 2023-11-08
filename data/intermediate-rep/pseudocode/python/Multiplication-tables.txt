@@ -1,0 +1,60 @@
+'''
+FUNCTION mulTable(n)
+    colWidth = length of n * n converted to string
+    FUNCTION pad(s)
+        RETURN s right-justified to colWidth with spaces
+    xs = enumFromTo(1)(n)
+    result = empty list
+    FOR y in xs
+        row = pad(y + ':') + ' '
+        FOR x in xs
+            IF x >= y THEN
+                row = row + pad(x * y) + ' '
+            ELSE
+                row = row + ''
+            END IF
+        END FOR
+        result.append(row)
+    END FOR
+    RETURN unlines(result)
+
+FUNCTION mulTable2(n)
+    colWidth = length of n * n converted to string
+    FUNCTION pad(s)
+        RETURN s right-justified to colWidth with spaces
+    xs = enumFromTo(1)(n)
+    result = empty list
+    FOR y in xs
+        row = pad(y + ':') + ' '
+        FOR x in xs
+            temp = empty list
+            IF x >= y THEN
+                temp.append(pad(x * y) + ' ')
+            ELSE
+                temp.append('')
+            END IF
+            row = row + unwords(temp)
+        END FOR
+        result.append(row)
+    END FOR
+    RETURN unlines(result)
+
+FUNCTION main()
+    FOR each s, f in [('list comprehension', mulTable), ('list monad', mulTable2)]
+        PRINT 'By ' + s + ' (' + f.__name__ + '):\n\n' + f(12).strip() + '\n'
+
+FUNCTION bind(xs)
+    RETURN LAMBDA f: list(chain.from_iterable(map(f, xs)))
+
+FUNCTION enumFromTo(m)
+    RETURN LAMBDA n: list(range(m, 1 + n))
+
+FUNCTION unlines(xs)
+    RETURN '\n'.join(xs)
+
+FUNCTION unwords(xs)
+    RETURN ' '.join(xs)
+
+IF __name__ == '__main__'
+    CALL main()
+'''

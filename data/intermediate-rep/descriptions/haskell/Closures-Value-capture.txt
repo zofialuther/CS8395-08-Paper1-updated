@@ -1,0 +1,1 @@
+This code creates a list of the first 10 square numbers using a list comprehension in Haskell. The 'const' function is applied to each element in the range [1..10] and multiplies it by itself to generate the square numbers. The resulting list is assigned to the variable 'fs'.

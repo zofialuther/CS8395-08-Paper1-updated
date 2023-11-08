@@ -1,0 +1,45 @@
+1. Import the necessary libraries: java.util.AbstractList, java.util.Collections, and java.util.Scanner.
+
+2. Create a class called GuessNumber.
+
+3. Define two constant variables LOWER and UPPER with values 0 and 100 respectively.
+
+4. Create a main method with the following code:
+   a. Print instructions for the game.
+   b. Use Collections.binarySearch to perform a binary search for the guessed number.
+   c. Create an AbstractList with overridden size and get methods to handle user input and guessing.
+
+5. Within the AbstractList, implement the size method to return the range of numbers between LOWER and UPPER.
+
+6. Implement the get method to:
+   a. Prompt the user for their response to the guess.
+   b. Handle the user's response and return -1 if the guess is too low, 1 if the guess is too high, and 0 if the guess is correct.
+
+7. Check the result of the binary search:
+   a. If the result is less than 0, print "That is impossible."
+   b. If the result is valid, print "Your number is [result]".
+
+Pseudocode:
+```
+import java.util.AbstractList;
+import java.util.Collections;
+import java.util.Scanner;
+
+class GuessNumber {
+    public static final int LOWER = 0, UPPER = 100;
+    
+    public static void main(String[] args) {
+        Print instructions for the game
+        
+        Perform binary search using Collections.binarySearch and AbstractList
+            Override the size method to return the range of numbers between LOWER and UPPER
+            Override the get method to handle user input and guessing
+        
+        Check the result of the binary search:
+            If result < 0
+                Print "That is impossible."
+            Else
+                Print "Your number is [result]".
+    }
+}
+```

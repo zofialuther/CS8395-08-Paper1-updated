@@ -1,0 +1,8 @@
+1. Set up a function F which takes an input n
+2. If n is equal to 0, return 1
+3. Otherwise, return n - M(F(n-1))
+4. Set up a function M which takes an input n
+5. If n is equal to 0, return 0
+6. Otherwise, return n - F(M(n-1))
+7. Create a list comprehension to iterate over a range of 20 values and print the result of F(n) for each value
+8. Create another list comprehension to iterate over a range of 20 values and print the result of M(n) for each value

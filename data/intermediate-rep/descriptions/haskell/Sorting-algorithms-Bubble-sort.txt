@@ -1,0 +1,1 @@
+This code defines a function bsort that takes a list of elements of type a and returns a sorted list using the bubble sort algorithm. It recursively compares adjacent elements in the list and swaps them if they are in the wrong order, until the entire list is sorted. The sorted list is then returned.

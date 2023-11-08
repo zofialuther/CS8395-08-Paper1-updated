@@ -1,0 +1,8 @@
+
+1. Set String toTokenize as "Hello,How,Are,You,Today"
+2. Set resultString as an empty string
+3. Set tokenArray as toTokenize.split(",")
+4. For each element in tokenArray, do the following:
+    - Add the element to resultString
+    - If the element is not the last element in tokenArray, add a "." to resultString
+5. Print resultString

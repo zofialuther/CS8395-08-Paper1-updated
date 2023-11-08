@@ -1,0 +1,9 @@
+```
+FUNCTION longYear(y)
+    RETURN 52 < date(y, 12, 28).isocalendar()[1]
+
+FUNCTION main()
+    FOR year IN [x for x in range(2000, 2101) IF longYear(x)]
+        PRINT year
+```
+Note: The pseudocode provided is a basic representation of the given code and may not be executable in a specific programming language.

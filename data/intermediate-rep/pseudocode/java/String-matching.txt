@@ -1,0 +1,10 @@
+FUNCTION checkSuffix(string, suffix)
+    lengthOfString = string.length()
+    lengthOfSuffix = suffix.length()
+    compareString = string.substring(lengthOfString - lengthOfSuffix)
+    IF compareString.equals(suffix)
+        RETURN true
+    ELSE
+        RETURN false
+    ENDIF
+ENDFUNCTION

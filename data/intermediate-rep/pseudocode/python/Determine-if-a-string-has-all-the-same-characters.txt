@@ -1,0 +1,67 @@
+```
+FUNCTION firstDifferingCharLR(s)
+    FUNCTION details(xs)
+        c = xs[1][0]
+        RETURN {
+            'char': repr(c),
+            'hex': hex(ord(c)),
+            'index': s.index(c),
+            'total': len(s)
+        }
+    END FUNCTION
+    xs = list(groupby(s))
+    IF 1 < len(xs) THEN
+        RETURN Right(details(xs))
+    ELSE
+        RETURN Left('Total length ' + str(len(s)) + ' - No character changes.')
+    END IF
+END FUNCTION
+
+FUNCTION main()
+    PRINT fTable('First, if any, points of difference:\n')(repr)(
+        either(identity)(
+            LAMBDA dct: dct['char'] + ' (' + dct['hex'] +
+            ') at character ' + str(1 + dct['index']) +
+            ' of ' + str(dct['total']) + '.'
+        )
+    )(firstDifferingCharLR)([
+        '',
+        '   ',
+        '2',
+        '333',
+        '.55',
+        'tttTTT',
+        '4444 444'
+    ]))
+END FUNCTION
+
+FUNCTION either(fl)
+    RETURN LAMBDA fr: LAMBDA e: fl(e['Left']) IF (None is e['Right']) ELSE fr(e['Right'])
+END FUNCTION
+
+FUNCTION identity(x)
+    RETURN x
+END FUNCTION
+
+FUNCTION fTable(s)
+    FUNCTION go(xShow, fxShow, f, xs)
+        ys = [xShow(x) for x in xs]
+        w = max(map(len, ys))
+        RETURN s + '\n' + '\n'.join(map(
+            LAMBDA x, y: y.rjust(w, ' ') + ' -> ' + fxShow(f(x)),
+            xs, ys
+        ))
+    END FUNCTION
+    RETURN LAMBDA xShow: LAMBDA fxShow: LAMBDA f: LAMBDA xs: go(xShow, fxShow, f, xs)
+END FUNCTION
+
+FUNCTION Left(x)
+    RETURN {'type': 'Either', 'Right': None, 'Left': x}
+END FUNCTION
+
+FUNCTION Right(x)
+    RETURN {'type': 'Either', 'Left': None, 'Right': x}
+END FUNCTION
+
+main()
+```

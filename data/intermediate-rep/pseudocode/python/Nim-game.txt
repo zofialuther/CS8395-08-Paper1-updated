@@ -1,0 +1,33 @@
+START
+  OUTPUT "Py Nim\n"
+  
+  FUNCTION getTokens(curTokens)
+    GLOBAL tokens
+    
+    OUTPUT "How many tokens would you like to take? "
+    take = INPUT
+    
+    IF (take < 1 OR take > 3) THEN
+      OUTPUT "Number must be between 1 and 3.\n"
+      CALL getTokens(curTokens)
+      RETURN
+    
+    tokens = curTokens - take
+    OUTPUT "You take " + take + " tokens."
+    OUTPUT tokens + " tokens remaining.\n"
+
+  FUNCTION compTurn(curTokens)
+    GLOBAL tokens
+    
+    take = curTokens % 4
+    tokens = curTokens - take
+    OUTPUT "Computer takes " + take + " tokens."
+    OUTPUT tokens + " tokens remaining.\n"
+    
+  tokens = 12
+  WHILE (tokens > 0) DO
+    CALL getTokens(tokens)
+    CALL compTurn(tokens)
+  
+  OUTPUT "Computer wins!"
+END

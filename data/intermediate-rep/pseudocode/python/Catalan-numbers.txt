@@ -1,0 +1,46 @@
+FUNCTION memoize(func)
+    cache = {}
+
+    FUNCTION memoized(key)
+        IF key NOT IN cache THEN
+            cache[key] = func(key)
+        END IF
+        RETURN cache[key]
+    END FUNCTION
+    RETURN functools.update_wrapper(memoized, func)
+END FUNCTION
+
+FUNCTION fact(n)
+    RETURN factorial(n)
+END FUNCTION
+
+FUNCTION cat_direct(n)
+    RETURN fact(2 * n) // fact(n + 1) // fact(n)
+END FUNCTION
+
+FUNCTION catR1(n)
+    RETURN 1 IF n == 0 ELSE
+        sum(catR1(i) * catR1(n - 1 - i) for i in range(n))
+    END IF
+END FUNCTION
+
+FUNCTION catR2(n)
+    RETURN 1 IF n == 0 ELSE
+        ((4 * n - 2) * catR2(n - 1)) // (n + 1)
+    END IF
+END FUNCTION
+
+IF __name__ == '__main__' THEN
+    FUNCTION pr(results)
+        fmt = '%-10s %-10s %-10s'
+        PRINT ((fmt % tuple(c.__name__ for c in defs)).upper())
+        PRINT fmt % (('=' * 10,) * 3)
+        FOR r IN zip(*results) DO
+            PRINT fmt % r
+        END FOR
+    END FUNCTION
+
+    defs = (cat_direct, catR1, catR2)
+    results = [tuple(c(i) for i in range(15)) for c in defs]
+    pr(results)
+END IF

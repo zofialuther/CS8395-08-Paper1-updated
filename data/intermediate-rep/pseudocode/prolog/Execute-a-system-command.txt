@@ -1,0 +1,5 @@
+function shell(command) {
+  execute command using the system's shell
+}
+
+shell('ls');

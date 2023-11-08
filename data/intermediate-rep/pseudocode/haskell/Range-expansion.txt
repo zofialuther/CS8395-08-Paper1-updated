@@ -1,0 +1,26 @@
+function expandRange(input) {
+  let result = [];
+  let ranges = input.split(",");
+  
+  for (let i = 0; i < ranges.length; i++) {
+    if (ranges[i].includes("--")) {
+      let startEnd = ranges[i].split("--");
+      let start = parseInt(startEnd[0]);
+      let end = parseInt(startEnd[1]);
+      for (let j = start; j <= end; j++) {
+        result.push(j);
+      }
+    } else if (ranges[i].includes("-")) {
+      let startEnd = ranges[i].split("-");
+      let start = parseInt(startEnd[0]);
+      let end = parseInt(startEnd[1]);
+      for (let j = start; j <= end; j++) {
+        result.push(j);
+      }
+    } else {
+      result.push(parseInt(ranges[i]));
+    }
+  }
+  
+  return result;
+}

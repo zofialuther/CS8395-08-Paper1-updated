@@ -1,0 +1,1 @@
+This Java program creates a class called Count with a main method that continuously counts and prints numbers starting from 1 in an infinite loop. The loop will keep running endlessly, incrementing the count and printing the value of i to the console.

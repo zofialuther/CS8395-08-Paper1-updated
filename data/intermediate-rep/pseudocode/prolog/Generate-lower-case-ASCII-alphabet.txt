@@ -1,0 +1,9 @@
+function a_to_z(From, To, L) {
+  [C_From] = atom_codes(From);
+  [C_To] = atom_codes(To);
+  L1 = [];
+  for each C in range between C_From and C_To {
+    add C to L1;
+  }
+  L = map atom_codes(L1);
+}

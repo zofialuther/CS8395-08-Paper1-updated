@@ -1,0 +1,34 @@
+1. Create a function sieve()
+    - Set MAX to 1,000,035
+    - Create an array called primes of size MAX, initialized with all elements set to false
+    - Loop from i = 2 to MAX
+        - Set primes[i] to true
+    - Loop from i = 2 to MAX
+        - If primes[i] is true
+            - Loop from j = 2*i to MAX, with increment of i
+                - Set primes[j] to false
+
+2. In the main function
+    - Call sieve()
+    - Initialize pairs, triples, quadruplets, and unsexyCount to 0
+    - Create empty lists pairList, tripleList, quadrupletList, and unsexyList
+    - Loop from i = 3 to MAX
+        - If i-6 is greater than or equal to 3 and primes[i-6] is true and primes[i] is true
+            - Increment pairs by 1
+            - Add (i-6) + " " + i to pairList
+            - If the size of pairList is greater than 5, remove the first element
+        - Else if i is less than MAX-2 and primes[i] is true and (i+6 is less than MAX and primes[i] is true and primes[i+6] is false)
+            - Increment unsexyCount by 1
+            - Add i to unsexyList
+            - If the size of unsexyList is greater than 10, remove the first element
+        - If i-12 is greater than or equal to 3 and primes[i-12] is true and primes[i-6] is true and primes[i] is true
+            - Increment triples by 1
+            - Add (i-12) + " " + (i-6) + " " + i to tripleList
+            - If the size of tripleList is greater than 5, remove the first element
+        - If i-16 is greater than or equal to 3 and primes[i-18] is true and primes[i-12] is true and primes[i-6] is true and primes[i] is true
+            - Increment quadruplets by 1
+            - Add (i-18) + " " + (i-12) + " " + (i-6) + " " + i to quadrupletList
+            - If the size of quadrupletList is greater than 5, remove the first element
+    - Print the counts and lists of sexy pairs, triples, quadruplets, and unsexy primes using the formatted strings as shown in the code
+
+This pseudocode represents a simplified version of the provided Java code. It outlines the logic and flow of the program without the specific syntax of the Java language.

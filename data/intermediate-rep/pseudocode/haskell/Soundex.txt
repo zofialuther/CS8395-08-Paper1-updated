@@ -1,0 +1,6 @@
+1. Import the Soundex module from the Text.PhoneticCode package
+2. Define the main function of type IO ()
+3. Within the main function, use the mapM_ function to perform the following actions:
+  a. Use the print function to output the result of the following operations:
+  b. Use the <*> operator to apply the tuple constructor (,) to the soundexSimple function
+  c. Use the <$> operator to map the tuple constructor and soundexSimple function over the list ["Soundex", "Example", "Sownteks", "Ekzampul"]

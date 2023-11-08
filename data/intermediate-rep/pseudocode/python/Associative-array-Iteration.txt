@@ -1,0 +1,13 @@
+myDict = { "hello": 13, "world": 31, "!" : 71 }
+
+# iterating over key-value pairs:
+for each key-value pair in myDict:
+    display("key =" + key + ", value =" + value)
+
+# iterating over keys:
+for each key in myDict:
+    display("key =" + key)
+
+# iterating over values:
+for each value in myDict:
+    display("value =" + value)

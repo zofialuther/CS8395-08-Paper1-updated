@@ -1,0 +1,16 @@
+quibble ws
+  ws = "{" + quibbles(ws) + "}"
+  
+quibbles ws
+  if ws.length = 0
+    return ""
+  else if ws.length = 1
+    return ws[0]
+  else if ws.length = 2
+    return ws[0] + " and " + ws[1]
+  else
+    return ws[0] + ", " + quibbles(ws.slice(1))
+
+main
+  list = [[], ["ABC"], ["ABC", "DEF"], ["ABC", "DEF", "G", "H"]] + map(words, ["One two three four", "Me myself I", "Jack Jill", "Loner"])
+  mapM_(putStrLn, map(quibble, list))

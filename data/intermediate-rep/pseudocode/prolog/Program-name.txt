@@ -1,0 +1,4 @@
+1. Start
+2. Declare "this_is_one_of_my_files" as a multifile predicate
+3. Add "this_is_one_of_my_files" to the list of my files
+4. End

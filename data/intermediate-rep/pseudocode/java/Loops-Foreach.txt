@@ -1,0 +1,9 @@
+BEGIN
+    Create a variable collect of type Iterable
+    // assume collect has been initialized with some values
+    
+    // Use a foreach loop to iterate through each object in collect
+    FOR EACH object o IN collect
+        Print the value of o to the console
+    END FOR
+END

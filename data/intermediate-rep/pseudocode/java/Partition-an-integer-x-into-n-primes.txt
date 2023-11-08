@@ -1,0 +1,36 @@
+1. Create a function called isPrime that takes an integer n as input and returns a boolean value.
+2. If n is less than 2, return false.
+3. If n is divisible by 2, return true only if n is equal to 2.
+4. If n is divisible by 3, return true only if n is equal to 3.
+5. Set d to 5.
+6. While d multiplied by d is less than or equal to n, do the following:
+   - If n is divisible by d, return false.
+   - Increment d by 2.
+   - If n is divisible by d, return false.
+   - Increment d by 4.
+7. Return true.
+
+8. Create a function called findCombo that takes integers k, x, m, n, and an array combo as input and returns a boolean value.
+9. Set foundCombo to false.
+10. If k is greater than or equal to m, do the following:
+    - If the sum of prime numbers at indices specified by combo in the primes array is equal to x, then:
+        - Print the partitioned number and the prime numbers.
+        - Set foundCombo to true.
+11. Otherwise, do the following:
+    - For j from 0 to n-1, do the following:
+        - If k is 0 or j is greater than the value at combo[k-1], then:
+            - Set the value at combo[k] to j.
+            - If foundCombo is still false, call findCombo recursively with k+1, x, m, n, and combo.
+12. Return foundCombo.
+
+13. Create a function called partition that takes integers x and m as input and has no return value.
+14. If x is less than 2 or m is less than 1 or m is greater than or equal to x, throw an IllegalArgumentException.
+15. Create an array called filteredPrimes containing prime numbers from the primes array that are less than or equal to x.
+16. Get the length of the filteredPrimes array and store it in n.
+17. If n is less than m, throw an IllegalArgumentException with the message "Not enough primes".
+18. Create an array combo of size m.
+19. Call findCombo with initial values 0, x, m, n, and combo and store the result in foundCombo.
+20. If foundCombo is false, print that it is not possible to partition the number.
+
+21. In the main function:
+    - Call partition with the specified numbers and m values to test the functionality of the program.

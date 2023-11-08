@@ -1,0 +1,1 @@
+The code defines a function divisors that takes an integer n and returns a list of its divisors. It then defines a main function that creates a range of integers from 1 to 20000, calculates the sum of divisors for each integer in the range, and then finds pairs of integers whose sum of divisors are equal to each other. Finally, it prints out the pairs that satisfy the conditions.

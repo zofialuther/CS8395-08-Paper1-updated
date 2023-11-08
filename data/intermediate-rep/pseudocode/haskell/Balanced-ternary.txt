@@ -1,0 +1,128 @@
+```
+FUNCTION zeroTrim(a)
+    IF null(s) THEN
+        RETURN [0]
+    ELSE
+        RETURN s
+    END IF
+    s = fst(foldl(f, ([], []), a))
+    FUNCTION f(x, y, z)
+        IF z == 0 THEN
+            RETURN (x, y ++ [0])
+        ELSE
+            RETURN (x ++ y ++ [z], [])
+        END IF
+    END FUNCTION
+END FUNCTION
+
+FUNCTION btList(Bt a)
+    RETURN a
+END FUNCTION
+
+FUNCTION ==(a, b)
+    RETURN btList(a) == btList(b)
+END FUNCTION
+
+FUNCTION btNormalize
+    RETURN listBt(_carry(0))
+    FUNCTION _carry(c, a)
+        IF c == 0 THEN
+            RETURN []
+        ELSE
+            RETURN [c]
+        END IF
+        IF a == [] THEN
+            RETURN r:_carry(cc, as)
+        ELSE
+            (cc, r) = f((a + c) / 3)
+            FUNCTION f(x, y)
+                IF y == 2 THEN
+                    RETURN (x + 1, -1)
+                ELSE IF y == -2 THEN
+                    RETURN (x - 1, 1)
+                ELSE
+                    RETURN x
+                END IF
+            END FUNCTION
+        END IF
+    END FUNCTION
+END FUNCTION
+
+FUNCTION listBt
+    RETURN Bt(zeroTrim)
+END FUNCTION
+
+FUNCTION show
+    RETURN reverse(map(\d->case d of -1->'-'; 0->'0'; 1->'+') btList)
+END FUNCTION
+
+FUNCTION strBt
+    RETURN Bt(zeroTrim.reverse.map(\c->case c of '-'->-1; '0'->0; '+'->1))
+END FUNCTION
+
+FUNCTION intBt(a)
+    RETURN fromIntegral(toInteger(a))
+END FUNCTION
+
+FUNCTION btInt
+    RETURN foldr(\a, z -> a + 3 * z, 0, btList)
+END FUNCTION
+
+FUNCTION listAdd(a, b)
+    RETURN take(max(length(a), length(b)), zipWith(+)(a ++ [0, 0..])(b ++ [0, 0..]))
+END FUNCTION
+
+FUNCTION negate
+    RETURN Bt(map negate btList)
+END FUNCTION
+
+FUNCTION +
+    RETURN btNormalize(listAdd(btList(x), btList(y)))
+END FUNCTION
+
+FUNCTION *
+    RETURN btNormalize(mul_(btList(x), btList(y)))
+    FUNCTION mul_(as, b)
+        IF b == [] THEN
+            RETURN []
+        ELSE
+            RETURN foldr(\a, z -> listAdd(map(a*) b)(0:z), [], as)
+        END IF
+    END FUNCTION
+END FUNCTION
+
+FUNCTION signum(Bt a)
+    IF a == [0] THEN
+        RETURN 0
+    ELSE
+        RETURN Bt([last(a)])
+    END IF
+END FUNCTION
+
+FUNCTION abs(x)
+    IF signum(x) == Bt([-1]) THEN
+        RETURN negate(x)
+    ELSE
+        RETURN x
+    END IF
+END FUNCTION
+
+FUNCTION fromInteger
+    RETURN btNormalize(f(x))
+    FUNCTION f(x)
+        IF x == 0 THEN
+            RETURN []
+        ELSE
+            RETURN fromInteger(rem(x, 3)) : f(quot(x, 3))
+        END IF
+    END FUNCTION
+END FUNCTION
+
+FUNCTION main
+    (a, b, c) = (strBt("+-0++0+"), intBt(-436), strBt("+-++-"))
+    r = a * (b - c)
+    PRINT(map(btInt, [a, b, c]))
+    PRINT(r)
+    PRINT(btInt(r))
+END FUNCTION
+```

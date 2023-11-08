@@ -1,0 +1,1 @@
+This Python code uses itertools to generate the first 100 numbers in the FizzBuzz sequence. It first creates cycles for the words "Fizz" and "Buzz", and then creates a generator that combines these words based on the current number in the sequence. Finally, it uses islice to print the first 100 elements of the FizzBuzz sequence.

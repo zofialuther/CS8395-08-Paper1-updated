@@ -1,0 +1,25 @@
+```
+FUNCTION longmult(x, y)
+    RETURN reduce(digitSum, polymul(digits(x), digits(y)), 0)
+END FUNCTION
+
+FUNCTION digitSum(a, x)
+    RETURN a * 10 + x
+END FUNCTION
+
+FUNCTION polymul(xs, ys)
+    RETURN map(lambda *vs: sum(filter(None, vs)), *[ [0] * i + zs for i, zs in enumerate(mult_table(xs, ys)) ])
+END FUNCTION
+
+FUNCTION mult_table(xs, ys)
+    RETURN [[x * y for x in xs] for y in ys]
+END FUNCTION
+
+FUNCTION digits(x)
+    RETURN [int(c) for c in str(x)]
+END FUNCTION
+
+IF __name__ == '__main__' THEN
+    PRINT longmult(2 ** 64, 2 ** 64)
+END IF
+```

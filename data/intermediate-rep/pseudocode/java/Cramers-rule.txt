@@ -1,0 +1,66 @@
+```
+define class CramersRule
+    define method main
+        create new Matrix mat with values (2d, -1d, 5d, 1d), (3d, 2d, 2d, -6d), (1d, 3d, 3d, -1d), (5d, -2d, -3d, 3d)
+        create new List b with values (-3d, -32d, -47d, 49d)
+        print "Solution = " + result of calling method cramersRule with arguments mat and b
+
+    define method cramersRule with parameters Matrix matrix and List<Double> b
+        set denominator to matrix.determinant()
+        create new empty List result
+        for each element i in b
+            add (matrix.replaceColumn(b, i).determinant() / denominator) to result
+        return result
+
+    define class Matrix
+        define property matrix
+
+        define method toString
+            return matrix.toString()
+
+        define constructor with varargs parameter lists
+            set matrix to a new ArrayList
+            for each list in lists
+                add list to matrix
+
+        define constructor with parameter List<List<Double>> mat
+            set matrix to mat
+
+        define method determinant
+            if size of matrix is 1
+                return value at position (0, 0)
+            if size of matrix is 2
+                return (value at position (0, 0) * value at position (1, 1)) - (value at position (0, 1) * value at position (1, 0))
+            set sum to 0
+            set sign to 1
+            for each element i in matrix
+                add sign * (value at position (0, i) * coFactor(0, i).determinant()) to sum
+                change sign to -1 or 1
+            return sum
+
+        define method coFactor with parameters row and col
+            create new empty List mat
+            for each element i in matrix
+                if i is equal to row, continue
+                create new empty List list
+                for each element j in matrix
+                    if j is equal to col, continue
+                    add value at position (i, j) to list
+                add list to mat
+            return new Matrix(mat)
+
+        define method replaceColumn with parameters List<Double> b and column
+            create new empty List mat
+            for each row in matrix
+                create new empty List list
+                for each column in matrix
+                    set value to value at position (row, col)
+                    if col is equal to column
+                        set value to value at position (row) in b
+                    add value to list
+                add list to mat
+            return new Matrix(mat)
+
+        define method get with parameters row and col
+            return value at position (row, col) in matrix
+```

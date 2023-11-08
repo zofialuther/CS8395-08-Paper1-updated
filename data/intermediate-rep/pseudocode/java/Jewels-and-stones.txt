@@ -1,0 +1,14 @@
+Set bag = new HashSet
+countJewels(String stones, String jewels):
+    bag = new HashSet
+    for each character c in jewels.toCharArray():
+        add c to bag
+    count = 0
+    for each character c in stones.toCharArray():
+        if bag contains c:
+            increment count by 1
+    return count
+
+main(String[] args):
+    print countJewels("aAAbbbb", "aA")
+    print countJewels("ZZ", "z")

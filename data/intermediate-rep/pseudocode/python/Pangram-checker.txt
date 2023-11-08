@@ -1,0 +1,7 @@
+1. Import the string and sys modules
+2. Check if the Python version is less than 3, if true, set the input method to raw_input
+3. Define a function called ispangram that takes a sentence and an alphabet as parameters
+4. Convert the alphabet string to a set called alphaset
+5. Convert the input sentence to lowercase and convert it to a set
+6. Return whether the alphaset is a subset of the sentence set
+7. Print the result of calling ispangram with the input sentence as the argument.

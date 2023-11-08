@@ -1,0 +1,8 @@
+1. Import the java.util.Arrays package
+
+2. Create a String array called haystack with the following values: "Zig","Zag","Wally","Ronald","Bush","Krusty","Charlie","Bush","Bozo"
+
+3. For each String needle in the array {"Washington","Bush"}, do the following:
+    a. Use the Arrays.binarySearch method to find the index of the needle in the haystack array
+    b. If the index is less than 0, then print "needle is not in haystack"
+    c. Else, print the index and the needle.

@@ -1,0 +1,43 @@
+```
+function main(args)
+    print(soundex("Soundex"))
+    print(soundex("Example"))
+    print(soundex("Sownteks"))
+    print(soundex("Ekzampul"))
+end
+
+function getCode(c)
+    switch(c)
+        case 'B', 'F', 'P', 'V':
+            return "1"
+        case 'C', 'G', 'J', 'K', 'Q', 'S', 'X', 'Z':
+            return "2"
+        case 'D', 'T':
+            return "3"
+        case 'L':
+            return "4"
+        case 'M', 'N':
+            return "5"
+        case 'R':
+            return "6"
+        default:
+            return ""
+    end
+end
+
+function soundex(s)
+    code = s.toUpperCase().charAt(0)
+    previous = getCode(s.toUpperCase().charAt(0))
+    
+    for i = 1 to s.length()
+        current = getCode(s.toUpperCase().charAt(i))
+        if current.length() > 0 and not current.equals(previous) then
+            code = code + current
+        end
+        previous = current
+    end
+    
+    soundex = (code + "0000").substring(0, 4)
+    return soundex
+end
+```

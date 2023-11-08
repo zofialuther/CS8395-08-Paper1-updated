@@ -1,0 +1,36 @@
+'''
+1. Import the necessary modules and functions from itertools and os.path
+
+2. Define a function abbrevLen which takes a list of strings xs as input
+    a. Get the length n of xs
+    b. Return the length of the prefix required to obtain a unique abbreviation for each string in xs
+
+3. Define a function main which is used to test the abbrevLen function
+    a. Read the contents of a file 'weekDayNames.txt' and store them in a list xs
+    b. For each string in xs, calculate the abbreviation length using the abbrevLen function and print the length and the string
+
+4. Define a function compose which takes a function g as input and returns a composed function
+    a. Return a lambda function that takes a function f as input and returns a function that applies g to the result of f
+
+5. Define a function concat which takes a list of strings xs as input and returns the concatenation of those strings
+
+6. Define a function inits which takes a list xs as input and returns all initial segments of xs, shortest first
+
+7. Define a function lines which takes a string s as input and returns a list of strings derived from s by splitting on newline characters
+
+8. Define a function map_ which takes a function f as input and returns a lambda function that applies f to each element of a list xs and returns a list
+
+9. Define a function nub which takes a list xs as input and returns a list containing the same elements as xs without duplicates
+
+10. Define a function readFile which takes a file path fp as input and returns the contents of the file at the expanded path
+
+11. Define a function scanl which takes a function f as input and returns a lambda function that applies f to a list of values and returns a succession of intermediate values
+
+12. Define a function strip which takes a string s as input and returns a copy of s without any leading or trailing white space
+
+13. Define a function transpose which takes a matrix m as input and returns the transposed matrix
+
+14. Define a function words which takes a string s as input and returns a list of words delimited by white space characters
+
+15. Call the main function if the script is executed directly
+'''

@@ -1,0 +1,9 @@
+1. Start
+2. Define a function Math.Statistics.median that takes an array of numbers as input
+3. Sort the input array in ascending order
+4. Calculate the length of the input array and store it in a variable n
+5. If the length of the input array is odd
+    6. Return the middle element of the sorted array as the median
+7. If the length of the input array is even
+    8. Return the average of the two middle elements of the sorted array as the median
+9. End

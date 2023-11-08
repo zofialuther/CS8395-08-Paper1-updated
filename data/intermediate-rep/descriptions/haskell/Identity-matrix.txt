@@ -1,0 +1,1 @@
+This code defines a function called showMat that takes a 2D list of integers and returns a string representation of the matrix. It achieves this by first mapping the show function over each element of the list to convert the integers to strings, and then joining the inner lists with spaces and the outer lists with newlines.

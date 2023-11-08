@@ -1,0 +1,1 @@
+This code defines a function called isPrime that takes a number n as input. It checks if n is a prime number by first verifying if it is greater than 1, and then using a list comprehension to check if there are no numbers between 2 and n-1 that evenly divide n. If the condition is met, the function returns True, indicating that n is a prime number. If not, it returns False.

@@ -1,0 +1,20 @@
+1. Create a class BogoSort
+2. Create a main method that takes in an array of integers as input
+3. Initialize an array called arr with values {4,5,6,0,7,8,9,1,2,3}
+4. Create an instance of BogoSort called now
+5. Print "Unsorted: " followed by the elements of the array using the display1D method
+6. Call the bogo method on the array
+7. Print "Sorted: " followed by the elements of the array using the display1D method
+8. Create a bogo method that takes in an array as input
+9. Initialize a variable called shuffle to 1
+10. Use a while loop to continue shuffling the array until it is sorted, keeping track of the number of shuffles
+11. Print "This took " followed by the number of shuffles
+12. Create a shuffle method that takes in an array as input
+13. Use the Fisher-Yates shuffle algorithm to shuffle the array
+14. Create a swap method that takes in an array and two indices i and j as input
+15. Swap the elements at indices i and j in the array
+16. Create an isSorted method that takes in an array as input
+17. Use a for loop to check if the array is sorted in ascending order, returning false if it is not
+18. Create a display1D method that takes in an array as input
+19. Use a for loop to print each element of the array followed by a space
+20. Print a new line after printing all the elements of the array.

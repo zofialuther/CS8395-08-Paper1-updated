@@ -1,0 +1,7 @@
+```
+Create a new file called X.java
+Write "public class X{public static void main(String[] args){System.out.println("Hello Java!");}}" to X.java
+Compile X.java using javac
+Run X using java
+Print "Hello Java!"
+```

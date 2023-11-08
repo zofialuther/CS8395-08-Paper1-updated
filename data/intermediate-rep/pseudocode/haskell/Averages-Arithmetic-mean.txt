@@ -1,0 +1,12 @@
+FUNCTION mean(list)
+    IF list is empty
+        RETURN 0
+    ELSE
+        total = 0
+        FOR each value in list
+            total = total + value
+        END FOR
+        mean = total / length of list
+        RETURN mean
+    END IF
+END FUNCTION

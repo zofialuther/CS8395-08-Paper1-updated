@@ -1,0 +1,36 @@
+```
+function continued_fraction():
+    continued_fraction(200, sqrt_2_ab, V1)
+    print "sqrt(2) = " + V1
+
+    continued_fraction(200, napier_ab, V2)
+    print "e       = " + V2
+
+    continued_fraction(200, pi_ab, V3)
+    print "pi      = " + V3
+
+function continued_fraction(N, Compute_ab, V):
+    continued_fraction(N, Compute_ab, 0, V)
+
+function continued_fraction(0, Compute_ab, Temp, V):
+    Compute_ab(0, A, _)
+    V = A + Temp
+
+function continued_fraction(N, Compute_ab, Tmp, V):
+    Compute_ab(N, A, B)
+    Tmp1 = B / (A + Tmp)
+    N1 = N - 1
+    continued_fraction(N1, Compute_ab, Tmp1, V)
+
+function sqrt_2_ab(0, 1, 1)
+function sqrt_2_ab(_, 2, 1)
+
+function napier_ab(0, 2, _)
+function napier_ab(1, 1, 1)
+function napier_ab(N, N, V):
+    V = N - 1
+
+function pi_ab(0, 3, _)
+function pi_ab(N, 6, V):
+    V = (2 * N - 1)*(2 * N - 1)
+```

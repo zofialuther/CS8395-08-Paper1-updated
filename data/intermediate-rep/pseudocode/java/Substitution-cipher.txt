@@ -1,0 +1,22 @@
+START
+  Function encode(String s)
+    sb = StringBuilder with length of s
+
+    FOR each character c in s
+      sb.append(key.charAt((int) c - 32))
+
+    RETURN sb.toString()
+
+  Function decode(String s)
+    sb = StringBuilder with length of s
+
+    FOR each character c in s
+      sb.append((char) (key.indexOf((int) c) + 32))
+
+    RETURN sb.toString()
+
+  main()
+    enc = encode(text)
+    PRINT "Encoded: " + enc
+    PRINT "Decoded: " + decode(enc)
+END

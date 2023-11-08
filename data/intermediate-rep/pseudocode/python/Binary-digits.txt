@@ -1,0 +1,2 @@
+FOR i IN range(16)
+    PRINT '{0:b}'.format(i)

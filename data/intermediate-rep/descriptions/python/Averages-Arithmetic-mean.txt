@@ -1,0 +1,1 @@
+This code defines a function called "average" that takes a list of numbers as input and returns the average of those numbers. It then calls the "average" function with two different lists of numbers and prints the results. The first list contains mostly zeros with a few non-zero values, and the second list contains very large and very small numbers.

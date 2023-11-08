@@ -1,0 +1,137 @@
+```
+FUNCTION makeToken(lexer)
+    (t, l, c) <- get
+    val <- lexer
+    
+    IF val = Skip THEN
+        RETURN nextToken
+    ELSE IF val = LexError msg THEN
+        (_, l', c') <- get
+        code <- takeSubstring(t, c' - c + 1)
+        str <- formatString(msg, " ", l', c', code)
+
+        ch <- peek
+        IF ch != '\0' THEN
+            advance 1
+        END IF
+        RETURN Token(LexError str, l, c)
+    ELSE
+        RETURN Token(val, l, c)
+    END IF
+END FUNCTION
+
+FUNCTION simpleToken(lexeme, name)
+    RETURN lit(lexeme) $> SymbolVal(name)
+END FUNCTION
+
+FUNCTION makeTokenizers(tokens)
+    RETURN asum(map(uncurry simpleToken, tokens))
+END FUNCTION
+
+FUNCTION isIdStart(ch)
+    RETURN isAsciiLower(ch) OR isAsciiUpper(ch) OR ch = '_'
+END FUNCTION
+
+FUNCTION isIdEnd(ch)
+    RETURN isIdStart(ch) OR isDigit(ch)
+END FUNCTION
+
+FUNCTION identifier()
+    lexeme <- T.cons(one(isIdStart), many(isIdEnd))
+    RETURN TextVal("Identifier", lexeme)
+END FUNCTION
+
+FUNCTION integer()
+    lexeme <- some(isDigit)
+    next_ch <- peek
+
+    IF isIdStart(next_ch) THEN
+        RETURN LexError("Invalid number. Starts like a number, but ends in non-numeric characters.")
+    ELSE
+        num <- parseInt(lexeme)
+        RETURN IntVal(num)
+    END IF
+END FUNCTION
+
+FUNCTION character()
+    lit("'")
+    str <- lookahead(3)
+
+    SWITCH str
+        CASE (ch : '\'' : _)
+            advance(2) $> IntVal(ord(ch))
+        CASE "\n'"
+            advance(3) $> IntVal(10)
+        CASE "\\\\'"
+            advance(3) $> IntVal(92)
+        CASE ('\\' : ch : "\'")
+            advance(2) $> LexError(formatString("Unknown escape sequence \\%c", ch))
+        CASE ('\'' : _)
+            RETURN LexError("Empty character constant")
+        DEFAULT
+            advance(2) $> LexError("Multi-character constant")
+    END SWITCH
+END FUNCTION
+
+FUNCTION string()
+    lit("\"")
+
+    LOOP
+        ch <- peek
+        SWITCH ch
+            CASE '\\'
+                next_ch <- next
+
+                SWITCH next_ch
+                    CASE 'n'
+                        ch <- next
+                        t <- T.snoc(t, '\n')
+                    CASE '\\'
+                        ch <- next
+                        t <- T.snoc(t, '\\')
+                    DEFAULT
+                        RETURN LexError(formatString("Unknown escape sequence \\%c", next_ch))
+                END SWITCH
+            CASE '"'
+                next
+                RETURN TextVal("String", t)
+            CASE '\n'
+                RETURN LexError("End-of-line while scanning string literal. Closing string character not found before end-of-line.")
+            CASE '\0'
+                RETURN LexError("End-of-file while scanning string literal. Closing string character not found.")
+            DEFAULT
+                ch <- next
+                t <- T.snoc(t, ch)
+        END SWITCH
+    END LOOP
+END FUNCTION
+
+FUNCTION skipComment()
+    lit("/*")
+
+    LOOP
+        ch <- peek
+        SWITCH ch
+            CASE '\0'
+                RETURN LexError("End-of-file in comment. Closing comment characters not found.")
+            CASE '*'
+                next_ch <- next
+
+                SWITCH next_ch
+                    CASE '/'
+                        RETURN Skip
+                    DEFAULT
+                        ch <- next_ch
+                END SWITCH
+            DEFAULT
+                ch <- next
+        END SWITCH
+    END LOOP
+END FUNCTION
+
+FUNCTION nextToken()
+    skipWhitespace
+
+    makeToken(skipComment OR keywords OR identifier OR integer OR character OR string OR operators OR symbols OR simpleToken("\0", "End_of_input") OR LexError("Unrecognized character."))
+END FUNCTION
+```

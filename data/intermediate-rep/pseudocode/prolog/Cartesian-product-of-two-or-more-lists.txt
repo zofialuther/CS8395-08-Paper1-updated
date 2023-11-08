@@ -1,0 +1,9 @@
+function product(A, Bs, X):
+    if A is not empty:
+        A_head = first element of A
+        X = [A_head, B] where B is a member of Bs
+        return X
+    else:
+        A_tail = remaining elements of A
+        X = product(A_tail, Bs, X)
+        return X

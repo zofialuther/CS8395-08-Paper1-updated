@@ -1,0 +1,25 @@
+```
+START
+    IMPORT library(ctypes)
+    
+    FUNCTION runtime_entry(start)
+        prompt(_, '')
+        CALL rot13
+    
+    FUNCTION rot13
+        Ch = get0()
+        IF Ch is endfile
+            RETURN
+        ELSE
+            CALL rot13_char(Ch, Rot)
+            put(Rot)
+            CALL rot13
+    
+    FUNCTION rot13_char(Ch, Rot)
+        IF Ch is alpha
+            Up = to_upper(Ch)
+            Letter = Up - 0'A
+            Rot = Ch + ((Letter + 13) mod 26) - Letter
+        ELSE
+            Rot = Ch
+```

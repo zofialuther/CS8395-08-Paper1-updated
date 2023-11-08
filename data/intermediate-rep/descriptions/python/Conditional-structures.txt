@@ -1,0 +1,1 @@
+This code assigns the value "foo" to the variable secret and then checks if the value of secret is equal to "foo". If it is, the code will print "got it", otherwise it will print "try again". In this case, since the value of secret is "foo", the code will print "got it".

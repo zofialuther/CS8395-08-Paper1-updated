@@ -1,0 +1,44 @@
+class Queue<E>{
+    Node<E> head = null, tail = null;
+
+    static class Node<E>{
+        E value;
+        Node<E> next;
+
+        Node(E value, Node<E> next){
+            this.value= value;
+            this.next= next;
+        }
+
+    }
+
+    Queue(){
+        // constructor
+    }
+
+    enqueue(E value){
+        // add a new node to the queue
+        Node<E> newNode= new Node<E>(value, null);
+        if(empty()){
+            head= newNode;
+        }else{
+            tail.next = newNode;
+        }
+        tail= newNode;
+    }
+
+    dequeue() throws java.util.NoSuchElementException{
+        // remove and return the first element in the queue
+        if(empty()){
+            throw new java.util.NoSuchElementException("No more elements.");
+        }
+        E retVal= head.value;
+        head= head.next;
+        return retVal;
+    }
+
+    empty(){
+        // check if the queue is empty
+        return head == null;
+    }
+}

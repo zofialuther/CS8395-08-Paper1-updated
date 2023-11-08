@@ -1,0 +1,6 @@
+
+Pseudocode:
+
+for each entry in map.entrySet
+    print entry
+end for

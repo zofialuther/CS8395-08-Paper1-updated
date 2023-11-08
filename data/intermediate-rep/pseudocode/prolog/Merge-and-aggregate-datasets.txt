@@ -1,0 +1,36 @@
+```
+Load_CSV('visit.csv',visit(integer,date,float))
+Load_CSV('patient.csv',patient(integer,atom))
+
+Is_nan(Number) :-
+    X is Number,
+    X =\= Number.
+
+SummaryDates(Id, Lastname, LastDate) :-
+    BagMax(Date_number(Id), LastDateNumber),
+    Patient(Id,Lastname),
+    Julian_date(LastDateNumber, Y, M, D, _, _, _),
+    Date_converter(LastDate, date(Y,M,D)).
+
+SummaryScores(Id, Lastname, Sum, Mean) :-
+    BagSum(Scores(Id), Sum),
+    BagCount(Scores(Id), Count),
+    Mean is Sum/Count,
+    Patient(Id,Lastname).
+
+Test :-
+    SummaryDates(Id,Lastname,LastDate),
+    Writeln(summaryDates(Id,Lastname,LastDate)), fail.
+
+Test :-
+    SummaryScores(Id, Lastname, ScoreSum, ScoreMean),
+    Writeln(summaryScores(Id, Lastname, ScoreSum, ScoreMean)), fail.
+
+Date_number(Id)(Number) :-
+    Visit(Id, date(Y,M,D), _),
+    Julian_date(Number, Y, M, D, _, _, _).
+
+Scores(Id)(Score) :-
+    Visit(Id, _, Score),
+    \+Is_nan(Score).
+```

@@ -1,0 +1,1 @@
+This Java program, PrimeConspiracy, uses the sieve of Eratosthenes algorithm to calculate prime numbers up to a specified limit. It then analyzes the frequency of occurrence of the last digit of each prime number and stores the data in a 2D array called buckets. Finally, it prints out the frequency of occurrence for each combination of last digits.

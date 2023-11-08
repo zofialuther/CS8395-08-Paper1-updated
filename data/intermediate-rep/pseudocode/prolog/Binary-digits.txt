@@ -1,0 +1,10 @@
+binary(X) {
+    print X in binary format
+}
+
+main {
+    for each number in [5, 50, 9000] {
+        call binary function with the number as argument
+    }
+    exit program
+}

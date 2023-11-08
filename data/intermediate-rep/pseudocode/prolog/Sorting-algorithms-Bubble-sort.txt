@@ -1,0 +1,38 @@
+```
+function main
+    test(T)
+    bubble_sort(T, _)
+    halt
+end function
+
+function bubble_sort(Xs, Res)
+    write(Xs)
+    write new line
+    bubble_pass(Xs, Ys, Changed)
+    if Changed is true
+        bubble_sort(Ys, Res)
+    else
+        Res = Xs
+    end if
+end function
+
+function bubble_pass(Xs, Res, Changed)
+    Xs = [X|Ys]
+    Ys = [Y|Zs]
+    if X > Y
+        H = Y
+        T = [X|Zs]
+        Changed = true
+    else
+        H = X
+        T = Ys
+    end if
+    Res = [H|R]
+    bubble_pass(T, R, Changed)
+    Res = Xs
+end function
+
+function test(arr)
+    arr = [8, 9, 1, 3, 4, 2, 6, 5, 4]
+end function
+```

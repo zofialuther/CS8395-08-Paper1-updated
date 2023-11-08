@@ -1,0 +1,23 @@
+Function stirling1 takes a pair of integral numbers (n, k) and returns an integral number.
+
+The function f checks for base cases where n is 0 and k is 0, n is greater than 0 and k is 0, k is greater than n, and for all other cases.
+
+In the main function, it prints the header for the table, then generates the table using stirling1 and a list of pairs from 0 to 12. It also finds the maximum value of S1(100, k) and prints it.
+
+Pseudocode:
+1. Import necessary libraries (Text.Printf, Data.List, Data.MemoCombinators)
+
+2. Define the function stirling1 that takes a pair of integral numbers (n, k) and returns an integral number.
+  a. Use Memo.pair to memoize the function f
+  b. Define the function f that checks for base cases and calculates the result using recursion.
+
+3. Define the main function that performs the following tasks:
+  a. Print the header for the table
+  b. Generate the table using stirling1 and a list of pairs from 0 to 12
+  c. Find the maximum value of S1(100, k) and print it
+
+4. Define the table as a list of pairs from 0 to 12 using groupBy to group them by the first element.
+
+5. End of pseudocode.
+
+Note: This pseudocode assumes basic familiarity with Haskell syntax and libraries.

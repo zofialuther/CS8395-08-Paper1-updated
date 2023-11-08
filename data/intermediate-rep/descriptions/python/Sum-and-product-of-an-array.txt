@@ -1,0 +1,1 @@
+This code uses the math module to calculate the sum of a list of floating point numbers. It imports the math module and then uses the fsum function to calculate the total sum of the floats list.

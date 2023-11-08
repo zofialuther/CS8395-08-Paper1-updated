@@ -1,0 +1,23 @@
+```
+FUNCTION caesar(k, str)
+    FOR EACH character c in str
+        IF c is a lowercase letter
+            c = addChar('a', k, c)
+        ELSE IF c is an uppercase letter
+            c = addChar('A', k, c)
+        END IF
+    END FOR
+    RETURN str
+END FUNCTION
+
+FUNCTION uncaesar(k, str)
+    RETURN caesar(-k, str)
+END FUNCTION
+
+FUNCTION addChar(b, o, c)
+    b' = ord(b)
+    c' = ord(c)
+    newChar = chr((b' + (c' - b' + o) mod 26))
+    RETURN newChar
+END FUNCTION
+```

@@ -1,0 +1,9 @@
+Enum Contact:
+    FIRST_NAME = 1
+    LAST_NAME = 2
+    PHONE = 3
+
+Enum Contact2:
+    FIRST_NAME = 1
+    LAST_NAME = 2
+    PHONE = 3

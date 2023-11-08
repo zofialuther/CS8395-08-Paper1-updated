@@ -1,0 +1,30 @@
+FUNCTION properDivs(n)
+    divs = new LinkedList
+    IF n = 1 THEN
+        RETURN divs
+    END IF
+    divs.add(1)
+    FOR x = 2 TO n - 1
+        IF n % x = 0 THEN
+            divs.add(x)
+        END IF
+    END FOR
+    Collections.sort(divs)
+    RETURN divs
+END FUNCTION
+
+FUNCTION main
+    FOR x = 1 TO 10
+        PRINT x + ": " + properDivs(x)
+    END FOR
+
+    x = 0
+    count = 0
+    FOR n = 1 TO 20000
+        IF properDivs(n).size() > count THEN
+            x = n
+            count = properDivs(n).size()
+        END IF
+    END FOR
+    PRINT x + ": " + count
+END FUNCTION

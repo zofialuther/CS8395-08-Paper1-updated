@@ -1,0 +1,19 @@
+```
+function starts_with(FIRSTz, SECONDz) {
+    return append(SECONDz, _, FIRSTz);
+}
+
+function contains(FIRSTz, SECONDz) {
+    return contains(FIRSTz, SECONDz, _);
+}
+
+function contains(FIRSTz, SECONDz, NTH1) {
+    let [PREFIXz, SECONDz, _SUFFIXz_] = append([PREFIXz, SECONDz, _SUFFIXz_], FIRSTz);
+    let NTH0 = length(PREFIXz);
+    NTH1 = NTH0 + 1;
+}
+
+function ends_with(FIRSTz, SECONDz) {
+    return append(_, SECONDz, FIRSTz);
+}
+```

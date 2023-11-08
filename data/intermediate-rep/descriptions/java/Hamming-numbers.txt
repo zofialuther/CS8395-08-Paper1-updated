@@ -1,0 +1,1 @@
+This Java code defines a class called Hamming that contains a method for calculating the nth Hamming number, which is a positive integer with only prime factors of 2, 3, and 5. The code uses a priority queue to efficiently generate the Hamming numbers and includes a main method to demonstrate the functionality by printing the Hamming numbers for a range of input values.

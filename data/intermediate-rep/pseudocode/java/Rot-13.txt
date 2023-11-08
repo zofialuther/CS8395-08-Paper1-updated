@@ -1,0 +1,32 @@
+START
+  FUNCTION main
+    IF args.length >= 1 THEN
+      FOR EACH file IN args
+        TRY
+          in = new BufferedInputStream(new FileInputStream(file)
+          CALL rot13(in, System.out)
+        END TRY
+      END FOR
+    ELSE
+      CALL rot13(System.in, System.out)
+    END IF
+  END FUNCTION
+  
+  FUNCTION rot13
+    READ ch FROM in
+    WHILE ch != -1 DO
+      WRITE rot13(ch) TO out
+      READ ch FROM in
+    END WHILE
+  END FUNCTION
+  
+  FUNCTION rot13
+    IF ch >= 'A' AND ch <= 'Z' THEN
+      RETURN ((ch - 'A') + 13) % 26 + 'A'
+    ELSE IF ch >= 'a' AND ch <= 'z' THEN
+      RETURN ((ch - 'a') + 13) % 26 + 'a'
+    ELSE
+      RETURN ch
+    END IF
+  END FUNCTION
+END

@@ -1,0 +1,39 @@
+```
+function main
+    weights = {{1, 3, -2}, {2, 1, 4}, {2, 3, 3}, {3, 4, 2}, {4, 2, -1}}
+    numVertices = 4
+    floydWarshall(weights, numVertices)
+
+function floydWarshall(weights, numVertices)
+    dist = create 2D array of size numVertices x numVertices filled with positive infinity
+    for each row in dist
+        fill the row with positive infinity
+    for each w in weights
+        dist[w[0] - 1][w[1] - 1] = w[2]
+    next = create 2D array of size numVertices x numVertices
+    for i = 0 to length of next
+        for j = 0 to length of next
+            if i is not equal to j
+                next[i][j] = j + 1
+    for k = 0 to numVertices
+        for i = 0 to numVertices
+            for j = 0 to numVertices
+                if dist[i][k] + dist[k][j] < dist[i][j]
+                    dist[i][j] = dist[i][k] + dist[k][j]
+                    next[i][j] = next[i][k]
+    printResult(dist, next)
+
+function printResult(dist, next)
+    output "pair     dist    path"
+    for i = 0 to length of next
+        for j = 0 to length of next
+            if i is not equal to j
+                u = i + 1
+                v = j + 1
+                path = format("%d -> %d    %2d     %s", u, v, (int) dist[i][j], u)
+                do
+                    u = next[u - 1][v - 1]
+                    path += " -> " + u
+                while u is not equal to v
+                output path
+```

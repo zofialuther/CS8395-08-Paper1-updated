@@ -1,0 +1,78 @@
+```
+function prime(N) {
+    if (N % 2 === 0) {
+        return false;
+    }
+    let M = Math.floor(Math.sqrt(N)) - 1;
+    let Max = Math.floor(M / 2);
+    for (let I = 1; I <= Max; I++) {
+        if (N % (2 * I + 1) === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function primesByDiffs(Primes, Diff) {
+    if (Diff.length === 0) {
+        return [];
+    }
+    
+    let Slides = [];
+    let Len0 = Diff.length;
+    let Len = Len0 + 1;
+    for (let i = 0; i < Primes.length; i++) {
+        let Slide = [];
+        for (let j = 0; j < Len; j++) {
+            Slide.push(Primes[i + j]);
+        }
+        Slides.push(Slide);
+    }
+    
+    return Slides;
+}
+
+function select(Diffs, Slide) {
+    if (Diffs.length === 0) {
+        return Slide;
+    }
+    let S1 = Slide[0];
+    let S2 = S1 + Diffs[0];
+    let Stail = Slide.slice(1);
+    return select(Diffs.slice(1), [S2, ...Stail]);
+}
+
+function run(Diffs, PrimeList) {
+    if (Diffs.length === 0) {
+        return;
+    }
+    let Start = performance.now();
+    let SlideList = primesByDiffs(PrimeList, Diffs[0]);
+    let Num = SlideList.length;
+    let Stop = performance.now();
+    let Runtime = Stop - Start;
+    let First = SlideList[0];
+    console.log(`number: ${Num} [time(ms): ${Runtime}] first: ${First}`);
+    if (SlideList.length > 1) {
+        let Last = SlideList[SlideList.length - 1];
+        console.log(`last: ${Last}`);
+    }
+    run(Diffs.slice(1), PrimeList);
+}
+
+function do() {
+    let Num = 1000000;
+    let Start = performance.now();
+    let List = [];
+    for (let i = 2; i <= Num; i++) {
+        List.push(i);
+    }
+    let PrimeList = List.filter(prime);
+    let NumPrimes = PrimeList.length;
+    let Stop = performance.now();
+    let RunTime = Stop - Start;
+    console.log(`there are ${NumPrimes} primes until ${Num} [time(ms): ${RunTime}]`);
+    let DiffList = [[1], [2], [2, 2], [2, 4], [4, 2], [2, 4, 6], [2, 6, 4], [4, 2, 6], [4, 6, 2], [6, 2, 4], [6, 4, 2]];
+    run(DiffList, PrimeList);
+}
+```

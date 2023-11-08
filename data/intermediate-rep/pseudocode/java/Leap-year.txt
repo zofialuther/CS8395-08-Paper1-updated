@@ -1,0 +1,16 @@
+BEGIN
+    FUNCTION isLeapYear(year)
+        IF year % 100 == 0
+            RETURN (year % 400 == 0)
+        ELSE
+            RETURN (year % 4 == 0)
+        END IF
+    END FUNCTION
+    
+    yrs = [1800,1900,1994,1998,1999,2000,2001,2004,2100]
+    cal = new GregorianCalendar()
+    
+    FOR EACH year IN yrs
+        PRINT "The year " + year + " is leaper: " + cal.isLeapYear(year) + " / " + isLeapYear(year)
+    END FOR
+END

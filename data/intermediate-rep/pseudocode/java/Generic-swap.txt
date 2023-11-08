@@ -1,0 +1,6 @@
+1. Create a class Pair with a type parameter T
+2. Inside the Pair class, declare two variables of type T: first and second
+3. Create a public static method called swap that takes a Pair object p as a parameter
+4. Inside the swap method, declare a variable temp of type T and assign it the value of p.first
+5. Set p.first to the value of p.second
+6. Set p.second to the value of temp.

@@ -1,0 +1,27 @@
+```
+function eulerSopConjecture()
+    MAX_NUMBER = 250
+    found = false
+    fifth = new array of length MAX_NUMBER
+
+    for i from 1 to MAX_NUMBER
+        i2 = i * i
+        fifth[i - 1] = i2 * i2 * i
+    end for
+
+    for a from 0 to MAX_NUMBER and not found
+        for b from a to MAX_NUMBER and not found
+            for c from b to MAX_NUMBER and not found
+                for d from c to MAX_NUMBER and not found
+                    sum = fifth[a] + fifth[b] + fifth[c] + fifth[d]
+                    e = binarySearch(fifth, sum)
+                    found = (e >= 0)
+                    if found
+                        print (a+1) + "^5 + " + (b+1) + "^5 + " + (c+1) + "^5 + " + (d+1) + "^5 = " + (e+1) + "^5
+                    end if
+                end for
+            end for
+        end for
+    end for
+end function
+```

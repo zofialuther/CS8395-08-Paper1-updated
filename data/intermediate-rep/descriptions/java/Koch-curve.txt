@@ -1,0 +1,1 @@
+This Java code generates a Koch curve fractal and saves it as an SVG file. It starts by creating an initial equilateral triangle and then applies iterations to create the fractal curve. The resulting SVG file contains the Koch curve drawn on a cyan background with pink fill and black stroke. The size of the image is set to 700 pixels.

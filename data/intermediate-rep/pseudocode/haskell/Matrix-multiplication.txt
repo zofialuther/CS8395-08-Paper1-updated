@@ -1,0 +1,18 @@
+FUNCTION multiply
+  PARAMETER us, vs
+    map (mult [] vs) us
+    FUNCTION mult
+      PARAMETER xs, []
+        RETURN xs
+      PARAMETER xs, [], []
+        RETURN xs
+      PARAMETER [], (zs : zss), (y : ys)
+        mult (map (y *) zs) zss ys
+      PARAMETER xs, (zs : zss), (y : ys)
+        mult (zipWith (\u v -> u + v * y) xs zs) zss ys
+
+FUNCTION main
+  CALL print
+    multiply
+      [[1, 2], [3, 4]]
+      [[-3, -8, 3], [-2, 1, 4]]

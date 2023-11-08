@@ -1,0 +1,16 @@
+1. Start
+2. Define a class ABC
+3. Define a main method
+4. Create a list of strings called blocks
+5. Iterate through a list of words
+6. Print the word and the result of canMakeWord method
+7. Define a method called canMakeWord that takes a word and a list of blocks as parameters
+8. If the word is empty, return true
+9. Get the first character of the word
+10. Iterate through the blocks
+11. If the first or second character of the block matches the first character of the word, swap the block with the first block in the list
+12. Recursively call canMakeWord with the remaining word and the sublist of blocks
+13. If the recursive call returns true, return true
+14. Swap the blocks back to their original positions
+15. If no match is found, return false
+16. End

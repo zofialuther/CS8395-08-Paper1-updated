@@ -1,0 +1,1 @@
+This code defines functions for calculating the factorial of a number, the binomial coefficient, and the rows of Pascal's triangle. The 'fac' function calculates the factorial of a number, 'binCoef' calculates the binomial coefficient, and 'pascal' uses these functions to generate the rows of Pascal's triangle.

@@ -1,0 +1,1 @@
+This code snippet defines an instance of the PrintAllType typeclass for the IO monad with a unit type constraint. It utilizes the mapM_ function to print each element of the input list on a new line. This allows for easy printing of all elements within the IO monad. The GADTs language extension is also utilized in this code.

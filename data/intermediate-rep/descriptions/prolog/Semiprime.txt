@@ -1,0 +1,1 @@
+This code defines a Prolog predicate `factors` that calculates the factors of a given number `N` and stores them in a list `FList`. The `semiPrimeList` predicate uses `factors` to find all semi-prime numbers within a given limit. The `do` predicate demonstrates the use of `semiPrimeList` to find semi-prime numbers within a specific range and prints the results.

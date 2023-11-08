@@ -1,0 +1,1 @@
+This Java program calculates the minimum multiple digit sum for numbers from 1 to 70. It uses a loop to iterate through each number and calculates the minimum multiple digit sum using a digitSum method. The digitSum method calculates the sum of the digits for a given number. The program then prints the result in a formatted output.

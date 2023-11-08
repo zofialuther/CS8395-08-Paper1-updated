@@ -1,0 +1,13 @@
+FUNCTION pascal(n)
+    row = [1]
+    k = [0]
+    FOR x in range(max(n, 0))
+        PRINT row
+        row = [l + r for l, r in zip(row + k, k + row)]
+    END FOR
+    IF n >= 1 THEN
+        RETURN True
+    ELSE
+        RETURN False
+    END IF
+END FUNCTION

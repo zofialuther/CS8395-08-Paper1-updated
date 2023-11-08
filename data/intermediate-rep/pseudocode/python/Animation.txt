@@ -1,0 +1,14 @@
+Pseudocode:
+
+1. Import necessary libraries: sys, PyQt5.QtCore, PyQt5.QtGui, PyQt5.QtWidgets
+2. Define a class Marquee that inherits from QLabel
+3. Inside the Marquee class, define the __init__ method that takes in kwargs, calls initUI, and starts a QBasicTimer
+4. Inside the Marquee class, define the initUI method that sets window flags, sets the text, font, and style of the label
+5. Inside the Marquee class, define the timerEvent method that handles the text rotation
+6. Inside the Marquee class, define the mouseReleaseEvent method that changes the direction of the marquee on mouse release
+7. Inside the Marquee class, define the keyPressEvent method that closes the window on Esc key press
+8. Create an instance of QApplication
+9. Create an instance of the Marquee class
+10. Adjust the size of the widget and move it to the center of the screen
+11. Show the widget
+12. Execute the application and exit.

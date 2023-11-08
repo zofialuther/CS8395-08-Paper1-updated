@@ -1,0 +1,34 @@
+FUNCTION modInv(a, m)
+    IF 1 == gcdExt(a, m).g THEN
+        x = mkPos(gcdExt(a, m).i)
+        RETURN x
+    ELSE
+        RETURN Nothing
+    END IF
+END FUNCTION
+
+FUNCTION gcdExt(a, b)
+    IF b == 0 THEN
+        x = 1
+        y = 0
+        g = a
+    ELSE
+        q, r = a divMod b
+        s, t, g = gcdExt(b, r)
+        x = t
+        y = s - q * t
+    END IF
+    RETURN x, y, g
+END FUNCTION
+
+FUNCTION mkPos(x)
+    IF x < 0 THEN
+        x = x + m
+    END IF
+    RETURN x
+END FUNCTION
+
+FUNCTION main()
+    PRINT modInv(2, 4)
+    PRINT modInv(42, 2017)
+END FUNCTION

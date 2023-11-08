@@ -1,0 +1,5 @@
+1. Define the function insertionSort that takes a list of Ord a and returns a list of Ord a.
+2. Set insertionSort to be equal to the result of foldr insert [].
+3. Example use:
+   - Call insertionSort with the list [6,8,5,9,3,2,1,4,7]
+   - The result should be [1,2,3,4,5,6,7,8,9].

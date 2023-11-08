@@ -1,0 +1,1 @@
+This code defines a function called `isqrt` to calculate the integer square root of a given number `x`. The function uses a mathematical algorithm to iteratively calculate the square root. The code then prints out a list of integer square roots for a range of numbers and also prints out the integer square roots of powers of 7 in a formatted manner.

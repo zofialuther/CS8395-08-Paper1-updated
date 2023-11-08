@@ -1,0 +1,4 @@
+1. The first code "是" returns true, indicating a positive assertion.
+2. The second code "不是" returns false, indicating a negative assertion.
+3. The third code "test(X,Y)" assigns X as "boy" and Y as "delta".
+4. The fourth code "test2(1,Result)" assigns Result as 2, indicating a calculation or transformation function.

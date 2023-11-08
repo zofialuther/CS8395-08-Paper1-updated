@@ -1,0 +1,32 @@
+```
+FUNCTION lah(n, k):
+    IF k = 1 THEN
+        RETURN factorial(n)
+    ELSE IF k = n THEN
+        RETURN 1
+    ELSE IF k > n THEN
+        RETURN 0
+    ELSE IF k < 1 OR n < 1 THEN
+        RETURN 0
+    ELSE
+        RETURN comb(n, k) * factorial(n - 1) // factorial(k - 1)
+
+FUNCTION main():
+    PRINT "Unsigned Lah numbers: L(n, k):"
+    PRINT "n/k ", end='\t'
+    FOR i = 0 to 12:
+        PRINT "%11d" % i, end='\t'
+    PRINT
+    FOR row = 0 to 12:
+        PRINT "%-4d" % row, end='\t'
+        FOR i = 0 to row:
+            l = lah(row, i)
+            PRINT "%11d" % l, end='\t'
+        PRINT
+    PRINT "\nMaximum value from the L(100, *) row:"
+    max_val = max(lah(100, a) for a in range(100))
+    PRINT max_val
+
+IF __name__ = '__main__':
+    main()
+```

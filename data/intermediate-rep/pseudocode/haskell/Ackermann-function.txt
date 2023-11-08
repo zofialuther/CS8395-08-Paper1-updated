@@ -1,0 +1,11 @@
+FUNCTION ack(m, n)
+    IF m = 0 THEN
+        RETURN n + 1
+    ELSE IF n = 0 THEN
+        RETURN ack(m - 1, 1)
+    ELSE
+        RETURN ack(m - 1, ack(m, n - 1))
+
+FUNCTION main()
+    FOR EACH pair in [(0, 0), (3, 4)] DO
+        PRINT ack(pair[0], pair[1])

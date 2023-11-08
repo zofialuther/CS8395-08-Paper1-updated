@@ -1,0 +1,2 @@
+function nAryCartProd(xxs)
+    return foldl1(cartesianProduct)(xxs)

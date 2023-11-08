@@ -1,0 +1,1 @@
+This code defines an enum called Compass, which represents the 32 points on a compass. It includes methods to calculate the midpoint and bounds of each compass point, as well as a method to parse a given degree value and return the corresponding compass point. Additionally, it overrides the toString method to provide a human-readable representation of each compass point.

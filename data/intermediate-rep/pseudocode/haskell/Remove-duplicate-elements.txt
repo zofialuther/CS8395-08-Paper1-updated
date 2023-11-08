@@ -1,0 +1,8 @@
+```
+import qualified Data.Set as Set
+
+unique :: Ord a => [a] -> [a]
+unique xs = 
+    let set = Set.fromList xs
+    in Set.toList set
+```

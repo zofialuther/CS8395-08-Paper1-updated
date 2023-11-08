@@ -1,0 +1,15 @@
+1. Initialize State class with text, startIndex, and rotateRight
+2. Create a main function
+3. Initialize state variable with a new State object
+4. Create a JLabel with the text from the state object
+5. Add a MouseAdapter to the label to toggle rotateRight on click
+6. Create a TimerTask to update the label text
+7. Create a Timer and schedule the task to run every 500 milliseconds
+8. Create a JFrame
+9. Set the default close operation to DISPOSE_ON_CLOSE
+10. Add the label to the frame
+11. Pack the frame
+12. Set the location of the frame to the center of the screen
+13. Add a WindowAdapter to cancel the timer when the window is closed
+14. Make the frame visible
+15. Create a rotate function to shift the text based on the start index.

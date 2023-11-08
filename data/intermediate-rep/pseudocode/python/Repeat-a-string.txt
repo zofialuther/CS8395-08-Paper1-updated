@@ -1,0 +1,7 @@
+FUNCTION multiplyByFive
+  PARAMETER a
+  RETURN a * 5
+END FUNCTION
+
+x = multiplyByFive("ha")
+PRINT x

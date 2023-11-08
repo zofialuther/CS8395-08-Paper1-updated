@@ -1,0 +1,23 @@
+```
+initialize program
+
+define board size of 8
+check if a given point is within the board size
+create a graph of available moves on the board
+
+define the rules for asserting moves
+define the rules for checking if a move is possible
+define the rules for moving one or two spaces in either the X or Y direction
+
+define the rules for finding a Hamiltonian path
+define the rules for enumerating the possible paths
+define the rules for finding the Hamiltonian path based on the given starting point and size of the board
+
+define the rules for finding the next move in the path
+define the rules for finding the possible moves for a given point
+
+show the Hamiltonian path
+define the rules for displaying the path
+
+execute the main function to create the graph, find the Hamiltonian path, display the path, and end the program
+```

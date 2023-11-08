@@ -1,0 +1,1 @@
+This code uses the BigInteger class to calculate the modular multiplicative inverse of 42 with respect to 2017 and then prints the result to the console.

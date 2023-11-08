@@ -1,0 +1,10 @@
+```
+1. Define a class Logger with a type parameter m that must be a Monad
+2. Inside the Logger class, define a function write that takes a String and returns a value of type m ()
+3. Define an instance of Logger for the IO type where write is equal to putStr
+4. Define an instance of Logger for the Writer monad where the type parameter is String and write is equal to tell
+5. Define a function verbose2 that takes a function f, two parameters x and y
+6. Inside verbose2, write the result of f x y to the log using the write function, and then return the result
+7. Inside the write statement, concatenate the strings "x", "y", "==> " and the result of f x y, and append a newline character
+8. Define a local variable res which is the result of applying f to x and y
+```

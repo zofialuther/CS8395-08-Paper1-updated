@@ -1,0 +1,7 @@
+1. Declare a class S
+2. Inside the class, declare a main method that takes an array of strings as input
+3. Inside the main method, declare a string variable s and initialize it with the code for the class S
+4. Declare a char variable c and initialize it with the value 34 (double quote character)
+5. Print the substring of the string s from index 0 to 52, followed by the char c, then again followed by char c, and finally the substring of s from index 52 onwards
+6. End the main method
+7. End the class S

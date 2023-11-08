@@ -1,0 +1,40 @@
+```
+function main()
+    for each s in ["It{{em,alic}iz,erat}e{d,}, please.",
+            "~/{Downloads,Pictures}/*.{jpg,gif,png}",
+            "{,{,gotta have{ ,\\, again\\, }}more }cowbell!",
+            "{}} some }{,{\\\\{ edge, edge} \\,}{ cases, {here} \\\\\\\\\\}"]
+        print expand(s)
+
+function expand(s)
+    expandR("", s, "")
+
+function expandR(pre, s, suf)
+    i1 = -1
+    i2 = 0
+    noEscape = s.replaceAll("([\\\\]{2}|[\\\\][,}{])", "  ")
+    sb = null
+
+    while i1 = noEscape.indexOf('{', i1 + 1) != -1
+        i2 = i1 + 1
+        sb = new StringBuilder(s)
+        depth = 1
+        for each c in s from i2 to s.length()
+            if c = '{'
+                depth = depth + 1
+            if c = '}'
+                depth = depth - 1
+            if c = ',' and depth = 1
+                sb.setCharAt(i2, '\u0000')
+            if c = '}' and depth = 0 and sb.indexOf("\u0000") != -1
+                break
+
+    if i1 = -1
+        if suf.length() > 0
+            expandR(pre + s, suf, "")
+        else
+            print pre + s + suf
+    else
+        for each m in sb.substring(i1 + 1, i2).split("\u0000", -1)
+            expandR(pre + s.substring(0, i1), m, s.substring(i2 + 1) + suf)
+```

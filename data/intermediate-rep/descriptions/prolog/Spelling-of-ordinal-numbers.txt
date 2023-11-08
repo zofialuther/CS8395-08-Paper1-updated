@@ -1,0 +1,1 @@
+This code defines a module that can be used to convert a numerical value into its corresponding name. It includes functions to return the name of smaller numbers (up to 20) as well as the names of larger numbers (up to quintillion). The code also includes logic to handle both cardinal and ordinal types of number names, and can concatenate names for numbers between 20 and 99.

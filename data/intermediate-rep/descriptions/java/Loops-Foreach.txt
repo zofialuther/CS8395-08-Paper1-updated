@@ -1,0 +1,1 @@
+This code creates an iterable collection called "collect" and then uses a forEach loop to iterate through each element in the collection and print it to the console.

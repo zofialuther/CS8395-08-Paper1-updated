@@ -1,0 +1,17 @@
+NON-STRICT FIFO PSEUDOCODE
+
+CREATE class FIFO
+    DEFINE __init__(self, *args)
+        SET self.contents = list(args)
+    DEFINE __call__(self)
+        RETURN self.pop()
+    DEFINE empty(self)
+        RETURN bool(self.contents)
+    DEFINE pop(self)
+        RETURN self.contents.pop(0)
+    DEFINE __getattr__(self, attr)
+        RETURN getattr(self.contents, attr)
+    DEFINE next(self)
+        IF NOT self
+            RAISE StopIteration
+        RETURN self.pop()

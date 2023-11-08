@@ -1,0 +1,25 @@
+```
+Begin
+  Import necessary modules
+  
+  Define frequencies function that takes a list of Text and returns an IO (HashMap Text (IORef Int))
+  Begin
+    Use foldM to apply a function (M.alterF alter) to each element of the list and accumulate the results
+    Define the alter function
+      If the element is Nothing, create a new IORef for the element with a value of 1
+      If the element is not Nothing, modify the IORef by incrementing its value by 1
+  End
+  
+  Define main function
+    Begin
+      Read command line arguments
+      Check if there is exactly 1 argument, otherwise throw an error
+      Parse the argument as the maximum number of words to print
+      Read the contents of stdin as Text
+      Apply the filter and map functions to the contents to remove whitespace and convert to lowercase
+      Apply the frequencies function to the result
+      Use mapM to read the values of the IORefs in the frequency table
+      Print the top maxw words sorted by frequency count in descending order
+    End
+End
+```

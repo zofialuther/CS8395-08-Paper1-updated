@@ -1,0 +1,4 @@
+1. Import the System library
+2. Define the main function
+3. Use the getArgs function to retrieve the arguments passed to the program
+4. Print the arguments to the console.

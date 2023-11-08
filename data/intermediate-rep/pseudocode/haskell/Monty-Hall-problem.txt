@@ -1,0 +1,21 @@
+1. Set totalTrials = 1000
+2. Set switchSuccess = 0
+3. Set staySuccess = 0
+4. Set switchFailure = 0
+5. Set stayFailure = 0
+6. For i = 1 to totalTrials
+7.    Generate random number between 0 and 1
+8.    If random number <= 0.67
+9.        Increment switchSuccess
+10.   Else
+11.       Increment switchFailure
+12.   Generate random number between 0 and 1
+13.   If random number <= 0.34
+14.       Increment staySuccess
+15.   Else
+16.       Increment stayFailure
+17. End for
+18. Calculate switchSuccessRate = (switchSuccess / totalTrials) * 100
+19. Calculate staySuccessRate = (staySuccess / totalTrials) * 100
+20. Print switchSuccessRate
+21. Print staySuccessRate

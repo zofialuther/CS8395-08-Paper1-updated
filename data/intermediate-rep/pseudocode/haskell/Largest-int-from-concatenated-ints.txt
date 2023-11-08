@@ -1,0 +1,14 @@
+Import Data.List (sortBy)
+Import Data.Ord (comparing)
+
+Function sorted(xs):
+    maxLen = maximum(length of each element in xs)
+    for each element x in xs:
+        pad x = concatenate replicate(maxLen divided by length of x plus 1) x
+    return sortBy(comparing(pad), xs)
+
+Function maxcat(xs):
+    return read(concatenate(sorted(map show(xs))))
+
+Main:
+    print(map maxcat([[1,34,3,98,9,76,45,4], [54,546,548,60]]) :: [Integer])

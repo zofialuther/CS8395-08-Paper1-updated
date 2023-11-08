@@ -1,0 +1,1 @@
+This code is a Prolog program that sorts a list of OIDs (Object Identifiers). It first parses the input list of OIDs into a structured format, then sorts them in ascending order based on their numerical values. Finally, it prints the sorted list of OIDs to the console.

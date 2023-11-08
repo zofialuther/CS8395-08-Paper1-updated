@@ -1,0 +1,78 @@
+```
+% Define dynamic predicate pt/6
+:- dynamic pt/6.
+
+% Define voronoi predicate
+voronoi :-
+    % Generate a random number V between 20 and 40
+    V is random(20) + 20,
+    % Remove all previous points
+    retractall(pt(_,_,_,_,_,_)),
+    % For each number I between 1 and V
+    forall(between(1, V, I),
+           ( X is random(390) + 5, 
+             Y is random(390) + 5,
+             R is random(65535),
+             G is random(65535),
+             B is random(65535),
+             assertz(pt(I,X,Y, R, G, B))
+           )),
+    % Call voronoi with different distance functions
+    voronoi(manhattan, V),
+    voronoi(euclide, V),
+    voronoi(minkowski_3, V).
+
+% Define voronoi predicate with parameters Distance and V
+voronoi(Distance, V) :-
+    % Format the string A
+    sformat(A, 'Voronoi 400X400 ~w ~w', [V, Distance]),
+    % Create a new window D
+    new(D, window(A)),
+    % Set the size of the window to 400x400
+    send(D, size, size(400,400)),
+    % Create a new image Img with width 400, height 400 and kind pixmap
+    new(Img, image(@nil, width := 400, height := 400 , kind := pixmap)),
+    % Get the list of sites
+    bagof((N, X, Y), R^G^B^pt(N, X, Y, R, G, B), L),
+    % For each value between 0 and 399 for I, and for each value between 0 and 399 for J
+    forall(between(0,399, I),
+           forall(between(0,399, J),
+               (  get_nearest_site(V, Distance, I, J, L, S),
+                  pt(S, _, _, R, G, B),
+                  send(Img, pixel(I, J, colour(@default, R, G, B))
+               ))),
+    % Create a new bitmap Bmp from Img
+    new(Bmp, bitmap(Img)),
+    % Display Bmp at point (0,0) in window D
+    send(D, display, Bmp, point(0,0)),
+    % Open window D
+    send(D, open).
+
+% Define foldl predicate
+foldl([], _Pred, R, R).
+
+foldl([H | T], Pred, Acc, R) :-
+    call(Pred, H, Acc, R1),
+    foldl(T, Pred, R1, R).
+
+% Define compare predicate for foldl
+compare(Distance, XP, YP, (N, X, Y), (D, S), R) :-
+    call(Distance, XP, YP, X, Y, DT),
+    (   DT < D -> R = (DT, N) ; R = (D, S)).
+
+% Define get_nearest_site predicate
+get_nearest_site(Distance, I, J, L, S) :-
+    foldl(L, compare(Distance, I, J),  (65535, nil), (_, S)).
+
+% Define manhattan distance function
+manhattan(X1, Y1, X2, Y2, D) :-
+    D is abs(X2 - X1) + abs(Y2-Y1).
+
+% Define euclidean distance function
+euclide(X1, Y1, X2, Y2, D) :-
+    D is sqrt((X2 - X1)**2 + (Y2-Y1)**2).
+
+% Define minkowski_3 distance function
+minkowski_3(X1, Y1, X2, Y2, D) :-
+    D is (abs(X2 - X1)**3 + abs(Y2-Y1)**3)**0.33.
+```

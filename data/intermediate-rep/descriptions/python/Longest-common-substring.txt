@@ -1,0 +1,1 @@
+This code compares two strings, s1 and s2, and finds the longest common substring between them. It iterates through s1 and searches for each character in s2, then checks for consecutive matching characters. Finally, it prints the longest common substring found in s1.

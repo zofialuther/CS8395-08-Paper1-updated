@@ -1,0 +1,24 @@
+'''
+Start
+    Import necessary libraries (tkinter, math)
+    
+    Create a class called Animation:
+        Define the __init__ method which takes the parameter gw:
+            Initialize the variables for the pendulum's position and angle
+            Create a canvas and pack it into the window
+            Create the line and oval for the pendulum
+            Call the animate method
+        
+        Define the animate method:
+            Check if the absolute value of the angle is greater than pi / 2
+                If so, change the change in angle to its negative
+            Update the angle and calculate the sine and cosine
+            Update the coordinates of the rod and bob
+            Update the canvas and call the animate method after a delay
+    
+    Create a Tkinter window called root
+    Set the title, geometry, and resizable properties of the window
+    Create an instance of the Animation class with the root window
+    Run the main loop for the window
+End
+'''

@@ -1,0 +1,23 @@
+1. Create a function called fs that takes an IntegerFunction f and an array s as parameters and returns an array
+2. Initialize an empty array r with the same length as array s
+3. Loop through each element i in array s
+4. Set the value at index i in array r to the result of calling the function f with the value at index i in array s
+5. Return array r
+
+6. Create an interface called IntegerFunction with a method call that takes an int arg and returns an int
+
+7. Create an interface called SequenceFunction with a method call that takes an array of int arg and returns an array of int
+
+8. Create a function called fs that takes an IntegerFunction f as a parameter and returns a SequenceFunction
+9. Return a new SequenceFunction with a method call that takes an array s as a parameter and calls the original method fs with f and s
+
+10. Create a class called PartialApplication
+11. Create a static IntegerFunction called f1 with a method call that takes an int i and returns i multiplied by 2
+12. Create a static IntegerFunction called f2 with a method call that takes an int i and returns i squared
+13. Create a static SequenceFunction called fsf1 and set it to the result of calling fs with f1
+14. Create a static SequenceFunction called fsf2 and set it to the result of calling fs with f2
+
+15. Create a static void main method that takes an array of String args as a parameter
+16. Create a 2D array called sequences with two arrays: { 0, 1, 2, 3 } and { 2, 4, 6, 8 }
+17. Loop through each array array in sequences
+18. Print the array, the result of calling fsf1 with array, and the result of calling fsf2 with array using Arrays.toString to format the output.

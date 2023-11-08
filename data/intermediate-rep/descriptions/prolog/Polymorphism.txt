@@ -1,0 +1,1 @@
+This code defines constructors for creating point and circle objects with the ability to set and get their coordinates and radius. It also includes a function to print the shape and a default value function. The tests demonstrate creating and manipulating point and circle objects.

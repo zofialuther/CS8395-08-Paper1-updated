@@ -1,0 +1,12 @@
+FUNCTION repeat
+    PARAMETER str, times
+    sb = new StringBuilder(str.length() * times)
+    FOR i = 0 to times
+        sb.append(str)
+    END FOR
+    RETURN sb.toString()
+END FUNCTION
+
+FUNCTION main
+    OUTPUT repeat("ha", 5)
+END FUNCTION

@@ -1,0 +1,41 @@
+```
+FUNCTION xor(a, b)
+    RETURN (a AND (NOT b)) OR (b AND (NOT a))
+
+FUNCTION ha(a, b)
+    RETURN xor(a, b), a AND b      # sum, carry
+
+FUNCTION fa(a, b, ci)
+    s0, c0 = ha(ci, a)
+    s1, c1 = ha(s0, b)
+    RETURN s1, c0 OR c1      # sum, carry
+
+FUNCTION fa4(a, b)
+    width = 4
+    ci = [None] * width
+    co = [None] * width
+    s  = [None] * width
+    FOR i = 0 TO width - 1
+        IF i = 0
+            s[i], co[i] = fa(a[i], b[i], 0)
+        ELSE
+            s[i], co[i] = fa(a[i], b[i], co[i-1])
+    RETURN s, co[width - 1]
+
+FUNCTION int2bus(n, width)
+    RETURN [int(c) for c in "{0:0{1}b}".format(n, width)[::-1]]
+
+FUNCTION bus2int(b)
+    RETURN SUM(1 << i for i, bit in enumerate(b) if bit)
+
+FUNCTION test_fa4()
+    width = 4
+    tot = [None] * (width + 1)
+    FOR a = 0 TO 2^width - 1
+        FOR b = 0 TO 2^width - 1
+            tot[:width], tot[width] = fa4(int2bus(a), int2bus(b))
+            ASSERT a + b == bus2int(tot), "totals don't match: %i + %i != %s" % (a, b, tot)
+
+IF __name__ == '__main__'
+    test_fa4()
+```

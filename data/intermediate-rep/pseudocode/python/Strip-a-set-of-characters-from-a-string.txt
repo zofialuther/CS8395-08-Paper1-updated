@@ -1,0 +1,12 @@
+FUNCTION stripchars(s, chars)
+    result = ""
+    FOR each character c in s
+        IF c NOT in chars
+            result += c
+    END FOR
+    RETURN result
+END FUNCTION
+
+s = "She was a soul stripper. She took my heart!"
+chars = "aei"
+PRINT stripchars(s, chars)

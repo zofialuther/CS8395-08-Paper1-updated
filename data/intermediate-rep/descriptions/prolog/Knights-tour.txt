@@ -1,0 +1,1 @@
+This code sets up a chessboard and implements the Warnsdorff algorithm to find a Hamiltonian path, a path that visits every square exactly once, on the chessboard. It also provides a way to visualize the path on the board. The main function initializes the program, creates the graph, finds the Hamiltonian path, and displays it.

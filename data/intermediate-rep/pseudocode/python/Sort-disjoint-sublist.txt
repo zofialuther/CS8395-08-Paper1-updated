@@ -1,0 +1,42 @@
+```
+FUNCTION disjointSort(ixs)
+    FUNCTION go(xs)
+        ks = sorted(ixs)
+        dct = createDictionary(zip(ks, sorted(sublist for k in ks)))
+        RETURN [
+            IF i IN dct THEN
+                dct[i]
+            ELSE
+                x
+            FOR i, x IN enumerate(xs)
+        ]
+    END FUNCTION
+    RETURN go
+END FUNCTION
+
+FUNCTION main()
+    PRINT tabulated('Disjoint sublist at indices [6, 1, 7] sorted:\n')
+          (str)(str)(disjointSort([6, 1, 7]))([
+              [7, 6, 5, 4, 3, 2, 1, 0],
+              ['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']
+          ])
+END FUNCTION
+
+FUNCTION tabulated(s)
+    FUNCTION go(xShow, fxShow, f, xs)
+        w = max(map(compose(len)(xShow), xs))
+        RETURN s + '\n' + join(
+            xShow(x).rjust(w, ' ') + ' -> ' + fxShow(f(x)) FOR x IN xs
+        )
+    END FUNCTION
+    RETURN lambda xShow: lambda fxShow: lambda f: lambda xs: go(xShow, fxShow, f, xs)
+END FUNCTION
+
+FUNCTION compose(g)
+    RETURN lambda f: lambda x: g(f(x))
+END FUNCTION
+
+IF __name__ == '__main__' THEN
+    main()
+END IF
+```

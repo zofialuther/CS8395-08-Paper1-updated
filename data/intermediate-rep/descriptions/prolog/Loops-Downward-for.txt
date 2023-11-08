@@ -1,0 +1,1 @@
+This code defines a predicate "rfor" which is a recursive function that generates values in descending order from a given high value to a given low value. The "reverse_iter" predicate calls "rfor" with a high value of 10 and a low value of 0, and then writes the values to the console in reverse order. This process continues until the "rfor" predicate fails.

@@ -1,0 +1,1 @@
+This code is a method to generate the power set of a given array of integers. The method takes in the array, its length, and an ArrayList to store the power set. It recursively calculates the power set by adding elements to the list and then combining them to form all possible subsets. The resulting power set is returned as an ArrayList of strings.

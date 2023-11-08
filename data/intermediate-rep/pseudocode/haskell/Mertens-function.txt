@@ -1,0 +1,48 @@
+FUNCTION moebius
+  INPUT: Integer
+  OUTPUT: Int
+  moebius = product(fmap(m, factorise))
+  
+  FUNCTION m
+    INPUT: Tuple (p, e)
+    OUTPUT: Int
+    IF unPrime(p) = 0 THEN
+      RETURN 0
+    ELSE IF e = 1 THEN
+      RETURN -1
+    ELSE
+      RETURN 0
+
+FUNCTION mertens
+  INPUT: Integer
+  OUTPUT: Int
+  mertens = Memo.integral(n -> sum(fmap(moebius, [1..n])))
+
+FUNCTION countZeros
+  INPUT: List of Integers
+  OUTPUT: Int
+  countZeros = length(filter((==0) . mertens))
+
+FUNCTION crossesZero
+  INPUT: List of Integers
+  OUTPUT: Int
+  crossesZero = length(go(fmap(mertens)))
+  
+  FUNCTION go
+    INPUT: List of Integers
+    OUTPUT: List of Integers
+    IF x, y, and xs are not empty THEN
+      IF y = 0 and x ≠ 0 THEN
+        RETURN y : go(y:xs)
+      ELSE
+        RETURN go(y:xs)
+    ELSE
+      RETURN []
+
+FUNCTION main
+  OUTPUT: IO ()
+  PRINT "The first 99 terms for M(1..99):\n\n   "
+  mapM_(printf "%3d" . mertens, [1..9]) >> printf "\n"
+  mapM_(\row -> mapM_(printf "%3d" . mertens, row) >> printf "\n", chunksOf 10 [10..99])
+  printf "\nM(n) is zero %d times for 1 <= n <= 1000.\n", countZeros [1..1000]
+  printf "M(n) crosses zero %d times for 1 <= n <= 1000.\n", crossesZero [1..1000]

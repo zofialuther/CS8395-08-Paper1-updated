@@ -1,0 +1,34 @@
+'''
+Create a class Card with a method __repr__ which returns the concatenated value of face and suit
+Define a list suit with values '♥ ♦ ♣ ♠'.split()
+Define strings of faces '2 3 4 5 6 7 8 9 10 j q k a' and 'a 2 3 4 5 6 7 8 9 10 j q k'
+Convert the faces strings into lists
+Define a function straightflush(hand) which takes a hand as input
+    If any card in the hand has a face of '2', then set f and fs to lowace and lowaces, else set them to face and faces
+    Sort the hand based on the index of face and suit
+    Set the first card as the first element and the rest as the remaining elements
+    If all cards have the same suit and the joined face of the cards is in fs, return 'straight-flush' and the face of the last card
+    Otherwise, return False
+Define functions fourofakind, fullhouse, flush, straight, threeofakind, twopair, onepair, highcard in a similar manner to straightflush
+Create a tuple handrankorder which contains the functions in the desired order
+Define a function rank which takes cards as input
+    Set hand as the result of calling the function handy with the cards
+    For each function in handrankorder
+        Set rank as the result of calling the function with hand
+        If rank is not False, break the loop
+    Assert that rank is not False and return rank
+Define a function handy which takes cards as input, with a default value of '2♥ 2♦ 2♣ k♣ q♦'
+    Create an empty list hand
+    Split the input into individual cards and for each card
+        Set f as the face and s as the suit
+        Assert that f is in face and s is in suit
+        Append a new Card with f and s to the hand
+    Assert that the length of the hand is 5 and that all elements in the hand are unique
+    Return the hand
+If the name of the file is equal to '__main__'
+    Create a list hands containing multiple strings of cards
+    Print "HAND", "CATEGORY", and "TIE-BREAKER"
+    For each cards in hands
+        Set r as the result of calling rank with cards
+        Print the cards, the first element of r, and the second element of r
+'''

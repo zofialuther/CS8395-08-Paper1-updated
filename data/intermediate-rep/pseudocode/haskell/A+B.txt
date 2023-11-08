@@ -1,0 +1,6 @@
+
+1. Get input from user
+2. Split the input into words
+3. Convert each word into a number
+4. Calculate the sum of all the numbers
+5. Print the sum

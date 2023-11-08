@@ -1,0 +1,21 @@
+```
+function newtonMethod(X0) {
+    return X0 * (2 - Math.log(X0));
+}
+
+function calculateE(tolerance) {
+    let X0 = 2;
+    let X1 = newtonMethod(X0);
+    let iter = [X0, X1];
+    while (Math.abs(X1 - X0) >= tolerance) {
+        X0 = X1;
+        X1 = newtonMethod(X0);
+        iter.push(X1);
+    }
+    return iter[0];
+}
+
+let tolerance = 1e-15;
+let E = calculateE(tolerance);
+console.log("e = " + E);
+```

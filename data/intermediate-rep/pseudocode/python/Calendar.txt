@@ -1,0 +1,2 @@
+FUNCTION print_year(calendar, year)
+  PRINT calendar.prcal(year)

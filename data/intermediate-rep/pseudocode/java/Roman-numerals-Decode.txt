@@ -1,0 +1,36 @@
+```
+function decodeSingle(letter)
+    switch letter
+        case 'M':
+            return 1000
+        case 'D':
+            return 500
+        case 'C':
+            return 100
+        case 'L':
+            return 50
+        case 'X':
+            return 10
+        case 'V':
+            return 5
+        case 'I':
+            return 1
+        default:
+            return 0
+
+function decode(roman)
+    result = 0
+    uRoman = toUpperCase(roman)
+    for i from 0 to length(uRoman) - 1
+        if decodeSingle(uRoman[i]) < decodeSingle(uRoman[i+1])
+            result = result - decodeSingle(uRoman[i])
+        else
+            result = result + decodeSingle(uRoman[i])
+    result = result + decodeSingle(uRoman[length(uRoman) - 1])
+    return result
+
+function main()
+    print decode("MCMXC") //1990
+    print decode("MMVIII") //2008
+    print decode("MDCLXVI") //1666
+```

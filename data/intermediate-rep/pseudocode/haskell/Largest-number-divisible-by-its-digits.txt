@@ -1,0 +1,15 @@
+
+1. Import Data.Set (fromList)
+2. Import Numeric (showHex)
+3. Define function lcmDigits as:
+   lcmDigits = foldr1 lcm [1 .. 15]
+4. Define variable upperLimit as:
+   upperLimit = allDigits - rem allDigits lcmDigits
+   where
+      allDigits = 0xfedcba987654321
+5. Define main function as:
+   main :: IO ()
+   main =
+     (print . head)
+       (filter ((15 ==) . length . fromList) $
+       (`showHex` []) <$> [upperLimit,upperLimit - lcmDigits .. 1])

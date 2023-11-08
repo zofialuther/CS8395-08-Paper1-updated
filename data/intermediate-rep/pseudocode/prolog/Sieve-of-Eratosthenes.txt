@@ -1,0 +1,38 @@
+```
+function sieve(N, Primes):
+    Primes = [2|Rest]
+    retractall(composite(_))
+    sieve(N, 2, Rest)
+
+function sieve(N, P, [I|Rest]):
+    sieve_once(P, N)
+    if P = 2:
+        P2 = P + 1
+    else:
+        P2 = P + 2
+    for I in range(P2, N):
+        if composite(I):
+            fail
+        else:
+            sieve(N, I, Rest)
+
+function sieve(N, P, []):
+    return
+
+function sieve_once(P, N):
+    for IP in range(P, N, P):
+        if composite(IP):
+            continue
+        else:
+            assert(composite(IP))
+
+function between(Min, Max, By, I):
+    if Min <= Max:
+        A = Min + By
+        if I = Min:
+            return
+        else:
+            between(A, Max, By, I)
+
+dynamic composite/1
+```

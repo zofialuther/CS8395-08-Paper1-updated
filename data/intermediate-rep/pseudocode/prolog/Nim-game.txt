@@ -1,0 +1,25 @@
+START
+
+nim :- next_turn(12), !.
+
+next_turn(N) :-
+    OUTPUT "How many dots would you like to take? "
+    INPUT PlayerGuess
+    IF PlayerGuess is not 1, 2, or 3 THEN
+        REPEAT INPUT PlayerGuess
+    END IF
+    N1 = N - PlayerGuess
+    OUTPUT "You take " + PlayerGuess + " dots"
+    OUTPUT N1 + " dots remaining."
+    
+    CompGuess = 4 - PlayerGuess
+    N2 = N1 - CompGuess
+    OUTPUT "Computer takes " + CompGuess + " dots"
+    OUTPUT N2 + " dots remaining."
+    IF N2 = 0 THEN
+        OUTPUT "Computer wins!"
+    ELSE
+        CALL next_turn(N2)
+    END IF
+
+END.

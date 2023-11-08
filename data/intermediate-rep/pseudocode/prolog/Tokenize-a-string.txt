@@ -1,0 +1,11 @@
+// Define the input string
+inputString = "Hello,How,Are,You,Today"
+
+// Split the input string by comma and store the result in Split
+Split = split(inputString, ",")
+
+// Convert the Split array to a string with period as delimiter and store the result in PeriodSeparated
+PeriodSeparated = join(Split, ".")
+
+// Print the PeriodSeparated string
+print(PeriodSeparated)

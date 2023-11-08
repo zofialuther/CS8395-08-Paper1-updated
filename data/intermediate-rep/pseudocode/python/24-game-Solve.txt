@@ -1,0 +1,41 @@
+FUNCTION div(a, b):
+    IF b == 0 THEN
+        RETURN 999999.0
+    ELSE
+        RETURN a / b
+
+SET ops = {mul: '*', div: '/', sub: '-', add: '+'}
+
+FUNCTION solve24(num, how, target):
+    IF LENGTH(num) == 1 THEN
+        IF ROUND(num[0], 5) == ROUND(target, 5) THEN
+            RETURN str(how[0]).REPLACE(',', '').REPLACE("'", '')
+    ELSE
+        FOR i = 0 TO LENGTH(num) THEN
+            FOR j = 0 TO LENGTH(num) THEN
+                IF i != j THEN
+                    FOR EACH op IN ops THEN
+                        SET new_num = [n FOR k, n IN ENUMERATE(num) IF k != i AND k != j] + [op(num[i], num[j])]
+                        SET new_how = [h FOR k, h IN ENUMERATE(how) IF k != i AND k != j] + [(how[i], ops[op], how[j])]
+                        YIELD FROM solve24(new_num, new_how, target)
+
+SET tests = [
+             [1, 7, 2, 7],
+             [5, 7, 5, 4],
+             [1, 4, 6, 6],
+             [2, 3, 7, 3],
+             [1, 6, 2, 6],
+             [7, 9, 4, 1],
+             [6, 4, 2, 2],
+             [5, 7, 9, 7],
+             [3, 3, 8, 8],
+             [8, 7, 9, 7],
+             [9, 4, 4, 5]
+            ]
+
+FOR EACH nums IN tests THEN
+    PRINT nums, " : "
+    TRY
+        PRINT NEXT(solve24(nums, nums, 24))
+    EXCEPT StopIteration
+        PRINT "No solution found"

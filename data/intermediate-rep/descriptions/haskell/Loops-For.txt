@@ -1,0 +1,1 @@
+This code uses the Control.Monad module to create a main function that prints a pattern of asterisks in the shape of a pyramid. It uses nested forM_ loops to iterate through the range of numbers and print the corresponding number of asterisks on each line, followed by a newline character.

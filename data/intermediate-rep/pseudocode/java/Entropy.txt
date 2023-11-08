@@ -1,0 +1,43 @@
+START
+  IMPORT java.lang.Math
+  IMPORT java.util.Map
+  IMPORT java.util.HashMap
+
+  CLASS REntropy
+    FUNCTION getShannonEntropy(String s)
+      n = 0
+      occ = new HashMap<Character, Integer>()
+
+      FOR c_ = 0 to s.length()
+        cx = s.charAt(c_)
+        IF occ.containsKey(cx) THEN
+          occ.put(cx, occ.get(cx) + 1)
+        ELSE
+          occ.put(cx, 1)
+        END IF
+        n = n + 1
+      END FOR
+
+      e = 0.0
+      FOR EACH entry in occ.entrySet()
+        cx = entry.getKey()
+        p = entry.getValue() / n
+        e = e + p * log2(p)
+      END FOR
+      RETURN -e
+    END FUNCTION
+
+    FUNCTION log2(double a)
+      RETURN Math.log(a) / Math.log(2)
+    END FUNCTION
+
+    FUNCTION main(String[] args)
+      sstr = ["1223334444", "1223334444555555555", "122333", "1227774444", "aaBBcccDDDD", "1234567890abcdefghijklmnopqrstuvwxyz", "Rosetta Code"]
+
+      FOR EACH ss in sstr
+        entropy = REntropy.getShannonEntropy(ss)
+        PRINT "Shannon entropy of " + ss + ": " + entropy
+      END FOR
+    END FUNCTION
+  END CLASS
+END

@@ -1,0 +1,11 @@
+function f(n, a, b):
+    a_squared = a * a
+    b_squared = b * b
+    new_a = a_squared + b_squared
+    new_b = 2 * a * b + b_squared
+    new_n = 2 * n
+    
+    return (new_n, (new_a, new_b))
+
+result = f(1, 0, 1)
+print(result)

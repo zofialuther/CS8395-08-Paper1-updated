@@ -1,0 +1,13 @@
+The given code is a complete implementation of the classic Minesweeper game in Java. It consists of several classes: Main, Cell, Board, Actions, and Minesweeper.
+
+The Main class contains the main method and is responsible for taking user input for the width, height, and difficulty of the Minesweeper game. It then creates an instance of the Minesweeper class and initializes the game with the provided parameters.
+
+The Cell class represents individual cells on the Minesweeper board, with methods for setting mines, flagging cells, revealing cells, and setting numbers based on adjacent mines.
+
+The Board class extends JPanel and is responsible for drawing the Minesweeper game board. It uses the Graphics class to visually represent the cells, numbers, and flags on the board.
+
+The Actions class implements ActionListener and MouseListener to handle user actions such as clicking on cells, marking mines, and refreshing the game board.
+
+The Minesweeper class extends JFrame and is the main class for the Minesweeper game. It creates the game window, initializes the board, handles user input, and contains methods for selecting cells, marking mines, resetting the game, checking for win or loss, and refreshing the game window.
+
+In summary, the code provides a complete implementation of Minesweeper with graphical user interface and user input handling.

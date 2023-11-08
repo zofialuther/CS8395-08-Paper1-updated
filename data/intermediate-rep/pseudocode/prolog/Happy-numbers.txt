@@ -1,0 +1,40 @@
+```
+happy_numbers(L, Nb) :-
+    length(L, Nb),
+    get_happy_number(L, 1).
+
+get_happy_number([], _).
+
+get_happy_number([H | T], N) :-
+    N1 is N+1,
+    (is_happy_number(N) ->
+        H = N,
+        get_happy_number(T, N1);
+        get_happy_number([H | T], N1)).
+
+is_happy_number(N) :-
+    is_happy_number(N, [N]).
+
+is_happy_number(N, _L) :-
+    get_next_number(N, 1), !.
+
+is_happy_number(N, L) :-
+    get_next_number(N, NN),
+    \+member(NN, L),
+    is_happy_number(NN, [NN | L]).
+
+get_next_number(N, NewN) :-
+    get_list_digits(N, LD),
+    maplist(square, LD, L),
+    sumlist(L, NewN).
+
+get_list_digits(N, LD) :-
+    number_chars(N, LCD),
+    maplist(number_chars_, LD, LCD).
+
+number_chars_(D, CD) :-
+    number_chars(D, [CD]).
+
+square(N, SN) :-
+    SN is N * N.
+```

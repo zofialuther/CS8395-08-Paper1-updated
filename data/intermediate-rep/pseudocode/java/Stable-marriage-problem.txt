@@ -1,0 +1,89 @@
+```
+BEGIN
+    FUNCTION match(guys, guyPrefers, girlPrefers)
+        engagedTo = new TreeMap<String, String>()
+        freeGuys = new LinkedList<String>()
+        freeGuys.addAll(guys)
+        WHILE NOT freeGuys.isEmpty() DO
+            thisGuy = freeGuys.remove(0)
+            thisGuyPrefers = guyPrefers.get(thisGuy)
+            FOR EACH girl IN thisGuyPrefers DO
+                IF engagedTo.get(girl) == NULL THEN
+                    engagedTo.put(girl, thisGuy)
+                    BREAK
+                ELSE
+                    otherGuy = engagedTo.get(girl)
+                    thisGirlPrefers = girlPrefers.get(girl)
+                    IF thisGirlPrefers.indexOf(thisGuy) < thisGirlPrefers.indexOf(otherGuy) THEN
+                        engagedTo.put(girl, thisGuy)
+                        freeGuys.add(otherGuy)
+                        BREAK
+                    END IF
+                END IF
+            END FOR
+        END WHILE
+        RETURN engagedTo
+    END FUNCTION
+
+    FUNCTION checkMatches(guys, girls, matches, guyPrefers, girlPrefers)
+        IF NOT matches.keySet().containsAll(girls) THEN
+            RETURN false
+        END IF
+        IF NOT matches.values().containsAll(guys) THEN
+            RETURN false
+        END IF
+        invertedMatches = new TreeMap<String, String>()
+        FOR EACH couple IN matches.entrySet() DO
+            invertedMatches.put(couple.getValue(), couple.getKey())
+        END FOR
+        FOR EACH couple IN matches.entrySet() DO
+            shePrefers = girlPrefers.get(couple.getKey())
+            sheLikesBetter = new LinkedList<String>()
+            sheLikesBetter.addAll(shePrefers.subList(0, shePrefers.indexOf(couple.getValue())))
+            hePrefers = guyPrefers.get(couple.getValue())
+            heLikesBetter = new LinkedList<String>()
+            heLikesBetter.addAll(hePrefers.subList(0, hePrefers.indexOf(couple.getKey())))
+            FOR EACH guy IN sheLikesBetter DO
+                guysFinace = invertedMatches.get(guy)
+                thisGuyPrefers = guyPrefers.get(guy)
+                IF thisGuyPrefers.indexOf(guysFinace) > thisGuyPrefers.indexOf(couple.getKey) THEN
+                    PRINT couple.getKey + " likes " + guy + " better than " + couple.getValue + " and " + guy + " likes " + couple.getKey + " better than their current partner"
+                    RETURN false
+                END IF
+            END FOR
+            FOR EACH girl IN heLikesBetter DO
+                girlsFinace = matches.get(girl)
+                thisGirlPrefers = girlPrefers.get(girl)
+                IF thisGirlPrefers.indexOf(girlsFinace) > thisGirlPrefers.indexOf(couple.getValue) THEN
+                    PRINT couple.getValue + " likes " + girl + " better than " + couple.getKey + " and " + girl + " likes " + couple.getValue + " better than their current partner"
+                    RETURN false
+                END IF
+            END FOR
+        END FOR
+        RETURN true
+    END FUNCTION
+
+    guys = Arrays.asList("abe", "bob", "col", "dan", "ed", "fred", "gav", "hal", "ian", "jon")
+    girls = Arrays.asList("abi", "bea", "cath", "dee", "eve", "fay", "gay", "hope", "ivy", "jan")
+    guyPrefers = new HashMap<String, List<String>>()
+    girlPrefers = new HashMap<String, List<String>>()
+    matches = match(guys, guyPrefers, girlPrefers)
+    FOR EACH couple IN matches.entrySet() DO
+        PRINT couple.getKey + " is engaged to " + couple.getValue
+    END FOR
+    IF checkMatches(guys, girls, matches, guyPrefers, girlPrefers) THEN
+        PRINT "Marriages are stable"
+    ELSE
+        PRINT "Marriages are unstable"
+    END IF
+    tmp = matches.get(girls.get(0))
+    matches.put(girls.get(0), matches.get(girls.get(1)))
+    matches.put(girls.get(1), tmp)
+    PRINT girls.get(0) + " and " + girls.get(1) + " have switched partners"
+    IF checkMatches(guys, girls, matches, guyPrefers, girlPrefers) THEN
+        PRINT "Marriages are stable"
+    ELSE
+        PRINT "Marriages are unstable"
+    END IF
+END
+```

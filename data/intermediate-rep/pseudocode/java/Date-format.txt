@@ -1,0 +1,5 @@
+START
+  long millis = System.currentTimeMillis();
+  PRINT "Current date and time in ISO 8601 format: " + millis
+  PRINT "Current date and time in custom format: " + millis
+END

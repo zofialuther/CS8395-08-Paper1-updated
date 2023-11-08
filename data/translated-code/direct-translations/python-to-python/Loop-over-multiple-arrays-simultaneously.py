@@ -1,0 +1,1 @@
+print(*map(''.join, zip('abc', 'ABC', '123')), sep='\n')

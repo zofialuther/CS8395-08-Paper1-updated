@@ -1,0 +1,1 @@
+This code generates and prints a Sierpinski triangle of size N. It first initializes a list of cells with a space or asterisk based on a specific pattern. Then, it uses a loop to compute and print the next line of the triangle based on the previous line using the rules of the Sierpinski triangle, specifically rule 90.

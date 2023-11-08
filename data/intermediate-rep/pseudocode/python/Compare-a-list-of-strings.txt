@@ -1,0 +1,38 @@
+Pseudocode:
+
+function allEqual(strings):
+    for i from 0 to len(strings) - 1:
+        if strings[i] != strings[i+1]:
+            return false
+    return true
+
+function strictlyAscending(strings):
+    for i from 0 to len(strings) - 1:
+        if strings[i] >= strings[i+1]:
+            return false
+    return true
+
+function conciseAllEqual(strings):
+    uniqueStrings = createSet(strings)
+    if length(uniqueStrings) == 1:
+        return true
+    else:
+        return false
+
+function conciseAscending(strings):
+    sortedStrings = sort(strings, reverse=True)
+    if sortedStrings == strings:
+        return true
+    else:
+        return false
+
+# Main code
+strings = ["abc", "def", "ghi"]
+if allEqual(strings) is True:
+    print("All strings are equal")
+if strictlyAscending(strings) is True:
+    print("Strings are strictly ascending")
+if conciseAllEqual(strings) is True:
+    print("Concise: All strings are equal")
+if conciseAscending(strings) is True:
+    print("Concise: Strings are ascending")

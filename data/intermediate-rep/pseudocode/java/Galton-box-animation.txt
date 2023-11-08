@@ -1,0 +1,83 @@
+```
+function GaltonBox(pinRows, ballCount)
+    m_pinRows = pinRows
+    m_startRow = pinRows + 1
+    m_balls = new Array of length ballCount
+
+    for each ball in m_balls
+        m_balls[ball] = new Position(m_startRow, 0, 'o')
+
+function run()
+    ballsInPlay = m_balls.length
+    while ballsInPlay > 0
+        ballsInPlay = dropBalls()
+        print()
+
+function dropBalls()
+    ballsInPlay = 0
+    ballToStart = -1
+
+    for each ball in m_balls
+        if m_balls[ball].m_row == m_startRow
+            ballToStart = ball
+
+    for each ball in m_balls
+        if ball == ballToStart
+            m_balls[ball].m_row = m_pinRows
+            ballsInPlay++
+        else if m_balls[ball].m_row > 0 and m_balls[ball].m_row != m_startRow
+            m_balls[ball].m_row -= 1
+            m_balls[ball].m_col += random integer between 0 and 1
+            if m_balls[ball].m_row != 0
+                ballsInPlay++
+
+    return ballsInPlay
+
+function print()
+    for row from m_startRow to 1
+        for each ball in m_balls
+            if m_balls[ball].m_row == row
+                printBall(m_balls[ball])
+        printPins(row)
+
+    printCollectors()
+
+function printBall(pos)
+    print ' ' repeated (pos.m_row + 1) times
+    for col from 0 to pos.m_col
+        print '  '
+    print pos.m_char
+
+function printPins(row)
+    print ' ' repeated (row + 1) times
+    for col from m_startRow - row to 0
+        print '. '
+
+function printCollectors()
+    collectors = new Array of Lists
+
+    for col from 0 to m_startRow
+        collector = new List
+        add collector to collectors
+        for each ball in m_balls
+            if m_balls[ball].m_row == 0 and m_balls[ball].m_col == col
+                add m_balls[ball] to collector
+
+    rows = longest(collectors)
+    for row from 0 to rows
+        for col from 0 to m_startRow
+            collector = collectors[col]
+            pos = row + collector.size() - rows
+            print '|'
+            if pos >= 0
+                print collector.get(pos).m_char
+            else
+                print ' '
+        print '|'
+
+function longest(collectors)
+    result = 0
+    for each collector in collectors
+        result = max(collector.size(), result)
+    return result
+```

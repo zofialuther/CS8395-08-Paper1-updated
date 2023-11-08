@@ -1,0 +1,36 @@
+FUNCTION factorial(n)
+    IF n = 0 THEN
+        RETURN 1
+    ELSE
+        RETURN product of numbers from 1 to n
+
+FUNCTION lah(n, k)
+    IF k = 1 THEN
+        RETURN factorial(n)
+    ELSE IF k = n THEN
+        RETURN 1
+    ELSE IF k > n THEN
+        RETURN 0
+    ELSE IF k < 1 OR n < 1 THEN
+        RETURN 0
+    ELSE
+        f = factorial(n) * (factorial(n - 1))
+        RETURN f / (factorial(k) * factorial(n - k))
+        
+FUNCTION printLah(n, k)
+    IF k = 0 THEN
+        PRINT n
+    PRINT lah(n, k)
+
+FUNCTION main()
+    PRINT "Unsigned Lah numbers: L(n, k):\nn/k"
+    zeroToTwelve = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    FOR i IN zeroToTwelve DO
+        PRINT "        " + i
+    FOR i IN zeroToTwelve DO
+        FOR j IN zeroToTwelve DO
+            printLah(i, j)
+    maxVal = 0
+    FOR i IN 0 to 100 DO
+        maxVal = MAX(maxVal, lah(100, i))
+    PRINT "Maximum value from the L(100, *) row:\n" + maxVal

@@ -1,0 +1,43 @@
+FUNCTION chinese_remainder(n, a)
+    sum = 0
+    prod = reduce(lambda a, b: a*b, n)
+    
+    FOR i from 0 to length(n) - 1
+        p = prod / n[i]
+        sum = sum + a[i] * mul_inv(p, n[i]) * p
+    END FOR
+    
+    RETURN sum % prod
+END FUNCTION
+
+FUNCTION mul_inv(a, b)
+    b0 = b
+    x0 = 0
+    x1 = 1
+    
+    IF b == 1 THEN
+        RETURN 1
+    END IF
+    
+    WHILE a > 1
+        q = a / b
+        temp = a
+        a = b
+        b = temp % b
+        temp = x0
+        x0 = x1 - q * x0
+        x1 = temp
+    END WHILE
+    
+    IF x1 < 0 THEN
+        x1 = x1 + b0
+    END IF
+    
+    RETURN x1
+END FUNCTION
+
+IF __name__ == '__main__' THEN
+    n = [3, 5, 7]
+    a = [2, 3, 2]
+    PRINT chinese_remainder(n, a)
+END IF

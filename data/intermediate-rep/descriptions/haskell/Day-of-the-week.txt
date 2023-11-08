@@ -1,0 +1,1 @@
+This code is a Haskell program that checks if Christmas falls on a Sunday for a range of years. It uses the Data.Time library to calculate the day of the week for December 25th and then checks if it is a Sunday. The main function tests this for the years 2008 to 2121 and prints the years in which Christmas falls on a Sunday.

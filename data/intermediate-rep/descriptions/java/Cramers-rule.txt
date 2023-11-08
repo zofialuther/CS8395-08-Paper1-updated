@@ -1,0 +1,1 @@
+This Java code implements Cramer's Rule to solve a system of linear equations. It defines a Matrix class to perform operations such as finding the determinant, calculating cofactors, and replacing columns. The main method sets up a matrix and a list of constants, and then uses Cramer's Rule to solve the system of equations. The result is then printed to the console.

@@ -1,0 +1,1 @@
+This Java program calculates and prints the result of the Euler's identity equation: e ^ (i*Pi) + 1. It uses a Complex class to handle complex number operations, including the calculation of the exponential function and addition of complex numbers. The result is printed to the console.

@@ -1,0 +1,17 @@
+```
+1. Include necessary library
+2. Define puzzle predicate with parameters Ts, X, Y, Z
+3. Define Ts as a list of lists with specific values
+4. Define Y as the sum of X and Z
+5. Call triangle predicate with Ts as parameter
+6. Append Ts to a list Vs
+7. Define Vs to be in the range of 0 to infinity
+8. Label Vs
+9. Define triangle predicate with a list parameter
+10. If the list has more than one element, call triangle_ with the first two elements and call triangle recursively with the rest of the list
+11. If the list has only one element, return true
+12. Define triangle_ predicate with two list parameters
+13. If the first list is empty, return true
+14. Otherwise, define the first element of the first list as the sum of the first two elements of the second list
+15. Call triangle_ recursively with the rest of the lists
+```

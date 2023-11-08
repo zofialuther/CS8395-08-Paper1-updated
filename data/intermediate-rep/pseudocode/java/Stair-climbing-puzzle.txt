@@ -1,0 +1,8 @@
+function stepUp(){
+  initialize i to 0
+  while i is less than 1
+    if step() is true
+      increment i by 1
+    else
+      decrement i by 1
+}

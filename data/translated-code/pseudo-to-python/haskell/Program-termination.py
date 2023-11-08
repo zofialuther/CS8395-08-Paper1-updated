@@ -1,0 +1,6 @@
+if problem:
+    exitWith(ExitSuccess)
+else:
+    exitWith(ExitFailure(integerErrorCode))
+    exitSuccess()
+    exitFailure()

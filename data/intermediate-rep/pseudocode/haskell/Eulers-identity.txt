@@ -1,0 +1,5 @@
+1. Import the Data.Complex library
+2. Define the function eulerIdentityZeroIsh with type Complex Double
+3. Set eulerIdentityZeroIsh to be equal to the result of the expression: exp (0 :+ pi) + 1
+4. Define the main function with type IO ()
+5. Inside main, print the value of eulerIdentityZeroIsh.

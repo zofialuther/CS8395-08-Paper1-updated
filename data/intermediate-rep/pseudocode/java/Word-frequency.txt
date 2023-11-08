@@ -1,0 +1,28 @@
+Start
+    Function printWordFrequency()
+        Initialize URL url with new URI("https://www.gutenberg.org/files/135/135-0.txt").toURL()
+        Try
+            Initialize BufferedReader reader with new BufferedReader(new InputStreamReader(url.openStream()))
+            Initialize Pattern pattern with Pattern.compile("(\\w+)")
+            Initialize Matcher matcher
+            Initialize String line
+            Initialize String word
+            Initialize Map<String, Integer> map with new HashMap<>()
+            While (line = reader.readLine()) is not equal to null
+                Set matcher to pattern.matcher(line)
+                While matcher.find()
+                    Set word to matcher.group().toLowerCase()
+                    If map contains key word
+                        Set map with key word to map.get(word) + 1
+                    Else
+                        Set map with key word to 1
+            Initialize List<Map.Entry<String, Integer>> list with new ArrayList<>(map.entrySet())
+            Sort list by value in descending order
+            Set count to 1
+            For each value in list
+                Print value.getKey() and value.getValue()
+                If count is equal to 10, break
+                Increment count
+        End Try
+    End Function
+End

@@ -1,0 +1,15 @@
+1. Create a function called do_find_closest_points with a parameter for a list of points.
+
+2. Create an empty list called closest_points.
+
+3. Use a nested loop to iterate through each point in the list of points.
+
+4. For each point, calculate the distance to all other points in the list using the distance formula.
+
+5. Store the distances and corresponding points in a dictionary.
+
+6. Sort the distances in ascending order.
+
+7. Retrieve the first two points from the sorted distances and add them to the closest_points list.
+
+8. Return the closest_points list.

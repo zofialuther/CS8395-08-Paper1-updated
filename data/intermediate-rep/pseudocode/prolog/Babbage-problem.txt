@@ -1,0 +1,11 @@
+```
+1. Load the clpfd module
+2. Define a predicate babbage_ with 3 parameters B, B, Sq
+3. If B multiplied by itself equals Sq and Sq can be represented as a list of characters where it contains '2','6','9','6','9','6' 
+4. Define a predicate babbage_ with 3 parameters B, R, Sq
+5. N is the successor of B
+6. Recursively call babbage_ with N, R, Sq
+7. Define a predicate babbage 
+8. Call babbage_ with parameters 1, Num, Square once
+9. Output the result in the format 'lowest number is ~p which squared becomes ~p~n', [Num, Square]
+```

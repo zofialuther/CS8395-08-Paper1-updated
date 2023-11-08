@@ -1,0 +1,1 @@
+This code uses the sys module to iterate through all the integers up to the maximum value supported by the system. For each integer, it prints its octal representation.

@@ -1,0 +1,1 @@
+This code defines two functions, func1 and func2, and a main function. The func1 function takes a function as an argument and applies it to the string "a string". The func2 function takes a string as an argument and returns a new string with "func2 called with " appended to it. The main function calls func1 with func2 as an argument and prints the result to the console.

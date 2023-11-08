@@ -1,0 +1,29 @@
+BEGIN
+    FUNCTION vanEck(firstIndex, lastIndex)
+        vanEckMap = new HashMap
+        last = 0
+        IF firstIndex = 1 THEN
+            DISPLAY "VanEck[1] = 0"
+        END IF
+        FOR n = 2 to lastIndex
+            IF vanEckMap contains key last THEN
+                vanEck = n - vanEckMap.get(last)
+            ELSE
+                vanEck = 0
+            END IF
+            vanEckMap.put(last, n)
+            last = vanEck
+            IF n >= firstIndex THEN
+                DISPLAY "VanEck[" + n + "] = " + vanEck
+            END IF
+        END FOR
+    END FUNCTION
+
+    FUNCTION main
+        DISPLAY "First 10 terms of Van Eck's sequence:"
+        CALL vanEck(1, 10)
+        DISPLAY ""
+        DISPLAY "Terms 991 to 1000 of Van Eck's sequence:"
+        CALL vanEck(991, 1000)
+    END FUNCTION
+END

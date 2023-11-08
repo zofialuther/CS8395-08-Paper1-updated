@@ -1,0 +1,1 @@
+This code is a Prolog query that prompts the user to input a value for the variable "Foo". After the user input, the value of "Foo" is set to 50 and the query returns true.

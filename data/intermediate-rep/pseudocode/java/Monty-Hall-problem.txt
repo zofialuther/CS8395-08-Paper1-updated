@@ -1,0 +1,21 @@
+1. Start
+2. Import the Random class from java.util
+3. Create a class called Monty
+4. Create a public static void method called main with a parameter of args
+5. Initialize switchWins to 0
+6. Initialize stayWins to 0
+7. Create a new Random object called gen
+8. Create a for loop with a variable plays starting at 0 and ending at 32767
+9. Create an array called doors with 3 elements, all set to 0
+10. Set one random element in doors to 1
+11. Generate a random number and store it in the variable choice
+12. Declare a variable called shown
+13. Create a do-while loop
+14. Generate a random number and store it in shown
+15. Check if the shown door is the winner or the chosen door, if it is, repeat the loop
+16. If not, exit the loop
+17. Add the value of the chosen door to stayWins
+18. Calculate the switched door and add its value to switchWins
+19. Print "Switching wins" and the value of switchWins
+20. Print "Staying wins" and the value of stayWins
+21. End.

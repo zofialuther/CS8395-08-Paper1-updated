@@ -1,0 +1,35 @@
+```
+function divisors(n)
+    result = []
+    for i from 1 to n/2
+        if n % i == 0
+            add i to result
+    return result
+
+function classOf(n)
+    sumOfDivisors = sum(divisors(n))
+    if sumOfDivisors < n
+        return "deficient"
+    else if sumOfDivisors == n
+        return "perfect"
+    else
+        return "abundant"
+
+function main()
+    classes = []
+    for i from 1 to 20000
+        add classOf(i) to classes
+    printRes("deficient: ", countOccurences(LT, classes))
+    printRes("perfect:   ", countOccurences(EQ, classes))
+    printRes("abundant:  ", countOccurences(GT, classes)
+
+function printRes(string, count)
+    print string + count
+
+function countOccurences(val, arr)
+    count = 0
+    for each element in arr
+        if element == val
+            increment count
+    return count
+```

@@ -1,0 +1,47 @@
+```
+Create a class Langton that extends JFrame
+    Create a JPanel called planePanel
+    Create a constant integer ZOOM and set it to 4
+    
+    Create a constructor for Langton that takes a boolean 2D array called plane as input
+        Set the planePanel to a new JPanel
+            Override the paint method
+                Loop through the rows of the plane array
+                    Loop through the columns of the plane array
+                        Set the color of the graphics to black if the value at plane[y][x] is true, otherwise set it to white
+                        Fill a rectangle at position (x * ZOOM, y * ZOOM) with size (ZOOM, ZOOM)
+                Set the color of the graphics to green
+                Fill a rectangle at the center of the plane with size (ZOOM/2, ZOOM/2)
+        Set the size of the planePanel to (plane[0].length - 1, plane.length - 1)
+        Add the planePanel to the JFrame
+        Set the size of the JFrame to (ZOOM * plane[0].length, ZOOM * plane.length + 30)
+        Set the default close operation of the JFrame to EXIT_ON_CLOSE
+        Set the visibility of the JFrame to true
+    
+    Create a main method that takes a string array called args as input
+        Call the runAnt method with input parameters 100 and 100 and create a new Langton object with the returned boolean 2D array
+    
+    Create a static method called runAnt that takes two integers height and width as input and returns a boolean 2D array
+        Create a boolean 2D array called plane with dimensions height and width
+        Set antX to width/2 and antY to height/2
+        Set xChange to 0 and yChange to -1
+        While antX is less than width and antY is less than height and antX is greater than or equal to 0 and antY is greater than or equal to 0
+            If the value at plane[antY][antX] is true
+                If xChange is 0
+                    Set xChange to yChange
+                    Set yChange to 0
+                Else
+                    Set yChange to -xChange
+                    Set xChange to 0
+            Else
+                If xChange is 0
+                    Set xChange to -yChange
+                    Set yChange to 0
+                Else
+                    Set yChange to xChange
+                    Set xChange to 0
+            Set the value at plane[antY][antX] to the opposite of its current value
+            Add xChange to antX
+            Add yChange to antY
+        Return the plane
+```

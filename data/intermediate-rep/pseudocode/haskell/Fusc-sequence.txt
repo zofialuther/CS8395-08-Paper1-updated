@@ -1,0 +1,44 @@
+Pseudocode:
+
+function fusc(i: integer) -> integer
+    if i < 1 then
+        return 0
+    else
+        return first(go(i - 1))
+
+function go(n: integer) -> (integer, integer)
+    if n == 0 then
+        return (1, 0)
+    else if n is even then
+        (x, y) = go(n / 2)
+        return (x + y, y)
+    else
+        (x, y) = go((n-1) / 2)
+        return (x, x + y)
+
+function main()
+    print "First 61 terms:"
+    for i from 0 to 60 do
+        print fusc(i)
+    
+    print "\n(Index, Value):"
+    widths = generateWidths()
+    for width in take 5 of widths do
+        print width
+
+function generateWidths() -> [(integer, integer)]
+    result = []
+    w = 2
+    i = 0
+    v = 0
+    while length of v converted to string is not greater than w do
+        w, i, v = nextWidth(w, i, v)
+        result.append((i, v))
+    return result
+
+function nextWidth(w: integer, i: integer, v: integer) -> (integer, integer, integer)
+    fi = (i, fusc(i))
+    while length of v converted to string is not greater than w do
+        i = i + 1
+        v = fusc(i)
+    return (w + 1, i, v)

@@ -1,0 +1,35 @@
+```
+FUNCTION grid(l: list of strings) -> (width: int, height: int, a: grid)
+    width = length of first element in l
+    height = length of l
+    a = create grid array with dimensions (1, 1) to (height, width) and values from applying function f to each element in l
+    RETURN (width, height, a)
+
+FUNCTION printGrid(width: int, grid: grid) -> None
+    FOR EACH row in split width of elements in grid
+        PRINT map g on row
+
+FUNCTION split(n: int, arr: list) -> list of lists
+    RETURN takeWhile not null of unfoldr (Just . splitAt n) on arr
+
+blinker = grid
+    [".#.",
+     ".#.",
+     ".#."]
+
+glider = grid
+    ["............",
+     "............",
+     "............",
+     ".......###..",
+     ".......#....",
+     "........#...",
+     "............"]
+
+FUNCTION printLife(n: int, (w: int, h: int, g: grid)) -> None
+    FOR EACH g in take n of iterate (life w h) g
+        PRINT "------------------------------"
+        printGrid w g
+
+main = printLife 10 glider
+```

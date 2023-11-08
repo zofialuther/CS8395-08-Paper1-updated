@@ -1,0 +1,6 @@
+1. Set ms = ";#"
+2. Define main as the result of getting the contents of the input and then performing the following actions:
+3. For each line in the input, do the following:
+    a. Take characters from the line while they are not in the ms string
+    b. Print the result to the console
+4. End of main.

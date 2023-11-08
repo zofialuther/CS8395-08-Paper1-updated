@@ -1,0 +1,13 @@
+Pseudocode:
+
+1. Import the cmath library
+2. Create a class named Complex which inherits from the complex class
+3. Define a __repr__ method for the Complex class
+4. Inside the __repr__ method, format the real and imaginary parts of the complex number and return the formatted string
+5. Define a method named pureImag which returns true if the real part of the number is close to 0
+6. Define a method named pureReal which returns true if the imaginary part of the number is close to 0
+7. Define a function named croots which takes an integer n as input
+8. If n is less than or equal to 0, return None
+9. Use a generator expression to create a sequence of Complex numbers using the cmath.rect function
+10. In the for loop, iterate over the range from 2 to 10
+11. Print the number and the list of complex roots for each number using the croots function.

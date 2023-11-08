@@ -1,0 +1,6 @@
+multiple_arrays(L1, L2, L3) :-
+    for each index i in L1:
+        display(L1[i], L2[i], L3[i])
+
+display(A, B, C) :-
+    print A, B, C followed by a newline character.

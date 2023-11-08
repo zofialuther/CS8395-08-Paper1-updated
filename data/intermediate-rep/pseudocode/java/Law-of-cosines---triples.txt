@@ -1,0 +1,41 @@
+START
+  FUNCTION generateTriples(max)
+    FOR coeff in [0, -1, 1]
+      count = 0
+      PRINT "Max side length " + max + ", formula:  a*a + b*b " + (IF coeff == 0 THEN "" ELSE IF coeff < 0 THEN "-" ELSE "+") + " a*b = c*c"
+      FOR a from 1 to max
+        FOR b from 1 to a
+          val = a*a + b*b + coeff*a*b
+          c = (int) (squareRoot(val) + .5)
+          IF c > max THEN
+            BREAK
+          END IF
+          IF c*c == val THEN
+            PRINT "  (" + a + ", " + b + ", " + c + ")"
+            count++
+          END IF
+        END FOR
+      END FOR
+      PRINT count + " triangles"
+    END FOR
+  END FUNCTION
+
+  FUNCTION generateTriples60(max)
+    count = 0
+    PRINT "Extra Credit."
+    PRINT "Max side length " + max + ", sides different length, formula:  a*a + b*b - a*b = c*c"
+    FOR a from 1 to max
+      FOR b from 1 to a - 1
+        val = a*a + b*b - a*b
+        c = (int) (squareRoot(val) + .5)
+        IF c*c == val THEN
+          count++
+        END IF
+      END FOR
+    END FOR
+    PRINT count + " triangles"
+  END FUNCTION
+
+  generateTriples(13)
+  generateTriples60(10000)
+END

@@ -1,0 +1,39 @@
+```
+function theader([]) {
+  return [];
+}
+
+function theader([H|T]) {
+  return html(th(H)).concat(theader(T));
+}
+
+function trows([], _) {
+  return [];
+}
+
+function trows([R|T], N) {
+  let trRow = html(tr([td(N), trow(R)]));
+  let N1 = N + 1;
+  return trRow.concat(trows(T, N1));
+}
+
+function trow([]) {
+  return [];
+}
+
+function trow([E|T]) {
+  return html(td(E)).concat(trow(T));
+}
+
+function table() {
+  let Header = ['X', 'Y', 'Z'];
+  let Rows = [
+    [7055, 5334, 5795],
+    [2895, 3019, 7747],
+    [140, 7607, 8144],
+    [7090, 475, 4140]
+  ];
+  let Out = phrase(html(table([tr(theader(Header)), trows(Rows, 1)])), Out, []);
+  print_html(Out);
+}
+```

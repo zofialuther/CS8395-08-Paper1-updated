@@ -1,0 +1,1 @@
+This code declares an integer variable named Δ and initializes it to 1, a double variable named π and initializes it to the value of pi, and a string variable named 你好 and initializes it to "hello". It then increments the value of Δ by 1 and prints out the new value of Δ.

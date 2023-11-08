@@ -1,0 +1,43 @@
+```
+import javax.swing.*;
+import java.awt.*;
+
+public class OutputSwing {
+
+    public static void main(String[] args) {
+
+        // Create a new thread to run the Swing GUI
+        SwingUtilities.invokeLater(new Runnable(){
+            public void run() {
+                // Display a message in an alert box
+                JOptionPane.showMessageDialog (null, "Goodbye, World!");
+
+                // Create a new JFrame with the title "Goodbye, World!"
+                JFrame frame = new JFrame("Goodbye, World!");
+
+                // Create a new JTextArea with the text "Goodbye, World!"
+                JTextArea text = new JTextArea("Goodbye, World!");
+
+                // Create a new JButton with the text "Goodbye, World!"
+                JButton button = new JButton("Goodbye, World!");
+
+                // Set the layout of the frame to FlowLayout
+                frame.setLayout(new FlowLayout());
+
+                // Add the button and text area to the frame
+                frame.add(button);
+                frame.add(text);
+
+                // Adjust the size of the frame to fit its contents
+                frame.pack();
+
+                // Set the default close operation for the frame
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+                // Make the frame visible
+                frame.setVisible(true);
+            }
+        });
+    }
+}
+```

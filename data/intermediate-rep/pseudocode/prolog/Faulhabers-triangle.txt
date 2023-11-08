@@ -1,0 +1,50 @@
+```
+function ft_rows(Lz) {
+    lazy_list(ft_row, [], Lz);
+}
+
+function ft_row([], R1, R1) {
+    R1 = [1];
+}
+function ft_row(R0, R2, R2) {
+    length(R0, P);
+    Jmax = 1 + P;
+    numlist(2, Jmax, Qs);
+    maplist(term(P), Qs, R0, R1);
+    sum_list(R1, S);
+    Bk = 1 - S;
+    R2 = [Bk | R1];
+}
+
+function term(P, Q, R, S) {
+    S = R * (P rdiv Q);
+}
+
+function show(N) {
+    ft_rows(Rs);
+    length(Rows, N);
+    prefix(Rows, Rs);
+    foreach(R in Rows) {
+        S = format("~w", [R]);
+        T = re_replace(" rdiv "/g, "/", S);
+        U = re_replace(","/g, ", ", T);
+        write(U);
+    }
+}
+
+function sum(N, K, S) {
+    ft_rows(Rows);
+    drop(K, Rows, [Coefs|_]);
+    reverse([0|Coefs], Poly);
+    foldl(horner(N), Poly, 0, S);
+}
+
+function horner(N, A, S0, S1) {
+    S1 = N*S0 + A;
+}
+
+function drop(N, Lz1, Lz2) {
+    append(Pfx, Lz2, Lz1);
+    length(Pfx, N);
+}
+```

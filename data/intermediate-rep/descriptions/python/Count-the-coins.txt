@@ -1,0 +1,7 @@
+The code begins by attempting to import the "psyco" module, which is a specializing just-in-time compiler for Python. If successful, it enables full optimization. If it fails to import, the code moves on without any action.
+
+The main function of the code is the "count_changes" function, which takes in an amount in cents and a list of coin denominations, and calculates the number of ways the amount can be made using the given coins.
+
+The code then includes a main function that tests the "count_changes" function with different amounts and sets of coins (US and EU denominations) and prints the results.
+
+Overall, this code is designed to optimize and calculate the number of ways to make a certain amount using different coin denominations.

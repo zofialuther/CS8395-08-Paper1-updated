@@ -1,0 +1,13 @@
+```
+1. Import the clpfd library
+2. Define a predicate dot with parameters V1, V2, and N
+3. Inside dot, use maplist to apply the product predicate to V1 and V2, storing the result in P
+4. Use sumlist to calculate the sum of the elements in P and store it in N
+5. Define a predicate product with parameters N1, N2, and N3
+6. Inside product, calculate the product of N1 and N2 and store it in N3
+7. Define a predicate mmult with parameters M1, M2, and M3
+8. Inside mmult, use transpose to transpose M2 and store the result in MT
+9. Use maplist to apply the mm_helper predicate to each element of M1 and store the result in M3
+10. Define a predicate mm_helper with parameters M2, I1, and M3
+11. Inside mm_helper, use maplist to apply the dot predicate with I1 to each element of M2 and store the result in M3
+```

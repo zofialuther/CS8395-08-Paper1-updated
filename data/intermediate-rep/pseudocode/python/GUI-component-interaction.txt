@@ -1,0 +1,57 @@
+```
+START
+    Import random
+    Import Tkinter
+    Import tkMessageBox
+
+    Class Application(Frame)
+        Function __init__(self, master)
+            Frame.__init__(self, master)
+            self.counter = 0
+            self.contents = StringVar()
+            self.contents.set(str(self.counter))
+            self.pack(expand=True, fill='both', padx=10, pady=15)
+            self.create_widgets()
+
+        Function increment(self, *args)
+            self.counter += 1
+            self.update_entry()
+
+        Function random(self)
+            If tkMessageBox.askyesno("Confirmation", "Reset to random value ?") Then
+                self.counter = random.randint(0, 5000)
+                self.update_entry()
+
+        Function entry_updated(self, event, *args)
+            If not event.char Then
+                Return 'break'
+            If not event.char.isdigit() Then
+                tkMessageBox.showerror('Error', 'Invalid input !')
+                Return 'break'
+            self.counter = int('%s%s' % (self.contents.get(), event.char))
+
+        Function update_entry(self)
+            self.contents.set(str(self.counter))
+            self.entry['textvariable'] = self.contents
+
+        Function create_widgets(self)
+            options = {'expand': True, 'fill': 'x', 'side': 'left', 'padx': 5}
+            self.entry = Entry(self)
+            self.entry.bind('<Key>', self.entry_updated)
+            self.entry.pack(**options)
+            self.update_entry()
+            self.increment_button = Button(self, text='Increment', command=self.increment)
+            self.increment_button.pack(**options)
+            self.random_button = Button(self, text='Random', command=self.random)
+            self.random_button.pack(**options)
+
+    If __name__ == '__main__' Then
+        root = Tk()
+        Try
+            app = Application(master=root)
+            app.master.title("Rosetta code")
+            app.mainloop()
+        Except KeyboardInterrupt
+            root.destroy()
+END
+```

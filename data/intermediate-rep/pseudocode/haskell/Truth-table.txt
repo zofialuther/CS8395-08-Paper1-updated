@@ -1,0 +1,43 @@
+```
+function truthTable(expr):
+    tokens = split expr by " "
+    operators = ["&", "|", "!", "^", "=>"]
+    variables = removeDuplicates(filter tokens where token is not in operators)
+    table = zip(variables, mapM (const [True,False]) variables)
+    results = map(table, lambda r: append(map(r, lambda x: x[1]), calculate(tokens, r)))
+    header = append(variables, ["result"])
+    showTable(append(header, map(lambda r: map(lambda x: show(x)), results))
+
+function calculate(tokens, context):
+    foldM(interprete, [], tokens)
+    
+    function interprete(s, "&", x, y):
+        append(s, x && y)
+    
+    function interprete(s, "|", x, y):
+        append(s, x || y)
+    
+    function interprete(s, "^", x, y):
+        append(s, x != y)
+    
+    function interprete(s, "=>", x, y):
+        append(s, not y || x)
+    
+    function interprete(s, "!", x):
+        append(s, not x)
+    
+    function interprete(s, var):
+        append(s, fromJust(lookup(var, context)))
+
+function showTable(tbl):
+    unlines(map(lambda row: unwords(map(align, row)), tbl))
+    
+    function align(txt):
+        colWidth = max(6, max(map(length, head(tbl))))
+        return take(colWidth, txt + repeat(' '))
+
+forever:
+    line = getLine()
+    result = truthTable(line)
+    putStrLn(result)
+```

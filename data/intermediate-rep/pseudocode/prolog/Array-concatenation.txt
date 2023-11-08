@@ -1,0 +1,4 @@
+1. Create a new list R
+2. For each element in the first list [1,2,3], add it to the new list R
+3. For each element in the second list [4,5,6], add it to the new list R
+4. Return the new list R as the result [1, 2, 3, 4, 5, 6]

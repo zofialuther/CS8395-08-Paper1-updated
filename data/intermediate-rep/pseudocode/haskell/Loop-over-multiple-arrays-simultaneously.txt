@@ -1,0 +1,6 @@
+1. Set up the main function to be of type IO [()].
+2. Within the main function, use the sequence function to execute a list of IO actions and gather their results.
+3. Create a list comprehension to generate a list of IO actions that each print a combination of x, y, and z.
+4. Use parallel list comprehension to iterate through the strings "abc", "ABC", and "123" simultaneously and generate combinations of x, y, and z.
+5. For each combination, use the putStrLn function to print the combination of x, y, and z.
+6. End the list comprehension and close the main function.

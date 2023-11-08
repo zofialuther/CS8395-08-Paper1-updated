@@ -1,0 +1,6 @@
+1. Create a list called items with the given values [1, 2, 3, 'a', 'b', 'c', 2, 3, 4, 'b', 'c', 'd']
+2. Create a new list called unique
+3. Use the set() function to remove duplicates from the items list
+4. Convert the set back to a list using the list() function
+5. Store the result in the unique list
+6. Print the unique list to display the unique elements.

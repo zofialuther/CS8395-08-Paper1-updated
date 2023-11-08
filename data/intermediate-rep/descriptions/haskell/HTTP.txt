@@ -1,0 +1,1 @@
+This code uses the Network.Browser, Network.HTTP, and Network.URI modules to make a GET request to the URL "http://www.rosettacode.org/". It sets the option to allow redirects and specifies an output handler. The response body of the request is then printed to the console.

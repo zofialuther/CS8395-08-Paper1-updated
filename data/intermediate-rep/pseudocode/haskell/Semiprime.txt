@@ -1,0 +1,10 @@
+FUNCTION isSemiprime(n: Integer) -> Boolean
+    factors = primeFactors(n)
+    IF (length of factors) == 2 AND (product of factors) == n
+        RETURN True
+    ELSE IF (length of factors) == 1 AND (first element of factors) ^ 2 == n
+        RETURN True
+    ELSE
+        RETURN False
+    ENDIF
+ENDFUNCTION

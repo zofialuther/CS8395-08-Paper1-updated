@@ -1,0 +1,1 @@
+This code creates a Christmas carol using the traditional "12 Days of Christmas" gifts. It organizes the gifts into a list and the days into another list, then uses a loop to iterate through the days and print out the corresponding verse of the carol. The code formats the output to display the gifts for each day in reverse order, with the appropriate day and lyrics.

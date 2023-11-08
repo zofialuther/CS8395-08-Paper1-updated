@@ -1,0 +1,1 @@
+This Java code defines a class called Pas with a main method that demonstrates the usage of the pas() method. The pas() method takes an integer input and prints the Pascal's triangle with the specified number of rows. The ncr() method calculates the combination of n choose r using the factorial method fact(). The fact() method calculates the factorial of a given number.

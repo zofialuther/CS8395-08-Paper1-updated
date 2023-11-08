@@ -1,0 +1,6 @@
+FUNCTION strAppend 
+    PARAMETER x, y
+    x = "Hello"
+    y = "World"
+    RETURN x + y
+END FUNCTION

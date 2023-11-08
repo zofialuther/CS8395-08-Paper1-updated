@@ -1,0 +1,4 @@
+```
+if r'\x20' is equal to '\\x20' then return true
+else return false
+```

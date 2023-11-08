@@ -1,0 +1,9 @@
+1. Start
+2. Initialize a string variable 'text' with some text
+3. Initialize a string variable 'patternString' with a regex pattern
+4. Create a Pattern object using the Pattern class and pass the 'patternString' as an argument
+5. Create a Matcher object using the Matcher class and pass the 'text' as an argument
+6. Use the find() method of the Matcher object to find the next subsequence of the input that matches the pattern
+7. If a match is found, print the matched subsequence
+8. Repeat steps 6-7 until no more matches are found
+9. End

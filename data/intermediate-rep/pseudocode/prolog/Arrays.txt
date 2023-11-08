@@ -1,0 +1,12 @@
+
+begin
+  Array = new Array(100) // create an array with 100 elements
+  Array[0] = "a" // put an a at index 1
+  Array[11] = "b" // put a b at index 12
+  Value1 = Array[0] // get the value at index 1
+  print(Value1) // print Value1
+  print("\n") // print a newline
+  Value2 = Array[3] // get the value at index 4
+  print(Value2) // print Value2
+  print("\n") // print a newline
+end

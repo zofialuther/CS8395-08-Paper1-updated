@@ -1,0 +1,22 @@
+START
+  Import required libraries
+
+  Class Horner
+    Function main
+      Create a new ArrayList called coeffs
+      Add -19.0 to coeffs
+      Add 7.0 to coeffs
+      Add -4.0 to coeffs
+      Add 6.0 to coeffs
+      Print the result of polyEval with coeffs and 3 as parameters
+
+    Function polyEval with parameters coefficients and x
+      Reverse the order of coefficients
+      Create a variable called accumulator and set it to the first element of coefficients
+      For each element in coefficients starting from the second element
+        Update accumulator by multiplying it with x and adding the current element
+      End for
+      Return accumulator
+    End Function
+  End Class
+END

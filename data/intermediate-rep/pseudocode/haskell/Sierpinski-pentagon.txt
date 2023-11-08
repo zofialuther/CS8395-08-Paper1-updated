@@ -1,0 +1,6 @@
+1. Define a function called "transform" with parameters "s" and "copyList"
+2. Set the transformation variable to the result of the following operations:
+   a. Scale the "s" value by "s" in both x and y directions
+   b. Rotate by 36 degrees
+   c. Perform the foldMap operation on the "copyList" using the copy function and the list [0, 72, 144, 216, 288]
+3. End of function.

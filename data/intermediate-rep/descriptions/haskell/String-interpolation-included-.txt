@@ -1,0 +1,1 @@
+This code uses the Text.Printf module to print the sentence "Mary had a little lamb" to the console using the %s format specifier to insert the word "little" into the sentence.

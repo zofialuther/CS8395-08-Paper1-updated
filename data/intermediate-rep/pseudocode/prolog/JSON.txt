@@ -1,0 +1,21 @@
+```
+Load required modules: 
+    - http/json
+    - func
+
+Define a predicate test_json with a JSON string as an argument:
+    test_json(JSON_string):
+        Define a JSON string with the given argument.
+
+Define a predicate reading_JSON_term:
+    reading_JSON_term:
+        Call atom_json_dict with the test_json predicate and store the result in Dict.
+        Print the JSON as a Prolog dict.
+        Print the value of the field "widget.text.data"
+        Alter the value of the field "widget" and print the altered dict.
+
+Define a predicate serialize_a_JSON_term:
+    serialize_a_JSON_term:
+        Define a dictionary Dict with book title, author, publisher, and year.
+        Serialize the dictionary using json_write and print the output.
+```

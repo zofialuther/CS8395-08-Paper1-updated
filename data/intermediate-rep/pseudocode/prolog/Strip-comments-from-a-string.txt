@@ -1,0 +1,40 @@
+```
+function stripcomment(A, B) {
+    stripcomment(A, B, a);
+}
+
+function stripcomment(AL, BL, a) {
+    if (A != 0'; && A != 0'# && A != 10 && A != 13) {
+        stripcomment(AL, BL, a);
+    }
+}
+
+function stripcomment(AL, BL, a) {
+    if ((A == 0';; || A == 0'#) && A != 10 && A != 13) {
+        stripcomment(AL, BL, b);
+    }
+}
+
+function stripcomment(AL, BL, b) {
+    if (A != 10 && A != 13) {
+        stripcomment(AL, BL, b);
+    }
+}
+
+function stripcomment(AL, BL, _M) {
+    if (A == 10 || A == 13) {
+        stripcomment(AL, BL, a);
+    }
+}
+
+function stripcomment([], [], _M) {
+    // do nothing
+}
+
+function start() {
+    In = "apples, pears ; and bananas
+    apples, pears # and bananas";
+    stripcomment(In, Out);
+    print(Out);
+}
+```

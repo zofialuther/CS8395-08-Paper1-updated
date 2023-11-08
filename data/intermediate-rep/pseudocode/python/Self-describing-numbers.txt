@@ -1,0 +1,19 @@
+```
+FUNCTION isSelfDescribing(n):
+    s = CONVERT n TO STRING
+    FOR i FROM 0 TO LENGTH(s) - 1:
+        IF s.count(CONVERT i TO STRING) != CONVERT s[i] TO INTEGER THEN
+            RETURN False
+    RETURN True
+
+SET result_list to an empty list
+FOR x FROM 0 TO 3999999:
+    IF isSelfDescribing(x) THEN
+        result_list.append(x)
+
+DISPLAY result_list
+
+SET test_values to (1210, 2020, 21200, 3211000, 42101000, 521001000, 6210001000)
+FOR EACH value IN test_values:
+    DISPLAY (value, isSelfDescribing(value))
+```

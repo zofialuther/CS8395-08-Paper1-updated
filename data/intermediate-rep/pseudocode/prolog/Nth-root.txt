@@ -1,0 +1,43 @@
+```
+function iroot(M, N, R) {
+    if (N == 0) {
+        return 0;
+    }
+    if (M > 1) {
+        if (N > 0) {
+            return irootpos(M, N, R);
+        } else {
+            if (N % 2 == 1) {
+                let NegN = -N;
+                let R0 = irootpos(M, NegN);
+                return -R0;
+            }
+        }
+    }
+}
+
+function irootpos(N, A) {
+    let X0 = 1 << (msb(A) / N);
+    let X1 = newton(N, A, X0);
+    return iroot_loop(A, X1, N, A);
+}
+
+function iroot_loop(X1, X2, N, A) {
+    if (X1 <= X2) {
+        return X1;
+    } else {
+        let X2 = newton(N, A, X1);
+        return iroot_loop(X1, X2, N, A);
+    }
+}
+
+function newton(N, A, X0) {
+    if (N == 2) {
+        let X1 = (X0 + A / X0) >> 1;
+        return X1;
+    } else {
+        let X1 = ((N - 1) * X0 + A / (X0 ** (N - 1))) / N;
+        return X1;
+    }
+}
+```

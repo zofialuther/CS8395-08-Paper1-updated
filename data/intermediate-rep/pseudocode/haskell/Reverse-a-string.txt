@@ -1,0 +1,7 @@
+function accumulatingReverse(lst):
+    rev = function(xs, a):
+        return foldl(function(acc, x): 
+            return x + acc, a, xs)
+    end function
+    return rev(lst, [])
+end function

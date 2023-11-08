@@ -1,0 +1,1 @@
+This code reads input from the standard input and then prints each line, stopping at the first occurrence of the characters ";#" on each line. It uses the mapM_ function to apply the takeWhile function to each line and then print the result.

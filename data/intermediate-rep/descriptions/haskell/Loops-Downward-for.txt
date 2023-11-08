@@ -1,0 +1,1 @@
+This code uses the Control.Monad library to create a program that counts down from 10 to 0 and prints each number to the console. It uses the forM_ function to iterate over the list of numbers and apply the print function to each one.

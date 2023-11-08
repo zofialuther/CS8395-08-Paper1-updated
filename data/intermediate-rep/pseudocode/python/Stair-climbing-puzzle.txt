@@ -1,0 +1,4 @@
+1. Define a function called step_up2
+2. Inside the function, add a comment "No numbers."
+3. Start a while loop with the condition "not step()"
+4. Inside the while loop, call the function step_up2() recursively to undo the fall.

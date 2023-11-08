@@ -1,0 +1,16 @@
+FUNCTION levenshtein(s1, s2)
+    IF s1 == []
+        RETURN length of s2
+    ELSE IF s2 == []
+        RETURN length of s1
+    ELSE
+        IF first character of s1 == first character of s2
+            RETURN levenshtein(rest of s1, rest of s2)
+        ELSE
+            score1 = levenshtein(rest of s1, rest of s2)
+            score2 = levenshtein(s1, rest of s2)
+            score3 = levenshtein(rest of s1, s2)
+            RETURN 1 + minimum of [score1, score2, score3]
+
+FUNCTION main
+    CALL levenshtein("kitten", "sitting") and print the result

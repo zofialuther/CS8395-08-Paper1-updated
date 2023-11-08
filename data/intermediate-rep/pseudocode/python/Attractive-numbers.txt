@@ -1,0 +1,15 @@
+1. Import the sieve function from the sympy library to generate prime numbers.
+2. Create a function named get_pfct that takes a parameter n.
+3. Initialize variables i to 2 and factors to an empty list.
+4. While i * i is less than or equal to n, do the following:
+    - Check if n is divisible by i.
+    - If it is, divide n by i and append i to the factors list.
+    - If it's not, increment i by 1.
+5. If n is greater than 1, append n to the factors list.
+6. Return the length of the factors list.
+7. Extend the sieve to generate the first 110 prime numbers and store them in a variable called primes.
+8. Create an empty list called pool.
+9. Iterate through the range from 0 to 121 and append the result of get_pfct(each) to the pool list.
+10. Iterate through the elements in the pool list and their indices using enumerate.
+11. Check if each element is in the primes list.
+12. If it is, print the index.

@@ -1,0 +1,7 @@
+1. Read input string from standard input
+2. Initialize an empty string variable result
+3. Split the input string by spaces and store the result in an array
+4. For each word in the array:
+      - If the length of the word is odd, reverse the word and add it to the result string
+      - If the length of the word is even, add the word to the result string as is
+5. Print the result string.

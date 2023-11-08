@@ -1,0 +1,16 @@
+FUNCTION divisors(n: INTEGER) -> LIST
+    SET result = []
+    FOR i = 1 to n/2
+        IF n MOD i == 0
+            APPEND i TO result
+    RETURN result
+
+FUNCTION main()
+    LET range = [1 .. 20000]
+    LET divs = zip(range, map(sum(divisors), range))
+    LET pairs = []
+    FOR n, nd IN divs
+        FOR m, md IN divs
+            IF n < m AND nd == m AND md == n
+                APPEND (n, m) TO pairs
+    PRINT pairs

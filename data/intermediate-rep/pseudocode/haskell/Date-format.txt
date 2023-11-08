@@ -1,0 +1,14 @@
+1. Import necessary libraries:
+   import Data.Time
+       (FormatTime, formatTime, defaultTimeLocale, utcToLocalTime,
+        getCurrentTimeZone, getCurrentTime)
+
+2. Define the formats function:
+   formats :: FormatTime t => [t -> String]
+   formats = (formatTime defaultTimeLocale) <$>  ["%F", "%A, %B %d, %Y"]
+
+3. Define the main function:
+   main :: IO ()
+   main = do
+     t <- pure utcToLocalTime <*> getCurrentTimeZone <*> getCurrentTime
+     putStrLn $ unlines (formats <*> pure t)

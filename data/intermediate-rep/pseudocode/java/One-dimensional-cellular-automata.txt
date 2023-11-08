@@ -1,0 +1,43 @@
+```
+class Life{
+  main(){
+    start = "_###_##_#_#_#_#__#__"
+    numGens = 10
+    for i = 0 to numGens-1{
+      print("Generation " + i + ": " + start)
+      start = life(start)
+    }
+  }
+  
+  life(lastGen){
+    newGen = ""
+    for i = 0 to length(lastGen)-1{
+      neighbors = 0
+      if i == 0{
+        neighbors = lastGen[1] == '#' ? 1 : 0
+      } else if i == length(lastGen) - 1{
+        neighbors = lastGen[i - 1] == '#' ? 1 : 0
+      } else{
+        neighbors = getNeighbors(substring(lastGen, i - 1, i + 2))
+      }
+      if neighbors == 0{
+        newGen += "_"
+      }
+      if neighbors == 1{
+        newGen += lastGen[i]
+      }
+      if neighbors == 2{
+        newGen += lastGen[i] == '#' ? "_" : "#"
+      }
+    }
+    return newGen
+  }
+  
+  getNeighbors(group){
+    ans = 0
+    if group[0] == '#' ans++
+    if group[2] == '#' ans++
+    return ans
+  }
+}
+```

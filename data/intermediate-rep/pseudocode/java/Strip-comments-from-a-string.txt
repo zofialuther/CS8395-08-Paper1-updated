@@ -1,0 +1,16 @@
+1. Start
+2. Check if there are command line arguments
+3. If there are no command line arguments
+4.    Display "Usage: java StripLineComments StringToProcess"
+5. Else
+6.    Set inputFile to the first command line argument
+7.    Set input to an empty string
+8.    Try
+9.       Create a new BufferedReader with a new FileReader using inputFile
+10.      Set line to an empty string
+11.      While line is not null
+12.          Display the first part of line split by "#" or ";"
+13.      End While
+14.   Catch any exceptions and print the stack trace
+15. End if
+16. End.

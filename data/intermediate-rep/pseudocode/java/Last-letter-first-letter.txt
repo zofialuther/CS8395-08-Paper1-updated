@@ -1,0 +1,17 @@
+1. Create a class LastLetterFirstLetter
+2. Set maxPathLength to 0
+3. Set maxPathLengthCount to 0
+4. Create a StringBuffer maxPathExample with a capacity of 500
+5. Create an array of strings called names with the given list of names
+6. Create a function called recursive that takes an array of strings called part and an integer offset as parameters
+7. If the offset is greater than maxPathLength, set maxPathLength to offset and maxPathLengthCount to 1
+8. If the offset is equal to maxPathLength, increment maxPathLengthCount and build the maxPathExample string
+9. Get the last character of the string at index offset - 1
+10. Iterate through the part array starting from the offset
+11. If the first character of the current string is the same as the last character, swap the names at the offset and current index, then call the recursive function with offset + 1
+12. Swap the names back to their original positions after the recursive call
+13. Create a main function that takes an array of strings args as a parameter
+14. Iterate through the names array
+15. Swap the names at index 0 and the current index, then call the recursive function with offset 1
+16. Swap the names back to their original positions after the recursive call
+17. Print the maximum path length, paths of that length, and an example path of that length.

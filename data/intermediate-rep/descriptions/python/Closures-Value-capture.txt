@@ -1,0 +1,1 @@
+This code creates a list of lambda functions, where each function returns the square of its corresponding index in the list. It then prints the result of calling the function at index 3, which returns 9.

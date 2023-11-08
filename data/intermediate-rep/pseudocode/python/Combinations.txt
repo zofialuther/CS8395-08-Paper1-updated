@@ -1,0 +1,11 @@
+FUNCTION comb(n, iterable)
+    combinations = []
+    FOR i in range(length(iterable))
+        FOR j in range(i+1, length(iterable))
+            FOR k in range(j+1, length(iterable))
+                combination = [iterable[i], iterable[j], iterable[k]]
+                combinations.append(combination)
+    RETURN combinations
+END FUNCTION
+
+PRINT comb(3, range(5))

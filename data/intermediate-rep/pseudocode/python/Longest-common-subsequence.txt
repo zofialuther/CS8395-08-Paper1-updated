@@ -1,0 +1,13 @@
+FUNCTION lcs
+    PARAMETERS xstr, ystr
+    IF xstr is empty OR ystr is empty
+        RETURN ""
+    x <- first character of xstr
+    xs <- rest of xstr
+    y <- first character of ystr
+    ys <- rest of ystr
+    IF x is equal to y
+        RETURN lcs(xs, ys) + x
+    ELSE
+        RETURN maximum of lcs(xstr, ys), lcs(xs, ystr) based on length
+END FUNCTION

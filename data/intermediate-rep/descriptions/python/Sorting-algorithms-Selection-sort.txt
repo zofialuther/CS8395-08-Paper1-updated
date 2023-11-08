@@ -1,0 +1,1 @@
+This code defines a function called selection_sort that takes a list as input and sorts it using the selection sort algorithm. It iterates over the list and for each element, it finds the minimum value in the remaining unsorted portion of the list and swaps it with the current element. Finally, it returns the sorted list.

@@ -1,0 +1,14 @@
+
+function getSum(n)
+	sum = 0
+	for i = 3 to n - 1
+		if i % 3 == 0 or i % 5 == 0
+			sum = sum + i
+		end if
+	end for
+	return sum
+end function
+
+function main()
+	print getSum(1000)
+end function

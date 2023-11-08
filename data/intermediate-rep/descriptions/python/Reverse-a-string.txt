@@ -1,0 +1,1 @@
+This code takes a string of Unicode characters, converts them from hexadecimal to their respective characters, and then reverses the order of the characters. Finally, it passes the reversed string to a function called say_rev.

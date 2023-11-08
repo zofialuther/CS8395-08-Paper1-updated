@@ -1,0 +1,11 @@
+```
+load library chr
+
+constraint loop/1
+
+loop(N) {
+    writeln(N)
+    N1 = N + 1
+    loop(N1)
+}
+```

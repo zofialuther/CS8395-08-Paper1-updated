@@ -1,0 +1,7 @@
+FUNCTION ack2(M, N)
+    IF M == 0 THEN
+        RETURN N + 1
+    ELSE IF N == 0 THEN
+        RETURN ack2(M - 1, 1)
+    ELSE
+        RETURN ack2(M - 1, ack2(M, N - 1))

@@ -1,0 +1,2 @@
+DECLARE Δ😄 as 1
+INCREMENT Δ😄 by 1

@@ -1,0 +1,1 @@
+The PermutationGenerator class is designed to generate permutations of a given size, starting at a specified number. It includes methods to reset the permutation, check if there are more permutations, and retrieve the next permutation. The main method provides an example of how to use the class to generate and print permutations.

@@ -1,0 +1,3 @@
+This code defines a limiter variable and an empty list called primelist. It then defines a function called primer that takes a number as input and checks if it is a prime number. It uses the primelist to store previously calculated prime numbers and checks if the input number is divisible by any of the numbers in the primelist. If it is not divisible, the input number is added to the primelist. 
+
+The code then iterates through a range of numbers from 2 to the limiter and calls the primer function for each number. After calculating all the prime numbers within the limiter, it prints the total number of prime numbers found and the list of prime numbers.

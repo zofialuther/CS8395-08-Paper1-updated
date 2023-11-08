@@ -1,0 +1,49 @@
+BEGIN
+    IMPORT org.hamcrest.CoreMatchers.is
+    IMPORT java.nio.charset.StandardCharsets
+    IMPORT org.junit.Assert
+    IMPORT org.junit.Test
+
+    CLASS MutableByteStringTest
+        METHOD testReplaceEmpty
+            SET str to new MutableByteString("hello".getBytes(StandardCharsets.UTF_8))
+            str.replace(new byte[]{}, new byte[]{'-'})
+            ASSERT assertThat(str.toStringUtf8(), is("-h-e-l-l-o-"))
+        END METHOD
+
+        METHOD testReplaceMultiple
+            SET str to new MutableByteString("hello".getBytes(StandardCharsets.UTF_8))
+            str.replace(new byte[]{'l'}, new byte[]{'1', '2', '3'})
+            ASSERT assertThat(str.toStringUtf8(), is("he123123o"))
+        END METHOD
+
+        METHOD testToHexString
+            SET str to new MutableByteString("hello".getBytes(StandardCharsets.UTF_8))
+            ASSERT assertThat(str.toHexString(), is("68656c6c6f"))
+        END METHOD
+
+        METHOD testAppend
+            SET str to new MutableByteString("hello".getBytes(StandardCharsets.UTF_8))
+            str.append((byte) ',')
+            str.append((byte) ' ')
+            str.append((byte) 'w')
+            str.append((byte) 'o')
+            str.append((byte) 'r')
+            str.append((byte) 'l')
+            str.append((byte) 'd')
+            ASSERT assertThat(str.toStringUtf8(), is("hello, world"))
+        END METHOD
+
+        METHOD testSubstring
+            SET str to new MutableByteString("hello, world".getBytes(StandardCharsets.UTF_8))
+            ASSERT assertThat(str.substring(0, 5).toStringUtf8(), is("hello"))
+            ASSERT assertThat(str.substring(7, 12).toStringUtf8(), is("world"))
+        END METHOD
+
+        METHOD testRegionEquals
+            SET str to new MutableByteString("hello".getBytes(StandardCharsets.UTF_8))
+            ASSERT assertThat(str.regionEquals(0, new MutableByteString(new byte[]{'h'}), 0, 1), is(true))
+            ASSERT assertThat(str.regionEquals(0, new MutableByteString(new byte[]{'h'}), 0, 2), is(false))
+        END METHOD
+    END CLASS
+END

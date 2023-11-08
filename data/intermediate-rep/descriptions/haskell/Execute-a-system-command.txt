@@ -1,0 +1,1 @@
+This code is written in Haskell and uses the "System.Cmd" module to execute the "ls" command, which lists the files and directories in the current directory. The "main" function is used to call the "system" function to run the "ls" command.

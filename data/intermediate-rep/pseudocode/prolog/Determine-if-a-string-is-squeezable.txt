@@ -1,0 +1,21 @@
+```
+function squeeze_(Chars, SqueezeChar, Result) {
+    if (Chars is empty) {
+        Result = empty
+    } else if (Chars has only one element) {
+        Result = Chars
+    } else if (first element of Chars is equal to SqueezeChar) {
+        Call squeeze_ with (the rest of Chars, SqueezeChar, Result)
+    } else if (first two elements of Chars are equal) {
+        Call squeeze_ with (the rest of Chars, SqueezeChar, Result)
+    } else if (first two elements of Chars are not equal) {
+        Result = first element of Chars + Call squeeze_ with (the rest of Chars, SqueezeChar, Result)
+    }
+}
+
+function squeeze(Str, SqueezeChar, Collapsed) {
+    Chars = convert Str to a list of characters
+    Call squeeze_ with (Chars, SqueezeChar, Result)
+    Collapsed = convert Result to a string
+}
+```

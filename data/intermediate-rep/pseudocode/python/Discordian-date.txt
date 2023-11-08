@@ -1,0 +1,14 @@
+FUNCTION ddate(year, month, day)
+    today = create datetime object with year, month, and day
+    is_leap_year = check if year is leap year using calendar module
+    IF is_leap_year is True and month is February and day is 29
+        RETURN "St. Tib's Day, YOLD " + (year + 1166)
+    
+    day_of_year = get day of the year from today object and subtract 1
+
+    IF is_leap_year is True and day_of_year is greater than or equal to 60
+        day_of_year -= 1 # Compensate for St. Tib's Day
+
+    season, dday = divide day_of_year by 73 and store the quotient and remainder
+
+    RETURN "%s %d, YOLD %d" % (DISCORDIAN_SEASONS[season], dday + 1, year + 1166)

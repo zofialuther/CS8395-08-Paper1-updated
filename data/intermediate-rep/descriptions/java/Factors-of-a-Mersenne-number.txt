@@ -1,0 +1,1 @@
+This code is a Java program that checks whether Mersenne numbers, which are in the form 2^p - 1, are prime or not. It includes methods to determine if a number is prime, find factors of Mersenne numbers, and check Mersenne numbers for primality. The main method runs a test for Mersenne numbers from 1 to 50 and also checks the Mersenne number with exponent 929.

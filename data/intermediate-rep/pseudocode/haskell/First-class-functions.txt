@@ -1,0 +1,15 @@
+```
+FUNCTION cube(x)
+    RETURN x ** 3.0
+
+FUNCTION croot(x)
+    RETURN x ** (1/3)
+
+ARRAY funclist = [sin, cos, cube]
+
+ARRAY invlist = [asin, acos, croot]
+
+FUNCTION main()
+    PRINT zipWith(\f, i -> f . i $ 0.5, funclist, invlist)
+```
+Note: This pseudocode assumes that the zipWith function is already defined in the language. If it is not, the implementation of zipWith would need to be included in the pseudocode.

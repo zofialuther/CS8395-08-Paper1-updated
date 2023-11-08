@@ -1,0 +1,9 @@
+FUNCTION max(values)
+    max = values[0]
+    FOR value IN values
+        IF max < value THEN
+            max = value
+        END IF
+    END FOR
+    RETURN max
+END FUNCTION

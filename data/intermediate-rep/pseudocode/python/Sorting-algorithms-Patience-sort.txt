@@ -1,0 +1,28 @@
+FUNCTION patience_sort(n)
+    piles = []
+    FOR x IN n
+        new_pile = Pile([x])
+        i = bisect_left(piles, new_pile)
+        IF i != length(piles)
+            piles[i].append(x)
+        ELSE
+            piles.append(new_pile)
+        END IF
+    END FOR
+    n[:] = merge(*[reversed(pile) for pile in piles])
+END FUNCTION
+
+CLASS Pile EXTENDS list
+    FUNCTION __lt__(self, other)
+        RETURN self[-1] < other[-1]
+    END FUNCTION
+    FUNCTION __eq__(self, other)
+        RETURN self[-1] == other[-1]
+    END FUNCTION
+END CLASS
+
+IF __name__ == "__main__"
+    a = [4, 65, 2, -31, 0, 99, 83, 782, 1]
+    patience_sort(a)
+    PRINT a
+END IF

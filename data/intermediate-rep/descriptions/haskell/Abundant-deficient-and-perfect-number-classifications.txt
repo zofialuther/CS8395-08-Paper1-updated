@@ -1,0 +1,1 @@
+This code defines a function to find the divisors of a given number, and another function to classify a number as deficient, perfect, or abundant based on the sum of its divisors compared to the number itself. The main function then uses these functions to classify numbers from 1 to 20000 and prints the counts of each classification.

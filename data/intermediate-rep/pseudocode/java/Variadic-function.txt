@@ -1,0 +1,5 @@
+function printAll(things){
+   for each thing in things
+      print thing
+   end for
+end function

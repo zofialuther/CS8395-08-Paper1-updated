@@ -1,0 +1,66 @@
+```
+% Pseudocode for FFT implementation
+function add(cx(R1, I1), cx(R2, I2)) 
+    R = R1 + R2
+    I = I1 + I2
+    return cx(R, I)
+
+function sub(cx(R1, I1), cx(R2, I2)) 
+    R = R1 - R2
+    I = I1 - I2
+    return cx(R, I)
+
+function mul(cx(R1, I1), cx(R2, I2)) 
+    R = R1 * R2 - I1 * I2
+    I = R1 * I2 + R2 * I1
+    return cx(R, I)
+
+function polar_cx(Mag, Theta) 
+    R = Mag * cos(Theta)
+    I = Mag * sin(Theta)
+    return cx(R, I)
+
+function tw(Tf, Cx) 
+    if twiddles(Tf, Cx) exists
+        return twiddles(Tf, Cx)
+    else
+        Cx = polar_cx(1.0, -2 * pi * Tf)
+        assert(twiddles(Tf, Cx))
+        return Cx
+
+function fftVals(N, Even, Odd, V0, V1) 
+    for each K in range(0, length(Even)) 
+        E = Even[K]
+        O = Odd[K]
+        Tf = K / N
+        Cx = tw(Tf)
+        M = mul(Cx, O)
+        V0 = add(E, M)
+        V1 = sub(E, M)
+
+function split(Array, Array1, Array2) 
+    for each element in Array 
+        append first element to Array1
+        append second element to Array2
+
+function fft(Array) 
+    if length of Array is 1 
+        return Array
+    else 
+        N = length of Array
+        EL = get the even-indexed elements of Array
+        Even = fft(EL)
+        OL = get the odd-indexed elements of Array
+        Odd = fft(OL)
+        FFTVals = fftVals(N, Even, Odd)
+        L0, L1 = split(FFTVals)
+        return concatenate L0 and L1
+
+function test() 
+    D = [cx(1, 0), cx(1, 0), cx(1, 0), cx(1, 0), cx(0, 0), cx(0, 0), cx(0, 0), cx(0, 0)]
+    DRes = fft(D)
+    for each element in DRes 
+        R = round(real part of element to 3 decimal places)
+        I = round(imaginary part of element to 3 decimal places)
+        print R, I
+```

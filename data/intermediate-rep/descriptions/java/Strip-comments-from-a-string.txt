@@ -1,0 +1,1 @@
+This Java program is designed to remove line comments from a given input file. The program takes a file as a command-line argument and reads the content line by line. It then splits each line based on "#" or ";" and prints the portion before the delimiter, effectively stripping out any line comments. If no file is provided as an argument, the program displays a usage message.

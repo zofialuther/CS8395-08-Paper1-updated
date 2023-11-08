@@ -1,0 +1,39 @@
+```
+function stirling2(N, N, 1)
+    return
+function stirling2(_, 0, 0)
+    return
+function stirling2(N, K, 0)
+    if K > N
+        return
+function stirling2(N, K, L)
+    if stirling2_cache(N, K, L)
+        return
+    N1 = N - 1
+    K1 = K - 1
+    stirling2(N1, K, L1)
+    stirling2(N1, K1, L2)
+    L = K * L1 + L2
+    assert stirling2_cache(N, K, L)
+
+function print_stirling_numbers(N)
+    for K from 1 to N
+        L = stirling2(N, K)
+        write L
+    return
+
+function print_stirling_numbers_up_to(M)
+    for N from 1 to M
+        print_stirling_numbers(N)
+    return
+
+function max_stirling2(N, Max)
+    Max = maximum of L for K from 1 to N in stirling2(N, K, L)
+
+function main
+    print "Stirling numbers of the second kind up to S2(12,12):"
+    print_stirling_numbers_up_to(12)
+    print "Maximum value of S2(n,k) where n = 100:"
+    max_stirling2(100, M)
+    print M
+```

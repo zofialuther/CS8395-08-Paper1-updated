@@ -1,0 +1,4 @@
+function isEmptyDir(dirName):
+    fileArray = Paths.get(dirName).toFile().listFiles()
+    return length of fileArray == 0
+end function

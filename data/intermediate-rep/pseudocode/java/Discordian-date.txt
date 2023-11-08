@@ -1,0 +1,45 @@
+BEGIN
+    FUNCTION discordianDate(date)
+        y = get year from date
+        yold = y + 1166
+        dayOfYear = get day of year from date
+
+        IF isLeapYear(y) THEN
+            IF dayOfYear = 60 THEN
+                RETURN "St. Tib's Day, in the YOLD " + yold
+            ELSE IF dayOfYear > 60 THEN
+                dayOfYear--
+            END IF
+        END IF
+
+        dayOfYear--
+
+        seasonDay = dayOfYear % 73 + 1
+        IF seasonDay = 5 THEN
+            RETURN apostle[dayOfYear / 73] + ", in the YOLD " + yold
+        ELSE IF seasonDay = 50 THEN
+            RETURN holiday[dayOfYear / 73] + ", in the YOLD " + yold
+        END IF
+
+        season = seasons[dayOfYear / 73]
+        dayOfWeek = weekday[dayOfYear % 5]
+
+        RETURN dayOfWeek + ", day " + seasonDay + " of " + season + " in the YOLD " + yold
+    END FUNCTION
+
+    FUNCTION main(args)
+        PRINT discordianDate(new GregorianCalendar())
+
+        test(2010, 6, 22, "Pungenday, day 57 of Confusion in the YOLD 3176")
+        test(2012, 1, 28, "Prickle-Prickle, day 59 of Chaos in the YOLD 3178")
+        test(2012, 1, 29, "St. Tib's Day, in the YOLD 3178")
+        test(2012, 2, 1, "Setting Orange, day 60 of Chaos in the YOLD 3178")
+        test(2010, 0, 5, "Mungday, in the YOLD 3176")
+        test(2011, 4, 3, "Discoflux, in the YOLD 3177")
+        test(2015, 9, 19, "Boomtime, day 73 of Bureaucracy in the YOLD 3181")
+    END FUNCTION
+
+    FUNCTION test(y, m, d, result)
+        ASSERT discordianDate(new GregorianCalendar(y, m, d)) = result
+    END FUNCTION
+END

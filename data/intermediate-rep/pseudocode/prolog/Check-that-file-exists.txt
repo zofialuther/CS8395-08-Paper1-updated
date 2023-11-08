@@ -1,0 +1,21 @@
+FUNCTION exists_file(file_path)
+    IF file_path starts with '/'
+        PRINT "File exists in root directory"
+    ELSE
+        PRINT "File exists in current directory"
+    END IF
+END FUNCTION
+
+FUNCTION exists_directory(directory_path)
+    IF directory_path starts with '/'
+        PRINT "Directory exists in root directory"
+    ELSE
+        PRINT "Directory exists in current directory"
+    END IF
+END FUNCTION
+
+CALL exists_file('input.txt')
+CALL exists_directory('docs')
+
+CALL exists_file('/input.txt')
+CALL exists_directory('/docs')

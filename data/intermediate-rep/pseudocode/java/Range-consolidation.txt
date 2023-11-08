@@ -1,0 +1,16 @@
+1. Define a class named RangeConsolidation
+2. Define a main method that takes an array of Range objects as input
+3. Call the displayRanges method with different sets of Range objects
+4. Define a private static method displayRanges that takes a List of Range objects as input and prints the input ranges and their consolidated form
+5. Define a private static class named RangeSorter that implements the Comparator interface for Range objects
+6. Override the compare method in RangeSorter to compare Range objects based on their left property
+7. Define a private static class named Range with properties left and right
+8. Define a constructor for Range that takes two double values and sets the left and right properties accordingly
+9. Define a consolidate method in Range that takes another Range as input and consolidates the two ranges if they overlap
+10. Override the toString method in Range to return a string representation of the range
+11. Define a private static method consolidate in the Range class that takes a List of Range objects as input and consolidates overlapping ranges
+12. Sort the input ranges using the RangeSorter
+13. Iterate over the sorted ranges and consolidate them
+14. Add the consolidated ranges to a new list
+15. Sort the consolidated list using the RangeSorter
+16. Return the consolidated list of ranges.

@@ -1,0 +1,10 @@
+FUNCTION is_even(i)
+    IF (i % 2) == 0 THEN
+        RETURN True
+    ELSE
+        RETURN False
+    END IF
+END FUNCTION
+
+CALL is_even(1) 
+CALL is_even(2)

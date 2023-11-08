@@ -1,0 +1,9 @@
+FUNCTION check(p, s)
+  result = p(s)
+  PRINT s + " " + IF result THEN "does exist" ELSE "does not exist"
+
+FUNCTION main()
+  check(doesFileExist, "input.txt")
+  check(doesDirectoryExist, "docs")
+  check(doesFileExist, "/input.txt")
+  check(doesDirectoryExist, "/docs")

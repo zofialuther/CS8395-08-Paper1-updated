@@ -1,0 +1,27 @@
+1. Import necessary libraries
+2. Create a class called BullsAndCows
+3. Inside the class, create a main method
+4. Inside the main method, create a Random object called gen
+5. Declare an integer variable called target
+6. Use a while loop to check for duplicate digits in the target number and assign a random 4-digit number to target
+7. Convert the target integer to a string and store it in a variable called targetStr
+8. Declare a boolean variable called guessed and set it to false
+9. Create a Scanner object called input
+10. Declare an integer variable called guesses and set it to 0
+11. Use a do-while loop to start the game
+12. Inside the do-while loop, declare two integer variables called bulls and cows and set them to 0
+13. Ask the user to input a 4-digit number and store it in a variable called guess
+14. Use a try-catch block to handle InputMismatchException and continue the loop if an exception occurs
+15. Increment the guesses variable
+16. Convert the guess integer to a string and store it in a variable called guessStr
+17. Use a for loop to iterate through the digits of the guess and compare them with the target
+18. If a digit in the guess matches the corresponding digit in the target, increment the bulls variable, else check if the digit exists in the target and increment the cows variable
+19. If all digits match, set guessed to true, else print the number of cows and bulls
+20. Continue the do-while loop until guessed is true
+21. Print the number of guesses it took to win
+22. Create a method called hasDupes that takes an integer as input
+23. Inside the hasDupes method, create a boolean array called digs with a length of 10
+24. Use a while loop to check for duplicate digits in the input number by iterating through each digit
+25. If a digit is already present in the array, return true
+26. If not, set the corresponding index in the array to true and continue checking for duplicate digits
+27. If no duplicate digits are found, return false from the method

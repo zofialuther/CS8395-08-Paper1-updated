@@ -1,0 +1,72 @@
+```
+FUNCTION fib(C, [P,S], C, N)  
+    IF N is P + S THEN
+        RETURN true
+    ELSE 
+        RETURN false
+
+FUNCTION fib(C, [P,S], Cv, V) 
+    IF succ(C, Cn) AND N is P + S THEN
+        Cv = Cn
+        V = N
+        RETURN true
+    ELSE
+        RETURN false
+
+FUNCTION fib(0, 0)
+    RETURN true
+
+FUNCTION fib(1, 1)
+    RETURN true
+
+FUNCTION fib(C, N) 
+    CALL fib(2, [0,1], C, N)
+    
+FUNCTION benford(D, Val) 
+    Val = log10(1+1/D)
+
+FUNCTION firstchar(V) 
+    IF fib(C,N) AND N =\= 0 AND atom_chars(N, [Ch|_]) AND number_chars(V, [Ch]) THEN
+        IF C > 999 THEN
+            RETURN true
+        ELSE
+            RETURN false
+
+FUNCTION incNth(1, [Dh|Dt], [Ch|Dt]) 
+    Dh = Ch
+
+FUNCTION incNth(H, [Dh|Dt], [Dh|Ct]) 
+    IF succ(Hn, H) THEN
+        CALL incNth(Hn, Dt, Ct)
+
+FUNCTION freq([], D, D) 
+    RETURN true
+
+FUNCTION freq([H|T], D, C) 
+    CALL incNth(H, D, L)
+    CALL freq(T, L, C)
+
+FUNCTION freq([H|T], Freq) 
+    Len = length([H|T])
+    Min = min_list([H|T])
+    Max = max_list([H|T])
+    CALL between(Min,Max,In)
+    CALL freq([H|T], In, F)
+    CALL member(V, F)
+    N = V/Len
+    Freq = N
+
+FUNCTION writeHdr 
+    PRINT 'Benford - Measured'
+
+FUNCTION writeData(Benford, Freq) 
+    PRINT Benford*100 - Freq*100
+
+FUNCTION go 
+    CALL between(1,9,N)
+    CALL benford(N,B)
+    CALL firstchar(C)
+    CALL freq(Fc, Freq)
+    CALL writeHdr
+    CALL maplist(writeData, Benford, Freq)
+```

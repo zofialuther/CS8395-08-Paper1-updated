@@ -1,0 +1,1 @@
+This code removes the last element from the list of strings.

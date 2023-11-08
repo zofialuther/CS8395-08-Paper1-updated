@@ -1,0 +1,42 @@
+```
+FUNCTION commonPrefix2 (list1, list2)
+    IF list1 is empty OR list2 is empty
+        RETURN empty list
+    END IF
+    IF first element of list1 is equal to first element of list2
+        RETURN first element of list1 concatenated with commonPrefix2(rest of list1, rest of list2)
+    ELSE
+        RETURN empty list
+    END IF
+END FUNCTION
+
+FUNCTION commonPrefix (listOfLists)
+    IF listOfLists is empty
+        RETURN empty list
+    END IF
+    SET prefix = first element of listOfLists
+    FOR each list in listOfLists starting from the second one
+        SET prefix = commonPrefix2(prefix, list)
+    END FOR
+    RETURN prefix
+END FUNCTION
+
+FUNCTION splitPath (str)
+    RETURN groupBy (\_ c -> c /= '/') of str
+END FUNCTION
+
+FUNCTION commonDirPath (listOfPaths)
+    SET paths = map splitPath of listOfPaths
+    RETURN concat of commonPrefix of paths
+END FUNCTION
+
+FUNCTION main
+    SET paths = [
+        "/home/user1/tmp/coverage/test",
+        "/home/user1/tmp/covert/operator",
+        "/home/user1/tmp/coven/members"
+    ]
+    SET result = commonDirPath(paths)
+    PRINT result
+END FUNCTION
+```

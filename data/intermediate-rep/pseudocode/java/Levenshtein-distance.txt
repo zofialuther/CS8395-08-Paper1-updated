@@ -1,0 +1,16 @@
+1. Create a function called distance that takes in two String parameters, a and b
+2. Convert both a and b to lowercase
+3. Create an array called costs with a length of b + 1
+4. Loop through the costs array and set each element to its index
+5. Loop through the characters of string a
+6. Set costs[0] to i
+7. Set nw to i - 1
+8. Loop through the characters of string b
+9. Calculate cj using the minimum of 1 + the minimum of costs[j], costs[j - 1], and nw, and also check if the characters at positions i and j are the same
+10. Set nw to the current value of costs[j]
+11. Set costs[j] to cj
+12. Return costs[b.length()]
+13. Create a main function that takes no parameters
+14. Create an array called data with some example strings
+15. Loop through the data array with a step of 2
+16. Print the result of calling distance with the current and next elements of the data array.

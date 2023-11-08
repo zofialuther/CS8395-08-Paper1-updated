@@ -1,0 +1,1 @@
+This code defines a function "attractiveNumbers" that generates a list of prime numbers, filtering out those whose length of prime factors is also prime. The "main" function then prints the list of attractive numbers up to 120.

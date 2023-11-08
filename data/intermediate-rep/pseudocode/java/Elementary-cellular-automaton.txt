@@ -1,0 +1,16 @@
+Pseudocode:
+
+1. Import required libraries
+2. Define a class WolframCA that extends JPanel
+3. Initialize ruleSet array with specific values
+4. Initialize cells array and rule integer variable
+5. Create a constructor for WolframCA class
+   a. Set preferred size and background color
+   b. Initialize cells array with dimensions
+   c. Set initial value for cells array
+   d. Create a Timer to change the rule every 5 seconds and repaint the panel
+6. Create a method rules to determine the next generation value based on the rule
+7. Create a method drawCa to draw the cellular automaton based on the rules
+8. Create a method drawLegend to display the current rule value
+9. Override the paintComponent method to call drawCa and drawLegend
+10. Create a main method to create and display the JFrame with WolframCA panel.

@@ -1,0 +1,1 @@
+This code defines a function called "fac" which calculates the factorial of a given number "x". It uses pattern matching with a case statement to handle the base case when "x" is 0 and return 1, and for any other value of "x" it recursively multiplies "x" with the result of calling "fac" with "x-1".

@@ -1,0 +1,5 @@
+The code is for a simple game called "Fifteen Puzzle" implemented using Java and Swing. The game consists of a 4x4 grid with fifteen numbered tiles and one blank space. The player can click on a tile adjacent to the blank space to move it into the blank space, with the goal of arranging the tiles in numerical order from 1 to 15.
+
+The implementation includes methods for shuffling the tiles at the start of the game, checking if the puzzle is solvable, and determining if the puzzle is solved. The game interface is displayed using the JPanel class, with the grid and tiles drawn using Graphics2D. Mouse events are handled to allow the player to interact with the puzzle.
+
+The main method creates a JFrame to display the game and handles the user interface using Swing components. When a new game is started, the tiles are shuffled and the player can click to move the tiles and solve the puzzle.

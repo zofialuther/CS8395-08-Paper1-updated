@@ -1,0 +1,68 @@
+```
+function eval(inputs)
+  if inputs.length != 2
+    throw IllegalArgumentException
+  return [XOR.eval(inputs[0], inputs[1]), AND.eval(inputs[0], inputs[1])]
+
+function eval(inputs)
+  if inputs.length != 3
+    throw IllegalArgumentException
+  haOutputs1 = HALF_ADDER.eval(inputs[0], inputs[1])
+  haOutputs2 = HALF_ADDER.eval(haOutputs1[0], inputs[2])
+  return [haOutputs2[0], OR.eval(haOutputs1[1], haOutputs2[1])]
+
+function eval(inputs, numBits)
+  if inputs.length != (numBits << 1)
+    throw IllegalArgumentException
+  outputs = new boolean[numBits + 1]
+  faInputs = new boolean[3]
+  faOutputs = null
+  for i in range(numBits)
+    if faOutputs == null
+      faInputs[0] = false
+    else
+      faInputs[0] = faOutputs[1]
+    faInputs[1] = inputs[i]
+    faInputs[2] = inputs[numBits + i]
+    faOutputs = FULL_ADDER.eval(faInputs)
+    outputs[i] = faOutputs[0]
+  if faOutputs != null
+    outputs[numBits] = faOutputs[1]
+  return outputs
+
+function main(args)
+  numBits = Integer.parseInt(args[0])
+  firstNum = Integer.parseInt(args[1])
+  secondNum = Integer.parseInt(args[2])
+  maxNum = 1 << numBits
+  if firstNum < 0 or firstNum >= maxNum
+    print "First number is out of range"
+    return
+  if secondNum < 0 or secondNum >= maxNum
+    print "Second number is out of range"
+    return
+  multiBitAdder = buildAdder(numBits)
+  inputs = new boolean[numBits << 1]
+  firstNumDisplay = ""
+  secondNumDisplay = ""
+  for i in range(numBits)
+    firstBit = ((firstNum >>> i) & 1) == 1
+    secondBit = ((secondNum >>> i) & 1) == 1
+    inputs[i] = firstBit
+    inputs[numBits + i] = secondBit
+    firstNumDisplay = (firstBit ? "1" : "0") + firstNumDisplay
+    secondNumDisplay = (secondBit ? "1" : "0") + secondNumDisplay
+  outputs = multiBitAdder.eval(inputs, numBits)
+  outputNum = 0
+  outputNumDisplay = ""
+  outputCarryDisplay = null
+  for i from numBits to 0
+    outputNum = (outputNum << 1) | (outputs[i] ? 1 : 0)
+    if i == numBits
+      outputCarryDisplay = outputs[i] ? "1" : "0"
+    else
+      outputNumDisplay += (outputs[i] ? "1" : "0")
+  print("numBits=" + numBits)
+  print("A=" + firstNumDisplay + " (" + firstNum + "), B=" + secondNumDisplay + " (" + secondNum + "), S=" + outputCarryDisplay + " " + outputNumDisplay + " (" + outputNum + ")")
+  return
+```

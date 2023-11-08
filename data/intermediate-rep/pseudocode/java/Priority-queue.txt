@@ -1,0 +1,26 @@
+begin
+  class Task
+    function compareTo(other)
+      if priority < other.priority
+        return -1
+      if priority > other.priority
+        return 1
+      else
+        return 0
+      end if
+    end function
+    
+    function main(args)
+      pq = new PriorityQueue<Task>()
+      pq.add(new Task(3, "Clear drains"))
+      pq.add(new Task(4, "Feed cat"))
+      pq.add(new Task(5, "Make tea"))
+      pq.add(new Task(1, "Solve RC tasks"))
+      pq.add(new Task(2, "Tax return"))
+      
+      while not pq.isEmpty()
+        print(pq.remove())
+      end while
+    end function
+  end class
+end

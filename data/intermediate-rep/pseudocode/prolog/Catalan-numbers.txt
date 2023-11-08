@@ -1,0 +1,18 @@
+function catalan(N):
+    L1 = array of length N
+    L = array with 1 as first element, followed by L1
+    init(1, 1, L1)
+    NL = array containing numbers from 0 to N
+    for each number in NL:
+        my_write(number, L)
+
+function init(V, N, L):
+    if L is empty:
+        return
+    else:
+        N1 = N + 1
+        H = 2 * (2 * N - 1) * V / N1
+        init(H, N1, L)
+
+function my_write(N, V):
+    print N and V in the format "N : V"

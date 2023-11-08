@@ -1,0 +1,19 @@
+```
+1. Import necessary libraries
+2. Define Day data type with 7 possible values
+3. Define Month data type with 12 possible values
+4. Define function monthToInt that takes Month as input and returns Int
+5. Define function dayFromDate that takes year, month, day as input and returns Int
+6. Define function nSpaces that takes Int as input and returns Text
+7. Define variable space as Text
+8. Define constant calMarginWidth with value 3
+9. Define constant calMargin as Text with value of nSpaces calMarginWidth
+10. Define constant calWidth with value 20
+11. Define function listMonth that takes year, month as input and returns [Text]
+12. Define function listCalendar that takes year, calColumns as input and returns [[[Text]]]
+13. Define function calColFromCol that takes columns as input and returns Int
+14. Define function colFromCalCol that takes calCol as input and returns Int
+15. Define function center that takes Int, String as input and returns String
+16. Define function printCal that takes [[[Text]]] as input and returns IO ()
+17. Define function printCalendar that takes year, columns as input and returns IO ()
+```

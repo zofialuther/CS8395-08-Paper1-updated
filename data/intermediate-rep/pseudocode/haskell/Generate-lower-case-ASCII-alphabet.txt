@@ -1,0 +1,8 @@
+DECLARE alpha AS String
+alpha = enumFromTo 'a' 'z'
+
+FUNCTION main
+    CALL print alpha
+END FUNCTION
+
+CALL main

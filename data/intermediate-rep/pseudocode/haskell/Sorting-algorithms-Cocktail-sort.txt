@@ -1,0 +1,19 @@
+```
+function cocktailSort(l)
+    if not swapped1
+        return l
+    if not swapped2
+        return reverse(l1)
+    return cocktailSort(l2)
+
+function swappingPass(op, pair, list)
+    if list has more than one element
+        if op(first element, second element)
+            return swappingPass(op, (true, second element + l), (first element + rest of list))
+        else
+            return swappingPass(op, pair, (first element + rest of list))
+    else if list has one element
+        return (pair[0], (list[0] + pair[1]))
+    else 
+        return pair
+```

@@ -1,0 +1,1 @@
+result = [x ** 2 for x in values]

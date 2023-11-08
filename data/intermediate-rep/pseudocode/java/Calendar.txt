@@ -1,0 +1,46 @@
+START
+  FUNCTION printCalendar(year, nCols)
+    IF nCols < 1 OR nCols > 12 THEN
+      THROW IllegalArgumentException("Illegal column width.")
+    END IF
+    
+    date = new GregorianCalendar(year, 0, 1)
+    nRows = CEIL(12.0 / nCols)
+    offs = date.get(Calendar.DAY_OF_WEEK) - 1
+    w = nCols * 24
+    monthNames = new DateFormatSymbols(Locale.US).getMonths()
+    mons = new String[12][8]
+    
+    FOR m = 0 to 11
+      name = monthNames[m]
+      len = 11 + LENGTH(name) / 2
+      format = MessageFormat.format("%{0}s%{1}s", len, 21 - len)
+      mons[m][0] = String.format(format, name, "")
+      mons[m][1] = " Su Mo Tu We Th Fr Sa"
+      dim = date.getActualMaximum(Calendar.DAY_OF_MONTH)
+      
+      FOR d = 1 to 43
+        isDay = d > offs AND d <= offs + dim
+        entry = IF isDay THEN String.format(" %2s", d - offs) ELSE "   "
+        IF d % 7 == 1 THEN
+          mons[m][2 + (d - 1) / 7] = entry
+        ELSE
+          mons[m][2 + (d - 1) / 7] += entry
+        END IF
+      END FOR
+      offs = (offs + dim) % 7
+      date.add(Calendar.MONTH, 1)
+    END FOR
+    
+    PRINT formatted string with Snoopy Picture and year
+    FOR r = 0 to nRows
+      FOR i = 0 to 7
+        FOR c = r * nCols to (r + 1) * nCols AND c < 12
+          PRINT mons[c][i]
+        END FOR
+        PRINT new line
+      END FOR
+      PRINT new line
+    END FOR
+  END FUNCTION
+END

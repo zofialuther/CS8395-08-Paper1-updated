@@ -1,0 +1,45 @@
+```
+// Create a class Happy
+public class Happy {
+   // Define a method happy that takes in a long number and returns a boolean
+   public static boolean happy(long number) {
+       // Initialize variables m and digit
+       long m = 0;
+       int digit = 0;
+       // Create a HashSet called cycle to store numbers
+       HashSet<Long> cycle = new HashSet<Long>();
+       // Loop while number is not 1 and the number is added to the cycle set
+       while (number != 1 && cycle.add(number)) {
+           // Reset m to 0
+           m = 0;
+           // Loop while number is greater than 0
+           while (number > 0) {
+               // Get the last digit of the number
+               digit = (int)(number % 10);
+               // Add the square of the digit to m
+               m += digit*digit;
+               // Remove the last digit from the number
+               number /= 10;
+           }
+           // Set number to m
+           number = m;
+       }
+       // Return whether number is equal to 1
+       return number == 1;
+   }
+
+   // Define the main method
+   public static void main(String[] args) {
+       // Loop from num = 1, count = 0; while count is less than 8
+       for (long num = 1, count = 0; count < 8; num++) {
+           // If the number is happy
+           if (happy(num)) {
+               // Print the number
+               System.out.println(num);
+               // Increment count
+               count++;
+           }
+       }
+   }
+}
+```

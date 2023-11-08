@@ -1,0 +1,12 @@
+Function brace_expansion(input_string, Out):
+    if input_string does not contain any braces:
+        add input_string to Out
+    else:
+        find the first opening brace position
+        find the matching closing brace position
+        extract the substring within the braces
+        split the substring by commas
+        for each split substring:
+            replace the substring within the braces with the split substring
+            call brace_expansion with the updated input_string
+    return Out

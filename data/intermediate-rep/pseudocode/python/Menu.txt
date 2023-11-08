@@ -1,0 +1,30 @@
+
+```
+FUNCTION _menu(items)
+    FOR EACH indexitem IN items
+        PRINT "  %2i) %s" % indexitem
+
+FUNCTION _ok(reply, itemcount)
+    TRY
+        n = CAST(reply TO INTEGER)
+        RETURN 0 <= n < itemcount
+    EXCEPT
+        RETURN False
+
+FUNCTION selector(items, prompt)
+    IF NOT items THEN
+        RETURN ''
+    END IF
+    reply = -1
+    itemcount = LENGTH(items)
+    WHILE NOT _ok(reply, itemcount)
+        _menu(items)
+        reply = raw_input(prompt).strip()
+    END WHILE
+    RETURN items[CAST(reply TO INTEGER)]
+
+IF __name__ == '__main__'
+    items = ['fee fie', 'huff and puff', 'mirror mirror', 'tick tock']
+    item = selector(items, 'Which is from the three pigs: ')
+    PRINT "You chose: " + item
+```

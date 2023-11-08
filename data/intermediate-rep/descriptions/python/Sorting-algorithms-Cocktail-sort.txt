@@ -1,0 +1,1 @@
+This code implements the cocktail sort algorithm to sort the elements of the input list A in ascending order. The algorithm iterates through the list in both forward and reverse directions, swapping adjacent elements if they are in the wrong order. It continues this process until no more swaps are needed, indicating that the list is sorted.

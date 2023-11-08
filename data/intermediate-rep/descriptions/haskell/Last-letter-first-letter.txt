@@ -1,0 +1,1 @@
+This code defines a list of all Pokémon names as ByteStrings and then creates a function to grow chains of Pokémon names based on their last and first letters. The main function uses the `growChains` function to print the resulting chains of Pokémon names.

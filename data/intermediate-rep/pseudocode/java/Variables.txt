@@ -1,0 +1,3 @@
+DECLARE a as Integer
+DECLARE b as Double
+DECLARE c as AClassNameHere

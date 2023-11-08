@@ -1,0 +1,16 @@
+hailstone(n, X) ->
+    X = [n],
+    while n > 1:
+        if n is even:
+            n = n / 2
+        else:
+            n = 3 * n + 1
+        append(n, X),
+    end.
+end.
+
+length(X, 112).
+
+append([27, 82, 41, 124], _, X).
+
+append(_, [8, 4, 2, 1], X).

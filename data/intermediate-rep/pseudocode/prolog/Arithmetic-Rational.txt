@@ -1,0 +1,43 @@
+```
+function divisor(N, Div) {
+    Max = floor(sqrt(N))
+    for D = 1 to Max {
+        if (divmod(N, D, _, 0)) {
+            if (Div = D) {
+                return true
+            } else if (Div = N div D && Div != D) {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+function divisors(N, Divs) {
+    Divs = setof(M, divisor(N, M))
+}
+
+function recip(A, B) {
+    B = 1 rdiv A
+}
+
+function sumrecip(N, A) {
+    Divs = divisors(N)
+    As = maplist(recip, Divs)
+    A = sum_list(As)
+}
+
+function perfect(X) {
+    return sumrecip(X, 1)
+}
+
+function main() {
+    Limit = 1 << 19
+    for N = 1 to Limit {
+        if (perfect(N)) {
+            format("~w~n", [N])
+        }
+    }
+    halt()
+}
+```

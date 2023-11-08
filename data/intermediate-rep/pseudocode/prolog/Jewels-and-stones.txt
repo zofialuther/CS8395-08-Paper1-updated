@@ -1,0 +1,11 @@
+1. Initialize count_jewels(Stones, Jewels, N) function
+2. Convert Stones into Scodes using string_codes() function
+3. Convert Jewels into Jcodes using string_codes() function
+4. Sort Scodes using msort() function and store the result in SScodes
+5. Sort Jcodes using sort() function and store the result in SJcodes
+6. Call count_jewels(SScodes, SJcodes, N, 0) function
+7. Define count_jewels([], _, N, N) function to handle base case
+8. Define count_jewels(_, [], N, N) function to handle base case
+9. If the first character of Scodes and Jcodes match, increment R by 1 and call count_jewels(Stones, [C|Jewels], N, R1) function
+10. If J is less than S, call count_jewels([S|Stones], Jewels, N, R) function
+11. If none of the above conditions are met, call count_jewels(Stones, Jewels, N, R) function

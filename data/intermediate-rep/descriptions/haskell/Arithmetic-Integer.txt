@@ -1,0 +1,1 @@
+This code takes two integer inputs from the user and performs various mathematical operations using those inputs. It calculates the sum, difference, product, exponentiation, division, modulo, and other operations on the inputs and prints the results to the console. The code demonstrates the usage of different arithmetic operators in Haskell.

@@ -1,0 +1,14 @@
+FUNCTION Substring(String str, n, m):
+    RETURN str.substring(n, n+m)
+
+FUNCTION Substring(String str, n):
+    RETURN str.substring(n)
+
+FUNCTION Substring(String str):
+    RETURN str.substring(0, str.length()-1)
+
+FUNCTION Substring(String str, c, m):
+    RETURN str.substring(str.indexOf(c), str.indexOf(c)+m+1)
+
+FUNCTION Substring(String str, sub, m):
+    RETURN str.substring(str.indexOf(sub), str.indexOf(sub)+m+1)

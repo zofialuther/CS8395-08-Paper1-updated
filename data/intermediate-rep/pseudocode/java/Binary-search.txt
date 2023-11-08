@@ -1,0 +1,25 @@
+FUNCTION binarySearch(nums, check)
+    hi = nums.length - 1
+    lo = 0
+    WHILE hi >= lo
+        guess = (lo + hi) / 2
+        IF nums[guess] > check
+            hi = guess - 1
+        ELSE IF nums[guess] < check
+            lo = guess + 1
+        ELSE
+            RETURN guess
+    END WHILE
+    RETURN -1
+END FUNCTION
+
+FUNCTION main(args)
+    haystack = [1, 5, 6, 7, 8, 11]
+    needle = 5
+    index = binarySearch(haystack, needle)
+    IF index == -1
+        PRINT needle + " is not in the array"
+    ELSE
+        PRINT needle + " is at index " + index
+    END IF
+END FUNCTION

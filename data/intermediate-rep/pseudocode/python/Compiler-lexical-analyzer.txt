@@ -1,0 +1,151 @@
+```plaintext
+Declare all_syms as a list of strings
+Declare symbols as a dictionary
+Declare key_words as a dictionary
+Declare the_ch as a space character
+Declare the_col as 0
+Declare the_line as 1
+Declare input_file as None
+
+Function error(line, col, msg):
+    Print line, col, and msg
+    Exit with code 1
+
+Function next_ch():
+    Set the_ch to the next character from input_file
+    Increment the_col by 1
+    If the_ch is a newline character:
+        Increment the_line by 1
+        Set the_col to 0
+    Return the_ch
+
+Function char_lit(err_line, err_col):
+    Set n as the ASCII value of the next character from input_file
+    If the_ch is a single quote:
+        Call error with err_line, err_col, and "empty character constant"
+    Else if the_ch is a backslash:
+        Get the next character from input_file
+        If the_ch is 'n':
+            Set n to 10
+        Else if the_ch is a backslash:
+            Set n to the ASCII value of a backslash
+        Else:
+            Call error with err_line, err_col, and "unknown escape sequence \the_ch"
+    If the next character from input_file is not a single quote:
+        Call error with err_line, err_col, and "multi-character constant"
+    Get the next character from input_file
+    Return tk_Integer, err_line, err_col, and n
+
+Function div_or_cmt(err_line, err_col):
+    If the next character from input_file is not '*':
+        Return tk_Div, err_line, err_col
+    Get the next character from input_file
+    While true:
+        If the_ch is '*':
+            If the next character from input_file is '/':
+                Get the next character from input_file
+                Return the result of calling gettok
+        Else if the length of the_ch is 0:
+            Call error with err_line, err_col, and "EOF in comment"
+        Else:
+            Get the next character from input_file
+
+Function string_lit(start, err_line, err_col):
+    Create an empty string text
+    While the next character from input_file is not start:
+        If the length of the_ch is 0:
+            Call error with err_line, err_col, and "EOF while scanning string literal"
+        If the_ch is a newline character:
+            Call error with err_line, err_col, and "EOL while scanning string literal"
+        If the_ch is a backslash:
+            Get the next character from input_file
+            If the_ch is not 'n':
+                Call error with err_line, err_col, and "escape sequence unknown \the_ch"
+            Set the_ch to a newline character
+        Append the_ch to text
+    Get the next character from input_file
+    Return tk_String, err_line, err_col, and text
+
+Function ident_or_int(err_line, err_col):
+    Set is_number to true
+    Create an empty string text
+    While the_ch is alphanumeric or the_ch is an underscore:
+        Append the_ch to text
+        If the_ch is not a digit:
+            Set is_number to false
+        Get the next character from input_file
+    If the length of text is 0:
+        Call error with err_line, err_col, and "ident_or_int: unrecognized character: (the ASCII value of the_ch) the_ch"
+    If the first character of text is a digit:
+        If is_number is false:
+            Call error with err_line, err_col, and "invalid number: text"
+        Set n to the integer value of text
+        Return tk_Integer, err_line, err_col, and n
+    If text is in key_words:
+        Return the value of text in key_words, err_line, err_col
+    Return tk_Ident, err_line, err_col, and text
+
+Function follow(expect, ifyes, ifno, err_line, err_col):
+    If the next character from input_file is expect:
+        Get the next character from input_file
+        Return ifyes, err_line, err_col
+    If ifno is tk_EOI:
+        Call error with err_line, err_col, and "follow: unrecognized character: (the ASCII value of the_ch) the_ch"
+    Return ifno, err_line, err_col
+
+Function gettok():
+    While the_ch is a whitespace character:
+        Get the next character from input_file
+    Set err_line to the_line
+    Set err_col to the_col
+    If the length of the_ch is 0:
+        Return tk_EOI, err_line, err_col
+    Else if the_ch is '/':
+        Return the result of calling div_or_cmt with err_line, err_col
+    Else if the_ch is a single quote:
+        Return the result of calling char_lit with err_line, err_col
+    Else if the_ch is '<':
+        Return the result of calling follow with '=', tk_Leq, tk_Lss, err_line, err_col
+    Else if the_ch is '>':
+        Return the result of calling follow with '=', tk_Geq, tk_Gtr, err_line, err_col
+    Else if the_ch is '=':
+        Return the result of calling follow with '=', tk_Eq, tk_Assign, err_line, err_col
+    Else if the_ch is '!':
+        Return the result of calling follow with '=', tk_Neq, tk_Not, err_line, err_col
+    Else if the_ch is '&':
+        Return the result of calling follow with '&', tk_And, tk_EOI, err_line, err_col
+    Else if the_ch is '|':
+        Return the result of calling follow with '|', tk_Or, tk_EOI, err_line, err_col
+    Else if the_ch is '"':
+        Return the result of calling string_lit with the_ch, err_line, err_col
+    Else if the_ch is in symbols:
+        Set sym to the value of the_ch in symbols
+        Get the next character from input_file
+        Return sym, err_line, err_col
+    Else:
+        Return the result of calling ident_or_int with err_line, err_col
+
+Set input_file to sys.stdin
+If the length of sys.argv is greater than 1:
+    Try:
+        Set input_file to the result of opening sys.argv[1] in read mode with a buffer size of 4096
+    Except IOError as e:
+        Call error with 0, 0, and "Can't open sys.argv[1]"
+
+While true:
+    Set t to the result of calling gettok
+    Set tok to the first element of t
+    Set line to the second element of t
+    Set col to the third element of t
+    Print the formatted string "%5d  %5d   %-14s" % (line, col, all_syms[tok]), end=''
+    If tok is tk_Integer:
+        Print the formatted string "   %5d" % (t[3])
+    Else if tok is tk_Ident:
+        Print the formatted string "  %s" % (t[3])
+    Else if tok is tk_String:
+        Print the formatted string '  "%s"' % (t[3])
+    Else:
+        Print an empty string
+    If tok is tk_EOI:
+        Break
+```

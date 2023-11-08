@@ -1,0 +1,22 @@
+'''
+1. Import required modules
+2. Define function romanFromInt(n) that takes an integer n as input
+    3. Define sub-function go(a, ms) that takes a tuple (a, ms) as input
+        4. Calculate q and r by dividing a by m
+        5. Return a tuple of (r, s * q)
+    6. Return the result of concatenating the second element of the result of mapAccumL(go) with n and a list of tuples of Roman numeral values and their corresponding symbols
+7. Define function main() that takes no input
+    8. Iterate through a list of Roman numerals generated from a list of integers using romanFromInt
+        9. Print each Roman numeral
+10. Define function concat(xxs) that takes a list of lists or strings as input
+    11. Convert the list of lists into a single list
+    12. Return an empty string if the input is a string, otherwise return an empty list if the input list is empty, otherwise return the concatenated string or list
+13. Define function mapAccumL(f) that takes a function f as input
+    14. Define sub-function go(a, x) that takes a tuple (a, x) as input
+        15. Apply function f to a[0] and x
+        16. Return a tuple of (tpl[0], a[1] + [tpl[1]])
+    17. Return a lambda function that takes an accumulation acc and a list xs as input and applies reduce to xs with go as the accumulator function
+18. Define function snd(tpl) that takes a tuple tpl as input
+    19. Return the second element of the tuple tpl
+20. If the script is run as the main program, call the main function
+'''

@@ -1,0 +1,5 @@
+1. Start
+2. Declare a variable "num" and assign it the value 5
+3. Declare a variable "binaryString" and assign it the value of Integer.toBinaryString(num)
+4. Print the value of "binaryString"
+5. End

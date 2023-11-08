@@ -1,0 +1,1 @@
+This code takes a list of dates in the format (year, month, day) and uses the mapM_ function to apply the display function to each date. The display function first converts the date into a human-readable format using the fromYMD function and then prints it out with the original date. The dates include leap years and various months to demonstrate the functionality of the code.

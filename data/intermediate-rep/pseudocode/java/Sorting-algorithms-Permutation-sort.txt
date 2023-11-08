@@ -1,0 +1,37 @@
+```
+function main
+    a = [3,2,1,8,9,4,6]
+    print "Unsorted: " + arrayToString(a)
+    a = pSort(a)
+    print "Sorted: " + arrayToString(a)
+
+function pSort(a)
+    list = createArrayList
+    permute(a, length(a), list)
+    for x in list
+        if isSorted(x)
+            return x
+    return a
+
+function permute(a, n, list)
+    if n = 1
+        b = createArray(length(a))
+        copyArray(a, b)
+        list.add(b)
+        return
+    for i = 0 to n
+        swap(a, i, n-1)
+        permute(a, n-1, list)
+        swap(a, i, n-1)
+
+function isSorted(a)
+    for i = 1 to length(a)
+        if a[i-1] > a[i]
+            return false
+    return true
+
+function swap(arr, i, j)
+    temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+```

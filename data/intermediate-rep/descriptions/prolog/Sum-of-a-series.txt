@@ -1,0 +1,1 @@
+This Prolog code defines a predicate sum(S) that calculates the sum of the squares of the reciprocals of numbers between 1 and 1000. It uses the findall predicate to generate a list of these reciprocals and then uses the sumlist predicate to sum them up and unify the result with the variable S.

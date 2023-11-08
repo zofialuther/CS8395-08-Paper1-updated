@@ -1,0 +1,1 @@
+This code represents the movements in the Tower of Hanoi puzzle, where a set of disks of different sizes are stacked on one pole and need to be moved to another pole, following specific rules. The code outlines the sequence of movements required to move the disks from one pole to another, ensuring that no larger disk is placed on top of a smaller disk at any point.

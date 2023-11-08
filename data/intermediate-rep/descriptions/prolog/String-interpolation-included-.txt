@@ -1,0 +1,1 @@
+This code sets the variable `Extra` to the value `little` and the variable `Atom` to the string `'Mary had a $Extra lamb'`. The dollar sign before `Extra` indicates that it is a placeholder for the value of the variable `Extra` to be inserted into the string.

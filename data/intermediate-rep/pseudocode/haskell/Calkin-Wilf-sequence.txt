@@ -1,0 +1,48 @@
+```
+FUNCTION calkinWilfs()
+  calkinWilfs = iterate (recip . succ . ((-) =<< (2 *) . fromIntegral . floor)) 1
+
+FUNCTION calkinWilfIdx(rational)
+  calkinWilfIdx = rld(cfo(rational))
+
+FUNCTION cfo(rational)
+  cfo = oddLen(cf(rational))
+
+FUNCTION cf(rational)
+  cf = unfoldr step
+    FUNCTION step(r)
+      IF properFraction(r) = (n, 1) THEN
+        RETURN (succ n, Nothing)
+      ELSE IF properFraction(r) = (n, 0) THEN
+        RETURN (n, Nothing)
+      ELSE
+        RETURN (n, Just (recip f))
+
+FUNCTION oddLen(nonEmptyInt)
+  oddLen = fromList(go(toList(nonEmptyInt)))
+    FUNCTION go(list)
+      IF list = [x, y] THEN
+        RETURN [x, pred y, 1]
+      ELSE IF list contains more than two elements THEN
+        RETURN x : y : go(zs)
+      ELSE
+        RETURN xs
+
+FUNCTION rld(nonEmptyInt)
+  rld = snd(foldr step (True, 0))
+    FUNCTION step(i, (b, n))
+      LET p = 2 ^ i
+      IF b = True THEN
+        RETURN (not b, n * p + 0)
+      ELSE
+        RETURN (not b, n * p + (p - 1))
+
+FUNCTION main()
+  forM_ (take 20, zip [1, 2, ..., 20], calkinWilfs) 
+    \(i, r) -> printf "%2d  %s\n" i, (show r)
+  LET r = 83116 / 51639
+  printf
+    "\n%s is at index %d of the Calkin-Wilf sequence.\n"
+    (show r)
+    (calkinWilfIdx(r))
+```

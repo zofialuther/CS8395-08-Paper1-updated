@@ -1,0 +1,15 @@
+1. Import necessary libraries
+2. Create a class called DutchNationalFlag
+3. Create an enum called DutchColors with values RED, WHITE, BLUE
+4. Create a main method
+5. Initialize an array called balls with length 12
+6. Get the values of the DutchColors enum and store them in a separate array called values
+7. Create a Random object called rand
+8. Use a for loop to iterate through the balls array and assign random values from the values array to each element
+9. Print the array before sorting
+10. Sort the balls array using Arrays.sort method
+11. Print the array after sorting
+12. Create a boolean variable called sorted and set it to true
+13. Use a for loop to iterate through the sorted array and check if each element is in the correct order
+14. If an element is out of order, set sorted to false and break the loop
+15. Print whether the array is correctly sorted or not

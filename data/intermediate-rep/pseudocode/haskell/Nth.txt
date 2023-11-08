@@ -1,0 +1,22 @@
+1. Import Data.Array
+
+2. Create a function called ordSuffs that returns an array of integers and strings
+   2.1. Set ordSuffs as listArray (0,9) with the following values: ["th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th"]
+
+3. Create a function called ordSuff that takes an integer n as input and returns a string
+   3.1. Inside the function, concatenate the string representation of n with the result of the suff function with n as input
+   3.2. Define the suff function that takes an integer m as input
+      3.2.1. If (m `rem` 100) is greater than or equal to 11 and (m `rem` 100) is less than or equal to 13, return "th"
+      3.2.2. Otherwise, return the value of ordSuffs at index (m `rem` 10)
+
+4. Create a function called printOrdSuffs that takes a list of integers as input and returns an IO action
+   4.1. Inside the function, apply the following operations:
+      4.1.1. Convert the list of integers to a string using unwords
+      4.1.2. Map the ordSuff function to the list of integers
+      4.1.3. Call putStrLn with the result of the previous step as input
+
+5. Create the main function as an IO action
+   5.1. Inside the function, apply the following operations:
+      5.1.1. Call printOrdSuffs with the list [0..25] as input
+      5.1.2. Call printOrdSuffs with the list [250..265] as input
+      5.1.3. Call printOrdSuffs with the list [1000..1025] as input

@@ -1,0 +1,1 @@
+This Java program translates a given input into Morse code. It contains a predefined map of characters to their corresponding Morse code representations and a method to print the Morse code for a given input string. The main method demonstrates the functionality by translating and printing Morse code for different input strings.

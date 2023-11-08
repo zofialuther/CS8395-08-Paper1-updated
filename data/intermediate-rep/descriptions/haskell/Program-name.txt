@@ -1,0 +1,1 @@
+This code is a simple Haskell program that uses the System module to retrieve the name of the program being executed and then prints it to the console with the prefix "Program: ".

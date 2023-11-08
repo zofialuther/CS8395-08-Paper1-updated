@@ -1,0 +1,1 @@
+This code creates a dictionary with key-value pairs and then uses the `lookup` function to search for the value associated with the key "key2". The result is a `Just` value containing "val2".

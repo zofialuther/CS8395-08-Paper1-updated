@@ -1,0 +1,23 @@
+1. Create a class called SterlingNumbersFirstKind
+2. Inside the class, create a main method
+3. Print "Unsigned Stirling numbers of the first kind:"
+4. Set the maximum value to 12
+5. Print "n/k"
+6. Create a for loop with variable n from 0 to max
+7. Print the value of n
+8. Create a nested for loop with variable n from 0 to max
+9. Print the value of n
+10. Create a method called sterling1 with parameters n and k
+11. Check if the result for n and k is already computed and return it if it is
+12. Check if n is 0 and k is 0, return 1
+13. Check if n is greater than 0 and k is 0, return 0
+14. Check if k is greater than n, return 0
+15. Calculate the result using the formula and store it in the COMPUTED map
+16. Return the result
+17. Inside the main method, create a map called COMPUTED
+18. Create a constant BigInteger called previous and set it to 0
+19. Create a for loop with variable k from 1 to 100
+20. Calculate the current value using the sterling1 method
+21. Compare the current value with the previous value
+22. If the current value is greater than the previous value, update the previous value
+23. If not, print the previous value and its length, then break the loop.

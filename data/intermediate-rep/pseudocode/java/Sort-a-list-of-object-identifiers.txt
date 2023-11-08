@@ -1,0 +1,28 @@
+```
+START
+  Import required libraries
+  
+  Define a class named OIDListSorting
+    Define a main method that takes an array of strings as input
+    
+    Define a string variable "dot" and assign the value "\\."
+    
+    Define a comparator "oids_comparator" that takes two strings as input and returns an integer
+      Split the input strings using the "dot" variable and store the result in o1Numbers and o2Numbers
+      Iterate through the arrays using a for loop
+        If the index i is equal to the length of both arrays, return 0
+        If the index i is equal to the length of o1Numbers, return -1
+        If the index i is equal to the length of o2Numbers, return 1
+        Get the next number in o1Numbers and o2Numbers and store them in nextO1Number and nextO2Number
+        Compare nextO1Number and nextO2Number and store the result in a variable "result"
+        If the result is not equal to 0, return the result
+      End loop
+    End comparator definition
+    
+    Create a stream of strings containing OID values
+      Sort the stream using the oids_comparator
+      For each value in the sorted stream, print the value
+    End stream definition
+  End class definition
+END
+```

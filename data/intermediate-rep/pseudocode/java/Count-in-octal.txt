@@ -1,0 +1,5 @@
+FUNCTION printCount
+    FOR value = 0 to 20
+        PRINT value in octal format
+    END FOR
+END FUNCTION

@@ -1,0 +1,12 @@
+1. Set up a try-catch block to handle any potential IOExceptions
+2. Create a new FileInputStream object and pass the file name as a parameter
+3. Create a new InputStreamReader object and pass the FileInputStream object as a parameter
+4. Create a new HashMap object to store the data from the file
+5. Use a while loop to iterate through each character in the file
+6. Read each character using the InputStreamReader object
+7. Check if the character is already a key in the HashMap
+8. If it is, increment the value associated with that key by 1
+9. If it is not, add the character as a key in the HashMap with a value of 1
+10. Close the InputStreamReader and FileInputStream objects
+11. Catch any IOExceptions and handle them appropriately (e.g. print an error message)
+12. Use the HashMap to access and manipulate the data as needed.

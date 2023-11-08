@@ -1,0 +1,140 @@
+```
+MODULE Main
+  IMPORT System.Random
+  IMPORT Data.List (intercalate, find, minimumBy)
+  IMPORT System.Environment (getArgs)
+  IMPORT Data.Char (digitToInt)
+  IMPORT Data.Maybe (listToMaybe, mapMaybe)
+  IMPORT Control.Monad (guard)
+  IMPORT Data.Ord (comparing)
+
+  FUNCTION tictactoe(a: String) -> Bool
+    RETURN tictactoeFor('X', a) /= tictactoeFor('O', a)
+
+  FUNCTION tictactoeFor(n: Char, s: String) -> Bool
+    RETURN [n, n, n] `elem` [[s[0], s[1], s[2]], [s[3], s[4], s[5]], [s[6], s[7], s[8]], [s[0], s[3], s[6]], [s[1], s[4], s[7]], [s[2], s[5], s[8]], [s[0], s[4], s[8]], [s[2], s[4], s[6]]]
+
+  FUNCTION start -> String
+    RETURN "         "
+
+  FUNCTION isPossible(n: Int, game: String) -> Bool
+    RETURN (game[n]) `notElem` "XO"
+
+  FUNCTION place(i: Int, c: Char, game: String) -> Either String String
+    IF isPossible(i, game)
+      RETURN Right(take(i, game) ++ [c] ++ drop(i + 1, game))
+    ELSE
+      RETURN Left(game)
+
+  FUNCTION developGame(iterateMore: Bool, moves: Int, i: Int, player: Char, game: String) -> (Int, Char, String)
+    IF i > 8
+      IF iterateMore
+        RETURN developGame(False, moves, 0, player, game)
+      ELSE
+        RETURN (moves, player, game)
+    ELSE IF moves == 9 || tictactoeFor(player, game)
+      RETURN (moves, player, game)
+    ELSE
+      CASE place(i, otherPlayer, game)
+        LEFT _ -> developGame(iterateMore, moves, (i + 1), otherPlayer, game)
+        RIGHT newGame -> developGame(iterateMore, (moves + 1), 0, otherPlayer, newGame)
+        where
+          otherPlayer = changePlayer(player)
+
+  FUNCTION bestMoveFor(player: Char, game: String) -> Int
+    LET continuations = [(x, developGame(True, 0, x, player, game)) | x <- [0..8]]
+    LET move = \(x, (m, _, _)) -> m
+    LET (bestMove, _) = minimumBy(comparing(move), continuations)
+    RETURN bestMove
+
+  FUNCTION canBlock(p: Char, s: String) -> Maybe Int
+    LET blockable = \(xs) -> do
+      guard(length(filter(== otherPlayer, xs)) == 2)
+      x <- find(`elem` "123456789", xs)
+      return digitToInt(x)
+    LET otherPlayer = changePlayer(p)
+    RETURN listToMaybe(mapMaybe(blockable, [[s[0], s[1], s[2]], [s[3], s[4], s[5]], [s[6], s[7], s[8]], [s[0], s[3], s[6]], [s[1], s[4], s[7]], [s[2], s[5], s[8]], [s[0], s[4], s[8]], [s[2], s[4], s[6]]]))
+
+  FUNCTION showGame(s: String) -> String
+    LET topBottom = "+----+---+---+---+\n"
+    LET row = \(n, x) -> "| " ++ n ++ "+ | " ++ intercalate(" | ", x) ++ " |\n" ++ topBottom
+    RETURN topBottom ++ "|    | 1 | 2 | 3 |\n" ++ topBottom ++ row("0", [[s[0]], [s[1]], [s[2]]) ++ row("3", [[s[3]], [s[4]], [s[5]]) ++ row("6", [[s[6]], [s[7]], [s[8]])
+
+  FUNCTION enterNumber() -> Int
+    LET c = getChar
+    IF c `elem` "123456789"
+      PRINTLN ""
+      RETURN digitToInt(c)
+    ELSE
+      PRINTLN "\nPlease enter a digit!"
+      RETURN enterNumber()
+
+  FUNCTION turn((count, player, game): Tuple) -> IO(Int, Char, String)
+    PRINT "Please tell me where you want to put an " ++ [player] ++ ": "
+    LET pos = enterNumber()
+    CASE place(pos - 1, player, game)
+      LEFT oldGame -> do
+        PRINTLN "That place is already taken!\n"
+        RETURN turn(count, player, oldGame)
+      RIGHT newGame -> RETURN (count + 1, changePlayer(player), newGame)
+
+  FUNCTION changePlayer(player: Char) -> Char
+    CASE player OF
+      'O' -> RETURN 'X'
+      'X' -> RETURN 'O'
+
+  FUNCTION autoTurn(forceRandom: Bool, (count, player, game): Tuple) -> IO(Int, Char, String)
+    LET i = IF count == 0 || forceRandom
+              THEN randomRIO(0, 8)
+              ELSE
+                CASE canBlock(player, game)
+                  NOTHING -> bestMoveFor(player, game)
+                  JUST blockPos -> blockPos
+    CASE place(i, player, game)
+      LEFT oldGame -> autoTurn(True, count, player, oldGame)
+      RIGHT newGame -> do
+        PRINTLN "It's player " ++ [player] ++ "'s turn."
+        RETURN (count + 1, changePlayer(player), newGame)
+
+  FUNCTION play(auto: Int, cpg: Tuple) -> IO()
+    LET newcpg = CASE auto OF
+      0 -> turn(cpg)
+      1 -> autoTurn(False, cpg)
+      2 -> IF player == 'X' 
+              THEN autoTurn(False, cpg) 
+              ELSE turn(cpg)
+      3 -> IF player == 'O' 
+              THEN autoTurn(False, cpg) 
+              ELSE turn(cpg)
+    PRINTLN "\n" ++ showGame(newGame)
+    IF tictactoe(newGame)
+      PRINTLN "Player " ++ [changePlayer(newPlayer)] ++ " wins!\n"
+    ELSE IF newCount == 9
+      PRINTLN "Draw!\n"
+    ELSE
+      play(auto, newcpg)
+
+  FUNCTION main() -> IO()
+    LET a = getArgs
+    IF null(a)
+      THEN usage()
+      ELSE
+        LET option = head(a)
+        IF option `elem` ["0", "1", "2", "3"]
+          THEN
+            PRINTLN "\n" ++ showGame(start)
+            LET m = read(option) :: Int
+            play(m, (0, 'X', start))
+        ELSE
+          usage()
+
+  FUNCTION usage() -> IO()
+    PRINTLN "TIC-TAC-TOE GAME\n================\n"
+    PRINTLN "How do you want to play?"
+    PRINTLN "Run the program with one of the following options."
+    PRINTLN "0 : both players are human"
+    PRINTLN "1 : both players are computer"
+    PRINTLN "2 : player X is computer and player O is human"
+    PRINTLN "3 : player X is human and player O is computer"
+    PRINTLN "Player X always begins."
+```

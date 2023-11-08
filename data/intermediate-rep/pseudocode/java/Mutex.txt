@@ -1,0 +1,19 @@
+```
+import java.util.concurrent.Semaphore;
+
+public class VolatileClass{
+   public Semaphore mutex = new Semaphore(1); 
+  
+   public void needsToBeSynched(){
+      //...
+   }
+   
+   public void acquireMutex(){
+      mutex.acquire();
+   }
+   
+   public void releaseMutex(){
+      mutex.release();
+   }
+}
+```

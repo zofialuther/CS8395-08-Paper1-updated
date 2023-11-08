@@ -1,0 +1,38 @@
+```
+function main() {
+  let fizzBuzzList = generateFizzBuzzList();
+  let numbers = generateNumbers();
+  
+  for (let i = 0; i < 100; i++) {
+    if (fizzBuzzList[i] !== "") {
+      console.log(fizzBuzzList[i]);
+    } else {
+      console.log(numbers[i]);
+    }
+  }
+}
+
+function generateFizzBuzzList() {
+  let fizzList = ["", "", "Fizz"];
+  let buzzList = ["", "", "", "", "Buzz"];
+  let result = [];
+  
+  for (let i = 0; i < 100; i++) {
+    result.push(fizzList[i % fizzList.length] + buzzList[i % buzzList.length]);
+  }
+  
+  return result;
+}
+
+function generateNumbers() {
+  let result = [];
+  
+  for (let i = 1; i <= 100; i++) {
+    result.push(i.toString());
+  }
+  
+  return result;
+}
+
+main();
+```

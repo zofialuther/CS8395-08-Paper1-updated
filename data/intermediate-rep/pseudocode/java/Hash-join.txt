@@ -1,0 +1,26 @@
+FUNCTION hashJoin(records1, idx1, records2, idx2)
+    result = new List<String[][]>
+    map = new Map<String, List<String[]>>
+
+    FOR EACH record IN records1
+        v = map.getOrDefault(record[idx1], new ArrayList<>)
+        v.add(record)
+        map.put(record[idx1], v)
+    END FOR
+
+    FOR EACH record IN records2
+        lst = map.get(record[idx2])
+        IF lst != null
+            FOR EACH r IN lst
+                result.add(new String[][]{r, record})
+            END FOR
+        END IF
+    END FOR
+
+    RETURN result
+END FUNCTION
+
+table1 = {{"27", "Jonah"}, {"18", "Alan"}, {"28", "Glory"}, {"18", "Popeye"}, {"28", "Alan"}}
+table2 = {{"Jonah", "Whales"}, {"Jonah", "Spiders"}, {"Alan", "Ghosts"}, {"Alan", "Zombies"}, {"Glory", "Buffy"}, {"Bob", "foo"}}
+
+hashJoin(table1, 1, table2, 0).stream().forEach(r -> System.out.println(Arrays.deepToString(r)))

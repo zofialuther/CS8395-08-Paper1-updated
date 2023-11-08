@@ -1,0 +1,1 @@
+This code defines a function called isprime that checks if a given number is a prime number using regular expressions. It then tests the function by finding all prime numbers up to 40 and returns the list [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37].

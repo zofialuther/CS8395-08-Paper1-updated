@@ -1,0 +1,60 @@
+```
+DECLARE dynamic predicate stirling1_cache/3
+
+stirling1(N, N, 1):
+    IF N = N THEN
+        RETURN 1
+    ELSE
+        EXIT
+
+stirling1(_, 0, 0):
+    IF _ = 0 THEN
+        RETURN 0
+    ELSE
+        EXIT
+
+stirling1(N, K, 0):
+    IF K > N THEN
+        RETURN 0
+    ELSE
+        EXIT
+
+stirling1(N, K, L):
+    IF stirling1_cache(N, K, L) exists THEN
+        EXIT
+    ELSE
+        EXIT
+
+stirling1(N, K, L):
+    N1 = N - 1
+    K1 = K - 1
+    CALL stirling1(N1, K, L1)
+    CALL stirling1(N1, K1, L2)
+    L = L2 + (N - 1) * L1
+    ASSERT stirling1_cache(N, K, L)
+
+print_stirling_numbers(N):
+    FOR K from 1 to N:
+        CALL stirling1(N, K, L)
+        WRITE L
+    EXIT
+
+print_stirling_numbers(_):
+    PRINT newline
+
+print_stirling_numbers_up_to(M):
+    FOR N from 1 to M:
+        CALL print_stirling_numbers(N)
+    EXIT
+
+max_stirling1(N, Max):
+    Max = MAX(L) for all L in (1 to N) such that stirling1(N, K, L)
+
+main:
+    WRITE "Unsigned Stirling numbers of the first kind up to S1(12,12):"
+    CALL print_stirling_numbers_up_to(12)
+    WRITE "Maximum value of S1(n,k) where n = 100:"
+    CALL max_stirling1(100, M)
+    WRITE M
+    EXIT
+```

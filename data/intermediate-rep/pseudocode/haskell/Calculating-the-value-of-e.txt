@@ -1,0 +1,11 @@
+eApprox(n)
+   sum = 0
+   factorial = 1
+   for i = 1 to n
+      factorial = factorial * i
+      sum = sum + (1 / factorial)
+   return sum
+
+main()
+   result = eApprox(20)
+   print(result)

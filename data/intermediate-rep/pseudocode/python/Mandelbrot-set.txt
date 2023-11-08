@@ -1,0 +1,13 @@
+FUNCTION mandelbrot(a)
+    RETURN REDUCE(LAMBDA z, _: z * z + a, RANGE(50), 0)
+END FUNCTION
+
+FUNCTION step(start, step, iterations)
+    RETURN (start + (i * step) FOR i IN RANGE(iterations))
+END FUNCTION
+
+rows = ((IF abs(mandelbrot(complex(x, y))) < 2 THEN "*" ELSE " "
+        FOR x IN step(-2.0, .0315, 80))
+        FOR y IN step(1, -.05, 41))
+
+PRINT("\n".join("".join(row) FOR row IN rows))

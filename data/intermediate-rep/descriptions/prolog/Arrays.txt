@@ -1,0 +1,1 @@
+This code creates a term called Array with 100 free variables as arguments. It then assigns the value 'a' to the first position and 'b' to the 12th position. It retrieves and prints the value at the first position (which is 'a'), and then retrieves and prints the value at the fourth position, which is a free variable.

@@ -1,0 +1,1 @@
+This code declares and initializes variables to hold different types of characters and strings. It includes examples of single and double quotes, as well as the use of escape characters to print the actual quotes. The comments indicate how each variable will print when displayed.

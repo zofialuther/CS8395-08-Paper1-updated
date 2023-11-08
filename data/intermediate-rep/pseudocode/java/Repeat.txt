@@ -1,0 +1,4 @@
+1. Create a function called repeat that takes in an integer n and a Consumer function fun as parameters.
+2. Use IntStream.range to create a stream of integers from 0 to n-1.
+3. For each integer in the stream, call the fun function and pass in the integer + 1 as an argument.
+4. In the main function, call the repeat function with the parameters 3 and a lambda function that takes in an integer x and prints "Example " + x.

@@ -1,0 +1,1 @@
+This code defines a function called `stepUp` that uses a higher-order function `untilM` to repeatedly execute a given action `step` until a given test `test` returns true. This is achieved through recursive calls to `untilM` within the `stepUp` function. The `Monad` typeclass is used to enable the composition of sequential actions within the `untilM` function.

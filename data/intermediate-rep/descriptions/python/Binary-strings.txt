@@ -1,0 +1,1 @@
+This code defines a variable 'txt' with the value "Some more text". It then uses two assertions to check if the last character of the string is 't' and if the last four characters of the string are 'text'. If both assertions pass, it confirms that the variable 'txt' meets the specified conditions.

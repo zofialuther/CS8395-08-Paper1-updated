@@ -1,0 +1,1 @@
+This code generates a list of triangles with a maximum side of 13, using different angle measurements. It also includes a function to generate uneven triangles of a maximum side of 10000 at a 60-degree angle. The code utilizes lambda functions and a variety of dictionary manipulations to achieve its purpose.

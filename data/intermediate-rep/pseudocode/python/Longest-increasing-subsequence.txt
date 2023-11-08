@@ -1,0 +1,17 @@
+```
+function longestIncreasingSubsequence(d)
+    l = []
+    for i from 0 to length(d) - 1
+        temp = []
+        for j from 0 to i - 1
+            if l[j][length(l[j]) - 1] < d[i]
+                temp.append(l[j])
+        if temp is empty
+            temp = []
+        l.append(max(temp, key=length) + [d[i]])
+    return max(l, key=length)
+
+if __name__ == '__main__':
+    for each d in [[3,2,6,4,5,1], [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]]
+        print('a L.I.S. of %s is %s' % (d, longestIncreasingSubsequence(d)))
+```

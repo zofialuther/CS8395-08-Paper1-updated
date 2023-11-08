@@ -1,0 +1,40 @@
+```
+function isEsthetic(b):
+    differences = differences(toBase(b))
+    return all(abs(d) == 1 for d in differences)
+
+function esthetics_m(b):
+    differences = replicateM([-1, 1], n) for n in range(0, infinity)
+    for firstDigit in range(1, b-1):
+        for diff in differences:
+            result = fromBase(b, scanl(+, firstDigit, diff))
+            yield result
+
+function esthetics(b):
+    q = [(d, d) for d in range(1, b-1)]
+    queue = q
+    while True:
+        num, lsd = head(queue)
+        new_lsds = [d for d in range(lsd-1, lsd+2) if d < b and d >= 0]
+        num, queue = tail(queue) + [(num*b + d, d) for d in new_lsds]
+
+function fromBase(b):
+    r = 0
+    for d in digits:
+        if d < 0 or d >= b:
+            return None
+        else:
+            r = r*b + d
+    return r
+
+function toBase(b):
+    result = []
+    while n != 0:
+        q, r = divMod(n, b)
+        result.append(r)
+        n = q
+    return result.reverse()
+
+function showInBase(b):
+    return ''.join([digit(genericIndex(['0'..'9'] + ['a'..'z'], d)) for d in toBase(b)])
+```

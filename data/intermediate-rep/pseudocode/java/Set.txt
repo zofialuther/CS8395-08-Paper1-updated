@@ -1,0 +1,46 @@
+Set a = new TreeSet();
+Set b = new TreeSet();
+Set c = new TreeSet();
+Set d = new TreeSet();
+
+a.addAll(Arrays.asList(1, 2, 3, 4, 5));
+b.addAll(Arrays.asList(2, 3, 4, 5, 6, 8));
+c.addAll(Arrays.asList(2, 3, 4));
+d.addAll(Arrays.asList(2, 3, 4));
+
+print("a: " + a);
+print("b: " + b);
+print("c: " + c);
+print("d: " + d);
+
+print("2 in a: " + a.contains(2));
+print("6 in a: " + a.contains(6));
+
+Set ab = new TreeSet();
+ab.addAll(a);
+ab.addAll(b);
+print("a union b: " + ab);
+
+Set a_b = new TreeSet();
+a_b.addAll(a);
+a_b.removeAll(b);
+print("a - b: " + a_b);
+
+print("c subset of a: " + a.containsAll(c));
+
+print("c = d: " + c.equals(d));
+print("d = c: " + d.equals(c));
+
+Set aib = new TreeSet();
+aib.addAll(a);
+aib.retainAll(b);
+print("a intersect b: " + aib);
+
+print("add 7 to a: " + a.add(7));
+print("add 2 to a again: " + a.add(2);
+
+Set empty = Collections.EMPTY_SET;
+empty.isEmpty();
+empty.size();
+Collections.disjoint(a, b);
+Collections.unmodifiableSet(a);

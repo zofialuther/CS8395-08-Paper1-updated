@@ -1,0 +1,75 @@
+```plaintext
+FUNCTION lcm
+    x: Int
+    y: Int
+    RETURN lambda y
+        IF 0 in (x, y) THEN
+            RETURN 0
+        ELSE
+            RETURN abs(y * (x // gcd_(x)(y)))
+
+
+FUNCTION gcd_
+    x: Int
+    RETURN lambda y
+        FUNCTION go
+            a: Int
+            b: Int
+            IF 0 != b THEN
+                RETURN go(b, a % b)
+            ELSE
+                RETURN a
+        RETURN go(abs(x), abs(y))
+
+
+FUNCTION main
+    PRINT fTable(__doc__ + 's of 60 and [12..20]:')(repr)(repr)(lcm(60))(enumFromTo(12)(20))
+    pairs = [(0, 2), (2, 0), (-6, 14), (12, 18)]
+    PRINT fTable('\n\n' + __doc__ + 's of ' + repr(pairs) + ':')(repr)(repr)(uncurry(lcm))(pairs)
+
+
+FUNCTION enumFromTo
+    m: Int
+    RETURN lambda n
+        RETURN list(range(m, 1 + n))
+
+
+FUNCTION uncurry
+    f: (a -> b -> c)
+    IF 1 < len(signature(f).parameters) THEN
+        RETURN lambda xy
+            RETURN f(*xy)
+    ELSE
+        RETURN lambda xy
+            RETURN f(xy[0])(xy[1])
+
+
+FUNCTION unlines
+    xs: [String]
+    RETURN '\n'.join(xs)
+
+
+FUNCTION fTable
+    s: String
+    RETURN lambda xShow
+        RETURN lambda fxShow
+            RETURN lambda f
+                RETURN lambda xs
+                    FUNCTION go
+                        xShow: (a -> String)
+                        fxShow: (b -> String)
+                        f: (a -> b)
+                        xs: [a]
+                        ys = [xShow(x) for x in xs]
+                        w = max(map(len, ys))
+                        RETURN s + '\n' + '\n'.join(map(
+                            lambda x, y
+                                RETURN y.rjust(w, ' ') + ' -> ' + fxShow(f(x)),
+                            xs, ys
+                        ))
+                    RETURN go(xShow, fxShow, f, xs)
+
+
+IF __name__ == '__main__' THEN
+    main()
+```

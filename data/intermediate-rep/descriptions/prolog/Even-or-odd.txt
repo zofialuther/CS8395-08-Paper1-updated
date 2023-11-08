@@ -1,0 +1,1 @@
+This code defines a predicate odd(N) that checks if the absolute value of N has a least significant bit of 0, and returns false if N is 0 and true otherwise. This predicate can be used to determine if a given number is odd.

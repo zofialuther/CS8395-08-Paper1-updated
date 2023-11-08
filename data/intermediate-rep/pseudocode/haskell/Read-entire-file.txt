@@ -1,0 +1,7 @@
+
+```
+function readFileAndDoStuff(filepath):
+    text = readFile(filepath)
+    -- do stuff with text
+end function
+```

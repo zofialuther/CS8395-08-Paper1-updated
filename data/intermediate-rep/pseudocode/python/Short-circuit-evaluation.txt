@@ -1,0 +1,14 @@
+```
+for i in (False, True):
+    for j in (False, True):
+        print ("\nCalculating: x = a(i) and b(j) using x = b(j) if a(i) else False")
+        if a(i):
+            x = b(j)
+        else:
+            x = False
+        print ("Calculating: y = a(i) or  b(j) using y = b(j) if not a(i) else True")
+        if not a(i):
+            y = True
+        else:
+            y = b(j)
+```

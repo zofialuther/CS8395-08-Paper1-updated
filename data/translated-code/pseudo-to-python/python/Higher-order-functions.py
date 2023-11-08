@@ -1,0 +1,1 @@
+result = (lambda: "second")()

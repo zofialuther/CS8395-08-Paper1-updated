@@ -1,0 +1,9 @@
+```
+BEGIN
+    a = someValue
+    IF a is not equal to 42 THEN
+        THROW AssertionFailed
+    ELSE
+        RETURN somethingElse
+END
+```

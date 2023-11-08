@@ -1,0 +1,28 @@
+FUNCTION decode_digit(i, 1)
+FUNCTION decode_digit(v, 5)
+FUNCTION decode_digit(x, 10)
+FUNCTION decode_digit(l, 50)
+FUNCTION decode_digit(c, 100)
+FUNCTION decode_digit(d, 500)
+FUNCTION decode_digit(m, 1000)
+
+FUNCTION decode_string(Sum, _, [], Sum)
+
+FUNCTION decode_string(LastSum, LastValue, [Digit|Rest], NextSum) 
+    IF decode_digit(Digit, Value) AND Value < LastValue THEN
+        Sum = LastSum - Value
+        decode_string(Sum, Value, Rest, NextSum)
+    ELSE
+        Sum = LastSum + Value
+        decode_string(Sum, Value, Rest, NextSum)
+
+FUNCTION decode_string(Atom, Value)
+    String = atom_chars(Atom)
+    REVERSE(String, [Last|Rest])
+    decode_digit(Last, Start)
+    decode_string(Start, Start, Rest, Value)
+
+FUNCTION test
+    decode_string(mcmxc, 1990)
+    decode_string(mmviii, 2008)
+    decode_string(mdclxvi, 1666)

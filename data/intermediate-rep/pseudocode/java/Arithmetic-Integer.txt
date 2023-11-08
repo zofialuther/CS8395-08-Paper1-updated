@@ -1,0 +1,23 @@
+START
+  Import Scanner from java.util package
+
+  Define class IntegerArithmetic
+    Define main method
+      Initialize Scanner object sc with input from System.in
+      Initialize integer variable a and assign it the next integer input from Scanner
+      Initialize integer variable b and assign it the next integer input from Scanner
+
+      Initialize integer variable sum and assign it the sum of a and b
+      Initialize integer variable difference and assign it the difference of a and b
+      Initialize integer variable product and assign it the product of a and b
+      Initialize integer variable division and assign it the quotient of a divided by b
+      Initialize integer variable remainder and assign it the remainder of a divided by b
+
+      Print "a + b = " followed by the value of sum
+      Print "a - b = " followed by the value of difference
+      Print "a * b = " followed by the value of product
+      Print "quotient of a / b = " followed by the value of division
+      Print "remainder of a / b = " followed by the value of remainder
+    End main method
+  End class IntegerArithmetic
+END

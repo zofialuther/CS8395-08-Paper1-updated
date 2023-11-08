@@ -1,0 +1,1 @@
+This Python code defines a function called sterling2 that calculates Stirling numbers of the second kind using a recursive algorithm with memoization. The code then provides a table of Stirling numbers for various n and k values and identifies the maximum value of S2(100, k) and the number of digits in that maximum value.

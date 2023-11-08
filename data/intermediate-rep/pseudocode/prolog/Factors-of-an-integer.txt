@@ -1,0 +1,17 @@
+smart_factors(N,Fs) 
+  if N is an integer and N is greater than 0
+    Set Fs as the set of factors of N
+  end if
+end smart_factors
+
+factor(N,F) 
+  Set L as the floor of the square root of N
+  for X from 1 to L
+    if N mod X is equal to 0
+      Set F as X
+      if F is equal to X
+        Set F as N divided by X
+      end if
+    end if
+  end for
+end factor

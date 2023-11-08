@@ -1,0 +1,35 @@
+```
+1. Module Bitmap.Netpbm
+2. Import Bitmap, Data.Char, System.IO, Control.Monad, Control.Monad.ST, Data.Array.ST
+3. Define nil as undefined
+4. Function readNetpbm with input FilePath and output IO (Image RealWorld c)
+5. Inside readNetpbm:
+    a. Define die as fail "readNetpbm: bad format"
+    b. Read file at path and store in ppm
+    c. Split ppm into (s, rest)
+    d. Check if s is equal to magicNumber, if not then execute die
+    e. Define getNum function with input String and output IO (Int, String)
+    f. Inside getNum:
+        i. Split input string and get the number and the rest of the string
+        ii. If number is empty, execute die
+        iii. Return the number and the rest of the string
+    g. Call getNum twice with rest, and store the width and height
+    h. If getMaxval is true, call getNum again and store the result in (_, c, rest)
+    i. If c is not a space, execute die
+    j. Create a new image i with dimensions width and height using listImage and fromNetpbm
+    k. Return i
+6. Define skipBlanks as a function that removes whitespace and comments from a string
+7. Define magicNumber as netpbmMagicNumber (nil :: c)
+8. Define getMaxval as not null netpbmMaxval (nil :: c)
+9. Function writeNetpbm with input FilePath and Image RealWorld c and output IO ()
+10. Inside writeNetpbm:
+    a. Open file at path in write mode
+    b. Get dimensions of the image and store in (width, height)
+    c. Define w as a function that writes a string to the file
+    d. Write magicNumber to the file
+    e. Write width and height to the file
+    f. If maxval is not empty, write maxval to the file
+    g. Get the pixels of the image and convert to Netpbm format, then write to the file
+11. Define magicNumber as netpbmMagicNumber (nil :: c)
+12. Define maxval as netpbmMaxval (nil :: c)
+```

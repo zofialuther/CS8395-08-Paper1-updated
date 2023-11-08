@@ -1,0 +1,21 @@
+1. Start
+2. Import java.util.concurrent.CyclicBarrier
+3. Create a public class Threads
+4. Create a public static class DelayedMessagePrinter implements Runnable
+5. Inside DelayedMessagePrinter:
+   - Create a private CyclicBarrier called barrier
+   - Create a private String called msg
+   - Create a constructor DelayedMessagePrinter that takes CyclicBarrier barrier and String msg as parameters
+   - Inside the constructor, set this.barrier = barrier and this.msg = msg
+   - Create a run() method
+     - Try:
+       - barrier.await()
+     - Catch Exception e
+     - Print msg
+6. Create a public static void main(String[] args)
+7. Inside main:
+   - Create a CyclicBarrier called barrier and initialize it with 3
+   - Create a new Thread with a new DelayedMessagePrinter(barrier, "Enjoy") and start it
+   - Create a new Thread with a new DelayedMessagePrinter(barrier, "Rosetta") and start it
+   - Create a new Thread with a new DelayedMessagePrinter(barrier, "Code") and start it
+8. End

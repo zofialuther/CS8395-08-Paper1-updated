@@ -1,0 +1,5 @@
+This code defines a predicate `fs` which takes three arguments, a predicate `P`, a list `S`, and an output list `S1`, and applies the predicate `P` to each element of `S`, producing the corresponding elements in `S1`. It also defines two functions `f1` and `f2` which perform simple mathematical operations on a single argument.
+
+The `create_partial` predicate is used to create partial functions `FSF1` and `FSF2` based on the `f1` and `f2` functions.
+
+The main `fs` predicate then demonstrates the use of the partial functions by applying them to two different input lists, showing the results of each function application.

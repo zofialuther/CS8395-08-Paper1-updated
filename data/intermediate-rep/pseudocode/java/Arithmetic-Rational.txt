@@ -1,0 +1,25 @@
+SET MAX_NUM as 1 shifted left by 19
+PRINT "Searching for perfect numbers in the range [1, " + (MAX_NUM - 1) + "]"
+SET TWO as BigRational.valueOf(2)
+FOR i = 1 to MAX_NUM
+    SET reciprocalSum as BigRational.ONE
+    IF i > 1 THEN
+        SET reciprocalSum as reciprocalSum + BigRational.valueOf(i).reciprocal()
+    END IF
+    SET maxDivisor as square root of i
+    IF maxDivisor >= i THEN
+        SET maxDivisor as maxDivisor - 1
+    END IF
+    FOR divisor = 2 to maxDivisor
+        IF i MOD divisor = 0 THEN
+            SET reciprocalSum as reciprocalSum + BigRational.valueOf(divisor).reciprocal()
+            SET dividend as i / divisor
+            IF divisor != dividend THEN
+                SET reciprocalSum as reciprocalSum + BigRational.valueOf(dividend).reciprocal()
+            END IF
+        END IF
+    END FOR
+    IF reciprocalSum.equals(TWO) THEN
+        PRINT i + " is a perfect number"
+    END IF
+END FOR

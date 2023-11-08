@@ -1,0 +1,18 @@
+FUNCTION graphemeReverse(text)
+    boundary = getCharacterInstance()
+    boundary.setText(text)
+    reversed = StringBuilder()
+    end = boundary.last()
+    start = boundary.previous()
+    WHILE start != DONE
+        reversed.append(text.substring(start, end))
+        end = start
+        start = boundary.previous()
+    RETURN reversed
+
+FUNCTION main(args)
+    a = "as⃝df̅"
+    PRINT(graphemeReverse(a))
+END
+
+main()

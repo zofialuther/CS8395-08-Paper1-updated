@@ -1,0 +1,6 @@
+dot_product(L1, L2, N) {
+   for each index i from 0 to length of L1 - 1 {
+      P[i] = L1[i] * L2[i]
+   }
+   N = sum of all elements in P
+}

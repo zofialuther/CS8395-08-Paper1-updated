@@ -1,0 +1,23 @@
+function getpowerset(a, n, ps)
+    if n < 0
+        return null
+    end if
+    if n == 0
+        if ps == null
+            ps = new ArrayList<String>()
+        end if
+        ps.add(" ")
+        return ps
+    end if
+    ps = getpowerset(a, n-1, ps)
+    tmp = new ArrayList<String>()
+    for each s in ps
+        if s equals " "
+            tmp.add(a[n-1])
+        else
+            tmp.add(s + a[n-1])
+        end if
+    end for
+    ps.addAll(tmp)
+    return ps
+end function

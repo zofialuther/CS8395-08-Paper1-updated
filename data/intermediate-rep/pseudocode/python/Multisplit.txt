@@ -1,0 +1,23 @@
+FUNCTION multisplit(text, sep)
+    lastmatch = 0
+    i = 0
+    matches = []
+    WHILE i < LENGTH(text)
+        FOR j, s IN ENUMERATE(sep)
+            IF text[i:] starts with s THEN
+                IF i > lastmatch THEN
+                    matches.append(SUBSTRING(text[lastmatch:i]))
+                END IF
+                matches.append((j, i))
+                lastmatch = i + LENGTH(s)
+                i = i + LENGTH(s)
+                BREAK
+            END IF
+        END FOR
+        IF i > lastmatch THEN
+            matches.append(SUBSTRING(text[lastmatch:i]))
+        END IF
+        i = i + 1
+    END WHILE
+    RETURN matches
+END FUNCTION

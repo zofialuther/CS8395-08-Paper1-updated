@@ -1,0 +1,6 @@
+```
+1. Import the lambda module from the library
+2. Define the stripchars function with parameters String, Exclude, and Result
+3. Use the exclude function to remove characters from String that are present in Exclude and store the result in Result1
+4. Convert the list Result1 to a string and store it in the variable Result
+```

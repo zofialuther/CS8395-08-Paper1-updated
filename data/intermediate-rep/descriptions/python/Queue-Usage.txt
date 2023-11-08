@@ -1,0 +1,1 @@
+This code creates a queue using the Queue module and adds three elements to it - "foo", "bar", and "baz". It then retrieves and prints each element from the queue in the order they were added. This demonstrates the first-in, first-out (FIFO) behavior of a queue data structure.

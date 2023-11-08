@@ -1,0 +1,1 @@
+This code iterates through the numbers 1 to 10 and checks if each number is divisible by 5. If a number is divisible by 5, it is printed and the loop continues to the next iteration. If the number is not divisible by 5, it is printed followed by a comma.

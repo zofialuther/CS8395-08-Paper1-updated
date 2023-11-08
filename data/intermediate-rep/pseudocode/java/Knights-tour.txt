@@ -1,0 +1,107 @@
+```
+1. Set baseSize = 12
+2. Set actualBoardSize = baseSize - 4
+3. Set moves = { { 1, -2 }, { 2, -1 }, { 2, 1 }, { 1, 2 }, { -1, 2 }, { -2, 1 }, { -2, -1 }, { -1, -2 } }
+4. Set grid
+5. Set totalNodes
+6. Set travelledNodes as empty array list
+
+function KT(baseNumber):
+	1. Set baseSize = baseNumber
+	2. Set actualBoardSize = baseSize - 4
+
+function main():
+	1. Create new instance of KT with baseNumber 12 and call tour method
+	2. Create new instance of KT with baseNumber 24 and call tour method
+	3. Create new instance of KT with baseNumber 104 and call tour method
+
+function tour():
+	1. Set totalNodes = actualBoardSize * actualBoardSize
+	2. Clear travelledNodes
+	3. Create grid with dimensions baseSize x baseSize and initialize values
+	4. Set startRow as random value between 2 and actualBoardSize + 1
+	5. Set startCol as random value between 2 and actualBoardSize + 1
+	6. Set start as array containing startRow, startCol, 0, 1
+	7. Set grid[startRow][startCol] = 1
+	8. Add start to travelledNodes
+	9. Call autoKnightTour with arguments start and 2
+
+function autoKnightTour(start, nextCount):
+	1. Set nbrs as neighbors of start
+	2. If nbrs is not empty:
+		- Sort nbrs based on the number of available neighbors
+		- Set next as the first element of nbrs
+		- Set next[3] = nextCount
+		- Add next to travelledNodes
+		- Set grid[next[0]][next[1]] = nextCount
+		- If size of travelledNodes is equal to totalNodes:
+			- Print "Found a path for actualBoardSize X actualBoardSize chess board"
+			- Set sb as empty string
+			- For each item in travelledNodes:
+				- Append " -> (" + (item[0] - 2) + "," + (item[1] - 2) + ")" to sb
+				- If index + 1 is a multiple of 15:
+					- Append new line to sb
+			- Print sb
+		- Else:
+			- Call autoKnightTour with arguments next and nextCount + 1
+	3. Else:
+		- Set last as the last element of travelledNodes
+		- Set travelledNodes to the result of reChain function with argument travelledNodes
+		- If the last element of travelledNodes is equal to last:
+			- Set travelledNodes to the result of reChain function with argument travelledNodes
+			- If the last element of travelledNodes is still equal to last:
+				- Print "Re-chained twice but no travllable node found. Quiting..."
+			- Else:
+				- Set end as the last element of travelledNodes
+				- Call autoKnightTour with arguments end and nextCount
+		- Else:
+			- Set end as the last element of travelledNodes
+			- Call autoKnightTour with arguments end and nextCount
+
+function reChain(alreadyTraveled):
+	1. Set last as the last element of alreadyTraveled
+	2. Set candidates as neighborsInChain of last
+	3. Set randomPicked as a random element from candidates
+	4. Set cutIndex as grid[randomPicked[0]][randomPicked[1]] - 1
+	5. Set result as empty array list
+	6. For k in range 0 to cutIndex:
+		- Append alreadyTraveled[k] to result
+	7. For j in range size of alreadyTraveled - 1 to cutIndex, decrementing by 1:
+		- Set alreadyTraveled[j][3] = size of result
+		- Append alreadyTraveled[j] to result
+	8. Return result
+
+function neighborsInChain(r, c):
+	1. Set nbrs as empty array list
+	2. For each move in moves:
+		- Set x as move[0]
+		- Set y as move[1]
+		- If grid[r + y][c + x] > 0 and grid[r + y][c + x] is not equal to grid[r][c] - 1:
+			- Set num as countNeighbors of r + y and c + x
+			- Append [r + y, c + x, num, 0] to nbrs
+	3. Return nbrs
+
+function neighbors(r, c):
+	1. Set nbrs as empty array list
+	2. For each move in moves:
+		- Set x as move[0]
+		- Set y as move[1]
+		- If grid[r + y][c + x] is equal to 0:
+			- Set num as countNeighbors of r + y and c + x
+			- Append [r + y, c + x, num, 0] to nbrs
+	3. Return nbrs
+
+function extendableNeighbors(neighbors):
+	1. Set nbrs as empty array list
+	2. For each node in neighbors:
+		- If node[2] is greater than 0:
+			- Append node to nbrs
+	3. Return nbrs
+
+function countNeighbors(r, c):
+	1. Set num as 0
+	2. For each move in moves:
+		- If grid[r + move[1]][c + move[0]] is equal to 0:
+			- Increment num by 1
+	3. Return num
+```

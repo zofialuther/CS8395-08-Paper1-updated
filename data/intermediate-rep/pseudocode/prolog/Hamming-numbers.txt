@@ -1,0 +1,75 @@
+```
+function hamming(N) {
+    nb_setval(go, 1);
+    
+    if (N === 20) {
+        watch_20(20, L);
+    } else {
+        watch(1, N, L);
+    }
+    
+    L = [1, ...L235];
+    multlist(L, 2, L2);
+    multlist(L, 3, L3);
+    multlist(L, 5, L5);
+    merge_(L2, L3, L23);
+    merge_(L5, L23, L235);
+}
+
+function multlist(L, N, XLN) {
+    if (nb_getval(go) === 1) {
+        if (L.length > 0) {
+            let X = L[0];
+            if (!isNaN(X)) {
+                let XN = X * N;
+                XLN = [XN, ...LN];
+                multlist(L.slice(1), N, LN);
+            }
+        }
+    }
+}
+
+function merge_(In1, In2, XYOut) {
+    if (nb_getval(go) === 1) {
+        if (In1.length > 0 && In2.length > 0) {
+            let X = In1[0];
+            let Y = In2[0];
+            if (X < Y) {
+                XYOut = [X, ...Out];
+                merge_(In1.slice(1), In2, Out);
+            } else if (X === Y) {
+                XYOut = [X, ...Out];
+                merge_(In1.slice(1), In2, Out);
+            } else {
+                XYOut = [Y, ...Out];
+                merge_(In1, In2.slice(1), Out);
+            }
+        }
+    }
+}
+
+function watch(Max, N, L) {
+    if (N === Max) {
+        if (!isNaN(L[0])) {
+            console.log(L[0]);
+            nb_linkval(go, 0);
+        }
+    } else {
+        watch(N + 1, Max, L.slice(1));
+    }
+}
+
+function watch_20(N, L) {
+    if (N === 1) {
+        if (!isNaN(L[0])) {
+            console.log(L[0]);
+            nb_linkval(go, 0);
+        }
+    } else {
+        if (!isNaN(L[0])) {
+            console.log(L[0] + " ");
+            watch_20(N - 1, L.slice(1));
+        }
+    }
+}
+```

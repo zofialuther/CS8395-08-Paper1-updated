@@ -1,0 +1,8 @@
+1. Import necessary libraries
+2. Define vanEck as a function that returns a list of integers
+3. Set vanEck to an initial value of 0 and use mapAccumL to apply the function go to each element in the list [1 ..]
+4. Define the function go with parameters (x, dct) and i
+5. Update the value of x and dct based on the result of the function
+6. Return the updated value of x and the updated dictionary dct
+7. Define main as a function that takes no parameters and returns IO ()
+8. Print the result of applying the functions drop, subtract, and take to the list vanEck with different values [10, 1000, 10000, 100000, 1000000]

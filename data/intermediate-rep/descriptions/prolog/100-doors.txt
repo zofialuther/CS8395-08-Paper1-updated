@@ -1,0 +1,1 @@
+This code defines a predicate doors_optimized that takes a single parameter N. It calculates the square root of N and assigns it to Max. It then iterates through all numbers between 1 and Max, and for each number I, it calculates the square I*I and prints a message indicating that the corresponding door is open.

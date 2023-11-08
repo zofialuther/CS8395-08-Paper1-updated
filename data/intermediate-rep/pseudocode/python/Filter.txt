@@ -1,0 +1,38 @@
+```
+FUNCTION f1(xs)
+    RETURN REDUCE (LAMBDA a, x: a + [x] IF even(x) ELSE a, xs, [])
+
+FUNCTION f2(xs)
+    RETURN concatMap(LAMBDA x: [x] IF even(x) ELSE [])(xs)
+
+FUNCTION f3(xs)
+    RETURN (x FOR x IN xs IF even(x))
+
+FUNCTION f4(xs)
+    RETURN FILTER(even, xs)
+
+FUNCTION main()
+    xs = enumFromTo(0)(10)
+    PRINT tabulated(showReturn)('By descending generality and increasing brevity:\n')(LAMBDA f: LIST(f(xs)))([f1, f2, f3, f4])
+
+FUNCTION concatMap(f)
+    RETURN LAMBDA xs: LIST(chain.from_iterable(MAP(f, xs)))
+
+FUNCTION enumFromTo(m)
+    RETURN LAMBDA n: LIST(range(m, 1 + n))
+
+FUNCTION even(x)
+    RETURN 0 == x % 2
+
+FUNCTION showReturn(f)
+    RETURN re.split('return ', inspect.getsource(f))[-1].strip()
+
+FUNCTION tabulated(fShow)
+    FUNCTION go(s, f, xs)
+        w = MAX(LEN(fShow(x)) FOR x IN xs)
+        RETURN s + '\n' + '\n'.join([fShow(x).rjust(w, ' ') + ' -> ' + str(f(x)) FOR x IN xs])
+    RETURN LAMBDA s: LAMBDA f: LAMBDA xs: go(s, f, xs)
+
+IF __name__ == '__main__'
+    main()
+```

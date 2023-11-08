@@ -1,0 +1,1 @@
+This code defines a main function that utilizes the mapM_ and reverse functions to print a list of numbers in reverse order. The until function is used to repeatedly apply a function to a starting value until a certain condition is met. In this case, the function increments the first element of the list until it is a positive multiple of 6.

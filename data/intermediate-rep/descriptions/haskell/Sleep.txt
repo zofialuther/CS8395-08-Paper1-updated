@@ -1,0 +1,1 @@
+This code takes an input of seconds, then prints "Sleeping..." and delays the program for the specified number of seconds. After the delay, it prints "Awake!" indicating that the delay has finished. The Control.Concurrent module is used to handle the delay.

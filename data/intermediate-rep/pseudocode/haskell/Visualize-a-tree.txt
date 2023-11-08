@@ -1,0 +1,7 @@
+1. Import the Data.Tree module
+2. Define a tree data structure of type Tree with Int as the data type
+3. Define the tree structure with a root node of 1 and two child nodes:
+    - Node 2 with child nodes 4 and 5
+    - Node 3 with child nodes 6
+4. Define the main function of type IO ()
+5. Inside the main function, use the drawTree function to convert the tree to a string representation and then print it using putStrLn. Use the fmap function to map the show function over the tree to convert the Int values to strings.

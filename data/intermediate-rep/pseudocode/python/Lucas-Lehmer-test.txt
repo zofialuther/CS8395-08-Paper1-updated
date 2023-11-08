@@ -1,0 +1,47 @@
+```
+FUNCTION is_prime ( p )
+  IF p = 2 THEN
+    RETURN True
+  ELSE IF p <= 1 OR p mod 2 = 0 THEN
+    RETURN False
+  ELSE
+    FOR i = 3 TO INT(SQRT(p)) + 1 STEP 2
+      IF p mod i = 0 THEN
+        RETURN False
+      END IF
+    END FOR
+    RETURN True
+  END IF
+END FUNCTION
+
+FUNCTION is_mersenne_prime ( p )
+  IF p = 2 THEN
+    RETURN True
+  ELSE
+    m_p = ( 1 << p ) - 1
+    s = 4
+    FOR i = 3 TO p + 1
+      s = (s ^ 2 - 2) mod m_p
+    END FOR
+    RETURN s = 0
+  END IF
+END FUNCTION
+
+precision = 20000
+long_bits_width = precision * LOG(10, 2)
+upb_prime = INT( long_bits_width - 1 ) / 2
+upb_count = 45
+
+OUTPUT "Finding Mersenne primes in M[2..", upb_prime, "]:"
+
+count = 0
+FOR p = 2 TO INT(upb_prime + 1)
+  IF is_prime(p) AND is_mersenne_prime(p) THEN
+    OUTPUT "M", p
+    count = count + 1
+  END IF
+  IF count >= upb_count THEN
+    EXIT FOR
+  END IF
+END FOR
+```

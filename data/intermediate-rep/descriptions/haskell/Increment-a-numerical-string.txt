@@ -1,0 +1,1 @@
+This code takes the string "False" and converts it to a boolean value using the read function. It then increments the boolean value by 1 using the succ function, and finally converts the resulting boolean value to a string using the show function.

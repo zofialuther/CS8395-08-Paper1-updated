@@ -1,0 +1,5 @@
+Set val as 0
+Do 
+  Increase val by 1
+  Print val
+While val modulo 6 is not equal to 0

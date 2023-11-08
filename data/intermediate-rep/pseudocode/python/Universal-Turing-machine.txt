@@ -1,0 +1,89 @@
+```
+FUNCTION run_utm
+    st = state
+    IF NOT tape
+        tape = [blank]
+    IF pos < 0
+        pos += len(tape)
+    IF pos >= len(tape) OR pos < 0
+        RAISE Error("bad init position")
+    rules = DICT(((s0, v0), (v1, dr, s1)) FOR (s0, v0, v1, dr, s1) IN rules)
+
+    WHILE True
+        PRINT st, '\t', END=" "
+        FOR i, v IN ENUMERATE(tape)
+            IF i == pos
+                PRINT "[%s]" % (v,), END=" "
+            ELSE
+                PRINT v, END=" "
+        PRINT()
+
+        IF st == halt
+            BREAK
+        IF (st, tape[pos]) NOT IN rules
+            BREAK
+
+        (v1, dr, s1) = rules[(st, tape[pos])]
+        tape[pos] = v1
+        IF dr == 'left'
+            IF pos > 0
+                pos -= 1
+            ELSE
+                tape.insert(0, blank)
+        IF dr == 'right'
+            pos += 1
+            IF pos >= len(tape)
+                tape.append(blank)
+        st = s1
+
+PRINT "incr machine\n"
+run_utm(
+    halt = 'qf',
+    state = 'q0',
+    tape = list("111"),
+    blank = 'B',
+    rules = map(tuple,
+               ["q0 1 1 right q0".split(),
+                "q0 B 1 stay  qf".split()]
+        )
+    )
+
+PRINT "\nbusy beaver\n"
+run_utm(
+    halt = 'halt',
+    state = 'a',
+    blank = '0',
+    rules = map(tuple,
+        ["a 0 1 right b".split(),
+         "a 1 1 left  c".split(),
+         "b 0 1 left  a".split(),
+         "b 1 1 right b".split(),
+         "c 0 1 left  b".split(),
+         "c 1 1 stay  halt".split()]
+        )
+    )
+
+PRINT "\nsorting test\n"
+run_utm(
+    halt = 'STOP',
+    state = 'A',
+    blank = '0',
+    tape = "2 2 2 1 2 2 1 2 1 2 1 2 1 2".split(),
+    rules = map(tuple,
+       ["A 1 1 right A".split(),
+        "A 2 3 right B".split(),
+        "A 0 0 left  E".split(),
+        "B 1 1 right B".split(),
+        "B 2 2 right B".split(),
+        "B 0 0 left  C".split(),
+        "C 1 2 left  D".split(),
+        "C 2 2 left  C".split(),
+        "C 3 2 left  E".split(),
+        "D 1 1 left  D".split(),
+        "D 2 2 left  D".split(),
+        "D 3 1 right A".split(),
+        "E 1 1 left  E".split(),
+        "E 0 0 right STOP".split()]
+        )
+    )
+```

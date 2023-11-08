@@ -1,0 +1,1 @@
+This Prolog code defines a predicate mean/2 that calculates the mean (average) of a list of numbers. It first uses the length/2 predicate to find the length of the input list, and then uses the sumlist/2 predicate to calculate the sum of all the numbers in the list. Finally, it computes the mean by dividing the sum by the length and unifies the result with the Mean variable.

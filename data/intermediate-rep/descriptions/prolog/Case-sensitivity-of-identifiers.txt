@@ -1,0 +1,1 @@
+This code defines a predicate 'three_dogs' which assigns the names 'Benjamin', 'Samba', and 'Bernie' to three different variables representing dogs. It then uses the 'format' predicate to print a message stating the names of the three dogs.

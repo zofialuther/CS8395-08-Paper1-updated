@@ -1,0 +1,8 @@
+1. Import the Data.Numbers.Primes module
+
+2. Create a function called attractiveNumbers that returns a list of Integers.
+   2.1. Use the filter function to filter the list [1 ..] based on the following condition:
+        2.1.1. Check if the length of the list of prime factors of each number is a prime number using the isPrime function.
+
+3. Create a main function of type IO that prints the result of taking elements from the attractiveNumbers list while they are less than or equal to 120.
+   3.1. Use the print function to output the result of the takeWhile function applied to the attractiveNumbers list and the condition (<= 120).

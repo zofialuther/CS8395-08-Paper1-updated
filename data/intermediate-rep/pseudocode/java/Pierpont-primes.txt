@@ -1,0 +1,28 @@
+1. Import necessary libraries
+2. Create a class called PierpontPrimes
+3. Define the main method
+    1. Create a NumberFormat instance and assign it to nf
+    2. Call the display method with the message "First 50 Pierpont primes of the first kind:" and the result of pierpontPrimes(50, true)
+    3. Call the display method with the message "First 50 Pierpont primes of the second kind:" and the result of pierpontPrimes(50, false)
+    4. Print the 250th Pierpont prime of the first kind using the printf method
+    5. Print the 250th Pierpont prime of the second kind using the printf method
+4. Define the display method with parameters message and primes
+    1. Create a NumberFormat instance and assign it to nf
+    2. Print the message
+    3. Iterate over the primes list
+        1. Print the formatted prime
+        2. If the index is a multiple of 10, print a new line
+5. Define the pierpontPrimes method with parameters n and first
+    1. Create a new ArrayList called primes
+    2. If first is true, add 2 to the primes list and decrement n by 1
+    3. Create BigIntegers two, twoTest, three, threeTest, one, and mOne
+    4. Create integers twoIndex and threeIndex and initialize them to 0
+    5. Create a new ArrayList called twoSmooth
+    6. Create an integer count and initialize it to 0
+    7. While count is less than n
+        1. Calculate the minimum of twoTest and threeTest and add it to twoSmooth
+        2. If the minimum is equal to twoTest, update twoTest and increment twoIndex
+        3. If the minimum is equal to threeTest, update threeTest and increment threeIndex
+        4. Calculate the test value based on the first parameter
+        5. If the test value is probably prime, add it to the primes list and increment count
+    8. Return the primes list

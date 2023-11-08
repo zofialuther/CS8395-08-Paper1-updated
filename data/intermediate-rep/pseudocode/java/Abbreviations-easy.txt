@@ -1,0 +1,27 @@
+START
+  Import necessary libraries
+  Create class AbbreviationsEasy
+    Create private static Scanner input
+    Create private static String COMMAND_TABLE
+    Create main method
+      Create String array cmdTableArr and split COMMAND_TABLE by whitespace
+      Create Map cmd_table
+      Iterate over cmdTableArr
+        Populate cmd_table with words and number of caps using countCaps method
+      Ask user to enter command to verify
+      Create String userInput and input.nextLine()
+      Create String array user_input and split userInput by whitespace
+      Iterate over user_input
+        Create boolean match and set to false
+        Iterate over cmd_table keys
+          if length of s is greater than or equal to value in cmd_table and less than or equal to length of cmd
+            Convert cmd to uppercase and compare with s
+              Print temp
+              Set match to true
+        If no match, print *error*
+    Create private static method countCaps that takes a String word
+      Create int numCaps and set to 0
+      Iterate over word
+        If character is uppercase, increment numCaps
+      Return numCaps
+END

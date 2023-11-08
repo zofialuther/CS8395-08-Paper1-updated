@@ -1,0 +1,1 @@
+This code uses the Math.Statistics library to calculate the median of the given set of numbers [1, 9, 2, 4]. The median is calculated to be 3.0 and returned as the result.

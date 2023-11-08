@@ -1,0 +1,20 @@
+1. Start
+2. Import necessary libraries
+3. Create a class called Employee with name, id, department, and salary attributes
+4. Create a constructor for Employee class to initialize the attributes
+5. Create a toString method for Employee class
+6. Create a main method
+7. Initialize N to the first command line argument or 3
+8. Create a TreeMap called records to store department and list of employees
+9. Use a try-with-resources to read data from "data.txt" file
+10. While there are still lines to read, do the following:
+    11. Split each line by ", " and store in an array rec
+    12. Get the list of employees for the department from the records map
+    13. If the list is null, create a new ArrayList and put it in the records map
+    14. Add a new Employee with the rec array to the list
+15. Use forEach to iterate through the records map
+    16. Print the department key
+    17. Sort the list of employees by salary in descending order
+    18. Limit the list to N employees
+    19. Print each employee using the toString method
+20. End

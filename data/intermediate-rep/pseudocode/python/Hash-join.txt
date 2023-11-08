@@ -1,0 +1,17 @@
+def hashJoin(table1, index1, table2, index2):
+    h = create defaultdict(list)
+    for each s in table1:
+        append s to h[s[index1]]
+    
+    result = create empty list
+    for each r in table2:
+        for each s in h[r[index2]]:
+            add (s, r) to result
+    
+    return result
+
+table1 = create list containing tuples (27, "Jonah"), (18, "Alan"), (28, "Glory"), (18, "Popeye"), (28, "Alan")
+table2 = create list containing tuples ("Jonah", "Whales"), ("Jonah", "Spiders"), ("Alan", "Ghosts"), ("Alan", "Zombies"), ("Glory", "Buffy")
+
+for each row in hashJoin(table1, 1, table2, 0):
+    print row

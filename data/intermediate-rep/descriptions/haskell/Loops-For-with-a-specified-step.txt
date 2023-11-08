@@ -1,0 +1,1 @@
+This code uses a Control.Monad function to iterate through a list of numbers, printing each one followed by a comma. After the loop, it prints the phrase "who do we appreciate?".

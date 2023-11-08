@@ -1,0 +1,69 @@
+```
+initialize chat_server(5000)
+
+chat_server(Port):
+    create tcp_socket(Socket)
+    bind Socket to Port
+    listen for connections on Socket with backlog 5
+    open a new socket on AcceptFd
+    call dispatch with AcceptFd
+
+dispatch(AcceptFd):
+    accept a connection on AcceptFd and get the new Socket
+    create a new thread to process the client with process_client(Socket, _)
+    call dispatch with AcceptFd
+
+process_client(Socket, _):
+    open a new stream Str on Socket
+    handle the connection with Str
+    close the stream Str
+
+handle_connection(Str):
+    send message "Welcome to Chatalot\n\r" to Str
+    repeat:
+        send message "Please enter your nickname: " to Str
+        read a line from Str into Name
+        connect the user with Name and Str
+
+connected(Name, _) is dynamic
+
+connect_user(Name, Str):
+    if connected(Name, _) exists:
+        send message "That username is already taken, choose another\n\r" to Str
+        fail
+    if connected(Name, _) does not exist:
+        send message "Welcome ~p\n\r" with Name to Str
+        assert connected(Name, Str)
+        broadcast " -- "~w" has joined the chat --" with Name
+        enter chat_loop with Name and Str
+        broadcast " -- "~w" has left the chat. --" with Name
+        retract connected(Name, _)
+
+chat_loop(Name, Str):
+    read a line from Str into S
+    if S is not end_of_file:
+        broadcast "~w> ~w" with Name and S
+        call chat_loop with Name and Str
+    if Str is at end_of_stream:
+        end chat_loop
+
+broadcast(Name, Msg, Params):
+    for each connected(N, Str) where N is not Name:
+        send message Msg with Params to Str
+        send message "New Line" to Str
+
+send_msg(St, MsgConst, Params):
+    call MsgConst with Msg
+    format St with Msg and Params
+    flush St
+
+constants:
+    msg_welcome: 'Welcome to Chatalot\n\r'
+    msg_username: 'Please enter your nickname: '
+    msg_welcome_name: 'Welcome ~p\n\r'
+    msg_joined: ' -- "~w" has joined the chat --'
+    msg_left: ' -- "~w" has left the chat. --'
+    msg_username_taken: 'That username is already taken, choose another\n\r'
+    msg_new_line: '\n\r'
+    msg_by_user: '~w> ~w'
+```

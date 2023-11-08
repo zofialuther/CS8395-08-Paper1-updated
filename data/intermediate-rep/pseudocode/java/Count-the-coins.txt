@@ -1,0 +1,38 @@
+FUNCTION countChanges(amount, coins)
+    n = length of coins
+    cycle = 0
+    FOR each c in coins
+        IF c <= amount AND c >= cycle
+            cycle = c + 1
+    END FOR
+    cycle = cycle * n
+    table = array of size cycle
+    FOR i = 0 to n-1
+        table[i] = 1
+    FOR i = n to cycle-1
+        table[i] = 0
+    pos = n
+    FOR s = 1 to amount
+        FOR i = 0 to n-1
+            IF i == 0 AND pos >= cycle
+                pos = 0
+            IF coins[i] <= s
+                q = pos - (coins[i] * n)
+                IF q >= 0
+                    table[pos] = table[q]
+                ELSE
+                    table[pos] = table[q + cycle]
+            IF i != 0
+                table[pos] = table[pos] + table[pos - 1]
+            pos = pos + 1
+    END FOR
+    RETURN table[pos - 1]
+END FUNCTION
+
+coinsUsEu = {{100, 50, 25, 10, 5, 1}, {200, 100, 50, 20, 10, 5, 2, 1}}
+FOR each coins in coinsUsEu
+    PRINT countChanges(100, coins[2 to end])
+    PRINT countChanges(100000, coins)
+    PRINT countChanges(1000000, coins)
+    PRINT countChanges(10000000, coins)
+END FOR

@@ -1,0 +1,15 @@
+1. Set up a function for the arithmetic-geometric mean:
+   - Define a function "agm" that takes two numbers "a" and "g" and a comparison function "eq".
+   - Inside "agm", use the "until" function to repeatedly apply the "step" function until the comparison function "eq" is true.
+   - In the "step" function, calculate the next approximation using the arithmetic-geometric mean formula.
+   - Return the second value of the result of the "until" function.
+
+2. Set up a function for the relative difference:
+   - Define a function "relDiff" that takes a pair of numbers (x, y).
+   - Inside "relDiff", calculate the absolute difference "n" and the average of the absolute values "d".
+   - Return the ratio of "n" to "d".
+
+3. Set up the main function:
+   - Define the main function "main" with type IO ().
+   - Inside "main", define the comparison function "equal" as (< 0.000000001) . relDiff.
+   - Print the result of calling "agm" with arguments 1 and (1 / sqrt 2) and the "equal" function.

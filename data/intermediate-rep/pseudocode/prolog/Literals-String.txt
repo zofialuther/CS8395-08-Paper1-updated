@@ -1,0 +1,3 @@
+if 97 is equal to 0'a
+    return true
+end if

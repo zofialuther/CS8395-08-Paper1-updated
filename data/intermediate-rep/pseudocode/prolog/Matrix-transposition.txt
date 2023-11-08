@@ -1,0 +1,25 @@
+```
+function transpose(In, Out):
+    In = [H | T]
+    L = maplist(initdl, H)
+    work(T, In, Out)
+
+function initdl(V):
+    return [V]
+
+function work(Lst, [H], Out):
+    Out = maplist(my_append_last, Lst, H)
+
+function work(Lst, [H | T], Out):
+    Lst1 = maplist(my_append, Lst, H)
+    work(Lst1, T, Out)
+
+function my_append(X, C):
+    return X.append(C)
+
+function my_append_last(X, C):
+    return X.append(C)
+
+function append_dl(X, Y):
+    return X.append(Y)
+```

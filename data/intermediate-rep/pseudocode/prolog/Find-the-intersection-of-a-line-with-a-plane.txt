@@ -1,0 +1,8 @@
+- Set up initialization for the main function
+- Define the vector_plus function to add two vectors
+- Define the vector_minus function to subtract two vectors
+- Define the vector_times function to multiply a vector by a scalar
+- Define the vector_dot function to calculate the dot product of two vectors
+- Define the intersect_point function to find the intersection point of a ray and a plane
+- Define the main function to set up the initial vectors and call the intersect_point function
+- Print the result of the intersect_point function in the specified format.

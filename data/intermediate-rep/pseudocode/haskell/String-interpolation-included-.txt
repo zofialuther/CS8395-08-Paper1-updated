@@ -1,0 +1,3 @@
+FUNCTION main
+    PRINT "Mary had a %s lamb" with "little" as parameter
+END FUNCTION

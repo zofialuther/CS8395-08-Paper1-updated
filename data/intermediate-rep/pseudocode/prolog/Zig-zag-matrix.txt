@@ -1,0 +1,58 @@
+```
+function zig_zag(N)
+    zig_zag(N, N)
+
+function zig_zag(Lig, Col)
+    M = array of length Lig
+    for each element in M
+        initialize array with length Col
+    fill(M, 0, 0, 0, Lig, Col, up)
+    for each line in M
+        print_line(line)
+
+function fill(M, Cur, L, C, NL, NC, Sens)
+    if L = NL - 1 and C = NC - 1
+        Line = M[L]
+        Line[C] = Cur
+    else
+        Line = M[L]
+        Line[C] = Cur
+        Cur1 = Cur + 1
+        compute_next(NL, NC, L, C, Sens, L1, C1, Sens1)
+        fill(M, Cur1, L1, C1, NL, NC, Sens1)
+
+function init(N, L)
+    L = array of length N
+
+function compute_next(NL, NC, Lig, Col, Sens, Lig1, Col1, Sens1)
+    if Sens = up and Col < NC - 1
+        Col1 = Col + 1
+        Sens1 = down
+    else if Sens = up and Col = NC - 1
+        Col1 = Col
+        Sens1 = down
+    else if Sens = down and Lig < NL - 1
+        Lig1 = Lig + 1
+        Col1 = Col - 1
+        Sens1 = down
+    else if Sens = down and Lig = NL - 1
+        Lig1 = Lig
+        Col1 = Col + 1
+        Sens1 = up
+    else if Sens = up and Col < NC - 1
+        Lig1 = Lig - 1
+        Col1 = Col + 1
+        Sens1 = up
+    else if Sens = up and Col = NC - 1
+        Lig1 = Lig + 1
+        Col1 = Col
+        Sens1 = down
+
+function print_line(L)
+    for each value in L
+        print_val(value)
+    print new line
+
+function print_val(V)
+    print V with padding of 3 spaces
+```

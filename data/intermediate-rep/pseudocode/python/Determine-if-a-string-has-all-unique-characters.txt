@@ -1,0 +1,95 @@
+```plaintext
+FUNCTION duplicatedCharIndices(s)
+    FUNCTION go(xs)
+        IF 1 < LENGTH(xs)
+            SET duplicates = FILTER(lambda kv: 1 < LENGTH(kv[1]), [
+                (k, LIST(v)) FOR k, v IN GROUPBY(
+                    SORTED(xs, KEY=swap),
+                    KEY=snd
+                )
+            ])
+            RETURN Just(second(fmap(fst))(
+                SORTED(
+                    duplicates,
+                    KEY=lambda kv: kv[1][0]
+                )[0]
+            )) IF duplicates ELSE Nothing()
+        ELSE
+            RETURN Nothing()
+    RETURN go(LIST(ENUMERATE(s)))
+
+
+FUNCTION main()
+    FUNCTION showSample(s)
+        RETURN REPR(s) + ' (' + str(LENGTH(s)) + ')'
+
+    FUNCTION showDuplicate(cix)
+        c, ix = cix
+        RETURN REPR(c) + (
+            ' (' + HEX(ORD(c)) + ') at ' + REPR(ix)
+        )
+
+    PRINT(
+        fTable('First duplicated character, if any:')(
+            showSample
+        )(maybe('None')(showDuplicate))(duplicatedCharIndices)([
+            '', '.', 'abcABC', 'XYZ ZYX',
+            '1234567890ABCDEFGHIJKLMN0PQRSTUVWXYZ'
+        ])
+    )
+
+
+FUNCTION fTable(s)
+    FUNCTION go(xShow, fxShow, f, xs)
+        ys = [xShow(x) FOR x IN xs]
+        w = MAX(MAP(LENGTH, ys))
+        RETURN s + '\n' + '\n'.join(MAP(
+            LAMBDA x, y: y.RJUST(w, ' ') + ' -> ' + fxShow(f(x)),
+            xs, ys
+        ))
+    RETURN LAMBDA xShow: LAMBDA fxShow: LAMBDA f: LAMBDA xs: go(
+        xShow, fxShow, f, xs
+    )
+
+
+FUNCTION Just(x)
+    RETURN {'type': 'Maybe', 'Nothing': False, 'Just': x}
+
+
+FUNCTION Nothing()
+    RETURN {'type': 'Maybe', 'Nothing': True}
+
+
+FUNCTION fmap(f)
+    RETURN LAMBDA xs: [f(x) FOR x IN xs]
+
+
+FUNCTION fst(tpl)
+    RETURN tpl[0]
+
+
+FUNCTION head(xs)
+    RETURN xs[0] IF ISINSTANCE(xs, LIST) ELSE NEXT(xs)
+
+
+FUNCTION maybe(v)
+    RETURN LAMBDA f: LAMBDA m: v IF (
+        NONE IS m OR m.GET('Nothing')
+    ) ELSE f(m.GET('Just'))
+
+
+FUNCTION second(f)
+    RETURN LAMBDA xy: (xy[0], f(xy[1]))
+
+
+FUNCTION snd(tpl)
+    RETURN tpl[1]
+
+
+FUNCTION swap(tpl)
+    RETURN (tpl[1], tpl[0])
+
+
+IF __name__ EQUALS '__main__'
+    main()
+```

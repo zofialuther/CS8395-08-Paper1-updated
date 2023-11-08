@@ -1,0 +1,1 @@
+This code removes any trailing whitespace from the string "abc".

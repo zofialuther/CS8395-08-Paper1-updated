@@ -1,0 +1,15 @@
+STACK stack
+stack <- new Stack<String>()
+
+OUTPUT "New stack empty? " + stack.empty()
+
+stack.push("There can be only one")
+OUTPUT "Pushed stack empty? " + stack.empty()
+OUTPUT "Popped single entry: " + stack.pop()
+
+stack.push("First")
+stack.push("Second")
+OUTPUT "Popped entry should be second: " + stack.pop()
+
+stack.pop()
+stack.pop()

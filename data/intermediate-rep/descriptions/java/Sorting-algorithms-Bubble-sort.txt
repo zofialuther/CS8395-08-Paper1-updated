@@ -1,0 +1,1 @@
+This code checks if the element at index 'a' in the array 'comparable' is less than the element at index 'b' using the compareTo method. If the condition is true, the code will execute a swap operation.

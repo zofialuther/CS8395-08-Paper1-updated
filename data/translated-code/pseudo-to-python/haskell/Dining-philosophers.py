@@ -1,0 +1,47 @@
+```python
+import Control.Monad
+import Control.Concurrent
+import Control.Concurrent.STM
+import System.Random
+
+type Fork = TMVar Int
+type Name = String
+
+newFork :: Int -> IO Fork
+takeFork :: Fork -> STM Int
+releaseFork :: Int -> Fork -> STM ()
+runPhilosopher :: Name -> (Fork, Fork) -> IO ()
+philosophers :: [String]
+
+newFork i = newTMVarIO i
+
+takeFork fork = takeTMVar fork
+
+releaseFork i fork = putTMVar fork i
+
+runPhilosopher name (left, right) = forever $ do
+  putStrLn (name ++ " is hungry.")
+  (leftNum, rightNum) <- atomically $ do
+    leftNum <- takeFork left
+    rightNum <- takeFork right
+    return (leftNum, rightNum)
+  putStrLn (name ++ " got forks " ++ show leftNum ++ " and " ++ show rightNum ++ " and is now eating.")
+  delay <- randomRIO (1,10)
+  threadDelay (delay * 1000000)
+  putStrLn (name ++ " is done eating. Going back to thinking.")
+  atomically $ do
+    releaseFork leftNum left
+    releaseFork rightNum right
+  delay <- randomRIO (1, 10)
+  threadDelay (delay * 1000000)
+
+philosophers = ["Aristotle", "Kant", "Spinoza", "Marx", "Russel"]
+
+forks <- mapM newFork [1..5]
+namedPhilosophers  = map runPhilosopher philosophers
+forkPairs          = zip forks (tail . cycle $ forks)
+philosophersWithForks = zipWith ($) namedPhilosophers forkPairs
+print("Running the philosophers. Press enter to quit.")
+mapM_ forkIO philosophersWithForks
+input()
+```

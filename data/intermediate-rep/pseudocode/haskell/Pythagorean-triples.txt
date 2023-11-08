@@ -1,0 +1,21 @@
+FUNCTION pytr(n: Integer) -> Array of Tuples (Boolean, Integer, Integer, Integer)
+    filtered_triples = filter(
+        lambda (_, a, b, c): a + b + c <= n,
+        [
+            (prim(a, b, c), a, b, c)
+            for a in xs,
+            for b in drop(a, xs),
+            for c in drop(b, xs),
+            if a ^ 2 + b ^ 2 == c ^ 2
+        ]
+    )
+    return filtered_triples
+
+FUNCTION main() -> None
+    xs = pytr(100)
+    num_triples = length(xs)
+    num_primitive_triples = length(filter(lambda (x, _, _, _): x, xs))
+    print("Up to 100 there are " + str(num_triples) + " triples, of which " + str(num_primitive_triples) + " are primitive.")
+
+    where:
+        xs = pytr(100)

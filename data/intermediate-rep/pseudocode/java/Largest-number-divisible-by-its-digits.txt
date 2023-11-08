@@ -1,0 +1,47 @@
+```
+function LynchBell()
+    s = ""
+    i = 98764321
+    isUnique = true
+    canBeDivided = true
+    while i is greater than 0
+        s = convertToString(i)
+        isUnique = uniqueDigits(i)
+        if isUnique is true
+            canBeDivided = testNumber(i)
+            if canBeDivided is true
+                output "Number found: " + i
+                i = 0
+            end if
+        end if
+        i = i - 1
+    end while
+end function
+
+function uniqueDigits(i)
+    for k = 0 to length of s
+        for l = k + 1 to length of s
+            if s[l] is equal to '0' or s[l] is equal to '5'
+                return false
+            end if
+            if s[k] is equal to s[l]
+                return false
+            end if
+        end for
+    end for
+    return true
+end function
+
+function testNumber(i)
+    j = 0
+    divisible = true
+    for each character ch in s
+        j = convertCharToInt(ch)
+        divisible = (i % j) is equal to 0
+        if divisible is false
+            return false
+        end if
+    end for
+    return true
+end function
+```

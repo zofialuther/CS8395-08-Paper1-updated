@@ -1,0 +1,9 @@
+```
+Initialize primesST as a list with 2 and 3
+
+Define a function called sieve with parameters x, q, ps, and (fs:ft):
+    Filter numbers in the range from x to q-2 where all elements in fs do not evenly divide y
+    Append the filtered numbers to the result of sieve with updated parameters (q+2), (head ps^2), (tail ps), and ft
+
+Update primesST with the result of calling sieve with initial parameters 5, 9, (drop 2 primesST), and (inits $ tail primesST)
+```

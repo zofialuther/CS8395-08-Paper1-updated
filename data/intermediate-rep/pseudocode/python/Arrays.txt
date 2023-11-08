@@ -1,0 +1,5 @@
+
+my_array = list()
+for x in range(height):
+   new_row = [0] * width
+   my_array.append(new_row)

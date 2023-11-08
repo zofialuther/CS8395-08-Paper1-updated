@@ -1,0 +1,50 @@
+```
+import java.util.Random;
+
+public class EvoAlgo {
+  static final String target = "METHINKS IT IS LIKE A WEASEL";
+  static final char[] possibilities = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ".toCharArray();
+  static int C = 100; //number of spawn per generation
+  static double minMutateRate = 0.09;
+  static int perfectFitness = target.length();
+  private static String parent;
+  static Random rand = new Random();
+
+  function fitness(trial: string) -> integer
+    retVal = 0
+    for i = 0 to trial.length() - 1
+      if trial.charAt(i) == target.charAt(i)
+        retVal++
+      return retVal
+
+  function newMutateRate() -> double
+    return ((perfectFitness - fitness(parent)) / perfectFitness * (1 - minMutateRate))
+
+  function mutate(parent: string, rate: double) -> string
+    retVal = ""
+    for i = 0 to parent.length() - 1
+      if rand.nextDouble() <= rate
+        retVal += possibilities[rand.nextInt(possibilities.length)]
+      else
+        retVal += parent.charAt(i)
+    return retVal
+
+  function main(args: string[])
+    parent = mutate(target, 1)
+    iter = 0
+    while target != parent
+      rate = newMutateRate()
+      iter++
+      if iter % 100 == 0
+        print(iter + ": " + parent + ", fitness: " + fitness(parent) + ", rate: " + rate)
+      bestSpawn = null
+      bestFit = 0
+      for i = 0 to C - 1
+        spawn = mutate(parent, rate)
+        fitness = fitness(spawn)
+        if fitness > bestFit
+          bestSpawn = spawn
+          bestFit = fitness
+      parent = if bestFit > fitness(parent) then bestSpawn else parent
+    print(parent + ", " + iter)
+```

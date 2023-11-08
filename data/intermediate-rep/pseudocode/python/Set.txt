@@ -1,0 +1,29 @@
+SET s1 = {1, 2, 3, 4}
+SET s2 = {3, 4, 5, 6}
+
+PRINT s1 UNION s2 # {1, 2, 3, 4, 5, 6}
+PRINT s1 INTERSECTION s2 # {3, 4}
+PRINT s1 DIFFERENCE s2 # {1, 2}
+PRINT s1 TRUE SUBSET s1 # False
+PRINT {3, 1} TRUE SUBSET s1 # True
+PRINT s1 SUBSET s1 # True
+PRINT {3, 1} SUBSET s1 # True
+PRINT {3, 2, 4, 1} EQUALS s1 # True
+PRINT s1 EQUALS s2 # False
+PRINT 2 IN s1 # True
+PRINT 10 NOT IN s1 # True
+PRINT {1, 2, 3, 4, 5} TRUE SUPERSET s1 # True
+PRINT {1, 2, 3, 4} TRUE SUPERSET s1 # False
+PRINT {1, 2, 3, 4} SUPERSET s1 # True
+PRINT s1 SYMMETRIC DIFFERENCE s2 # {1, 2, 5, 6}
+PRINT CARDINALITY s1 # 4
+s1.ADD(99) # Mutability
+PRINT s1 # {99, 1, 2, 3, 4}
+s1.DISCARD(99) # Mutability
+PRINT s1 # {1, 2, 3, 4}
+s1 UNION EQUALS s2 # Mutability
+PRINT s1 # {1, 2, 3, 4, 5, 6}
+s1 DIFFERENCE EQUALS s2 # Mutability
+PRINT s1 # {1, 2}
+s1 SYMMETRIC DIFFERENCE EQUALS s2 # Mutability
+PRINT s1 # {1, 2, 3, 4, 5, 6}

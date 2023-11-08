@@ -1,0 +1,13 @@
+1. Import the Data.Complex module and define the Complex type and the cis function.
+
+2. Define a function called rootsOfUnity that takes a parameter n of type a where a is an instance of Enum and Floating. This function returns a list of complex numbers.
+
+3. Inside the rootsOfUnity function, create a list comprehension that iterates over the range of values from 0 to n-1.
+
+4. For each value k in the range, calculate the complex number using the cis function with the argument (2 * pi * k / n).
+
+5. Return the list of complex numbers.
+
+6. Define a main function of type IO ().
+
+7. Inside the main function, use the mapM_ function to print each complex number in the list returned by rootsOfUnity with the argument 3.

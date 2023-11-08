@@ -1,0 +1,1 @@
+This code implements the Chinese Remainder Theorem to find the solution to a system of congruences. It includes functions to calculate the extended greatest common divisor (egcd), the modular inverse, and the Chinese remainder. The main function demonstrates the usage of the Chinese remainder function by solving multiple sets of congruences and printing the results.

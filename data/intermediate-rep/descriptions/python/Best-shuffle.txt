@@ -1,0 +1,1 @@
+This Python code defines a function to count the number of characters that are in the same position in two words and another function to find the best possible shuffle of a word. It then tests the best shuffle function on a list of words and prints the original word, the shuffled word, and the count of characters in the same position.

@@ -1,0 +1,47 @@
+```
+FUNCTION rings(u, digits)
+    sortedDigits = sortBy(reverseOrder, digits)
+    return queen(u, head(sortedDigits))
+
+FUNCTION queen(u, h, ds, q)
+    ts = filter(lambda x: x <= h, ds)
+    IF u THEN
+        xs = delete(q, ts)
+    ELSE
+        xs = ds
+    END IF
+    RETURN xs >>= leftBishop(u, q, h, ts, ds)
+
+FUNCTION leftBishop(u, q, h, ts, ds, lb)
+    lRook = lb + q
+    IF lRook <= h THEN
+        IF u THEN
+            xs = ts \\ [q, lb, lRook]
+        ELSE
+            xs = ds
+        END IF
+        RETURN xs >>= rightBishop(u, q, h, lb, ds, lRook)
+    ELSE
+        RETURN []
+    END IF
+
+FUNCTION rightBishop(u, q, h, lb, ds, lRook, rb)
+    rRook = q + rb
+    IF rRook <= h AND (NOT u OR rRook != lb) THEN
+        ks = IF u THEN ds \\ [q, lb, rb, rRook, lRook] ELSE ds
+        RETURN ks >>= knights(u, lRook - rRook, lRook, lb, q, rb, rRook, ks)
+    ELSE
+        RETURN []
+    END IF
+
+FUNCTION knights(u, rookDelta, lRook, lb, q, rb, rRook, ks, k)
+    k2 = k + rookDelta
+    RETURN [ (lRook, k, lb, q, rb, k2, rRook) | k2 IN ks AND (NOT u OR k2 NOT IN [lRook, k, lb, q, rb, rRook]) ]
+
+FUNCTION main()
+    f = LAMBDA k, xs: PRINT(k) AND nl AND mapM_(PRINT, xs) AND nl
+    nl = PRINT([])
+    mapM_(f, [("rings True [1 .. 7]", rings(True, [1 .. 7])), ("rings True [3 .. 9]", rings(True, [3 .. 9]))])
+    f("length(rings False [0 .. 9])", [length(rings(False, [0 .. 9]))])
+END FUNCTION
+```

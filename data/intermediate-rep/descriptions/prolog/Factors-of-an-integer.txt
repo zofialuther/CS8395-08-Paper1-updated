@@ -1,0 +1,1 @@
+This code defines a predicate smart_factors/2 which takes an integer N and generates a list Fs of all the factors of N. It first checks if N is a positive integer, then uses the factor/2 predicate to calculate the factors of N and store them in Fs using setof. The factor/2 predicate calculates the factors of N by finding all pairs of numbers whose product equals N.

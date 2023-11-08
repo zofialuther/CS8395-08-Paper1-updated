@@ -1,0 +1,37 @@
+```
+FUNCTION egcd(a, b)
+    IF b = 0 THEN
+        RETURN (1, 0)
+    ELSE
+        LET (s, t) = egcd(b, a mod b)
+        LET (q, r) = a div b
+        RETURN (t, s - q * t)
+    END IF
+END FUNCTION
+
+FUNCTION modInv(a, b)
+    LET (x, y) = egcd(a, b)
+    IF a * x + b * y = 1 THEN
+        RETURN Right(x)
+    ELSE
+        RETURN Left("No modular inverse for " ++ show(a) ++ " and " ++ show(b))
+    END IF
+END FUNCTION
+
+FUNCTION chineseRemainder(residues, modulii)
+    LET modPI = product(modulii)
+    LET crtModulii = modPI div modulii
+    LET result = zipWithM(modInv, crtModulii, modulii)
+    LET total = sum(zipWith(*) (zipWith(*) crtModulii residues))
+    RETURN Right(total mod modPI)
+END FUNCTION
+
+FUNCTION main()
+    FOR EACH pair IN [([10, 4, 12], [11, 12, 13]), ([10, 4, 9], [11, 22, 19]), ([2, 3, 2], [3, 5, 7])]
+        LET result = uncurry(chineseRemainder, pair)
+        FOR EACH item IN result
+            PRINT either(item, show)
+        END FOR
+    END FOR
+END FUNCTION
+```

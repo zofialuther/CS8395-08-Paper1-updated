@@ -1,0 +1,21 @@
+START
+  Import java.util.Comparator
+  Import java.util.Arrays
+
+  Class Test
+    Function main
+      Initialize strings as array of strings containing "Here", "are", "some", "sample", "strings", "to", "be", "sorted"
+      
+      Arrays.sort(strings, new Comparator<String>() {
+        Function compare with parameters s1 and s2
+          Initialize c as s2 length - s1 length
+          If c equals 0
+            Set c as s1.compareToIgnoreCase(s2)
+          Return c
+      });
+
+      For each s in strings
+        Print s + " "
+    End function
+  End class
+END

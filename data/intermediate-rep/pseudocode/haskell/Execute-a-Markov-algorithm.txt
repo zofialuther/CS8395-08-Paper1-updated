@@ -1,0 +1,73 @@
+```
+FUNCTION main
+    args = getArgs
+    IF length of args is not equal to 1 THEN
+        FAIL "Please provide exactly one source file as an argument."
+    END IF
+    sourcePath = head of args
+    source = readFile sourcePath
+    input = getContents
+    result = parse markovParser sourcePath source
+    IF result is Right THEN
+        putStr $ runMarkov (rules from result) input
+    ELSE
+        hPutStrLn stderr $ "Parse error at " ++ show (error from result)
+    END IF
+END FUNCTION
+
+TYPE Rule
+    from: String
+    terminating: Boolean
+    to: String
+
+FUNCTION markovParser
+    RETURN liftM catMaybes (
+        (comment OR rule) `sepEndBy` many1 newline
+    )
+    FUNCTION comment
+        char '#' AND skipMany nonnl AND RETURN Nothing
+    END FUNCTION
+    FUNCTION rule
+        RETURN liftM Just $ liftM3 Rule(
+            manyTill (nonnl <?> "pattern character") $ try arrow,
+            succeeds $ char '.',
+            many nonnl
+        )
+    END FUNCTION
+    FUNCTION arrow
+        ws AND string "->" AND ws <?> "whitespace-delimited arrow"
+    END FUNCTION
+    FUNCTION nonnl
+        noneOf "\n"
+    END FUNCTION
+    FUNCTION ws
+        RETURN many1 $ oneOf " \t"
+    END FUNCTION
+    FUNCTION succeeds p
+        RETURN option False $ p AND RETURN True
+    END FUNCTION
+END FUNCTION
+
+FUNCTION runMarkov
+    rules, s
+    IF rules is empty THEN
+        RETURN s
+    ELSE
+        Rule from terminating to = first rule from rules
+        IF g "" s is empty THEN
+            RETURN f (remaining rules) s
+        ELSE
+            IF from `isPrefixOf` ahead THEN
+                new = reverse before ++ to ++ drop (length from) ahead
+                IF terminating THEN
+                    RETURN new
+                ELSE
+                    RETURN f rules new
+                END IF
+            ELSE
+                RETURN g (a : before) as
+            END IF
+        END IF
+    END IF
+END FUNCTION
+```

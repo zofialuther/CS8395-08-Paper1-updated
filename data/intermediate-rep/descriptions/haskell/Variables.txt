@@ -1,0 +1,1 @@
+This code defines a function f that takes a parameter x and adds it to the value of foobar, which is set to 15. The first implementation uses a where clause to define foobar, the second uses a let...in expression, and the third uses a do block with a let statement. All three implementations achieve the same result of adding x to the value of foobar.

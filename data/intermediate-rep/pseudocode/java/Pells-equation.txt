@@ -1,0 +1,75 @@
+```
+1. Import java.math.BigInteger
+2. Import java.text.NumberFormat
+3. Import java.util.ArrayList
+4. Import java.util.List
+
+5. Class PellsEquation
+6.     Method main
+7.         format = NumberFormat.getInstance()
+8.         for n in [61, 109, 181, 277, 8941]
+9.             pell = pellsEquation(n)
+10.             Print "x^2 - " + n + " * y^2 = 1 for:"
+11.             Print "    x = " + format(pell[0])
+12.             Print "    y = " + format(pell[1])
+13.     End Method
+14. 
+15.     Method pellsEquation
+16.         a0 = Math.sqrt(n)
+17.         if a0*a0 == n
+18.             throw IllegalArgumentException("ERROR 102:  Invalid n = " + n)
+19.         continuedFrac = continuedFraction(n)
+20.         count = 0
+21.         ajm2 = 1
+22.         ajm1 = new BigInteger(a0 + "")
+23.         bjm2 = 0
+24.         bjm1 = 1
+25.         stop = (continuedFrac.size() % 2 == 1)
+26.         if continuedFrac.size() == 2
+27.             stop = true
+28.         while true
+29.             count++
+30.             bn = new BigInteger(continuedFrac.get(count) + "")
+31.             aj = bn.multiply(ajm1).add(ajm2)
+32.             bj = bn.multiply(bjm1).add(bjm2)
+33.             if stop && (count == continuedFrac.size()-2 || continuedFrac.size() == 2)
+34.                 return [aj, bj]
+35.             else if continuedFrac.size() % 2 == 0 && count == continuedFrac.size()-2
+36.                 stop = true
+37.             if count == continuedFrac.size()-1
+38.                 count = 0
+39.             ajm2 = ajm1
+40.             ajm1 = aj
+41.             bjm2 = bjm1
+42.             bjm1 = bj
+43.         End Method
+44.     End Method
+45. 
+46.     Method continuedFraction
+47.         answer = ArrayList<Integer>()
+48.         a0 = Math.sqrt(n)
+49.         answer.add(a0)
+50.         a = -a0
+51.         aStart = a
+52.         b = 1
+53.         bStart = b
+54.         while true
+55.             values = iterateFrac(n, a, b)
+56.             answer.add(values[0])
+57.             a = values[1]
+58.             b = values[2]
+59.             if a == aStart && b == bStart
+60.                 break
+61.         End Method
+62.     End Method
+63. 
+64.     Method iterateFrac
+65.         x = Math.floor((b * Math.sqrt(n) - b * a)/(n - a * a))
+66.         answer = new int[3]
+67.         answer[0] = x
+68.         answer[1] = -(b * a + x *(n - a * a)) / b
+69.         answer[2] = (n - a * a) / b
+70.         return answer
+71.     End Method
+72. End Class
+```

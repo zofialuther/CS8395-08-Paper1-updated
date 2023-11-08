@@ -1,0 +1,14 @@
+```
+FUNCTION pseudocode_for_classes
+    classes = (str.isupper, str.islower, str.isalnum, str.isalpha, str.isdecimal, str.isdigit, str.isidentifier, str.isnumeric, str.isprintable, str.isspace, str.istitle)
+    FOR EACH stringclass IN classes
+        chars = ''
+        FOR i IN RANGE(0x10FFFF+1)
+            IF stringclass(chr(i)) IS TRUE
+                chars = chars + chr(i)
+            END IF
+        END FOR
+        PRINT 'String class ' + stringclass.__name__ + ' has ' + len(chars) + ' characters the first of which are:\n' + chars[:100]
+    END FOR
+END FUNCTION
+```

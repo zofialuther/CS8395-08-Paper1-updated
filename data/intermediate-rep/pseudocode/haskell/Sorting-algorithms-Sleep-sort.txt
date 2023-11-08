@@ -1,0 +1,10 @@
+1. Start
+2. Import necessary modules: System.Environment, Control.Concurrent, Control.Concurrent.Async
+3. Define a function sleepSort that takes a list of integers and returns an IO action
+4. Inside sleepSort, use mapConcurrently_ to apply the following function to each element of the list:
+    a. ThreadDelay for x*10^4 microseconds
+    b. Print the current element x
+5. Define the main function as an IO action
+6. Inside main, use getArgs to get command line arguments and convert them to a list of integers using map read
+7. Pass the list of integers to the sleepSort function
+8. End

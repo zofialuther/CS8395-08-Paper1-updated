@@ -1,0 +1,5 @@
+function lengthOfStringList(listOfStrings) 
+    totalCount = 0
+    for each string in listOfStrings
+        totalCount = totalCount + length of string
+    return totalCount

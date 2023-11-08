@@ -1,0 +1,1 @@
+This code defines a predicate called "while" that takes an input X and prints X to the console before recursively calling itself with X divided by 2, continuing until X is 0. The first clause of the predicate ensures that the predicate terminates when X is 0.

@@ -1,0 +1,6 @@
+SET X = 0
+SET Y = 1
+SET p = (3, 4)
+SET p = [3, 4]
+
+PRINT p[X]

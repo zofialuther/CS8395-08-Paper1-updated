@@ -1,0 +1,1 @@
+This code simulates a game of Py Nim, where the player and computer take turns removing tokens from a pool. The player is asked how many tokens they would like to take and the computer then takes a number of tokens. The game continues until there are no tokens left, at which point the computer is declared the winner.

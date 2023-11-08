@@ -1,0 +1,17 @@
+cats1 :: [Integer]
+cats1 = 
+    map (\n -> (product [2..(2+n)]) `div` (product [1..n])) [0..]
+
+cats2 :: [Integer]
+cats2 = 
+    let helper n = sum (zipWith (*) (reverse (take n cats2)) cats2)
+    in 1 : map helper [1..]
+
+cats3 :: [Integer]
+cats3 = 
+    let helper c n = c * 2 * (2 * n - 1) `div` (n + 1)
+    in scanl helper 1 [1..]
+
+main :: IO ()
+main = 
+    mapM_ (\list -> print (take 15 list)) [cats1, cats2, cats3]

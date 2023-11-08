@@ -1,0 +1,28 @@
+'''
+1. Define function infiniteFusc()
+    - Define a function go(step) to handle the Fusc sequence
+    - Return an infinite stream of Fusc sequence terms using chain, map, and iterate
+
+2. Define function fusc(i)
+    - Define a function go(n) to handle the Fusc sequence for a given integer
+    - Return the Fusc sequence for the input integer
+
+3. Define function firstFuscOfEachMagnitude()
+    - Create a non-finite stream of each term in the Fusc sequence that requires an unprecedented quantity of decimal digits
+    - Use the map and enumerate functions to generate the stream
+
+4. Define function main()
+    - Print the first 61 terms of the Fusc sequence
+    - Print the first term of each decimal magnitude in the Fusc sequence
+
+5. Define function iterate(f)
+    - Generate an infinite list of repeated applications of f to x
+
+6. Define function showList(xs)
+    - Convert a list to a compact string
+
+7. Define function take(n)
+    - Return the prefix of xs of length n, or xs itself if n > length xs
+'''
+
+# The code provided is already in pseudocode format, so no additional pseudocode is needed.

@@ -1,0 +1,38 @@
+1. Start
+2. Create a dialog with the title 'GUI_Interaction'
+3. Add parts to the dialog:
+   a. GUI_Interaction dialog with the title 'Rosetta Code'
+   b. Input_field as a text item with the label 'Value :' and length 28
+   c. Increment button with the label 'increment'
+   d. Random button with the label 'random'
+4. Set the layout for the parts in the dialog
+5. Define the behavior for the parts:
+   a. When Increment button is clicked, call the increment function with Input_field as the argument
+   b. When Random button is clicked, call the my_random function with Input_field as the argument
+   c. When Input_field is modified, call the input function with GUI_Interaction, Increment, and the Input_field's value as arguments
+6. End
+
+gui_component:
+1. Create a new dialog S with the title 'GUI_Interaction'
+2. Open the dialog S
+
+increment(Input):
+1. Get the selection value V from the Input
+2. Convert V to a number Val
+3. Add 1 to Val and store it in Val1
+4. Set the selection of Input to Val1
+
+my_random(Input):
+1. Create a new dialog D with the title 'GUI Interaction'
+2. Add a label with the text 'Confirm your choice !' to the dialog D
+3. Add an 'ok' button with the action to return 'ok' to the dialog D
+4. Add a 'cancel' button with the action to return 'ko' to the dialog D
+5. Set the default button of the dialog D to 'ok'
+6. Get the confirmation value Rval from the dialog D
+7. Free the dialog D
+8. If Rval is 'ok', generate a random number X between 0 and 10000 and set the selection of Input to X
+
+input(Gui, Btn, Input, Selection):
+1. Try to convert the Selection to a number T and focus on the Btn
+2. If an error occurs, inform the user to type a number and clear the Input
+3. End

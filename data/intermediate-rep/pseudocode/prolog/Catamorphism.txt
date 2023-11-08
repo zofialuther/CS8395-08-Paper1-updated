@@ -1,0 +1,11 @@
+```
+function foldr(Foldy, Items, Starter, AccUp) {
+    if (Items.length > 0) {
+        let AccUpPrev = foldr(Foldy, Items.slice(1), Starter, AccUp); // recurse
+        AccUp = Foldy(Items[0], AccUpPrev); // call Foldy as last action
+    } else {
+        AccUp = Starter; // bounce Starter "upwards" into AccUp
+    }
+    return AccUp;
+}
+```

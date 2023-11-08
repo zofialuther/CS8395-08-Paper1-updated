@@ -1,0 +1,55 @@
+```
+import Data.Ratio (Rational(..), (%), numerator, denominator)
+import Data.List (unfoldr)
+import Text.Printf (printf)
+
+-- A wrapper type for Rationals to make them look nicer when we print them.
+newtype Rat =
+  Rat Rational
+
+instance Show Rat where
+  show (Rat n) = show (numerator n) <> ('/' : show (denominator n))
+
+-- Convert a list of base b digits to its corresponding number.
+-- We assume the digits are valid base b numbers and that
+-- their order is from least to most significant.
+function digitsToNum(b, digits)
+  acc = digits[0]
+  for i from 1 to length(digits) - 1
+    acc = b * acc + digits[i]
+  return acc
+
+-- Convert a number to the list of its base b digits.
+-- The order will be from least to most significant.
+function numToDigits(b, n)
+  if n == 0
+    return [0]
+  else
+    result = []
+    while n != 0
+      r = n % b
+      result.append(r)
+      n = n // b
+    return result
+
+-- Return the n'th element in the base b van der Corput sequence.
+-- The base must be ≥ 2.
+function vdc(b, n)
+  if b < 2
+    throw error "vdc: base must be ≥ 2"
+  else
+    ds = reverse(numToDigits(b, n))
+    return Rat(digitsToNum(b, ds) % (b ^ length(ds)))
+
+-- Each base followed by a specified range of van der Corput numbers.
+function printVdcRanges(bases, nums)
+  for b in bases
+    rs = []
+    for n in nums
+      rs.append(vdc(b, n))
+    print("Base " + b + ": " + rs)
+
+function main()
+  printVdcRanges([2, 3, 4, 5], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+  printVdcRanges([123], [50, 100, 150, 200, 250, 300])
+```

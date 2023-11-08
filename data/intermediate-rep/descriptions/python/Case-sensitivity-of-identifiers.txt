@@ -1,0 +1,1 @@
+This code defines three variables representing the names of different dogs: 'Benjamin', 'Samba', and 'Bernie'. It then uses string formatting to create a sentence that displays these names.

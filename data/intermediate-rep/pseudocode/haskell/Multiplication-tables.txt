@@ -1,0 +1,16 @@
+1. Import Data.Maybe (fromMaybe, maybe)
+2. Define mulTable function that takes a list of Int and returns a list of list of Maybe Int
+3. Inside mulTable function:
+   a. Add a row of Nothings followed by labels to the table
+   b. Use zipWith to combine labels with the result of applying upperMul to each pair of elements from the input list
+   c. Define labels as Just applied to each element of the input list
+   d. Define upperMul function that takes two Ints and returns Maybe Int based on the condition
+4. Define main function of type IO ()
+5. Inside main function:
+   a. Print the result of applying showTable to the result of applying mulTable to three different lists of Int
+6. Define showTable function that takes a list of list of Maybe Int and returns a String
+7. Inside showTable function:
+   a. Calculate the width of each cell based on the length of the last element in the input list
+   b. Define a gap as a list of spaces with the calculated width
+   c. Use list comprehension to format each element in the input list
+   d. Define rjust function that takes a number and a character and returns a function that right-justifies a string with the character for the specified length

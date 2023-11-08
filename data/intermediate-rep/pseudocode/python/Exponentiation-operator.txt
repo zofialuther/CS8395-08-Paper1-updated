@@ -1,0 +1,16 @@
+```
+FUNCTION MULTIPLY(x, y)
+    RETURN x*y
+
+CLASS num EXTENDS float
+    FUNCTION __pow__(b)
+        RETURN REDUCE(MULTIPLY, [self]*b, 1)
+
+# works with ints as function or operator
+PRINT num(2).__pow__(3)
+PRINT num(2) ** 3
+
+# works with floats as function or operator
+PRINT num(2.3).__pow__(8)
+PRINT num(2.3) ** 8
+```

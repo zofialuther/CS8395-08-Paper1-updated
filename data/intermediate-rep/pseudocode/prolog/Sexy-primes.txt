@@ -1,0 +1,38 @@
+```
+function find_prime_numbers(N):
+    retractall(is_prime(_))
+    assertz(is_prime(2))
+    init_sieve(N, 3)
+    sieve(N, 3)
+
+function init_sieve(N, P):
+    if P > N:
+        return
+    else:
+        assertz(is_prime(P))
+        Q = P + 2
+        init_sieve(N, Q)
+
+function sieve(N, P):
+    if P * P > N:
+        return
+    else if is_prime(P):
+        S = P * P
+        cross_out(S, N, P)
+        Q = P + 2
+        sieve(N, Q)
+    else:
+        Q = P + 2
+        sieve(N, Q)
+
+function cross_out(S, N, P):
+    if S > N:
+        return
+    else if is_prime(S):
+        retract(is_prime(S))
+        Q = S + 2 * P
+        cross_out(Q, N, P)
+    else:
+        Q = S + 2 * P
+        cross_out(Q, N, P)
+```

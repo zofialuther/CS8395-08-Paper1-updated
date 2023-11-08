@@ -1,0 +1,10 @@
+function countJewels(stones, jewels)
+    jewelset = createSet(jewels)
+    count = 0
+    for each stone in stones
+        if stone is in jewelset
+            count = count + 1
+    return count
+
+print(countJewels("aAAbbbb", "aA"))
+print(countJewels("ZZ", "z"))

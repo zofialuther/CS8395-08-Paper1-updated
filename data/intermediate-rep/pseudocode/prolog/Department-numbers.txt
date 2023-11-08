@@ -1,0 +1,39 @@
+```
+function dept(X) {
+  return X >= 1 && X <= 7;
+}
+
+function police(X) {
+  return [2, 4, 6].includes(X);
+}
+
+function fire(X) {
+  return dept(X);
+}
+
+function san(X) {
+  return dept(X);
+}
+
+function assign(A, B, C) {
+  if (police(A) && fire(B) && san(C) && A !== B && A !== C && B !== C && 12 === A + B + C) {
+    return [A, B, C];
+  }
+}
+
+function main() {
+  console.log("P F S\n");
+  for (let i = 1; i <= 7; i++) {
+    for (let j = 1; j <= 7; j++) {
+      for (let k = 1; k <= 7; k++) {
+        let result = assign(i, j, k);
+        if (result) {
+          console.log(`${result[0]} ${result[1]} ${result[2]}\n`);
+        }
+      }
+    }
+  }
+}
+
+main();
+```

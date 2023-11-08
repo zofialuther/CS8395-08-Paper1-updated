@@ -1,0 +1,7 @@
+1. Import necessary modules
+2. Define the function leaptext that takes in two parameters, x and b
+3. If b is true, return the string representation of x followed by " is a leap year"
+4. If b is false, return the string representation of x followed by " is not a leap year"
+5. Define the function isleapsf that takes in one parameter, j
+6. If j modulo 100 is equal to 0, check if j modulo 400 is equal to 0
+7. If j modulo 100 is not equal to 0, check if j modulo 4 is equal to 0.

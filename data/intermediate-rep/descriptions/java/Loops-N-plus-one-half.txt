@@ -1,0 +1,1 @@
+This code is a Java program that uses a for loop to print the numbers 1 through 10, separated by commas. It uses a conditional statement to break the loop once the value of i reaches 10, and then prints a new line.

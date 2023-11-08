@@ -1,0 +1,6 @@
+1. Import the add function from the operator module
+2. Create a list of lists called listoflists with the following elements: [['the', 'cat'], ['sat', 'on'], ['the', 'mat']]
+3. Define the reduce function as follows:
+    a. Apply the add function to the listoflists
+    b. Initialize the result as an empty list
+4. Print the result of the reduce function, which should be: ['the', 'cat', 'sat', 'on', 'the', 'mat']

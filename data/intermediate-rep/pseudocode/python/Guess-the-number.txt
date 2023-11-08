@@ -1,0 +1,9 @@
+1. Import the random module
+2. Generate a random number 't' between 1 and 10 using random.randint(1, 10)
+3. Set 'g' to 0
+4. Prompt the user to input a guess for a number between 1 and 10
+5. Convert the input to an integer and store it in 'g'
+6. While the guess 'g' is not equal to the random number 't', do the following:
+   a. Prompt the user to input another guess
+   b. Convert the input to an integer and store it in 'g'
+7. Once the guess 'g' matches the random number 't', print "That's right!"

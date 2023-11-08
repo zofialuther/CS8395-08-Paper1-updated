@@ -1,0 +1,78 @@
+```
+Start
+  Initialize MazeGenerator class
+    Input: x, y
+    maze = new int[x][y]
+    Call generateMaze(0, 0)
+  End Initialize
+  
+  display()
+    For i = 0 to y
+      For j = 0 to x
+        If (maze[j][i] & 1) == 0
+          Print "+---"
+        Else
+          Print "+   "
+        End If
+      End For
+      Print "+"
+      For j = 0 to x
+        If (maze[j][i] & 8) == 0
+          Print "|   "
+        Else
+          Print "    "
+        End If
+      End For
+      Print "|"
+    End For
+    For j = 0 to x
+      Print "+---"
+    End For
+    Print "+"
+  End display
+  
+  generateMaze(cx, cy)
+    dirs = shuffle(DIR.values())
+    For each dir in dirs
+      nx = cx + dir.dx
+      ny = cy + dir.dy
+      If (between(nx, x) && between(ny, y) && maze[nx][ny] == 0)
+        maze[cx][cy] |= dir.bit
+        maze[nx][ny] |= dir.opposite.bit
+        Call generateMaze(nx, ny)
+      End If
+    End For
+  End generateMaze
+  
+  between(v, upper)
+    Return (v >= 0) && (v < upper)
+  End between
+  
+  Enum DIR
+    N(1, 0, -1)
+    S(2, 0, 1)
+    E(4, 1, 0)
+    W(8, -1, 0)
+    opposite = null
+    
+    Static
+      N.opposite = S
+      S.opposite = N
+      E.opposite = W
+      W.opposite = E
+    
+    DIR(bit, dx, dy)
+      this.bit = bit
+      this.dx = dx
+      this.dy = dy
+    End DIR
+  End Enum
+  
+  main(args)
+    x = (args.length >= 1) ? (Integer.parseInt(args[0])) : 8
+    y = (args.length == 2) ? (Integer.parseInt(args[1])) : 8
+    maze = new MazeGenerator(x, y)
+    Call maze.display()
+  End main
+End
+```

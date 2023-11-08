@@ -1,0 +1,2 @@
+1. Declare an array of strings called strings and initialize it with the values "apple" and "orange".
+2. Get the length of the strings array and store it in a variable called length.

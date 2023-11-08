@@ -1,0 +1,1 @@
+This code defines a predicate "fruit" that associates a numerical value with different types of fruits. It then defines a rule "write_fruit_name" that takes a numerical input N and finds the corresponding fruit name using the "fruit" predicate. It then uses the "format" predicate to print out a message stating the name of the fruit.

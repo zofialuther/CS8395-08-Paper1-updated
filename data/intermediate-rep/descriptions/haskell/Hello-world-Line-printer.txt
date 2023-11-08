@@ -1,0 +1,1 @@
+This code is a Haskell program that imports the System.Process module to define a main function that runs the command "echo \"Hello World!\" | lpr" using the runCommand function. This command will print the string "Hello World!" to the default printer. The main function returns an IO action that represents the process handle for the command.

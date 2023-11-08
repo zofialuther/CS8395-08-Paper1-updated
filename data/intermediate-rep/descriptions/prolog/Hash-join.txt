@@ -1,0 +1,1 @@
+This code defines a list of people and their ages, as well as their characters and nemeses. It then has a predicate `join_and_print` that prints out a formatted list of the person's age, name, character, and nemesis. The code uses a combination of facts and a forall loop to gather the necessary information and format it for display.

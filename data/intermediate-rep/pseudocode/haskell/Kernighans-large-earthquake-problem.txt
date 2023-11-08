@@ -1,0 +1,13 @@
+1. Import the Data.ByteString.Lazy.Char8 module as C
+2. Define the main function of type IO ()
+3. Within the main function:
+   a. Read the contents of the file "data.txt" and store it in the variable cs using C.readFile
+   b. Use mapM_ print to print the results of the following operations
+   c. Split the contents of cs into lines using C.lines
+   d. Use the >>= operator to chain the following operations
+   e. For each line x, do the following:
+      - Convert the line to a list of words using C.words
+      - Convert the last word to a list of characters using C.unpack and then to a Float using read
+      - Check if the Float value is greater than 6
+      - If it is, add the line x to the list
+   f. Print the resulting list of lines.

@@ -1,0 +1,53 @@
+```
+FUNCTION chr(x)
+    RETURN character representation of x
+
+FUNCTION fromMaybe(x, y)
+    IF x is Nothing THEN
+        RETURN y
+    ELSE
+        RETURN x
+
+FUNCTION swap(x, y)
+    RETURN (y, x)
+
+FUNCTION getArgs()
+    RETURN command line arguments
+
+DATA Command = Cipher String | Decipher String | Invalid
+DATA alphabet = chr <$> [32..126]
+DATA cipherMap = zip alphabet (shuffle 20 alphabet)
+
+FUNCTION shuffle(n, xs)
+    RETURN iterate go xs !! n
+    FUNCTION go(xs)
+        IF xs is empty THEN
+            RETURN empty
+        ELSE
+            RETURN go (drop 2 xs) <> take 2 xs
+
+FUNCTION convert(m, xs)
+    RETURN map (\x -> fromMaybe x (lookup x m)) xs
+
+FUNCTION runCommand(command)
+    IF command is (Cipher s) THEN
+        RETURN convert cipherMap s
+    ELSE IF command is (Decipher s) THEN
+        RETURN convert (swap <$> cipherMap) s
+    ELSE IF command is Invalid THEN
+        RETURN "Invalid arguments. Usage: simplecipher c|d <text>"
+
+FUNCTION parseArgs(args)
+    IF length of args is greater than or equal to 2 THEN
+        IF args[0] is "c" THEN
+            RETURN Cipher args[1]
+        ELSE IF args[0] is "d" THEN
+            RETURN Decipher args[1]
+        ELSE
+            RETURN Invalid
+    ELSE
+        RETURN Invalid
+
+FUNCTION main()
+    getArgs() >>= parseArgs >>= putStrLn . runCommand
+```

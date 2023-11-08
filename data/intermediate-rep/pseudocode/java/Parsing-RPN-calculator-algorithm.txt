@@ -1,0 +1,49 @@
+START
+  FUNCTION evalRPN(expr)
+    stack = new LinkedList<Double>
+    PRINT "Input\tOperation\tStack after"
+    FOR EACH token IN expr.split("\\s")
+      PRINT token + "\t"
+      IF token EQUALS "*"
+        PRINT "Operate\t\t"
+        secondOperand = stack.pop()
+        firstOperand = stack.pop()
+        stack.push(firstOperand * secondOperand)
+      ELSE IF token EQUALS "/"
+        PRINT "Operate\t\t"
+        secondOperand = stack.pop()
+        firstOperand = stack.pop()
+        stack.push(firstOperand / secondOperand)
+      ELSE IF token EQUALS "-"
+        PRINT "Operate\t\t"
+        secondOperand = stack.pop()
+        firstOperand = stack.pop()
+        stack.push(firstOperand - secondOperand)
+      ELSE IF token EQUALS "+"
+        PRINT "Operate\t\t"
+        secondOperand = stack.pop()
+        firstOperand = stack.pop()
+        stack.push(firstOperand + secondOperand)
+      ELSE IF token EQUALS "^"
+        PRINT "Operate\t\t"
+        secondOperand = stack.pop()
+        firstOperand = stack.pop()
+        stack.push(Math.pow(firstOperand, secondOperand))
+      ELSE
+        PRINT "Push\t\t"
+        TRY
+          stack.push(Double.parseDouble(token+""))
+        CATCH NumberFormatException e
+          PRINT "Error: invalid token " + token
+          RETURN
+        END TRY-CATCH
+      END IF-ELSE
+      PRINT stack
+    END FOR
+    IF stack.size() > 1
+      PRINT "Error, too many operands: " + stack
+      RETURN
+    END IF
+    PRINT "Final answer: " + stack.pop()
+  END FUNCTION
+END

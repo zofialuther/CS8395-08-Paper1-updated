@@ -1,0 +1,44 @@
+BEGIN
+  SET sum = 0
+  SET prod = 1
+  SET x = 5
+  SET y = -5
+  SET z = -2
+  SET one = 1
+  SET three = 3
+  SET seven = 7
+  CREATE jList as ArrayList
+  FOR j = -three TO pow(3, 3) BY three
+    ADD j TO jList
+  END FOR
+  FOR j = -seven TO seven BY x
+    ADD j TO jList
+  END FOR
+  FOR j = 555 TO 550-y BY 1
+    ADD j TO jList
+  END FOR
+  FOR j = 22 TO -28 BY -three
+    ADD j TO jList
+  END FOR
+  FOR j = 1927 TO 1939 BY 1
+    ADD j TO jList
+  END FOR
+  FOR j = x TO y BY z
+    ADD j TO jList
+  END FOR
+  FOR j = pow(11, x) TO pow(11, x) + one BY 1
+    ADD j TO jList
+  END FOR
+  CREATE prodList as ArrayList
+  FOR j IN jList
+    sum = sum + ABS(j)
+    IF ABS(prod) < pow(2, 27) AND j != 0 THEN
+      ADD j TO prodList
+      prod = prod * j
+    END IF
+  END FOR
+  PRINT " sum        = " + sum
+  PRINT "prod        = " + prod
+  PRINT "j values    = " + jList
+  PRINT "prod values = " + prodList
+END

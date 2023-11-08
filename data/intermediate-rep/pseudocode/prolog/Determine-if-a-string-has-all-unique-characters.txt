@@ -1,0 +1,72 @@
+```
+function report_duplicates(S) {
+    duplicates(S, Dups);
+    print('For value "' + S + '":\n');
+    report(Dups);
+    print('\n');
+}
+
+function report(Dups) {
+    if (all_characters_unique(Dups)) {
+        print('    All characters are unique\n');
+    } else {
+        let nonUniqueChar = find_non_unique_character(Dups);
+        let char = nonUniqueChar[0];
+        let positions = nonUniqueChar[1];
+        print('    The character ' + char + ' is non unique at ' + positions.join(', ') + '\n');
+    }
+}
+
+function all_characters_unique(Dups) {
+    // Check if all characters in Dups have only one position
+    for (let i = 0; i < Dups.length; i++) {
+        if (Dups[i][1].length > 1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function find_non_unique_character(Dups) {
+    for (let i = 0; i < Dups.length; i++) {
+        if (Dups[i][1].length > 1) {
+            return Dups[i];
+        }
+    }
+}
+
+function duplicates(S, Count) {
+    let Chars = S.split('');
+    char_count(Chars, 0, [], Count);
+}
+
+function char_count(Chars, Index, Counted, Result) {
+    if (Index === Chars.length) {
+        Result = Counted;
+    } else {
+        let C = Chars[Index];
+        let charIndex = findCharIndex(C, Counted);
+        if (charIndex !== -1) {
+            Counted[charIndex][1].push(Index);
+        } else {
+            Counted.push([C, [Index]]);
+        }
+        char_count(Chars, Index + 1, Counted, Result);
+    }
+}
+
+function findCharIndex(C, Counted) {
+    for (let i = 0; i < Counted.length; i++) {
+        if (Counted[i][0] === C) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+report_duplicates('');
+report_duplicates('.');
+report_duplicates('abcABC');
+report_duplicates('XYZ ZYX');
+report_duplicates('1234567890ABCDEFGHIJKLMN0PQRSTUVWXYZ');
+```

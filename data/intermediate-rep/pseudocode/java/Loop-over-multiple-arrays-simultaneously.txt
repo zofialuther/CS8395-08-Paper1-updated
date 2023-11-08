@@ -1,0 +1,13 @@
+1. Create a 2D array called list1 with the following values: {{"a","b","c"}, {"A", "B", "C"}, {"1", "2", "3"}}
+
+2. Start a for loop with index variable i initialized to 0 and condition i < list1.length
+
+3. Inside the loop, start another for-each loop with String array variable lista iterating over each array in list1
+
+4. Inside the nested loop, print the value at index i of the current array lista
+
+5. After the nested loop, print a new line
+
+6. Increment the index variable i by 1
+
+7. Repeat steps 3-6 until the condition in the first loop is no longer met.

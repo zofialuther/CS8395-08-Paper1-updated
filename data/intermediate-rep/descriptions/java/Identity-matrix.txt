@@ -1,0 +1,1 @@
+This Java program creates and prints an identity matrix of size 5x5. It initializes a 2D array with all elements set to 0, and then sets the diagonal elements to 1 using a lambda expression and the IntStream class. Finally, it uses the Arrays class to convert the 2D array to a string representation and prints each row of the identity matrix to the console.

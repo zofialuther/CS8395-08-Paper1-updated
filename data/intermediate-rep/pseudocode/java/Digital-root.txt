@@ -1,0 +1,24 @@
+FUNCTION calcDigitalRoot(number, base)
+  bi = new BigInteger(number, base)
+  additivePersistence = 0
+  IF bi.signum() < 0 THEN
+    bi = bi.negate()
+  END IF
+  biBase = BigInteger.valueOf(base)
+  WHILE bi.compareTo(biBase) >= 0 DO
+    number = bi.toString(base)
+    bi = BigInteger.ZERO
+    FOR i = 0 TO number.length() DO
+      bi = bi.add(new BigInteger(number.substring(i, i + 1), base))
+    END FOR
+    additivePersistence = additivePersistence + 1
+  END WHILE
+  RETURN [additivePersistence, bi.intValue()]
+END FUNCTION
+
+FUNCTION main(args)
+  FOR EACH arg IN args DO
+    results = calcDigitalRoot(arg, 10)
+    PRINT arg + " has additive persistence " + results[0] + " and digital root of " + results[1]
+  END FOR
+END FUNCTION

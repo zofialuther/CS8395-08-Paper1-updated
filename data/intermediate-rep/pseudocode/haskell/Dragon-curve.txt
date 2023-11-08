@@ -1,0 +1,27 @@
+```
+function x(n) {
+  if (n == 0) {
+    return ""
+  } else {
+    return x(n-1) + " +" + y(n-1) + " f +"
+  }
+}
+
+function y(n) {
+  if (n == 0) {
+    return ""
+  } else {
+    return " - f" + x(n-1) + " -" + y(n-1)
+  }
+}
+
+function dragon(n) {
+  return "0 setlinewidth 300 400 moveto /f{2 0 rlineto}def/+{90 rotate}def/-{-90 rotate}def\n f" + x(n) + " stroke showpage"
+}
+
+function main() {
+  console.log(dragon(14))
+}
+
+main()
+```

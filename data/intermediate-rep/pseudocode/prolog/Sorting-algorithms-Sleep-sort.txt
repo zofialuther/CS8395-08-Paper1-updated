@@ -1,0 +1,13 @@
+```
+function sleep_sort(L)
+    thread_pool_create("rosetta", 1024, [])
+    for each element V in L do
+        thread_create_in_pool("rosetta", (sleep(V), writeln(V)), Id, [])
+    end for
+    thread_pool_destroy("rosetta")
+end function
+
+function initsort(V, Id)
+    thread_create_in_pool("rosetta", (sleep(V), writeln(V)), Id, [])
+end function
+```

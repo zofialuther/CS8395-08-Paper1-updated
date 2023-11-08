@@ -1,0 +1,6 @@
+1. Set a variable fs to an empty list
+2. For each value i in the range from 1 to 10 do the following:
+   a. Calculate the value of i * i
+   b. Append the result to the list fs
+3. End the loop
+4. Return the list fs

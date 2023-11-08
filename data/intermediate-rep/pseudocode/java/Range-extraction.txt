@@ -1,0 +1,20 @@
+START
+  Initialize arr as array of integers
+  Set len as the length of arr
+  Set idx as 0
+  Set idx2 as 0
+  WHILE idx < len
+    WHILE idx2 < len AND arr[idx2] - arr[idx2 - 1] == 1
+      Increment idx2
+    END WHILE
+    IF idx2 - idx > 2
+      Print arr[idx] + "-" + arr[idx2 - 1] + ","
+      Set idx as idx2
+    ELSE
+      FOR each value in the range idx to idx2
+        Print arr[idx] + ","
+        Increment idx
+      END FOR
+    END IF
+  END WHILE
+END

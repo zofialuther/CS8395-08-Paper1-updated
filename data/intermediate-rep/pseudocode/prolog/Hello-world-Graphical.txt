@@ -1,0 +1,13 @@
+BEGIN
+    create window D with title 'Goodbye'
+    set size of window D to 250 x 100
+    create string S with value "Goodbye, World !"
+    create text T with string S
+    get label font F from display
+    get width of string S using font F and store in M
+    calculate XT as (250 - M)/2
+    get height H of font F
+    calculate YT as (100-H)/2
+    display text T at point (XT, YT) in window D
+    open window D
+END

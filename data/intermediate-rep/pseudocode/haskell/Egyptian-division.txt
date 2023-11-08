@@ -1,0 +1,20 @@
+```
+function egyptianQuotRem(m, n):
+    rows = unfoldr(\(i, x) -> 
+                        if x > m
+                            then Nothing
+                            else Just ((i, x), (i + i, x + x)), 
+                    (1, n))
+    print("Number pair unfolded to series of doubling rows:")
+    print(rows)
+    print("\nRows refolded down to (quot, rem):")
+    print((0, m))
+    foldr(\(i, x) (q, r) -> 
+                if x < r
+                    then print(concat(["(+", i, ", -", x, ") -> rem ", r - x]))
+                    else (q, r), 
+          (0, m), 
+          rows)
+
+egyptianQuotRem(580, 34)
+```

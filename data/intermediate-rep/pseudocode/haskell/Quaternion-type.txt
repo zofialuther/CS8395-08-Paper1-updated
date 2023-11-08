@@ -1,0 +1,33 @@
+```
+FUNCTION realQ(quaternion)
+  RETURN first element of quaternion
+
+FUNCTION imagQ(quaternion)
+  RETURN list of the last 3 elements of quaternion
+
+FUNCTION quaternionFromScalar(scalar)
+  RETURN a new Quaternion with scalar as the first element and 0 for the rest
+
+FUNCTION listFromQ(quaternion)
+  RETURN list of all elements of quaternion
+
+FUNCTION quaternionFromList(list)
+  RETURN a new Quaternion with elements from list
+
+FUNCTION normQ(quaternion)
+  RETURN square root of the sum of the squares of the elements of quaternion
+
+FUNCTION conjQ(quaternion)
+  RETURN a new Quaternion with the first element unchanged and the rest negated
+
+FUNCTION main()
+  LET q, q1, q2 BE Quaternion with type Double
+  q = new Quaternion(1, 2, 3, 4)
+  q1 = new Quaternion(2, 3, 4, 5)
+  q2 = new Quaternion(3, 4, 5, 6)
+  PRINT (new Quaternion(0, 1, 0, 0)) * (new Quaternion(0, 0, 1, 0)) * (new Quaternion(0, 0, 0, 1))
+  PRINT q1 * q2
+  PRINT q2 * q1
+  PRINT q1 * q2 == q2 * q1
+  PRINT imagQ(q)
+```

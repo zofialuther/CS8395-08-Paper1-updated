@@ -1,0 +1,12 @@
+
+Pseudocode:
+
+1. Import necessary libraries: Foreign, Foreign.C.String
+2. Declare foreign function "strdup" with type CString -> IO CString
+3. Define function testC:
+    a. Convert "Hello World!" into a C string and name it s
+    b. Call strdup with s and store the result in s2
+    c. Convert s2 into a Haskell string named s2_hs
+    d. Print s2_hs
+    e. Free s2
+4. End of function definition.

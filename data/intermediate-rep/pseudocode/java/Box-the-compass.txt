@@ -1,0 +1,63 @@
+```
+ENUMERATION Compass
+    N, NbE, NNE, NEbN, NE, NEbE, ENE, EbN,
+    E, EbS, ESE, SEbE, SE, SEbS, SSE, SbE,
+    S, SbW, SSW, SWbS, SW, SWbW, WSW, WbS,
+    W, WbN, WNW, NWbW, NW, NWbN, NNW, NbW;
+
+    FUNCTION midpoint()
+        midpoint = (360 / 32f) * ordinal()
+        IF midpoint == 0 THEN
+            RETURN 360
+        ELSE
+            RETURN midpoint
+
+    FUNCTION bounds()
+        bound = (360 / 32f) / 2f
+        midpoint = midpoint()
+        boundA = midpoint - bound
+        boundB = midpoint + bound
+        IF boundB > 360 THEN
+            boundB -= 360
+        RETURN new float[] { boundA, boundB }
+
+    FUNCTION parse(degrees)
+        bounds = []
+        boundsN = N.bounds()
+        FOR value IN Compass.values()
+            bounds = value.bounds()
+            IF degrees >= boundsN[0] OR degrees < boundsN[1] THEN
+                RETURN N
+            IF degrees >= bounds[0] AND degrees < bounds[1] THEN
+                RETURN value
+        RETURN NULL
+
+    FUNCTION toString()
+        strings = new String[name().length()]
+        index = 0
+        FOR letter IN name().toCharArray()
+            SWITCH letter
+                CASE 'N'
+                    strings[index] = "north"
+                CASE 'E'
+                    strings[index] = "east"
+                CASE 'S'
+                    strings[index] = "south"
+                CASE 'W'
+                    strings[index] = "west"
+                CASE 'b'
+                    strings[index] = "by"
+            index++
+        string = strings[0].substring(0, 1).toUpperCase() + strings[0].substring(1)
+        SWITCH strings.length
+            CASE 2
+                string += strings[1]
+            CASE 3
+                IF strings[1].equals("by")
+                    string += " %s %s".formatted(strings[1], strings[2])
+                ELSE
+                    string += "-%s%s".formatted(strings[1], strings[2])
+            CASE 4
+                string += String.join(" ", strings[1], strings[2], strings[3])
+        RETURN string
+```

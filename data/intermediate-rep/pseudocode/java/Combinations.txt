@@ -1,0 +1,24 @@
+1. Start main function
+2. Print comb(3,5)
+3. End main function
+
+4. Start bitprint function with parameter u
+5. Initialize string s as empty
+6. Start for loop with variable n initialized to 0, condition u > 0, increment n, right shift u by 1
+7. If statement with condition (u & 1) > 0, concatenate n and " " to string s
+8. Return string s
+9. End bitprint function
+
+10. Start bitcount function with parameter u
+11. Initialize variable n
+12. Start for loop with condition u > 0, increment n, bitwise AND u with (u - 1)
+13. Return n
+14. End bitcount function
+
+15. Start comb function with parameters c and n
+16. Initialize LinkedList s
+17. Start for loop with variable u initialized to 0, condition u < 1 << n, increment u
+18. If statement with condition bitcount(u) == c, push bitprint(u) to LinkedList s
+19. Sort LinkedList s
+20. Return LinkedList s
+21. End comb function

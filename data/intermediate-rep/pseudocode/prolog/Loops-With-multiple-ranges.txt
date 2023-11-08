@@ -1,0 +1,77 @@
+```
+function for(Lo, Hi, Step, Val) {
+    if(Step > 0 && Lo <= Hi) {
+        plus(Lo, Step, V);
+        if(V <= Hi) {
+            for(V, Hi, Step, Val);
+        }
+    }
+    if(Step < 0 && Lo <= Hi) {
+        plus(Hi, Step, V);
+        if(Lo <= V) {
+            for(V, Lo, Step, Val);
+        }
+    }
+}
+
+function translate(V, Result) {
+    if(typeof V === "number") {
+        Result = V;
+    } else if(V in sym) {
+        Result = sym[V];
+    } else if(V[0] === "-") {
+        translate(V.substring(1), V0);
+        Result = -V0;
+    } else if(V.includes("+")) {
+        let parts = V.split("+");
+        translate(parts[0], A0);
+        translate(parts[1], B0);
+        Result = A0 + B0;
+    } else if(V.includes("-")) {
+        let parts = V.split("-");
+        translate(parts[0], A0);
+        translate(parts[1], B0);
+        Result = A0 - B0;
+    } else if(V.includes("^")) {
+        let parts = V.split("^");
+        translate(parts[0], A0);
+        translate(parts[1], B0);
+        Result = A0 ** B0;
+    }
+}
+
+function range_value(Val) {
+    let ranges = [
+        [-3, 27, 3],
+        [-7, 7, sym.x],
+        [555, 550 - sym.y, 1],
+        [22, -28, -3],
+        [1927, 1939, 1],
+        [sym.x, sym.y, sym.z],
+        [11 ** sym.x, 11 ** sym.x + sym.one, 1]
+    ];
+    for(let range of ranges) {
+        let [From, To, Step] = range;
+        translate(From, F);
+        translate(To, T);
+        translate(Step, S);
+        for(F, T, S, Val);
+    }
+}
+
+function calc_values(Values, S, P, Sum, Product) {
+    if(Values.length === 0) {
+        Sum = S;
+        Product = P;
+    } else {
+        let J = Values[0];
+        let S0 = S + Math.abs(J);
+        let P0 = (Math.abs(P) < 2 ** 27 && J !== 0) ? P * J : P;
+        calc_values(Values.slice(1), S0, P0, Sum, Product);
+    }
+}
+
+let Values = range_value();
+let Sum, Product;
+calc_values(Values, 0, 1, Sum, Product);
+```

@@ -1,0 +1,20 @@
+```
+FUNCTION drawTree(x1, y1, angle, depth):
+    fork_angle = 20
+    base_len = 10.0
+    IF depth > 0 THEN
+        x2 = x1 + int(cos(radians(angle)) * depth * base_len)
+        y2 = y1 + int(sin(radians(angle)) * depth * base_len)
+        draw a line on screen from (x1, y1) to (x2, y2) with color (255, 255, 255) and thickness 2
+        drawTree(x2, y2, angle - fork_angle, depth - 1)
+        drawTree(x2, y2, angle + fork_angle, depth - 1)
+
+FUNCTION input(event):
+    IF event.type == QUIT THEN
+        exit(0)
+
+drawTree(300, 550, -90, 9)
+pygame.display.flip()
+WHILE True DO
+    input(pygame.event.wait())
+```

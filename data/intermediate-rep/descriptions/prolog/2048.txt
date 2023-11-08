@@ -1,0 +1,5 @@
+This Prolog code is an implementation of the popular game "2048." The game begins with a welcome message and the creation of a blank grid. The player must use the 'w', 's', 'a', and 'd' keys for movement and 'q' to quit.
+
+The game loop includes checking for win or lose conditions, getting the player's input for the next move, and processing the move based on the direction chosen. The game continues until the player wins, loses, or quits.
+
+The code also includes functions for displaying messages, drawing the game grid, populating random spaces with new values, and processing game moves based on the direction. Overall, it provides a complete implementation of the 2048 game in Prolog.

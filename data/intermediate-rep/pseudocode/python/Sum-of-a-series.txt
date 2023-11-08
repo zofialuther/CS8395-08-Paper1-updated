@@ -1,0 +1,63 @@
+1. Define the function seriesSumA:
+   - Take a function f as input
+   - Return a lambda function that takes a list xs as input and returns the sum of mapping f over xs
+
+2. Define the function seriesSumB:
+   - Take a function f as input
+   - Return a lambda function that takes a list xs as input and returns the result of folding acc + f(x) over xs where acc starts at 0
+
+3. Define the function main:
+   - Define a function f that takes x as input and returns 1 / (x * x)
+   - Print the result of fTable with the given parameters
+
+4. Define the function compose:
+   - Take a function g as input
+   - Return a lambda function that takes a function f as input and returns a function that takes x as input and returns g(f(x))
+
+5. Define the function enumFromTo:
+   - Take an integer m as input
+   - Return a lambda function that takes an integer n as input and returns a list of integers from m to n
+
+6. Define the function fTable:
+   - Take a string s as input
+   - Return a lambda function that takes a function xShow as input and returns a function that takes a function fxShow as input and returns a function that takes a function f as input and returns a function that takes a list xs as input and returns a tabular string
+
+7. Check if the script is being run directly and call the main function if it is
+
+Pseudocode:
+
+function seriesSumA(f):
+    return lambda xs: sum(map(f, xs))
+
+function seriesSumB(f):
+    return lambda xs: reduce(
+        lambda a, x: a + f(x), xs, 0
+    )
+
+function main():
+    def f(x):
+        return 1 / (x * x)
+
+    print(
+        fTable(
+            __doc__ + ':\n' + '(1/x^2 over x = 1..1000)'
+        )(lambda f: '\tby ' + f.__name__)(str)(
+            lambda g: g(f)(enumFromTo(1)(1000))
+        )([seriesSumA, seriesSumB])
+    )
+
+function compose(g):
+    return lambda f: lambda x: g(f(x))
+
+function enumFromTo(m):
+    return lambda n: list(range(m, 1 + n))
+
+function fTable(s):
+    return lambda xShow: lambda fxShow: (
+        lambda f: lambda xs: go(
+            xShow, fxShow, f, xs
+        )
+    )
+
+if __name__ == '__main__':
+    main()

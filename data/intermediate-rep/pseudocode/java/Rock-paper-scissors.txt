@@ -1,0 +1,29 @@
+1. Import required libraries: java.util.Arrays, java.util.EnumMap, java.util.List, java.util.Map, java.util.Scanner, java.util.Random
+
+2. Create a class called RPS
+
+3. Define an enum called Item with values ROCK, PAPER, SCISSORS. Uncommented values LIZARD and SPOCK are ignored.
+
+4. Inside the Item enum, create a list called losesToList and a method called losesTo that takes an Item as input and returns a boolean.
+
+5. Inside the static block of the Item enum, define the losesToList for each item.
+
+6. Create a Map called counts using EnumMap and initialize it with each Item and a count of 1.
+
+7. Create a variable called totalThrows and set it to the length of the Item enum.
+
+8. Define the main method that creates an instance of RPS and calls the run method.
+
+9. Define the run method that takes user input using a Scanner and continuously prompts the user to make a choice.
+
+10. Inside the run method, get the AI's choice using the getAIChoice method and compare it with the user's choice.
+
+11. If the user's choice is invalid, continue the loop.
+
+12. If the user's choice is valid, increment the count for that choice, increment totalThrows, display the AI's choice, and determine the winner based on the choices.
+
+13. Define a static variable called rng of type Random.
+
+14. Define a method called getAIChoice that uses a random number to select the AI's choice based on the counts of each Item.
+
+15. End of pseudocode.

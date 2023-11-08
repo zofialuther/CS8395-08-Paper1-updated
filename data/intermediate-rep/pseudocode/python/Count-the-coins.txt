@@ -1,0 +1,40 @@
+try:
+    import psyco
+    psyco.full()
+except ImportError:
+    pass
+
+function count_changes(amount_cents, coins):
+    n = length(coins)
+    cycle = max([c+1 for c in coins if c <= amount_cents]) * n
+    table = create array of size cycle filled with 0
+    for i from 0 to n-1:
+        table[i] = 1
+
+    pos = n
+    for s from 1 to amount_cents:
+        for i from 0 to n-1:
+            if i == 0 and pos >= cycle:
+                pos = 0
+            if coins[i] <= s:
+                q = pos - coins[i] * n
+                if q >= 0:
+                    table[pos] = table[q]
+                else:
+                    table[pos] = table[q + cycle]
+            if i > 0:
+                table[pos] += table[pos - 1]
+            pos += 1
+    return table[pos - 1]
+
+function main():
+    us_coins = [100, 50, 25, 10, 5, 1]
+    eu_coins = [200, 100, 50, 20, 10, 5, 2, 1]
+
+    for coins in (us_coins, eu_coins):
+        print count_changes(100, coins[2:])
+        print count_changes(100000, coins)
+        print count_changes(1000000, coins)
+        print count_changes(10000000, coins), "\n"
+
+main()

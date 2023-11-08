@@ -1,0 +1,1 @@
+This code uses the subprocess module in Python to run the 'ls -l' command and checks if the exit code is zero, indicating successful execution. If the exit code is non-zero, a CalledProcessError is raised. It also captures the output of the command and assigns it to the variable 'output'. This code is compatible with Python 2.5 and later versions.

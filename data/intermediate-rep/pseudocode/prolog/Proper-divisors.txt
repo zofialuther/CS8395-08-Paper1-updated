@@ -1,0 +1,25 @@
+```
+FUNCTION show_proper_divisors_of_range(start, end)
+    FOR i = start to end
+        divisor_list = []
+        FOR j = 1 to i-1
+            IF i % j == 0
+                divisor_list.append(j)
+        PRINT i + ":" + divisor_list
+    END FOR
+END FUNCTION
+
+FUNCTION find_most_proper_divisors_in_range(start, end, Result)
+    max_divisors = 0
+    max_num = 0
+    FOR i = start to end
+        divisor_count = 0
+        FOR j = 1 to i-1
+            IF i % j == 0
+                divisor_count = divisor_count + 1
+        IF divisor_count > max_divisors
+            max_divisors = divisor_count
+            max_num = i
+    Result = "num(" + max_num + ")-divisor_count(" + max_divisors + ")"
+END FUNCTION
+```

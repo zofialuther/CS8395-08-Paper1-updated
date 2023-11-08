@@ -1,0 +1,39 @@
+START
+  Import java.util package
+  
+  Class MultiSplit
+    START main method
+      Print "Regex split:"
+      Print Array as string of "a!===b=!=c" after splitting with "==" or "!=" or "="
+      
+      Print new line
+      
+      For each string s in result of multiSplit("a!===b=!=c", new String[]{"==", "!=", "="})
+        Print s
+      END for loop
+    END main method
+    
+    START multiSplit method with parameters (String txt, String[] separators)
+      Initialize List result as ArrayList
+      Initialize integer txtLen as length of txt
+      Initialize integer from as 0
+      
+      START for loop with to starting from 0 to txtLen
+        START inner for loop for each separator in separators
+          Initialize integer sepLen as length of sep
+          If txt region matches with sep from index to 0 to sepLen
+            Add substring from from to to-1 to result list
+            Set from as to + sepLen
+            Set to as from - 1
+            Break inner for loop
+          END if
+        END inner for loop
+      END for loop
+      
+      If from is less than txtLen
+        Add substring from from to result list
+      END if
+      
+      Return result list
+    END multiSplit method
+END

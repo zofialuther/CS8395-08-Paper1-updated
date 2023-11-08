@@ -1,0 +1,33 @@
+```
+import Data.List (sort)
+import System.Random (randomRIO)
+import System.IO.Unsafe (unsafePerformIO)
+
+data Color = Red | White | Blue deriving (Show, Eq, Ord, Enum)
+
+function dutch(colors) {
+  return sort(colors);
+}
+
+function isDutch(colors) {
+  return colors == dutch(colors);
+}
+
+function randomBalls(n) {
+  if (n == 0) {
+    return [];
+  } else {
+    return toEnum (unsafePerformIO (randomRIO (fromEnum Red, fromEnum Blue))) : randomBalls(n - 1);
+  }
+}
+
+function main() {
+  let a = randomBalls(20);
+  if (isDutch(a)) {
+    console.log("The random sequence " ++ a ++ " is already in the order of the Dutch national flag!");
+  } else {
+    console.log("The starting random sequence is " ++ a);
+    console.log("The ordered sequence is " ++ dutch(a));
+  }
+}
+```

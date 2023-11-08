@@ -1,0 +1,8 @@
+1. Import the necessary modules:
+   - import System.Process (ProcessHandle, runCommand)
+
+2. Define the main function:
+   - main :: IO ProcessHandle
+
+3. Inside the main function, call the runCommand function with the command "echo \"Hello World!\" | lpr":
+   - main = runCommand "echo \"Hello World!\" | lpr"

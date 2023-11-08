@@ -1,0 +1,17 @@
+FUNCTION binary_search(l, value, low = 0, high = -1):
+    IF l is empty
+        RETURN -1
+    IF high equals -1
+        high = length of l - 1
+    IF low is greater than or equal to high
+        IF l[low] equals value
+            RETURN low
+        ELSE
+            RETURN -1
+    mid = (low + high) divided by 2
+    IF l[mid] is greater than value
+        RETURN binary_search(l, value, low, mid-1)
+    ELSE IF l[mid] is less than value
+        RETURN binary_search(l, value, mid+1, high)
+    ELSE
+        RETURN mid

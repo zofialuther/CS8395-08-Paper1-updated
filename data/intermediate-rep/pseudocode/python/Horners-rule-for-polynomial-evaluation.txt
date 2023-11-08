@@ -1,0 +1,4 @@
+1. Import the numpy library
+2. Call the polyval function from the numpy.polynomial.polynomial module with the parameters 3 (the value to be evaluated) and (-19, 7, -4, 6) (the coefficients of the polynomial)
+3. Store the result in a variable
+4. Print the result

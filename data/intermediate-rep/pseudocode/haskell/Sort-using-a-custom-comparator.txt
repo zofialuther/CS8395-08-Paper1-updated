@@ -1,0 +1,7 @@
+Pseudocode:
+
+1. Create a function lengthThenAZ that takes two strings and returns an Ordering based on their length and then alphabetical order
+2. Create a function descLengthThenAZ that takes two strings and returns an Ordering based on their length in descending order and then alphabetical order
+3. Create a main function that:
+   a. Maps putStrLn over the result of applying unlines to the result of applying sortBy to lengthThenAZ and descLengthThenAZ over a list of strings
+   b. Uses the list of strings ["Here", "are", "some", "sample", "strings", "to", "be", "sorted"] as input to the sorting functions.

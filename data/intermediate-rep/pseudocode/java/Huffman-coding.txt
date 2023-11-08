@@ -1,0 +1,10 @@
+1. Define a class HuffmanTree with a frequency variable and a constructor that sets the frequency.
+2. Define a method compareTo in HuffmanTree that compares the frequency of two trees.
+3. Define a class HuffmanLeaf that extends HuffmanTree and has a value variable and a constructor that sets the frequency and value.
+4. Define a class HuffmanNode that extends HuffmanTree and has left and right subtrees and a constructor that sets the frequency and left and right subtrees.
+5. Define a class HuffmanCode with a static method buildTree that takes an array of frequencies and returns a HuffmanTree.
+6. Inside buildTree, create a PriorityQueue of HuffmanTree objects and add HuffmanLeaf objects for non-empty characters with their frequencies.
+7. Use a while loop to merge trees with the lowest frequencies until only one tree remains in the queue.
+8. Define a static method printCodes that takes a HuffmanTree and a StringBuffer and prints the character, frequency, and code for each leaf node in the tree.
+9. Inside printCodes, check if the tree is a leaf or a node and recursively traverse the tree while building the Huffman code.
+10. Define a main method that creates a test string and an array of character frequencies, builds a Huffman tree, and prints the Huffman codes for each character.

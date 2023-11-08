@@ -1,0 +1,1 @@
+This code imports the Data.Map module and creates a Map called myMap that maps strings to integers. The main function then prints out the list of key-value pairs, keys, and values of the map using the Data.Map functions M.toList, M.keys, and M.elems.

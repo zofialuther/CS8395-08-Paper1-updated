@@ -1,0 +1,44 @@
+```
+FUNCTION digits(N, DList):
+    IF N = 0 THEN
+        RETURN []
+    ELSE
+        divmod(N, 10, N1, D)
+        digits(N1, DList)
+        DList = [D|DList]
+
+FUNCTION combi(N, [X|T], Comb):
+    IF N = 0 THEN
+        RETURN []
+    ELSE IF N > 0 THEN
+        N1 = N - 1
+        combi(N1, [X|T], Comb)
+        Comb = [X|Comb]
+    ELSE
+        combi(N, T, Comb)
+
+FUNCTION powSum([D|DList], Pow, Acc, Sum):
+    Acc1 = Acc + D^Pow
+    powSum(DList, Pow, Acc1, Sum)
+
+FUNCTION armstrong(Exp, PSum):
+    DigList = numlist(0, 9)
+    IF Exp > 1 THEN
+        Min = 10^(Exp - 1)
+    ELSE
+        Min = 0
+    Max = 10^Exp - 1
+    combi(Exp, DigList, Comb)
+    powSum(Comb, Exp, 0, PSum)
+    FOR each PSum in range(Min, Max):
+        digits(PSum, DList)
+        Sort DList in ascending order
+        IF DList = Comb OR (PSum = 0 AND Comb = [0]) THEN
+            RETURN PSum
+
+FUNCTION do:
+    FOR each Exp in range(1, 7):
+        ArmNum = armstrong(Exp, PSum)
+        Sort ArmNum
+        PRINT Exp, ArmNum
+```

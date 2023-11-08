@@ -1,0 +1,7 @@
+1. Set up a class called HundredDoors
+2. Inside the class, create a main method that takes an array of strings as an argument
+3. Inside the main method, set up a for loop that iterates from 1 to 10
+4. Inside the for loop, print "Door [i * i] is open." using the printf method
+5. End the for loop
+6. End the main method
+7. End the class

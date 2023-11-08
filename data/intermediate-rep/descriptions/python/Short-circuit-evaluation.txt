@@ -1,0 +1,1 @@
+This code simulates the calculation of logical operations using the values of a and b, which can be either True or False. It demonstrates the results of the logical operations "and" and "or" by printing the values of x and y based on the conditions specified. It also shows the function calls made during the calculations for each combination of a and b.

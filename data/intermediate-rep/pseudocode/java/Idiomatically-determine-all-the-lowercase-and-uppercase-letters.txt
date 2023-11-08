@@ -1,0 +1,23 @@
+FUNCTION main
+    DISPLAY "Upper case: "
+    FOR n IN range(0, 0x10FFFF)
+        IF isUpperCase(n) AND limit < 72
+            PRINT character(n)
+    END FOR
+    PRINT "..."
+    
+    DISPLAY "Lower case: "
+    FOR n IN range(0, 0x10FFFF)
+        IF isLowerCase(n) AND limit < 72
+            PRINT character(n)
+    END FOR
+    PRINT "..."
+END FUNCTION
+
+FUNCTION isUpperCase(character)
+    RETURN character is uppercase
+END FUNCTION
+
+FUNCTION isLowerCase(character)
+    RETURN character is lowercase
+END FUNCTION

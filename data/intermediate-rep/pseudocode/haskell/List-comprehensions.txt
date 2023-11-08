@@ -1,0 +1,13 @@
+function generateTriplets(n) {
+  triplets = []
+  for x = 1 to n {
+    for y = 1 to n {
+      for z = 1 to n {
+        if (x^2 + y^2 == z^2) {
+          triplets.append((x, y, z))
+        }
+      }
+    }
+  }
+  return triplets
+}

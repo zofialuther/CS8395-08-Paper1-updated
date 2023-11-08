@@ -1,0 +1,81 @@
+1. Import necessary libraries:
+   - import java.io.IOException;
+   - import java.nio.file.Files;
+   - import java.nio.file.Path;
+   - import java.nio.file.Paths;
+   - import java.util.HashMap;
+   - import java.util.List;
+   - import java.util.Map;
+
+2. Create a class named "Abbreviations".
+
+3. Define the main method:
+   - public static void main(String[] args) throws IOException {
+  
+4. Create a Path object by calling the Paths.get() method and passing the file name "days_of_week.txt".
+
+5. Read all lines from the file and store them in a List using Files.readAllLines() method.
+
+6. Iterate through each line in the list using a for loop:
+   - for (int i = 0; i < readAllLines.size(); i++) {
+  
+7. Get the current line from the list:
+   - String line = readAllLines.get(i);
+
+8. Check if the line is empty, if so, continue to the next iteration:
+   - if (line.length() == 0) continue;
+
+9. Split the line by spaces and store the resulting array in a String array called "days":
+   - String[] days = line.split(" ");
+
+10. Check if the number of elements in the "days" array is not equal to 7, if so, throw a RuntimeException:
+   - if (days.length != 7) throw new RuntimeException("There aren't 7 days on line " + (i + 1));
+
+11. Create a new HashMap called "temp" to store the count of each day abbreviation.
+
+12. Iterate through each day abbreviation in the "days" array:
+   - for (String day : days) {
+     - Integer count = temp.getOrDefault(day, 0);
+     - temp.put(day, count + 1);
+   }
+
+13. Check if the size of the "temp" map is less than 7, if so, print a message and continue to the next iteration:
+   - if (temp.size() < 7) {
+     - System.out.print(" ∞  ");
+     - System.out.println(line);
+     - continue;
+   }
+
+14. Initialize a variable "len" to 1.
+
+15. Start a while loop that continues until a break statement is encountered:
+   - while (true) {
+
+16. Clear the "temp" map:
+   - temp.clear();
+
+17. Iterate through each day in the "days" array and check if the abbreviation of the day matches the current length "len":
+   - for (String day : days) {
+     - String sd;
+     - if (len >= day.length()) {
+       - sd = day;
+     - } else {
+       - sd = day.substring(0, len);
+     - }
+     - Integer count = temp.getOrDefault(sd, 0);
+     - temp.put(sd, count + 1);
+   }
+
+18. Check if the size of the "temp" map is equal to 7, if so, print the length and the line and break out of the while loop:
+   - if (temp.size() == 7) {
+     - System.out.printf("%2d  %s\n", len, line);
+     - break;
+   }
+
+19. Increment the "len" variable by 1.
+
+20. Close the while loop.
+
+21. Close the for loop.
+
+22. Close the main method.

@@ -1,0 +1,6 @@
+function is_palindrome(x):
+    reversed_x = reverse(x)
+    if x == reversed_x:
+        return true
+    else:
+        return false

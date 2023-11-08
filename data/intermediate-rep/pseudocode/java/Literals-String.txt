@@ -1,0 +1,6 @@
+DECLARE char a = 'a'
+DECLARE String b = "abc"
+DECLARE char doubleQuote = '"'
+DECLARE char singleQuote = '\''
+DECLARE String singleQuotes = "''"
+DECLARE String doubleQuotes = "\"\""

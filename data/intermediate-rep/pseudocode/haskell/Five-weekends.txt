@@ -1,0 +1,39 @@
+```
+FUNCTION fiveFridayMonths(y: Integer) -> List of Tuples (Integer, Int)
+    monthsList = [1..12]
+    result = []
+    FOR m in monthsList
+        IF isFriday(fromGregorian(y, m, 1)) AND gregorianMonthLength(y, m) == 31
+            result.append((y, m))
+        ENDIF
+    ENDFOR
+    RETURN result
+ENDFUNCTION
+
+FUNCTION isFriday(d: Day) -> Bool
+    weekDay = toWeekDate(d)
+    RETURN weekDay == 5
+ENDFUNCTION
+
+FUNCTION main() -> Void
+    years = [1900..2100]
+    xs = map(fiveFridayMonths, years)
+    lean = []
+    FOR i in 0 to length(xs) exclusive
+        IF xs[i] is empty
+            lean.append(years[i])
+        ENDIF
+    ENDFOR
+    n = length(flatten(xs))
+    PRINT "How many five-weekend months 1900-2100 ?"
+    PRINT "\t" + n
+    PRINT "First five ?"
+    PRINT "\t" + take(5, flatten(xs))
+    PRINT "Last five ?"
+    PRINT "\t" + drop(n - 5, flatten(xs))
+    PRINT "How many lean years ? (No five-weekend months)"
+    PRINT "\t" + length(lean)
+    PRINT "Which years are lean ?"
+    PRINT unlines(map(unwords, chunksOf(5, lean)))
+ENDFUNCTION
+```

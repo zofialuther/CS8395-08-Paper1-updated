@@ -1,0 +1,10 @@
+1. Import necessary libraries: Data.List, Data.Map.Strict, Data.Ord
+2. Define the function charCounts that takes a String as input and returns a Map of Char to Int
+3. In charCounts, use foldr to apply the alter function from Data.Map.Strict to each character in the input string and accumulate the counts in a Map
+4. Define the alter function to increment the count of a character if it already exists in the Map, or set it to 1 if it doesn't
+5. Define the main function that takes no arguments and returns an IO action
+6. In main, read the contents of "miserables.txt" using readFile
+7. Use the >>= operator to pass the contents to the next function
+8. In the next function, mapM_ print the sorted list of tuples (character, count) by count in descending order
+9. Use the sortBy function with comparing snd to sort the list by the second element of each tuple
+10. Finally, convert the Map to a list of tuples using M.toList and apply the charCounts function to the contents of the file.

@@ -1,0 +1,15 @@
+FUNCTION concat
+    PARAMETERS arrayA, arrayB
+    list = new ArrayList
+    FOR EACH value IN arrayA
+        list.add(value)
+    END FOR
+    FOR EACH value IN arrayB
+        list.add(value)
+    END FOR
+    array = new int[list.size()]
+    FOR index = 0 TO list.size()
+        array[index] = list.get(index)
+    END FOR
+    RETURN array
+END FUNCTION

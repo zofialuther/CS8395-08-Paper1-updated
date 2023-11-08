@@ -1,0 +1,23 @@
+```
+FUNCTION hashJoin(xs, fx, ys, fy)
+    l = newSTRef([])
+    ht = H.new()
+    FOR EACH y IN ys
+        H.insert(ht, fy(y), H.lookup(ht, fy(y))
+            CASE
+                IF Nothing
+                    RETURN [y]
+                ELSE
+                    RETURN (y:v)
+    FOR EACH x IN xs
+        H.lookup(ht, fx(x))
+            CASE
+                IF Nothing
+                    RETURN
+                ELSE
+                    modifySTRef(l, (map((x, v) ++) )
+    RETURN readSTRef(l)
+
+main
+    mapM_(print, hashJoin([(1, "Jonah"), (2, "Alan"), (3, "Glory"), (4, "Popeye")], snd, [("Jonah", "Whales"), ("Jonah", "Spiders"), ("Alan", "Ghosts"), ("Alan", "Zombies"), ("Glory", "Buffy")], fst))
+```

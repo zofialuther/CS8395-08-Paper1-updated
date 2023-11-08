@@ -1,0 +1,41 @@
+```
+function strip_leading(INPUTz, OUTPUTz) {
+  // implementation
+}
+
+function strip_trailing(INPUTz, OUTPUTz) {
+  // implementation
+}
+
+function strip_leading_and_trailing(INPUTz, OUTPUTz) {
+  // implementation
+}
+
+function strip_leading(OUTPUTz) {
+  // implementation
+}
+
+function strip_trailing(OUTPUTz) {
+  // implementation
+}
+
+function strip_leading_and_trailing(OUTPUTz) {
+  // implementation
+}
+
+function strip_leading_spacious {
+  // implementation
+}
+
+function strip_leading_nonspacious(OUTPUTz) {
+  // implementation
+}
+
+function strip_trailing_nonspacious(OUTPUTz) {
+  // implementation
+}
+
+function strip_trailing_spacious {
+  // implementation
+}
+```

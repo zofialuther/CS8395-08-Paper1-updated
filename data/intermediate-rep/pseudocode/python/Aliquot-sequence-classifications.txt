@@ -1,0 +1,49 @@
+The pseudocode for the given code is as follows:
+
+```
+FUNCTION proper_divs()
+    # code for proper_divs function
+
+FUNCTION pdsum(n)
+    RETURN sum(proper_divs(n))
+
+FUNCTION aliquot(n, maxlen=16, maxterm=2**47)
+    IF n == 0 THEN
+        RETURN 'terminating', [0]
+    END IF
+    s, slen, new = [n], 1, n
+    WHILE slen <= maxlen AND new < maxterm DO
+        new = pdsum(s[-1])
+        IF new in s THEN
+            IF s[0] == new THEN
+                IF slen == 1 THEN
+                    RETURN 'perfect', s
+                ELSE IF slen == 2 THEN
+                    RETURN 'amicable', s
+                ELSE
+                    RETURN 'sociable of length ' + slen, s
+                END IF
+            ELSE IF s[-1] == new THEN
+                RETURN 'aspiring', s
+            ELSE
+                RETURN 'cyclic back to ' + new, s
+            END IF
+        ELSE IF new == 0 THEN
+            RETURN 'terminating', s + [0]
+        ELSE
+            s.append(new)
+            slen = slen + 1
+        END IF
+    END WHILE
+    RETURN 'non-terminating', s
+
+IF __name__ == '__main__' THEN
+    FOR n IN range(1, 11) DO
+        PRINT(str(aliquot(n)))
+    END FOR
+    PRINT()
+    FOR n IN [11, 12, 28, 496, 220, 1184,  12496, 1264460, 790, 909, 562, 1064, 1488, 15355717786080] DO
+        PRINT(str(aliquot(n)))
+    END FOR
+END IF
+```

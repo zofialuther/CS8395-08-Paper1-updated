@@ -1,0 +1,70 @@
+```
+import Data.Bifunctor (bimap)
+import Data.Char (chr, ord)
+import Data.List (intercalate, minimumBy, sort, (\\))
+import Data.Ord (comparing)
+import Control.Monad (join)
+
+TYPE Square = (Int, Int)
+
+FUNCTION knightTour(moves: List[Square]) -> List[Square]
+  IF moves is empty THEN
+    RETURN reverse of moves
+  ELSE
+    newSquare = minimumBy (comparing (length of findMoves)) possibilities
+    possibilities = findMoves(head of moves)
+    RETURN knightTour(newSquare : moves)
+
+FUNCTION findMoves(moves: List[Square]) -> List[Square]
+  RETURN (knightOptions(head of moves) \\ moves)
+
+FUNCTION knightOptions(square: Square) -> List[Square]
+  x = first element of square
+  y = second element of square
+  RETURN knightMoves >>= go . bimap (+ x) (+ y)
+
+FUNCTION go(move: Square) -> List[Square]
+  IF both onBoard(move) THEN
+    RETURN [move]
+  ELSE
+    RETURN empty list
+
+FUNCTION knightMoves() -> List[(Int, Int)]
+  deltas = [1, 2, -1, -2]
+  RETURN ((>>=) <*> (\deltas n -> deltas >>= go n))
+
+FUNCTION go(i: Int, x: Int) -> List[(Int, Int)]
+  IF abs(i) /= abs(x) THEN
+    RETURN [(i, x)]
+  ELSE
+    RETURN empty list
+
+FUNCTION onBoard(num: Int) -> Bool
+  RETURN (num > 0) && (num < 9)
+
+FUNCTION both(func: (a -> b), pair: (a, a)) -> (b, b)
+  RETURN join bimap(func, pair)
+
+FUNCTION startPoint() -> String
+  RETURN "e5"
+
+FUNCTION algebraic(coords: (Int, Int)) -> String
+  x = first element of coords
+  y = second element of coords
+  RETURN [chr (x + 96), chr (y + 48)]
+
+FUNCTION main() -> IO ()
+  startPoint = "e5"
+  tour = algebraic(knightTour([(\[x, y] -> (ord x - 96, ord y - 48)) startPoint]))
+  IF tour is empty THEN
+    RETURN ()
+  ELSE
+    printTour(tour)
+
+FUNCTION printTour(tour: List[String]) -> IO ()
+  IF tour is empty THEN
+    RETURN ()
+  ELSE
+    PRINT intercalate " -> " of first 8 elements of tour
+    printTour(drop 8 elements of tour)
+```

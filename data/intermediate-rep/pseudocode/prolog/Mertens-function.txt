@@ -1,0 +1,65 @@
+```
+initialize mertens_number_cache/2 as a dynamic predicate
+
+mertens_number(1, 1):-
+    stop and return 1
+mertens_number(N, M):-
+    check if mertens_number_cache(N, M) exists,
+    stop and return M if it does
+mertens_number(N, M):-
+    if N is greater than or equal to 2,
+    calculate mertens_number(N, 2, M, 0),
+    assert mertens_number_cache(N, M)
+
+mertens_number(N, N, M, M):-
+    stop and return M if N is equal to N
+mertens_number(N, K, M, S):-
+    calculate N1 as N divided by K,
+    call mertens_number(N1, M1),
+    calculate K1 as K plus 1,
+    calculate S1 as S minus M1,
+    call mertens_number(N, K1, M, S1)
+
+print_mertens_numbers(Count):-
+    call print_mertens_numbers(Count, 0)
+
+print_mertens_numbers(Count, Count):-
+    stop printing if Count equals Count
+print_mertens_numbers(Count, N):-
+    if N equals 0,
+        print spaces
+    else,
+        call mertens_number(N, M),
+        print M with formatting,
+    calculate N1 as N plus 1,
+    calculate Column as N1 modulo 20,
+    if N is greater than 0 and Column equals 0,
+        print new line
+    else,
+        continue printing
+    call print_mertens_numbers(Count, N1)
+
+count_zeros(From, To, Z, C):-
+    call count_zeros(From, To, Z, C, 0, 0, 0)
+
+count_zeros(From, To, Z, C, Z, C, _):-
+    stop and return Z and C if From is greater than To
+count_zeros(From, To, Z, C, Z1, C1, P):-
+    call mertens_number(From, M),
+    if M equals 0,
+        calculate Z2 as Z1 plus 1
+    else,
+        set Z2 as Z1,
+    if M equals 0 and P is not 0,
+        calculate C2 as C1 plus 1
+    else,
+        set C2 as C1,
+    calculate Next as From plus 1,
+    call count_zeros(Next, To, Z, C, Z2, C2, M)
+
+main:-
+    write 'First 199 Mertens numbers:' to the console,
+    call print_mertens_numbers(200),
+    call count_zeros(1, 1000, Z, C),
+    write formatted string for Z and C
+```

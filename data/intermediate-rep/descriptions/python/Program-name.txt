@@ -1,0 +1,1 @@
+This Python script uses the inspect module to retrieve the file path of the current program and then prints it to the console. It is a simple example of how to use the inspect module to access information about the current program's execution.

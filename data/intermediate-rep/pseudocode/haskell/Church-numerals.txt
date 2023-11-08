@@ -1,0 +1,57 @@
+Church = record
+  unChurch: function(a)
+churchZero = Church(const id)
+
+succChurch = function(ch)
+  return Church((<*>)(.)(unChurch ch))
+
+addChurch = function(ach, bch)
+  return Church(((<*>).fmap(.))(unChurch ach)(unChurch bch))
+
+multChurch = function(ach, bch)
+  return Church(unChurch ach.unChurch bch)
+
+expChurch = function(basech, expch)
+  return Church(unChurch expch(unChurch basech))
+
+predChurch = function(ch)
+  return Church(function(f, x)
+    unChurch ch(function(g, h)
+      h(g(f))
+    )(const x)(id)
+  )
+
+minusChurch = function(ach, bch)
+  return unChurch bch(predChurch(ach))
+
+isChurchZero = function(ch)
+  return unChurch ch(const churchZero)(Church(id))
+
+divChurch = function(dvdnd, dvsr)
+  let divr = function(n)
+    return ((v)
+      unChurch v(const(succChurch(divr(v))))(churchZero)
+    )(minusChurch(n, dvsr))
+  return divr(succChurch(dvdnd))
+
+churchFromInt = function(n)
+  if n = 0
+    return churchZero
+  else
+    return succChurch(churchFromInt(n - 1))
+
+intFromChurch = function(ch)
+  return unChurch(ch)(succ)(0)
+
+main = function()
+  let cThree, cFour, cEleven, cTwelve = churchFromInt([3, 4, 11, 12])
+  print(fmap(intFromChurch)([ addChurch(cThree, cFour)
+                            , multChurch(cThree, cFour)
+                            , expChurch(cFour, cThree)
+                            , expChurch(cThree, cFour)
+                            , isChurchZero(churchZero)
+                            , predChurch(cFour)
+                            , minusChurch(cEleven, cThree)
+                            , divChurch(cEleven, cThree)
+                            , divChurch(cTwelve, cThree)
+                            ]))

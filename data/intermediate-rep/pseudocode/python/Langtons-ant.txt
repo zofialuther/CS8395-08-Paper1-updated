@@ -1,0 +1,49 @@
+START
+  Define Enum class Dir
+  Define Enum class Color
+  Define function invert_color(grid, x, y)
+    IF grid[y][x] is equal to Color.BLACK
+      THEN grid[y][x] = Color.WHITE
+    ELSE
+      grid[y][x] = Color.BLACK
+  Define function next_direction(grid, x, y, direction)
+    IF grid[y][x] is equal to Color.BLACK
+      THEN turn_right = False
+    ELSE
+      turn_right = True
+    direction_index = direction.value
+    IF turn_right
+      THEN direction_index = (direction_index + 1) mod 4
+    ELSE
+      direction_index = (direction_index - 1) mod 4
+    Define array directions with values [Dir.UP, Dir.RIGHT, Dir.DOWN, Dir.LEFT]
+    direction = directions[direction_index]
+    RETURN direction
+  Define function next_position(x, y, direction)
+    IF direction is equal to Dir.UP
+      THEN y = y - 1
+    ELSE IF direction is equal to Dir.RIGHT
+      THEN x = x - 1
+    ELSE IF direction is equal to Dir.DOWN
+      THEN y = y + 1
+    ELSE IF direction is equal to Dir.LEFT
+      THEN x = x + 1
+    RETURN x, y
+  Define function print_grid(grid)
+    PRINT 80 * "#"
+    PRINT "\n".join("".join(v.value for v in row) for row in grid)
+  Define function ant(width, height, max_nb_steps)
+    grid = create 2D array of Color.WHITE with dimensions width and height
+    x = width / 2
+    y = height / 2
+    direction = Dir.UP
+    i = 0
+    WHILE i < max_nb_steps and 0 <= x < width and 0 <= y < height
+      invert_color(grid, x, y)
+      direction = next_direction(grid, x, y, direction)
+      x, y = next_position(x, y, direction)
+      print_grid(grid)
+      i = i + 1
+  IF __name__ is equal to "__main__"
+    CALL ant with parameters width=75, height=52, max_nb_steps=12000
+END

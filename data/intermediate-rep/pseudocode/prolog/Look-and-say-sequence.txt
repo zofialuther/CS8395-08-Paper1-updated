@@ -1,0 +1,33 @@
+```
+function look_and_say(L):
+    for each element in L:
+        print element
+    print new line
+    L1 = encode(L)
+    look_and_say(L1)
+
+function encode(In, Out):
+    R1 = packList(In)
+    Out = append(R1)
+
+function packList(In):
+    if In is empty:
+        return empty list
+    else if In has only one element:
+        return list containing a sublist with 1 and that element
+    else:
+        X = first element of In
+        Rest = rest of In
+        XRun = run(X, Rest)
+        Packed = packList(Rest)
+        return list containing XRun and Packed
+
+function run(Var, LRest):
+    if LRest is empty:
+        return list containing 1 and Var
+    else if first element of LRest is Var:
+        N1 = N + 1
+        return list containing N1 and Var
+    else if first element of LRest is not Var:
+        return list containing 1 and Var, and the rest of LRest
+```

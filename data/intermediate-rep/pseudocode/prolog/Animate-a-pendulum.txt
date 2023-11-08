@@ -1,0 +1,26 @@
+```
+1. Import the PCE library
+2. Define the pendulum predicate
+   - Create a new window for the pendulum
+   - Set the size of the window to 560x300
+   - Create a line for the pendulum
+   - Create a small circle for the pivot point of the pendulum
+   - Set the fill pattern for the circle
+   - Create a larger circle for the pendulum bob
+   - Set the fill pattern for the bob
+   - Display the small circle at a specific point in the window
+   - Set the handle for the small circle
+   - Set the handle for the large circle
+   - Connect the small circle to the large circle with a line
+   - Create a new animation object
+   - Set the done message for the window
+   - Start the timer for the animation
+   - Open the window
+3. Define the animation class
+   - Define variables for the window, bob, pendulum length, angle, delta, and timer
+   - Define an initialize method to create the object with specified parameters
+   - Define an unlink method to stop the timer and free resources when the object is destroyed
+   - Define an anim_message method to update the position and angle of the bob in the animation
+4. Define the calc predicate to compute the position of the bob
+5. Define the next_Angle predicate to compute the next angle based on the current angle and delta
+```

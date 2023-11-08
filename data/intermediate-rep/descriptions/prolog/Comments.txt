@@ -1,0 +1,1 @@
+This code is a single-line comment that extends to the end of the line and is used to provide a brief explanation or clarification for the following code. Comments are non-executable and are intended for the benefit of developers who are reading or modifying the code.

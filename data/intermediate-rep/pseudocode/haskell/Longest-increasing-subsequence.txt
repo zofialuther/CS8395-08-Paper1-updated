@@ -1,0 +1,27 @@
+1. Import the necessary libraries:
+   - Data.Ord
+   - Data.List
+   - Data.List.Ordered
+
+2. Define the function lis that takes a list of elements of type a and returns a list of elements of type a:
+   - lis = maximumBy (comparing length) . map nub . filter isSorted . subsequences
+
+3. Inside the main function:
+   - Print the result of calling lis with the input [3,2,6,4,5,1]
+   - Print the result of calling lis with the input [0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15]
+   - Print the result of calling lis with the input [1,1,1,1]
+
+Pseudocode:
+```
+import Data.Ord
+import Data.List
+import Data.List.Ordered
+
+lis :: Ord a => [a] -> [a]
+lis = maximumBy (comparing length) . map nub . filter isSorted . subsequences
+
+main = do
+  print $ lis [3,2,6,4,5,1]
+  print $ lis [0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15]
+  print $ lis [1,1,1,1]
+```

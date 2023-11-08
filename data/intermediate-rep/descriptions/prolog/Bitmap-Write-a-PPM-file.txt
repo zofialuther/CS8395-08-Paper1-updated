@@ -1,0 +1,1 @@
+This code utilizes the bitmap and bitmapIO modules to create a new bitmap with dimensions of 50x50 and all black pixels. It then sets a single pixel at coordinates (25,25) to white, creating an "AlmostAllBlack" bitmap. Finally, it writes the AlmostAllBlack bitmap to a PPM file called "AlmostAllBlack.ppm" using the write_ppm_p6 function.

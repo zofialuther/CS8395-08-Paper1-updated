@@ -1,0 +1,18 @@
+
+function main
+    counter = 0
+    number = 3
+    while true
+        display "Guess the number: "
+        input guess
+        if guess equals number
+            display "Well guessed!"
+            return true
+        else
+            counter = counter + 1
+            if counter equals 3
+                return false
+            end if
+        end if
+    end while
+end function

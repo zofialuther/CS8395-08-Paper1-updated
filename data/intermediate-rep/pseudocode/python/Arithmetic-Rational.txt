@@ -1,0 +1,38 @@
+```
+function lcm(a, b)
+    return a divided by gcd(a,b) multiplied by b
+
+function gcd(u, v)
+    if v is not equal to 0
+        return gcd(v, u modulo v)
+    else
+        return absolute value of u
+
+class Fraction
+    function __init__(numerator, denominator)
+        common = gcd(numerator, denominator)
+        self.numerator = numerator divided by common
+        self.denominator = denominator divided by common
+    function __add__(frac)
+        common = lcm(self.denominator, frac.denominator)
+        n = common divided by self.denominator multiplied by self.numerator plus common divided by frac.denominator multiplied by frac.numerator
+        return Fraction(n, common)
+    function __sub__(frac)
+        return self.__add__(-frac)
+    function __neg__()
+        return Fraction(-self.numerator, self.denominator)
+    function __abs__()
+        return Fraction(absolute value of self.numerator, absolute value of self.denominator)
+    function __mul__(frac)
+        return Fraction(self.numerator multiplied by frac.numerator, self.denominator multiplied by frac.denominator)
+    function __div__(frac)
+        return self.__mul__(frac.reciprocal())
+    function reciprocal()
+        return Fraction(self.denominator, self.numerator)
+    function __cmp__(n)
+        return integer value of (floating point representation of self minus floating point representation of n)
+    function __float__()
+        return floating point representation of (self.numerator divided by self.denominator)
+    function __int__()
+        return (self.numerator divided by self.denominator)
+```

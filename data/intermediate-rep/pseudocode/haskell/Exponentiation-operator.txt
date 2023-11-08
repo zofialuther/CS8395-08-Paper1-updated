@@ -1,0 +1,19 @@
+function power(base, exponent)
+    if exponent = 0 then
+        return 1
+    else if exponent > 0 then
+        return helperFunction(base, exponent-1, base)
+    else
+        throw error "Prelude.^: negative exponent"
+
+function helperFunction(a, d, y)
+    if d = 0 then
+        return y
+    else
+        return innerFunction(a, d, y)
+
+function innerFunction(b, i, y)
+    if i is even then
+        return innerFunction(b*b, i/2, y)
+    else
+        return helperFunction(b, i-1, b*y)

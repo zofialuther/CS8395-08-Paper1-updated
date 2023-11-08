@@ -1,0 +1,1 @@
+This code defines a hashJoin function that takes two lists and two key functions, and returns a list of tuples that join the elements from the two lists based on the keys. The function uses a hash table to efficiently join the elements. The main function demonstrates the usage of hashJoin by joining two example lists and printing the resulting tuples.

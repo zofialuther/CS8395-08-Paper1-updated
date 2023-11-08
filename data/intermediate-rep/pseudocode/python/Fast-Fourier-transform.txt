@@ -1,0 +1,22 @@
+FUNCTION fft(x):
+    N = length of x
+    IF N <= 1 THEN
+        RETURN x
+    END IF
+    even = fft(x[0::2])
+    odd = fft(x[1::2])
+    T = []
+    FOR k = 0 to N//2 - 1 DO
+        T[k] = exp(-2j*pi*k/N) * odd[k]
+    END FOR
+    result = []
+    FOR k = 0 to N//2 - 1 DO
+        result[k] = even[k] + T[k]
+    END FOR
+    FOR k = 0 to N//2 - 1 DO
+        result[N//2 + k] = even[k] - T[k]
+    END FOR
+    RETURN result
+END FUNCTION
+
+PRINT(' '.join("%5.3f" % abs(f) for f in fft([1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0])) )

@@ -1,0 +1,1 @@
+This code is a simple guessing game where the user is prompted to guess a number. The user is asked to input a number and is then informed whether the guess is correct or not. In this example, the user correctly guesses the number after three attempts and is then notified "Well guessed!" before the program terminates with the output "true".

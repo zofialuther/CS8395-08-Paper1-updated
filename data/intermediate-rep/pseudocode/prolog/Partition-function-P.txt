@@ -1,0 +1,18 @@
+```
+p(N, X) :-
+    N = 0,
+    X = 1.
+p(N, X) :-
+    N > 0,
+    A = 0,
+    B = 0,
+    between(1,inf,K),
+    M is K*(3*K-1)//2,
+    (M>N, !, fail; L is N-M, p(L,Y), Z is (-1)^K*Y),
+    aggregate_all(sum(Z), Z, A),
+    between(1,inf,K),
+    M is K*(3*K+1)//2,
+    (M>N, !, fail; L is N-M, p(L,Y), Z is (-1)^K*Y),
+    aggregate_all(sum(Z), Z, B),
+    X is -A-B.
+```

@@ -1,0 +1,32 @@
+START
+  FUNCTION sumDigits(n)
+    sum = 0
+    FOR each digit in n
+      sum += convert digit to integer
+    END FOR
+    RETURN sum
+  END FUNCTION
+
+  FUNCTION main(args)
+    count = 0
+    i = 1
+    WHILE count < 20
+      IF i % sumDigits(i) == 0 THEN
+        PRINT i
+        count++
+      END IF
+      i++
+    END WHILE
+
+    PRINT new line
+
+    i = 1001
+    WHILE true
+      IF i % sumDigits(i) == 0 THEN
+        PRINT i
+        BREAK
+      END IF
+      i++
+    END WHILE
+  END FUNCTION
+END

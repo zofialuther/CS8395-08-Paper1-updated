@@ -1,0 +1,9 @@
+data X = X
+data Y = Y
+data Point = Point Int Int deriving Show
+
+function createPointAt(X, x, Y, y)
+    return Point(x, y)
+
+call main
+    print(createPointAt(X, 5, Y, 3))

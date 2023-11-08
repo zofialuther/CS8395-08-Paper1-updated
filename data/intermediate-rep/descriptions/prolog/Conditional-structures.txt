@@ -1,0 +1,1 @@
+This code is a simple Prolog program that uses the write/1 predicate to print the message "Hello, World!" to the console, followed by a newline character. This is a basic example of how Prolog can be used to output text to the user.

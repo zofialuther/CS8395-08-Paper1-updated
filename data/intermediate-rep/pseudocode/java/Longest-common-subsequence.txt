@@ -1,0 +1,17 @@
+FUNCTION lcs(a, b)
+    aLen = LENGTH(a)
+    bLen = LENGTH(b)
+    IF aLen = 0 OR bLen = 0 THEN
+        RETURN ""
+    ELSE IF a[aLen-1] = b[bLen-1] THEN
+        RETURN lcs(SUBSTRING(a, 0, aLen-1), SUBSTRING(b, 0, bLen-1)) + a[aLen-1]
+    ELSE
+        x = lcs(a, SUBSTRING(b, 0, bLen-1))
+        y = lcs(SUBSTRING(a, 0, aLen-1), b)
+        IF LENGTH(x) > LENGTH(y) THEN
+            RETURN x
+        ELSE
+            RETURN y
+        END IF
+    END IF
+END FUNCTION

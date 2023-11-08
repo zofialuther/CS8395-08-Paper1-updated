@@ -1,0 +1,40 @@
+BEGIN
+    IMPORT java.math.BigInteger
+    IMPORT java.util.PriorityQueue
+
+    CLASS Hamming
+        DECLARE THREE as BigInteger = BigInteger.valueOf(3)
+        DECLARE FIVE as BigInteger = BigInteger.valueOf(5)
+
+        FUNCTION updateFrontier with parameters x and pq
+            pq.offer(x.shiftLeft(1))
+            pq.offer(x.multiply(THREE))
+            pq.offer(x.multiply(FIVE))
+
+        FUNCTION hamming with parameter n
+            IF n <= 0 THEN
+                THROW IllegalArgumentException("Invalid parameter")
+            END IF
+            DECLARE frontier as PriorityQueue<BigInteger> = new PriorityQueue<BigInteger>()
+            updateFrontier(BigInteger.ONE, frontier)
+            DECLARE lowest as BigInteger = BigInteger.ONE
+            FOR i = 1 TO n-1
+                lowest = frontier.poll()
+                WHILE frontier.peek().equals(lowest)
+                    frontier.poll()
+                END WHILE
+                updateFrontier(lowest, frontier)
+            END FOR
+            RETURN lowest
+        END FUNCTION
+
+        FUNCTION main with parameter args
+            OUTPUT "Hamming(1 .. 20) ="
+            FOR i = 1 TO 20
+                OUTPUT " " + hamming(i)
+            END FOR
+            OUTPUT "\nHamming(1691) = " + hamming(1691)
+            OUTPUT "Hamming(1000000) = " + hamming(1000000)
+        END FUNCTION
+    END CLASS
+END

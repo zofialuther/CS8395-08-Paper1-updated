@@ -1,0 +1,10 @@
+Pseudocode:
+
+FUNCTION encode(text):
+    RETURN sub(r'(.)\1*', lambda m: str(len(m.group(0))) + m.group(1), text)
+
+FUNCTION decode(text):
+    RETURN sub(r'(\d+)(\D)', lambda m: m.group(2) * int(m.group(1)), text)
+
+textin = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW"
+ASSERT decode(encode(textin)) == textin

@@ -1,0 +1,1 @@
+This Prolog code uses the random_member predicate to select a random element from the list [a, b, c, d, e, f, g, h, i, j] and binds it to the variable M. In this particular execution, the value of M is i. This code demonstrates the use of the random_member predicate to select a random element from a list in Prolog.

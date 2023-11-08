@@ -1,0 +1,25 @@
+```
+function main(aArgs)
+    tests = ["1001110011", "1110111011", "0010010010", "1010101010", "1111111111", "0100101101", "0100100", "101", "11", "00", "1"]
+    output("The longest rep-strings are:")
+    for each test in tests do
+        repeats = repString(test)
+        result = if repeats.isEmpty() then "Not a rep-string" else repeats.get(repeats.size() - 1)
+        output(test + " -> " + result)
+    end for
+end function
+
+function repString(aText)
+    repetitions = []
+    for length = 1 to aText.length() / 2 do
+        possible = aText.substring(0, length)
+        quotient = aText.length() / length
+        remainder = aText.length() % length
+        candidate = possible.repeat(quotient) + possible.substring(0, remainder)
+        if candidate equals aText then
+            repetitions.add(possible)
+        end if
+    end for
+    return repetitions
+end function
+```

@@ -1,0 +1,15 @@
+FUNCTION lookAndSay (n: Integer) -> Integer
+    SET result = read(concatMap(liftM2(++) (show(length)) (take 1)) (group (show(n))))
+    RETURN result
+
+FUNCTION lookAndSay2 (n: Integer) -> Integer
+    SET result = read(concatMap(liftM2(++) (show(length)) (take 1)) (group (show(n))))
+    RETURN result
+
+FUNCTION lookAndSay3 (n: Integer) -> Integer
+    SET result = read(concatMap(describe (group (show(n))))
+    WHERE describe (run) = show(length(run)) ++ take 1 run
+    RETURN result
+
+main
+    CALL mapM_ print (iterate lookAndSay 1)

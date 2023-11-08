@@ -1,0 +1,11 @@
+```
+function first(Predicate) {
+    call(Predicate);
+}
+
+function second(Argument) {
+    write(Argument);
+}
+
+first(second('Hello World!'));
+```

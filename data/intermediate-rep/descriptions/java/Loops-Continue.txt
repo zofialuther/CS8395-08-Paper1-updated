@@ -1,0 +1,1 @@
+This code is a loop that iterates through the numbers 1 to 10. It prints each number and a comma after it, except for when the number is a multiple of 5, in which case it prints the number and moves to the next line.

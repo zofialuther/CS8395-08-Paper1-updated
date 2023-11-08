@@ -1,0 +1,14 @@
+1. Import the itertools module
+2. Set the value of n to 20
+3. Create a list comprehension that generates all Pythagorean triplets (x, y, z) where x, y, and z are in the range of 1 to n+1, and x^2 + y^2 = z^2
+4. Create a generator expression that does the same as the list comprehension
+5. Create a slower but more readable version of the list comprehension using itertools.product and a condition for x, y, and z
+6. Create a generator function called triplets that yields all possible triplets (x, y, z) within the range of 1 to n+1
+7. Use the triplets generator in a list comprehension to find Pythagorean triplets
+8. Define an iterator using the triplets generator to find Pythagorean triplets
+9. Define a function pts that takes an integer n and returns a list of all Pythagorean triplets within the range of 1 to n+1
+10. Define a function pts2 that does the same as pts but uses bindList and lambda functions to create the list of Pythagorean triplets
+11. Define a function pts3 that does the same as pts and pts2 but uses concatMap and lambda functions to create the list of Pythagorean triplets
+12. Define the concatMap function which takes a function f and a list xs and returns a new list by applying f to each element of xs and concatenating the results
+13. Define the bindList function which takes a list xs and a function f and returns a new list by applying f to each element of xs and concatenating the results
+14. Create a main function that iterates through the pts, pts2, and pts3 functions, and prints the result of each function with n=20.

@@ -1,0 +1,45 @@
+FUNCTION spellInteger(n: Integer) {
+  IF n < 0 THEN
+    RETURN "negative " + spellInteger(-n)
+  ELSE IF n < 20 THEN
+    RETURN small(n)
+  ELSE IF n < 100 THEN
+    LET (a, b) = divMod(n, 10)
+    RETURN tens(a) + nonzero('-', b)
+  ELSE IF n < 1000 THEN
+    LET (a, b) = divMod(n, 100)
+    RETURN small(a) + " hundred" + nonzero(' ', b)
+  ELSE
+    RETURN intercalate(", ", map(big, reverse(filter((!=0), zip([0..], unfoldr(uff, n))))))
+}
+
+FUNCTION nonzero(c: Char, n: Integer) {
+  IF n == 0 THEN
+    RETURN ""
+  ELSE
+    RETURN c + spellInteger(n)
+}
+
+FUNCTION uff(n: Integer) {
+  IF n == 0 THEN
+    RETURN Nothing
+  ELSE
+    RETURN Just(uncurry(flip(,)), divMod(n, 1000))
+}
+
+FUNCTION small(n: Integer) {
+  RETURN ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"][fromEnum(n)]
+}
+
+FUNCTION tens(n: Integer) {
+  RETURN [undefined, undefined, "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"][fromEnum(n)]
+}
+
+FUNCTION big(e: Int, n: Integer) {
+  IF e == 0 THEN
+    RETURN spellInteger(n)
+  ELSE IF e == 1 THEN
+    RETURN spellInteger(n) + " thousand"
+  ELSE
+    RETURN spellInteger(n) + ' ' + l[e] + "illion"
+}

@@ -1,0 +1,77 @@
+```
+# floyd :: Int -> [[Int]]
+function floyd(n)
+    return take(n)(iterate(nextFloyd)([1]))
+
+
+# nextFloyd :: [Int] -> [Int]
+function nextFloyd(xs)
+    n = succ(length(xs))
+    if n < 2
+        return [1]
+    else
+        return enumFromTo(succ(n * pred(n) // 2))(n * succ(n) // 2)
+
+
+# showFloyd :: [[Int]] -> String
+function showFloyd(xs)
+    return unlines(map(str, xs))
+
+
+# main :: IO ()
+function main()
+    print(showFloyd(floyd(5)))
+
+
+# GENERIC ABSTRACTIONS ------------------------------------
+
+# enumFromTo :: (Int, Int) -> [Int]
+function enumFromTo(m)
+    return function(n)
+        return range(m, n + 1)
+
+
+# iterate :: (a -> a) -> a -> Gen [a]
+function iterate(f)
+    return function(x)
+        v = x
+        while True
+            yield v
+            v = f(v)
+
+
+# pred ::  Enum a => a -> a
+function pred(x)
+    if x is int
+        return x - 1
+    else
+        return chr(ord(x) - 1)
+
+
+# succ :: Enum a => a -> a
+function succ(x)
+    if x is int
+        return x + 1
+    else
+        return chr(ord(x) + 1)
+
+
+# take :: Int -> [a] -> [a]
+# take :: Int -> String -> String
+function take(n)
+    return function(xs)
+        if xs is list
+            return xs[0:n]
+        else
+            return islice(xs, n)
+
+
+# unlines :: [String] -> String
+function unlines(xs)
+    return '\n'.join(xs)
+
+
+# MAIN ----------------------------------------------------
+if __name__ == '__main__':
+    main()
+```

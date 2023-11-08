@@ -1,0 +1,32 @@
+```
+function bnd(string):
+    if string is "_##" then
+        return '#'
+    else if string is "#_#" then
+        return '#'
+    else if string is "##_" then
+        return '#'
+    else
+        return '_'
+
+function nxt(string):
+    go = function(array):
+        if array has length 2 then
+            return nothing
+        else
+            return tuple(bnd(take 3 array), drop 1 array)
+    return unfoldr(go, '_' + string + '_')
+
+function lahmahgaan(string):
+    result = []
+    while last element of string is not equal to last element of second to last element of result:
+        append nxt(last element of result) to result
+    return result
+
+function main():
+    gen = newStdGen()
+    randomList = take 36 from randomRs(0, 1) using gen
+    mappedList = map("_#" at index) from randomList
+    output = map(lahmahgaan, mappedList)
+    print each element of output
+```

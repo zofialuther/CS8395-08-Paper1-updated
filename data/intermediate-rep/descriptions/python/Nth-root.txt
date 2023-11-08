@@ -1,0 +1,1 @@
+The code calculates the nth root of a given number using the nthroot function. The first line prints the 5th root of 34 with a precision of 10 decimal places. The second line prints the 10th root of 42 with a precision of 20 decimal places. The third line prints the 2nd root of 5 with a precision of 400 decimal places.

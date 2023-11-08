@@ -1,0 +1,52 @@
+FUNCTION chowla(n):
+    IF n < 2 THEN
+        RETURN 0
+    ELSE
+        divisorsList = divisors(n, generator=True)
+        sumOfDivisors = 0
+        FOR divisor IN divisorsList:
+            sumOfDivisors = sumOfDivisors + divisor
+        END FOR
+        RETURN sumOfDivisors - 1 - n
+    END IF
+END FUNCTION
+
+FUNCTION is_prime(n):
+    RETURN chowla(n) == 0
+END FUNCTION
+
+FUNCTION primes_to(n):
+    count = 0
+    FOR i = 2 TO n-1:
+        IF chowla(i) == 0 THEN
+            count = count + 1
+        END IF
+    END FOR
+    RETURN count
+END FUNCTION
+
+FUNCTION perfect_between(n, m):
+    c = 0
+    PRINT "Perfect numbers between [" + n + ", " + m + ")"
+    FOR i = n TO m-1:
+        IF i > 1 AND chowla(i) == i - 1 THEN
+            PRINT "  " + i
+            c = c + 1
+        END IF
+    END FOR
+    PRINT "Found " + c + " Perfect numbers between [" + n + ", " + m + ")"
+END FUNCTION
+
+IF __name__ == '__main__':
+    FOR i = 1 TO 37:
+        PRINT "chowla(" + i + ") == " + chowla(i)
+    END FOR
+    FOR i = 2 TO 5:
+        PRINT "primes_to(" + 10^i + ") == " + primes_to(10^i)
+    END FOR
+    perfect_between(1, 1000000)
+    PRINT
+    FOR i = 6 TO 7:
+        PRINT "primes_to(" + 10^i + ") == " + primes_to(10^i)
+    END FOR
+    perfect_between(1000000, 35000000)

@@ -1,0 +1,1 @@
+This code uses the QuickCheck testing library to generate and test random strings for palindrome properties. It defines a function to check if a given string is a palindrome and then uses QuickCheck to run tests on even and odd length palindromes, as well as non-palindromes. The code also includes a custom instance for generating random ASCII characters to use in the tests.

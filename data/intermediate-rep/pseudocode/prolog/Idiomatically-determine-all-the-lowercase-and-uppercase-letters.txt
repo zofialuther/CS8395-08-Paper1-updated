@@ -1,0 +1,11 @@
+1. Initialize an empty list called Lowers
+2. Use the maplist function to iterate over each character in the list [alpha, ascii, lower]
+3. For each character, use the char_type function to check if it is a lower case character and add it to the Lowers list if it is
+4. Print '-- Lower Case Characters --' to the console
+5. Print the Lowers list to the console
+6. Print a new line to the console
+7. Initialize an empty list called Uppers
+8. Use the maplist function to iterate over each character in the list [alpha, ascii, upper]
+9. For each character, use the char_type function to check if it is an upper case character and add it to the Uppers list if it is
+10. Print '-- Upper Case Characters --' to the console
+11. Print the Uppers list to the console.

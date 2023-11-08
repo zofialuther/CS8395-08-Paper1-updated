@@ -1,0 +1,5 @@
+function mean(List, Mean) {
+    Length = length(List)
+    Sum = sumlist(List)
+    Mean = Sum / Length
+}

@@ -1,0 +1,1 @@
+This code defines two recursive functions, F and M, which calculate the values of two sequences using each other's results. The F function computes a sequence of values based on the previous value of M, while the M function computes a sequence of values based on the previous value of F. The code then prints out the first 20 values of each sequence.

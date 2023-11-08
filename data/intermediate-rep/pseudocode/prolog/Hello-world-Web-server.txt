@@ -1,0 +1,19 @@
+1. Import the necessary modules:
+   - import library(http/thread_httpd)
+   - import library(http/http_dispatch)
+   - import library(http/html_write)
+
+2. Define the main entry point to start the server on port 8080:
+   - server() {
+       http_server(http_dispatch, [port(8080)])
+     }
+
+3. Define the handler for the root URI /:
+   - handle_root_uri() {
+       http_handler('/', say_goodbye, [])
+     }
+
+4. Define the function to generate the page content:
+   - say_goodbye(_Request) {
+       reply_html_page([title('Howdy')], [h1('Goodbye, World!')])
+     }

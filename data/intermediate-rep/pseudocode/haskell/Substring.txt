@@ -1,0 +1,26 @@
+```
+fromMforN(n, m, s)
+    return s.substring(n, n+m)
+
+fromNtoEnd(n, s)
+    return s.substring(n)
+
+allButLast(s)
+    return s.substring(0, s.length-1)
+
+fromCharForN(m, needle, haystack)
+    return haystack.substring(haystack.indexOf(needle), haystack.indexOf(needle) + m)
+
+fromStringForN(m, needle, haystack)
+    return haystack.substring(haystack.indexOf(needle), haystack.indexOf(needle) + m)
+
+main()
+    strings = ["天地不仁仁者人也🐒话说天下大势分久必合🍑合久必分🔥"]
+    map(O.putStrLn, [
+        fromMforN(9, 10, strings[0]),
+        fromNtoEnd(20, strings[0]),
+        allButLast(strings[0]),
+        fromCharForN(6, "话", strings[0]),
+        fromStringForN(6, "大势", strings[0])
+    ])
+```

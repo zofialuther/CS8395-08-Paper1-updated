@@ -1,0 +1,1 @@
+This code creates a StringBuilder object and a Formatter object, and then uses the Formatter to format a string with the adjective "little" inserted into the sentence "Mary had a %s lamb". Finally, the formatted string is flushed and stored in the StringBuilder object.

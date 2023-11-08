@@ -1,0 +1,21 @@
+1. Import required modules: System.Environment, System.IO, System.Directory, Control.Monad
+
+2. Define a function hInteract that takes a function f and input and output handles as parameters and performs IO operations.
+   - Read the contents from the input handle using hGetContents
+   - Apply the function f to the contents
+   - Write the result to the output handle using hPutStr
+
+3. Define a function processByTemp that takes a function f and a name as parameters and performs IO operations.
+   - Open the file with the given name in ReadMode and assign it to hIn
+   - Create a temporary file name by appending "$" to the original name and assign it to tmp
+   - Open the temporary file in WriteMode and assign it to hOut
+   - Execute the function f with hIn and hOut as parameters
+   - Close the input and output handles
+   - Remove the original file
+   - Rename the temporary file to the original name
+
+4. Define a function process that takes a function f and a list of strings as parameters and performs IO operations.
+   - If the list of strings is empty, execute the function f with stdin and stdout as parameters
+   - If the list of strings is not empty, apply the function processByTemp to each string in the list using mapM_
+
+Note: The pseudocode may need to be adjusted based on the specific syntax and conventions of the programming language being used.

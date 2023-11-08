@@ -1,0 +1,1 @@
+This code defines functions for converting between binary and Gray code representations of numbers, as well as for displaying the results. It imports several libraries and uses bitwise operations to perform the conversions. The main function iterates over a range of numbers and prints their binary and Gray code representations.

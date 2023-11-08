@@ -1,0 +1,27 @@
+START
+  Import necessary libraries
+  Define MainEntry class
+    Define main method
+      Call executeCmd method with "ls -oa" as argument
+    Define executeCmd method with string parameter
+      Initialize pipedOut as null
+      Try
+        Create aProcess using Runtime.getRuntime().exec(string)
+        Call aProcess.waitFor()
+        Set pipedOut as aProcess.getInputStream()
+        Initialize buffer as byte array with size 2048
+        Initialize read as pipedOut.read(buffer)
+        While read is greater than or equal to 0
+          Call System.out.write(buffer, 0, read)
+          Set read as pipedOut.read(buffer)
+      Catch IOException e
+        Print stack trace for e
+      Catch InterruptedException ie
+        Print stack trace for ie
+      Finally
+        If pipedOut is not null
+          Try
+            Call pipedOut.close()
+          Catch IOException e
+            // do nothing
+END

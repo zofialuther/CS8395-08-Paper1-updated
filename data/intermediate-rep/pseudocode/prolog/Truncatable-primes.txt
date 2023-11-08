@@ -1,0 +1,50 @@
+```
+function largest_left_truncatable_prime(N, N):
+    if is_left_truncatable_prime(N) then
+        exit
+    end if
+    N1 = N - 1
+    largest_left_truncatable_prime(N1, P)
+
+function is_left_truncatable_prime(P):
+    if is_prime(P) and is_left_truncatable_prime(P, P, 10) then
+        exit
+    end if
+
+function is_left_truncatable_prime(P, _, N):
+    if P <= N then
+        exit
+    end if
+    Q1 = P % N
+    if is_prime(Q1) and Q != Q1 then
+        N1 = N * 10
+        is_left_truncatable_prime(P, Q1, N1)
+    end if
+
+function largest_right_truncatable_prime(N, N):
+    if is_right_truncatable_prime(N) then
+        exit
+    end if
+    N1 = N - 1
+    largest_right_truncatable_prime(N1, P)
+
+function is_right_truncatable_prime(P):
+    if is_prime(P) then
+        Q = P // 10
+        if Q == 0 then
+            exit
+        else
+            is_right_truncatable_prime(Q)
+        end if
+    end if
+
+function main(N):
+    find_prime_numbers(N)
+    L = largest_left_truncatable_prime(N, L)
+    writef('Largest left-truncatable prime less than %t: %t\n', [N, L])
+    R = largest_right_truncatable_prime(N, R)
+    writef('Largest right-truncatable prime less than %t: %t\n', [N, R])
+
+function main:
+    main(1000000)
+```

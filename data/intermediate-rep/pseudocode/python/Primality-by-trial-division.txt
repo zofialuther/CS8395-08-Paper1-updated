@@ -1,0 +1,5 @@
+1. Import the re module
+2. Define a function isprime that takes a parameter n
+3. Use the re.match method to check if the string representation of n matches the regular expression pattern r'^1?$|^(11+?)\1+$'
+4. Return the opposite of the match result, i.e., not re.match(r'^1?$|^(11+?)\1+$', '1' * n)
+5. Test the function by iterating over a range of numbers from 0 to 39 and returning a list of numbers that return True when passed to the isprime function.

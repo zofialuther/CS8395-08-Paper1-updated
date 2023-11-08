@@ -1,0 +1,1 @@
+This code defines a variable called "test" and assigns it the string "This {- is not the beginning of a block comment" -- Do your homework properly -}. It appears to be a comment within the string, but it is not the beginning of a block comment.

@@ -1,0 +1,40 @@
+```
+FUNCTION Y(f)
+    RETURN (FUNCTION(x)
+        RETURN x(x)(FUNCTION(y)
+            RETURN f(FUNCTION(*args)
+                RETURN y(y)(*args)
+            )
+        )
+    )
+
+FUNCTION fac(f)
+    RETURN (FUNCTION(n)
+        IF n < 2 THEN
+            RETURN 1
+        ELSE
+            RETURN n * f(n-1)
+        END IF
+    )
+
+SET result1 = []
+FOR i = 0 TO 9
+    result1[i] = Y(fac)(i)
+END FOR
+
+FUNCTION fib(f)
+    RETURN (FUNCTION(n)
+        IF n = 0 THEN
+            RETURN 0
+        ELSE IF n = 1 THEN
+            RETURN 1
+        ELSE
+            RETURN f(n-1) + f(n-2)
+        END IF
+    )
+
+SET result2 = []
+FOR i = 0 TO 9
+    result2[i] = Y(fib)(i)
+END FOR
+```

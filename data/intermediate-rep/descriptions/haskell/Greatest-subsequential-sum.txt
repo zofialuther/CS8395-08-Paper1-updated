@@ -1,0 +1,1 @@
+This code imports the necessary modules and defines a function to generate all possible subsequences of a given list. It also defines a function to find the subsequence with the maximum sum, and finally, it applies the maxsubseq function to a specific list and prints the result.

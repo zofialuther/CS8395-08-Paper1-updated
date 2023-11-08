@@ -1,0 +1,21 @@
+mid3(n)
+  if m < 100
+    return "too small"
+  else if lng is even
+    return "even number of digits"
+  else 
+    return take 3 from drop ((lng - 3) / 2) of s
+  end if
+end mid3
+
+main()
+  xs = [ 123, 12345, 1234567, 987654321, 10001, -10001, -123, -100, 100, -12345, 1, 2, -1, -10, 2002, -2002, 0 ]
+  w = maximum length of show for each x in xs
+  for n in xs
+    print justifyRight(w, ' ', show n) + " -> " + mid3(n)
+  end for
+end main
+
+justifyRight(n, c, s)
+  return (drop length of s) + (replicate n c)
+end justifyRight

@@ -1,0 +1,5 @@
+The first code uses the brace_expansion predicate to generate a list of file paths by expanding a pattern. In this example, the pattern "~/{Downloads,Pictures}/*.{jpg,gif,png}" is expanded to ["~/Downloads/*.jpg","~/Downloads/*.gif","~/Downloads/*.png","~/Pictures/*.jpg","~/Pictures/*.gif","~/Pictures/*.png"].
+
+The second code also uses the brace_expansion predicate to generate different combinations of a given string by expanding a pattern. In this example, the pattern "It{{em,alic}iz,erat}e{d,}, please." is expanded to ["Itemized, please.", "Itemize, please.", "Iterated, please.", "Iterate, please.", "Italicized, please.", "Italicize, please."].
+
+The third code uses the brace_expansion predicate to generate different combinations of a given string by expanding a pattern. In this example, the pattern "{,{,gotta have{ ,\\, again\\, }}more }cowbell!" is expanded to ["cowbell!", "more cowbell!", "gotta have more cowbell!", "gotta have, again, more cowbell!"].

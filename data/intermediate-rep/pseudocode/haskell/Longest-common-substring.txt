@@ -1,0 +1,13 @@
+```
+FUNCTION longestCommon
+  PARAMETERS: a, b
+  LET pair [x, y] = (x, y)
+  LET result = maximumBy (comparing length)
+    APPLY (uncurry intersect . pair) TO
+      APPLY [tail . inits <=< tails] TO [a, b]
+  RETURN result
+
+FUNCTION main
+  CALL putStrLn WITH
+    APPLY longestCommon TO "testing123testing" AND "thisisatest"
+```

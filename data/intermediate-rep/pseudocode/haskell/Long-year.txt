@@ -1,0 +1,10 @@
+1. Import the necessary modules: Data.Time.Calendar and Data.Time.Calendar.WeekDate.
+
+2. Define a function longYear that takes an Integer as input and returns a Boolean.
+   - Inside the function, use the fromGregorian function to get the date for December 28th of the input year.
+   - Use the toWeekDate function to get the week number for December 28th of the input year.
+   - Assign the week number to a variable w.
+   - Return True if the week number is greater than 52, otherwise return False.
+
+3. Define the main function of type IO ().
+   - Use the mapM_ function to print the result of filtering the longYear function for the range of years from 2000 to 2100.

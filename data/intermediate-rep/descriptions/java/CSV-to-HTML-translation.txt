@@ -1,0 +1,1 @@
+This Java code takes a CSV input from the command line and converts it into an HTML table. It includes methods to escape special characters, generate table headers, and create table rows. The program can be run with or without table headers, and the resulting HTML output includes styling for the table.

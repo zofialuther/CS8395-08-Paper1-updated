@@ -1,0 +1,18 @@
+```
+function accumulator(sum0):
+    sum = [sum0]
+
+    return function(n):
+        if longable(sum[0]) and longable(n):
+            sum[0] = sum[0] + n
+        else:
+            sum[0] = sum[0] + n
+
+function longable(n):
+    return n is Byte or n is Short or n is Integer or n is Long
+
+x = accumulator(1)
+x(5)
+accumulator(3)
+print x(2.3)
+```

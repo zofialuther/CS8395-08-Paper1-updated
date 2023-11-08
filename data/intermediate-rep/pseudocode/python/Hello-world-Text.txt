@@ -1,0 +1,4 @@
+1. Import __phello__ library
+2. Start main function
+3. Call the function from the __phello__ library
+4. End main function

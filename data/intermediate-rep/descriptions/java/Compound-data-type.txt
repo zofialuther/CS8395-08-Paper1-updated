@@ -1,0 +1,1 @@
+This code defines a record called "Point" with two integer fields, "x" and "y", representing the coordinates of a point in a 2D plane. The record serves as a convenient way to encapsulate and store the coordinates of a point for use in various applications.

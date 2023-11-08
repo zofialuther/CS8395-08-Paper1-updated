@@ -1,0 +1,23 @@
+START
+  DEFINE StringSqueezable
+    DEFINE main
+      SET testStrings to array of test strings
+      SET testChar to array of test characters
+      FOR testNum less than length of testStrings
+        SET s to testStrings at testNum
+        FOR each character c in testChar[testNum]
+          SET result to squeeze(s, c)
+          OUTPUT result
+      END FOR
+    END main
+  
+    DEFINE squeeze with parameters in and include
+      DEFINE sb as StringBuilder
+      FOR i less than length of in
+        IF i equals 0 OR in at (i-1) is not equal to in at i OR (in at (i-1) is equal to in at i AND in at i not equal to include)
+          APPEND in at i to sb
+        END IF
+      END FOR
+      RETURN sb as string
+    END squeeze
+END

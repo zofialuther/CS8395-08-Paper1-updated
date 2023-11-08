@@ -1,0 +1,1 @@
+This code defines a static method to sort an array of integers in ascending order using the selection sort algorithm. It iterates through the array and finds the smallest element in the remaining unsorted portion, then swaps it with the current element to gradually build a sorted array.

@@ -1,0 +1,6 @@
+function isNumeric(inputData) {
+  formatter = NumberFormat.getInstance()
+  pos = new ParsePosition(0)
+  formatter.parse(inputData, pos)
+  return inputData.length() == pos.getIndex()
+}

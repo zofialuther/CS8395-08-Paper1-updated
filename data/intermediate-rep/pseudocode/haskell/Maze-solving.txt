@@ -1,0 +1,12 @@
+1. Define function average with parameters (Int, Int) and (Int, Int)
+2. Define function notBlocked with parameters [String] and ((Int, Int), (Int, Int))
+3. Define function substitute with parameters [a], Int, and a
+4. Define function draw with parameters [String] and (Int, Int)
+5. Define function tryMoves with parameters [String], (Int, Int), and [((Int, Int), (Int, Int))]
+6. Define function solve_ with parameters [String], (Int, Int), and (Int, Int)
+7. Define function solve with parameter [String]
+8. Define main function with no parameters
+
+In main:
+1. Set main_ to unlines . fromMaybe ["can_t solve"] . solve . lines
+2. Use interact main_ to take unsolved maze on standard input and print solved maze on standard output.

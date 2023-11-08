@@ -1,0 +1,1 @@
+This code defines a string variable "s" with leading and trailing white spaces, tabs, and line breaks. It then uses the lstrip() method to remove leading white spaces, tabs, and line breaks, the rstrip() method to remove trailing white spaces, tabs, and line breaks, and the strip() method to remove both leading and trailing white spaces, tabs, and line breaks from the string.

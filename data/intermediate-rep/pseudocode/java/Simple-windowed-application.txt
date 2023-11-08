@@ -1,0 +1,19 @@
+1. Import necessary libraries: java.awt.BorderLayout, java.awt.Dimension, java.awt.event.ActionEvent, java.awt.event.ActionListener, javax.swing.JButton, javax.swing.JFrame, javax.swing.JLabel, javax.swing.SwingUtilities
+2. Create a class called Clicks that extends JFrame
+3. Inside the Clicks class, declare a private long variable called clicks and initialize it to 0
+4. Create a constructor for the Clicks class
+5. Inside the constructor:
+   - Call the superclass constructor with the title "Clicks"
+   - Create a new JLabel called label with the initial text "There have been no clicks yet"
+   - Create a new JButton called clicker with the text "click me"
+   - Add an ActionListener to the clicker button that updates the label text with the number of clicks
+   - Set the layout of the frame to BorderLayout
+   - Add the label to the center of the frame
+   - Add the clicker button to the south of the frame
+   - Set the preferred size of the label to 300x100
+   - Set the horizontal alignment of the label to center
+   - Pack the components to fix the layout
+   - Set the default close operation to exit the program when the window is closed
+   - Set the frame to be visible
+6. Create a main method
+7. Inside the main method, use SwingUtilities.invokeLater to create a new instance of the Clicks class.

@@ -1,0 +1,45 @@
+```
+FUNCTION leftFact
+    RETURN accumulate(chain([0], fact()), add)
+END FUNCTION
+
+FUNCTION fact
+    RETURN accumulate(chain([1], count(1)), mul)
+END FUNCTION
+
+FUNCTION main
+    PRINT 'Terms 0 thru 10 inclusive:\n  %r' % take(11)(leftFact())
+    
+    PRINT '\nTerms 20 thru 110 (inclusive) by tens:'
+    FOR x IN takeFromThenTo(20)(30)(110)(leftFact())
+        PRINT x
+    
+    PRINT '\n\nDigit counts for terms 1k through 10k (inclusive) by k:\n  %r' % list(map(compose(len)(str), takeFromThenTo(1000)(2000)(10000)(leftFact())))
+END FUNCTION
+
+FUNCTION compose(g)
+    RETURN lambda f: lambda x: g(f(x))
+END FUNCTION
+
+FUNCTION scanl(f)
+    FUNCTION go(a)
+        FUNCTION g(xs)
+            RETURN accumulate(chain([a], xs), f)
+        END FUNCTION
+        RETURN g
+    END FUNCTION
+    RETURN go
+END FUNCTION
+
+FUNCTION take(n)
+    RETURN lambda xs: (xs[0:n] if isinstance(xs, list) else list(islice(xs, n)))
+END FUNCTION
+
+FUNCTION takeFromThenTo(a)
+    RETURN lambda b: lambda z: lambda xs: islice(xs, a, 1 + z, b - a)
+END FUNCTION
+
+IF __name__ == '__main__'
+    CALL main()
+END IF
+```

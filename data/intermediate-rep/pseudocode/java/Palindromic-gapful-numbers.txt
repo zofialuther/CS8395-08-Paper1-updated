@@ -1,0 +1,28 @@
+```
+initialize map to store palindromic gapful numbers
+initialize mapCount to store count of numbers for each key
+for i from 1 to 9:
+    add key i to map with an empty list as value
+    add key i to mapCount with 0 as value
+
+set notPopulated to true
+set n to 101
+while notPopulated is true:
+    if n is a gapful number:
+        get the last digit of n and store it in index
+        if the count of index in mapCount is less than firstHowMany:
+            add n to the list at index in map
+            increase the count of index in mapCount by 1
+            if the size of list at index in map is greater than countReturned:
+                remove the first element from the list at index in map
+        set finished to true
+        for i from 1 to 9:
+            if the count of i in mapCount is less than firstHowMany:
+                set finished to false
+                break
+        if finished is true:
+            set notPopulated to false
+    set n to the next palindrome after n
+
+return map
+```

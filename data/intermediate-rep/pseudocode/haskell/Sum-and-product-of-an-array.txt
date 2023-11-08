@@ -1,0 +1,12 @@
+1. Import the necessary libraries: Data.Array (listArray, elems)
+
+2. Define the main function:
+   main :: IO ()
+   main = mapM_ print $ [sum, product] <*> [elems $ listArray (1, 10) [11 .. 20]]
+
+3. Inside the main function, use the mapM_ function to apply the print function to the result of the following expression:
+   [sum, product] <*> [elems $ listArray (1, 10) [11 .. 20]]
+
+4. The expression [sum, product] <*> [elems $ listArray (1, 10) [11 .. 20]] first creates a list of functions [sum, product] and then applies them to the elements of the array created by listArray (1, 10) [11 .. 20]. The result is a list of the results of applying sum and product to the elements of the array.
+
+5. Finally, the mapM_ function is used to apply the print function to each element of the resulting list, printing the results.

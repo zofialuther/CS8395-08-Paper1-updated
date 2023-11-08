@@ -1,0 +1,14 @@
+```
+FUNCTION sierpinski(num)
+    SET rule90 = scanl(next("*"), enumFromTo(1, subtract(num, 1)))
+        FUNCTION next(char)
+            RETURN (zipWith(xor, (' ' : char), (char <> " ")))
+        ENDFUNCTION
+    SET spacing = (x, (s, w)) -> (concat([w, intersperse(' ', x), "\n", s]), (w <> " "))
+    RETURN fst(foldr(spacing, ([], []), rule90(2 ^ num)))
+ENDFUNCTION
+
+FUNCTION main()
+    putStr(sierpinski(4))
+ENDFUNCTION
+```

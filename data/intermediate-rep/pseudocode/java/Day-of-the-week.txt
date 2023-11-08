@@ -1,0 +1,19 @@
+Pseudocode:
+
+1. Import java.util.Calendar.*
+2. Import java.util.Calendar
+3. Import java.util.Date
+4. Import java.util.GregorianCalendar
+5. Create a class called Yuletide
+6. Define a main method within the Yuletide class
+7. Initialize a Calendar variable called calendar
+8. Initialize an integer variable called count and set it to 1
+9. Create a for loop to iterate through the years from 2008 to 2121
+10. Inside the for loop, create a new GregorianCalendar for each year and set the date to December 25
+11. Check if the day of the week for the date is Sunday
+12. If it is Sunday, check if count is not equal to 1, then print a comma and space
+13. Print the year using printf
+14. Increment the count variable
+15. End of for loop
+16. End of main method
+17. End of Yuletide class.

@@ -1,0 +1,1 @@
+This code defines a function called is_leap_year that takes a year as input. It then returns True if the year is a leap year (divisible by 4, except for years divisible by 100 unless also divisible by 400), and False otherwise.

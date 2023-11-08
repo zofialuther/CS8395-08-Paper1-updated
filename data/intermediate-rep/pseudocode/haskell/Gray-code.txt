@@ -1,0 +1,22 @@
+```
+FUNCTION grayToBin(g)
+    IF g = 0 THEN
+        RETURN 0
+    ELSE
+        RETURN g XOR grayToBin(g SHIFT RIGHT 1)
+
+FUNCTION binToGray(b)
+    RETURN b XOR (b SHIFT RIGHT 1)
+
+FUNCTION showBinary(n)
+    RETURN showIntAtBase 2 intToDigit n ""
+
+FUNCTION showGrayCode(num)
+    bin = showBinary(num)
+    gray = showBinary(binToGray(num))
+    printf "int: %2d -> bin: %5s -> gray: %5s\n" num bin gray
+
+FUNCTION main
+    FOR num IN 0 TO 31
+        showGrayCode(num)
+```

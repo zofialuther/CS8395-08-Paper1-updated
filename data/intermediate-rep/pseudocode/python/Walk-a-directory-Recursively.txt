@@ -1,0 +1,8 @@
+1. Import fnmatch
+2. Import os and os.path
+3. Define a function called print_fnmatches that takes in three parameters: pattern, dir, and files
+4. Inside the function, iterate through each filename in the files list
+5. Check if the filename matches the pattern using fnmatch
+6. If it does, print the joined path of the directory and filename using os.path.join
+7. Outside the function, use os.path.walk to walk through the directory '/'
+8. Pass the print_fnmatches function as the callback, along with the pattern '*.mp3' as the second argument.

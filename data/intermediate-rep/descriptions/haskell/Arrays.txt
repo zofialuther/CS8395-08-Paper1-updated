@@ -1,0 +1,1 @@
+This code creates a new IOArray with 10 elements, each initialized to the value 37. It then reads the value at index 1, updates it to 64, and then reads it again. The final values of the array at index 1 are printed to the console.

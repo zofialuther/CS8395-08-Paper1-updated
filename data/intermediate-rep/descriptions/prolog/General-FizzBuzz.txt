@@ -1,0 +1,1 @@
+This code takes a list of tuples representing number and corresponding string, and returns the factors of the numbers along with the corresponding strings. For example, if the input is [(3, "Fizz"), (5, "Buzz")], the output will be the factors of 3 and 5 along with their corresponding strings "Fizz" and "Buzz".

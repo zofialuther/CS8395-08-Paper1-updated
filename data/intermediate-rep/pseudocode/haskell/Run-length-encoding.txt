@@ -1,0 +1,37 @@
+```
+FUNCTION runLengths(s: String) -> [(Int, Char)]
+    IF s = ""
+        RETURN []
+    ELSE
+        LET encoded = foldr go ((0, ' '), []) s
+        RETURN uncurry (:) encoded
+    END IF
+END FUNCTION
+
+FUNCTION go(c: Char, ((n, x), xs): ((Int, Char), [(Int, Char)])) -> ((Int, Char), [(Int, Char)])
+    IF n = 0
+        RETURN ((1, c), xs)
+    ELSE
+        IF c = x
+            RETURN ((n + 1, x), xs)
+        ELSE
+            RETURN ((1, c), (n, x) : xs)
+        END IF
+    END IF
+END FUNCTION
+
+FUNCTION main() -> Void
+    LET testString = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWW" <> "WWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW"
+    LET encoded = runLengths(testString)
+    PRINT showLengths(encoded)
+    PRINT concatMap(uncurry replicate, encoded) == testString
+END FUNCTION
+
+FUNCTION showLengths(list: [(Int, Char)]) -> String
+    IF list = []
+        RETURN ""
+    ELSE
+        RETURN show (first element of list) <> [second element of list] <> showLengths(rest of list)
+    END IF
+END FUNCTION
+```

@@ -1,0 +1,8 @@
+BEGIN
+    FUNCTION main
+        SET dog = "Benjamin"
+        SET dOG = "Samba"
+        SET dOg = "Bernie"
+        PRINT "The three dogs are named %s, %s and %s.\n" WITH PARAMETERS dog, dOG, dOg
+    END FUNCTION
+END

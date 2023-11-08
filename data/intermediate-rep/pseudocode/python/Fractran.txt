@@ -1,0 +1,15 @@
+```
+function fractran_primes():
+    for i from 1 to infinity:
+        fr = fractran(2)[i]
+        binstr = binary(fr)[2:]
+        if count_ones(binstr) == 1:
+            prime = count_zeros(binstr)
+            if prime > 1:
+                yield prime, i
+
+if __name__ == 'main':
+    for i from 1 to 15:
+        prime, index = fractran_primes()
+        print("Generated prime %2i from the %6i'th member of the fractran series" % (prime, index))
+```

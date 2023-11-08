@@ -1,0 +1,1 @@
+This code defines a function called printCount that uses a for loop to iterate through integers from 0 to 20 and prints their octal representation using the printf method.

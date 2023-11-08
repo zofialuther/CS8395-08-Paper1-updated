@@ -1,0 +1,26 @@
+```
+function flatten(nl):
+    return flatten_(nl, [])
+
+function flatten_(nl, cont):
+    if nl is an Entry:
+        return nl.value appended to cont
+    else if nl is a NList:
+        return foldr(flatten_, cont, nl.entries)
+
+example = NList([
+    NList([Entry(1)]),
+    Entry(2),
+    NList([
+        NList([Entry(3), Entry(4)]),
+        Entry(5)
+    ]),
+    NList([NList([NList([])])]),
+    NList([NList([NList([Entry(6)])])]),
+    Entry(7),
+    Entry(8),
+    NList([])
+])
+
+print(flatten(example))
+```

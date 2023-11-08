@@ -1,0 +1,55 @@
+```
+function sieve(limit)
+    primes = []
+    c = array of size (limit + 1) filled with False # composite = true
+    p = 3
+    while True
+        p2 = p * p
+        if p2 > limit
+            break
+        for i from p2 to limit with step 2 * p
+            c[i] = True
+        while True
+            p += 2
+            if not c[p]
+                break
+
+    for i from 3 to limit with step 2
+        if not c[i]
+            append i to primes
+    return primes
+
+function findPeriod(n)
+    r = 1
+    for i from 1 to n
+        r = (10 * r) % n
+    rr = r
+    period = 0
+    while True
+        r = (10 * r) % n
+        period += 1
+        if r == rr
+            break
+    return period
+
+primes = sieve(64000)
+longPrimes = []
+for each prime in primes
+    if findPeriod(prime) == prime - 1
+        append prime to longPrimes
+numbers = [500, 1000, 2000, 4000, 8000, 16000, 32000, 64000]
+count = 0
+index = 0
+totals = array of size len(numbers) filled with 0
+for each longPrime in longPrimes
+    if longPrime > numbers[index]
+        totals[index] = count
+        index += 1
+    count += 1
+totals[-1] = count
+print 'The long primes up to 500 are:'
+print str(longPrimes[:totals[0]]).replace(',', '')
+print '\nThe number of long primes up to:'
+for each i, total in enumerate(totals)
+    print '  %5d is %d' % (numbers[i], total)
+```

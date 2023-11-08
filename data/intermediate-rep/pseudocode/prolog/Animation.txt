@@ -1,0 +1,48 @@
+```
+1. Declare library(pce)
+2. Define predicate animation
+    3. Create a new window D with title 'Animation'
+    4. Create a new label with text 'Hello world ! ' and assign it to Label
+    5. Display the label at position (1,10) in window D
+    6. Create a new animation object @animation with Label as parameter
+    7. Set the recogniser for window D with a left click gesture
+    8. Set the done message for window D to free @animation and destroy @receiver
+    9. Open window D
+    10. Start the animation timer for @animation
+
+11. Define class animation with label, delta, and mytimer as variables
+    12. Define method initialise with parameters P and W
+        13. Set label of P to W
+        14. Set delta of P to to_left
+        15. Create a new timer mytimer for P with a 0.5-second interval and anim_message as the message
+    16. Define method unlink with parameter P
+        17. Stop the mytimer of P
+        18. Free all resources of P
+    19. Define method anim_message with parameter P
+        20. Get the label L of P
+        21. Get the selection S of L
+        22. Get the delta Delta of P
+        23. Call compute with Delta, S, and S1
+        24. Create a new object A with name S1
+        25. Set the selection of L to A
+
+26. Define class my_click_gesture as a subclass of click_gesture
+    27. Define class_variable button with default value left
+    28. Define method terminate with parameters G and Ev
+        29. Call the superclass terminate method with Ev
+        30. Get the delta D of @animation
+        31. If D is to_left, set D1 to to_right, else set D1 to to_left
+        32. Set the delta of @animation to D1
+
+33. Define predicate compute with parameters to_right, S, and S1
+    34. Get the size Len of S
+    35. Set Len1 to Len - 1
+    36. Get the substring Str from S at index Len1
+    37. Delete the suffix Str from S and assign the result to V
+    38. Append V to Str and assign the result to S1
+
+39. Define predicate compute with parameters to_left, S, and S1
+    40. Get the substring Str from S at index 0 with length 1
+    41. Delete the prefix Str from S and assign the result to V
+    42. Append Str to V and assign the result to S1
+```

@@ -1,0 +1,13 @@
+BEGIN
+    FUNCTION transposeMatrix(m)
+        DECLARE ans as new 2D array of size m[0].length x m.length
+        FOR rows = 0 to m.length - 1
+            FOR cols = 0 to m[0].length - 1
+                ans[cols][rows] = m[rows][cols]
+            END FOR
+        END FOR
+        FOR each i in ans
+            PRINT array i
+        END FOR
+    END FUNCTION
+END

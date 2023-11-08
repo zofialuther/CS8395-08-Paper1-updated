@@ -1,0 +1,18 @@
+```
+1. Load clpfd module
+2. Define caesar predicate
+3. Set L1 as "The five boxing wizards jump quickly"
+4. Print "Original : %s\n" with L1
+5. Call encoding predicate with Key as 3, L1, L2
+6. Print "Encoding : %s\n" with L2
+7. Call encoding predicate with Key as 3, L3, L2
+8. Print "Decoding : %s\n" with L3
+9. Define encoding predicate with parameters Key, L1, L2
+10. Map list using caesar_cipher with Key on L1 and store in L2
+11. Define caesar_cipher for 32 as V1 and V2
+12. Define caesar_cipher for Key and V1 as V2
+13. Set V as Key + V1
+14. Set A as ((V1 <= 0'Z /\ V > 0'Z) \/ (V1 <= 0'z /\ V > 0'z) \/ (V1 < 0'A /\ V2 >= 0'A) \/ (V1 < 0'a /\ V2 >= 0'a)) ==> A
+15. Set V2 as V - A * 26
+16. Label [A, V1, V2]
+```

@@ -1,0 +1,1 @@
+This code initializes a variable Δx to the value of 1, then increments Δx by 1 and prints out the resulting value, which is 2.

@@ -1,0 +1,1 @@
+This code defines a predicate "repeat" that takes a Callable and a number of Times as arguments. It repeats the execution of the Callable the specified number of times. The "test" predicate writes "Hello, World" to the console and adds a newline, and also formats a "Hello, [Name]" message.

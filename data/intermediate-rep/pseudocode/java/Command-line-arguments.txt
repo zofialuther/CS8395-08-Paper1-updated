@@ -1,0 +1,6 @@
+START
+  FUNCTION main
+    DECLARE args as String[]
+    // code goes here
+  END FUNCTION
+END

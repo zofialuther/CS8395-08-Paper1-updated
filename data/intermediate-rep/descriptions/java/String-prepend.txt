@@ -1,0 +1,1 @@
+This code initializes a String variable with the value "def", and then replaces its value with a new string "abc" followed by the original string "def" using the formatted method.

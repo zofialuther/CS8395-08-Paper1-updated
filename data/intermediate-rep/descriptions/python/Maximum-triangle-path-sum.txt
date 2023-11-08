@@ -1,0 +1,1 @@
+This code reads a file "triangle.txt" containing a triangle of numbers and calculates the maximum path sum from top to bottom. It does this by defining two lambda functions, f and g, and then using the itertools library to apply these functions to the data. Finally, it prints the result of the maximum path sum.

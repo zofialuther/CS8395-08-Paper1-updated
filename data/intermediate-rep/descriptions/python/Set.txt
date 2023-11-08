@@ -1,0 +1,1 @@
+This code demonstrates various set operations and methods in Python. It includes examples of set union, intersection, difference, subset, superset, equality, membership, non-membership, symmetric difference, cardinality, and mutability using the add, discard, and update operators. It provides a comprehensive overview of how to manipulate and compare sets in Python.

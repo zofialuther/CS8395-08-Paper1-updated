@@ -1,0 +1,6 @@
+1. Import the Data.List module to use the maximumBy function
+2. Import the Data.Ord module to use the comparing function
+3. Define a list of strings wds with the values ["alpha", "beta", "gamma", "delta", "epsilon", "zeta"]
+4. Define the main function with the IO type
+5. Inside the main function, use the maximumBy function with the comparing function to find the string with the maximum length in the wds list
+6. Print the result of the maximumBy function.

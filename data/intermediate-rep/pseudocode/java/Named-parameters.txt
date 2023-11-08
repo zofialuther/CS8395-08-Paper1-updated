@@ -1,0 +1,7 @@
+1. Start
+2. Create a NutritionFacts.Builder object with parameters 240 and 8
+3. Set the calories of the NutritionFacts.Builder object to 100
+4. Set the sodium of the NutritionFacts.Builder object to 35
+5. Set the carbohydrate of the NutritionFacts.Builder object to 27
+6. Call the build method on the NutritionFacts.Builder object
+7. End

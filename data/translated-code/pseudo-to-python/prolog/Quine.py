@@ -1,0 +1,2 @@
+def quine():
+    listing(quine)

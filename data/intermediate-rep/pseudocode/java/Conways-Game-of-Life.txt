@@ -1,0 +1,91 @@
+```
+1. Start
+2. Initialize l=20, b=60
+3. Function main()
+	- Create object now of class GameOfLife
+	- Call setGame() method on now
+4. Function setGame()
+	- Create 2D array config with size lxb
+	- Call startGame() method with config, l, and b as parameters
+5. Function startGame(mat, l, b)
+	- Create Scanner object s
+	- Declare String ch and float per
+	- While ch is not equal to "y"
+		- Set per to the value returned by setConfig(mat)
+		- Call display2D(mat)
+		- Print percentage of grid filled
+		- Print "Begin? y/n" and store input in ch
+	- While ch is not equal to "x"
+		- Set mat to the value returned by transform(mat, l, b)
+		- Call display2D(mat)
+		- Print "Ctrl+Z to stop"
+		- Try
+			- Pause for 100 milliseconds
+		- Catch Exception e
+			- Print "Something went horribly wrong."
+		- Read input and store in ch
+	- Close Scanner s
+	- Print "Game Over"
+6. Function transform(mat, l, b)
+	- Create new 2D array newmat with size lxb
+	- Loop through each cell (i, j) in mat
+		- Set newmat[i][j] to the value returned by flip(mat, i, j)
+	- Return newmat
+7. Function flip(mat, i, j)
+	- Set count to the value returned by around(mat, i, j)
+	- If mat[i][j] is '*' 
+		- If count is less than 2 or count is greater than 3
+			- Return '_'
+		- Else
+			- Return '*'
+	- Else
+		- If count is equal to 3
+			- Return '*'
+		- Else
+			- Return '_'
+8. Function around(mat, i, j)
+	- Set count to 0
+	- Loop through each cell (x, y) around cell (i, j)
+		- If (x, y) is not equal to (i, j)
+			- Add the value returned by eval(mat, x, y) to count
+	- Return count
+9. Function eval(mat, i, j)
+	- If i is less than 0 or j is less than 0 or i is equal to l or j is equal to b
+		- Return 0
+	- If mat[i][j] is '*'
+		- Return 1
+	- Else
+		- Return 0
+10. Function setCustomConfig(arr, infile)
+	- Try
+		- Create BufferedReader br with FileReader(infile)
+		- Declare String line
+		- Loop through each row in arr
+			- Read a line from br and store in line
+			- Loop through each cell in the row
+				- Set arr[i][j] to the character at position j in line
+		- Close BufferedReader br
+	- Catch Exception e
+		- Print e.getMessage()
+	- Return 0
+11. Function setConfig(arr)
+	- Set per to 0.10
+	- Loop through each row in arr
+		- Call setConfig1D(arr[i], per)
+	- Return per
+12. Function setConfig1D(arr, per)
+	- Loop through each cell in arr
+		- If Math.random() is less than per
+			- Set arr[i] to '*'
+		- Else
+			- Set arr[i] to '_'
+13. Function display2D(arr)
+	- Loop through each row in arr
+		- Call display1D(arr[i])
+	- Print a new line
+14. Function display1D(arr)
+	- Loop through each cell in arr
+		- Print arr[i]
+	- Print a new line
+15. End
+```

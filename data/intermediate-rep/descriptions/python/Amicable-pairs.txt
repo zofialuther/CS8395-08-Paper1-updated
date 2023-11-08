@@ -1,0 +1,1 @@
+This Python code generates a list of amicable pairs of integers below a given number, using functions to calculate the sum of proper divisors and check for amicable pairs. The main function prints the amicable pairs of integers up to 20000. The code includes generic functions for composing, mapping, and enumerating values, as well as calculating proper divisors.

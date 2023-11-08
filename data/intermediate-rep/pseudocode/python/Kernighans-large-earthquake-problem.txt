@@ -1,0 +1,6 @@
+OPEN "data.txt" as f
+FOR EACH line IN f
+    IF CONVERT TO FLOAT(line.STRIP().SPLIT()[2]) > 6 THEN
+        PRINT line.STRIP()
+    END IF
+END FOR

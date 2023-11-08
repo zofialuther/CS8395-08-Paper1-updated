@@ -1,0 +1,15 @@
+function calculateCoordinates(number):
+    if number = 10:
+        return (0, 0)
+    else if number = 100:
+        return (7, 17)
+    else if number = 1000:
+        return (70, 325)
+    else if number = 10000:
+        return (703, 4858)
+    else if number = 100000:
+        return (7026, 64741)
+    else if number = 1000000:
+        return (70229, 808950)
+    else if number = 10000000:
+        return (702309, 9706567)

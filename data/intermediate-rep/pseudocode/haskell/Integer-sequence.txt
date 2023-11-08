@@ -1,0 +1,15 @@
+```
+Create a function mapM_ that takes two parameters: a function f and a list xs
+    For each element x in xs
+        Call f with x as an argument
+        Discard the result
+```
+
+``` 
+Create a function printList that takes a list xs
+    For each element x in xs
+        Print x to the console
+```
+
+Call mapM_ with printList and the list [1..] as arguments
+```

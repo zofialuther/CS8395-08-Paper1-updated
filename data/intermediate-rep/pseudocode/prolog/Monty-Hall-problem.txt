@@ -1,0 +1,32 @@
+```
+main :-
+    randomize,
+    win_count(1000, true, 0, SwitchTotal),
+    format('Switching wins ~d out of 1000.\n', [SwitchTotal]),
+    win_count(1000, false, 0, StayTotal),
+    format('Staying wins ~d out of 1000.\n', [StayTotal]).
+
+play(Switch, Won) :-
+    random(1, 4, P),
+    random(1, 4, C),
+    repeat,
+    random(1, 4, R),
+    R \= P,
+    R \= C,
+    !,
+    (
+        Switch, between(1, 3, F), F \= C, F \= R, !;
+        \+ Switch, F = C
+    ),
+    (F = P -> Won = true ; Won = false).
+
+win_count(0, _, Total, Total).
+
+win_count(I, Switch, A, Total) :-
+    I > 0,
+    I1 is I - 1,
+    play(Switch, Won),
+    (Won, A1 is A + 1;
+    \+ Won, A1 is A),
+    win_count(I1, Switch, A1, Total).
+```

@@ -1,0 +1,1 @@
+The code defines functions to generate all combinations of n digits of base n, check if a number is self-describing, and translate a list of integers back into an integer in base-10. The main function prints all self-describing numbers from 1 to 8 digits long in base-10. The code utilizes list manipulation and functional programming concepts to achieve this.

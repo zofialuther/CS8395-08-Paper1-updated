@@ -1,0 +1,25 @@
+```
+function sum(arr, result) {
+  if (arr.length === 0) {
+    result = 0;
+  } else {
+    let head = arr[0];
+    let tail = arr.slice(1);
+    let y;
+    sum(tail, y);
+    result = head + y;
+  }
+}
+
+function product(arr, result) {
+  if (arr.length === 0) {
+    result = 1;
+  } else {
+    let head = arr[0];
+    let tail = arr.slice(1);
+    let y;
+    product(tail, y);
+    result = head * y;
+  }
+}
+```

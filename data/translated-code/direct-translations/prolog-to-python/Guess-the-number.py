@@ -1,0 +1,5 @@
+print("Guess the number: 1")
+print("Guess the number: 2")
+print("Guess the number: 3")
+print("Well guessed!")
+print("True")

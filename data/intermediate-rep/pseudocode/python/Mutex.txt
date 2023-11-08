@@ -1,0 +1,20 @@
+START
+Import threading
+Import time
+Set res = 2
+Create semaphore object with res as argument
+Create class res_thread that inherits from threading.Thread
+    Create run() method for res_thread
+        Get thread name and store in n
+        Loop i from 1 to 3
+            Acquire semaphore
+            Decrement res by 1
+            Print thread name and res count
+            Sleep for 2 seconds
+            Increment res by 1
+            Print thread name and res count
+            Release semaphore
+Create for loop to create 4 threads
+    Create res_thread object
+    Start thread
+END

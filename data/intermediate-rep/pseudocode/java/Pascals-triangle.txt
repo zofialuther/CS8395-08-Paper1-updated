@@ -1,0 +1,19 @@
+```
+function main:
+    pas(20)
+
+function pas(rows):
+    for i from 0 to rows:
+        for j from 0 to i:
+            print ncr(i, j) + " "
+        print new line
+
+function ncr(n, r):
+    return fact(n) / (fact(r) * fact(n - r))
+
+function fact(n):
+    ans = 1
+    for i from 2 to n:
+        ans = ans * i
+    return ans
+```

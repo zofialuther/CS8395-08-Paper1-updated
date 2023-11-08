@@ -1,0 +1,9 @@
+seriesSum f = foldr ((+) . f) 0
+inverseSquare = (1 /) . (^ 2)
+
+function main
+    result = seriesSum(inverseSquare, [1, 2, 3, ..., 1000])
+    print result
+end function
+
+main()

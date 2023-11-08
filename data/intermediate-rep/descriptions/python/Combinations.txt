@@ -1,0 +1,1 @@
+This code uses the comb function to generate all possible combinations of 3 elements from the range of numbers 0 to 4. The output is a list of lists, where each inner list represents a unique combination of 3 elements from the given range.

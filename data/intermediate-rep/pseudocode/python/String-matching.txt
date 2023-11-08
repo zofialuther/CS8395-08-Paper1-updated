@@ -1,0 +1,24 @@
+# pseudocode
+if "abcd" starts with "ab" 
+    return True
+else 
+    return False
+
+if "abcd" ends with "zn" 
+    return True
+else 
+    return False
+
+if "bb" is in "abab" 
+    return True
+else 
+    return False
+
+if "ab" is in "abab" 
+    return True
+else 
+    return False
+
+set loc to the index of "bb" in "abab"
+set loc to the index of "ab" in "abab"
+set loc to the index of "ab" in "abab" starting from loc + 1

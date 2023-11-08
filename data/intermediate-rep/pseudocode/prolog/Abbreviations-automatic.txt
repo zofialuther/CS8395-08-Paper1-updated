@@ -1,0 +1,56 @@
+minimum_abbreviation_length(Day_names, Min_length):
+    Sorted_names = sort(Day_names)
+    minimum_abbreviation_length(Sorted_names, Min_length, 1)
+
+minimum_abbreviation_length([_], Min_length, Min_length):
+    return Min_length
+minimum_abbreviation_length([Name1, Name2|Rest], Min_length, M1):
+    Length = common_prefix_length(Name1, Name2)
+    M2 = max(M1, Length + 1)
+    minimum_abbreviation_length([Name2|Rest], Min_length, M2)
+
+common_prefix_length(String1, String2):
+    Chars1 = string_chars(String1)
+    Chars2 = string_chars(String2)
+    return common_prefix_length1(Chars1, Chars2, 0)
+
+common_prefix_length1([], _, Length):
+    return Length
+common_prefix_length1(_, [], Length):
+    return Length
+common_prefix_length1([C1|_], [C2|_], Length):
+    if C1 != C2:
+        return Length
+    else:
+        return common_prefix_length1(Chars1, Chars2, Length + 1)
+
+to_upper_case([], []):
+    return
+to_upper_case([String|S], [Upper_case|U]):
+    Upper_case = string_upper(String)
+    to_upper_case(S, U)
+
+process_line(""):
+    nl
+    return
+process_line(Line):
+    Day_names = split_string(Line, "\s\t", "\s\t")
+    Upper = to_upper_case(Day_names)
+    Length = minimum_abbreviation_length(Upper)
+    writef('%w %w\n', [Length, Line])
+
+process_stream(Stream):
+    String = read_line_to_string(Stream)
+    if String != end_of_file:
+        process_line(String)
+        process_stream(Stream)
+    else:
+        return
+
+process_file(File):
+    Stream = open(File, read)
+    process_stream(Stream)
+    close(Stream)
+
+main:
+    process_file("days_of_week.txt")

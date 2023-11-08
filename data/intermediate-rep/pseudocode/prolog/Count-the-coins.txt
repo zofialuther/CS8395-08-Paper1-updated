@@ -1,0 +1,9 @@
+```
+1. Declare the use of clpfd library
+2. Define the coins predicate with parameters Q, D, N, P, and T
+3. Constrain Q, D, N, P to be in the range 0 to T
+4. Constrain T to be equal to the total value of the coins
+5. Define the coins_for predicate with parameter T
+6. Call the coins predicate with parameters Q, D, N, P, and T
+7. Use maplist to iterate through the list of variables and call indomain to label the domains
+```

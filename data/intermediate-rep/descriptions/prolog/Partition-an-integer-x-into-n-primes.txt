@@ -1,0 +1,1 @@
+This code contains a prolog program that finds prime partitions of a given number. It includes predicates for checking if a number is prime, generating prime partitions, and printing the results. The main function demonstrates the use of the program by finding prime partitions for various numbers and printing the results.

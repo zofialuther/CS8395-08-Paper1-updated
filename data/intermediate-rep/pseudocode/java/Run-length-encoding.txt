@@ -1,0 +1,9 @@
+1. Initialize a string variable called "inputString" with a sample input string
+2. Initialize a string variable called "regexPattern" with a sample regular expression pattern
+3. Create a Pattern object by calling Pattern.compile() method with "regexPattern" as the parameter
+4. Create a Matcher object by calling pattern.matcher() method with "inputString" as the parameter
+5. Use a while loop to iterate through the matches found by the Matcher object
+6. Within the loop, use the Matcher object's group() method to retrieve the matched substring
+7. Print out the matched substring
+8. End the loop
+9. End the program

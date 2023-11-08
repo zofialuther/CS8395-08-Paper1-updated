@@ -1,0 +1,15 @@
+```
+import lambda
+
+function fact(N, FN):
+    cont_fact(N, FN, lambda X, Y: Y = X)
+
+function cont_fact(N, F, Pred):
+    if N == 0:
+        Pred(1, F)
+    else:
+        N1 = N - 1
+        P = lambda Z, T: T is Z * N
+        FT = cont_fact(N1, P)
+        Pred(FT, F)
+```

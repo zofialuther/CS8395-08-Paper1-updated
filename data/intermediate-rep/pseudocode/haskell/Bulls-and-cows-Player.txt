@@ -1,0 +1,37 @@
+```
+Function combinationsOf(k, list)
+    If k is 0
+        Return an empty list within a list
+    If list is empty
+        Return an empty list
+    Else
+        Return the result of mapping a function that appends the first element of the list to each combinationOf(k-1, remaining elements of the list) and concatenating it with combinationsOf(k, remaining elements of the list)
+
+Function player()
+    ps = Concatenation of permutations of combinationsOf(4, list of digits from '1' to '9')
+    Call play(ps)
+
+Function play(ps)
+    If ps is empty
+        Print "Unable to find a solution"
+    Else
+        i = Random number between 0 and the length of ps - 1
+        p = Element at index i of ps
+        Print "My guess is " concatenated with p
+        Print "How many bulls and cows?"
+        input = Call takeInput()
+        bc = Convert input to a list of integers
+        ps' = Filter ps based on the conditions specified
+        If length of ps' is 1
+            Print "The answer is " concatenated with the only element of ps'
+        Else
+            Call play(ps')
+
+Function takeInput()
+    inp = Get input from user
+    ui = Convert the input to a list of integers and filter it based on certain conditions
+    If sum of ui is greater than 4 or length of ui is not equal to 2
+        Print "Wrong input. Try again" and call takeInput()
+    Else
+        Return ui
+```

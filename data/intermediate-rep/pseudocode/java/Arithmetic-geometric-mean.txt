@@ -1,0 +1,11 @@
+function agm(a, g)
+    a1 = a
+    g1 = g
+    while absolute value of (a1 - g1) is greater than or equal to 1.0e-14 do
+        arith = (a1 + g1) / 2.0
+        geom = square root of (a1 * g1)
+        a1 = arith
+        g1 = geom
+    return a1
+
+print agm(1.0, 1.0 / square root of 2.0)

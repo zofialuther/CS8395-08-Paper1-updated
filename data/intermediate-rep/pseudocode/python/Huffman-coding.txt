@@ -1,0 +1,14 @@
+```
+1. Define a class Node with attributes weight, symbol, left, and right
+2. Define a function huffman_tree that takes a dictionary of symbol frequencies as input and returns a Node object
+3. Define a function huffman_table that takes a Node object as input and returns a dictionary of symbol codes
+4. Define a function huffman_encode that takes a byte string as input and returns an iterable of encoded bytes and a Node object
+5. Define a function huffman_decode that takes an iterable of bytes and a Node object as input and returns a byte string
+6. Define a helper function _encode that takes an iterable of integers and a dictionary of symbol codes as input and returns an iterable of encoded bytes
+7. Define a helper function _decode that takes an iterable of strings and a Node object as input and returns an iterable of integers
+8. Define a helper function _word_to_bits that takes a byte string as input and returns a binary representation string
+9. Define a helper function _bits_from_file that takes a BinaryIO object as input and returns an iterable of bit strings
+10. Define a helper function _bits_from_bytes that takes an iterable of bytes as input and returns an iterable of bit strings
+11. Define a main function that demonstrates example usage of the Huffman encoding and decoding functions
+12. Call the main function if the script is run as the main program
+```

@@ -1,0 +1,24 @@
+Pseudocode:
+
+Import required modules: pokerhand, itertools, random
+
+Define class Deck:
+    Initialize method:
+        Set self.__deck as a list comprehension of Card objects using product of face and suit
+    Represent method:
+        Return 'Deck of ' + ' '.join(repr(card) for card in self.__deck)
+    Shuffle method:
+        Not implemented
+    Deal method:
+        Return and remove a random card from self.__deck
+
+If __name__ is '__main__':
+    Create a new deck object
+    Print '40 cards from a deck:'
+    Loop 5 times:
+        Loop 8 times:
+            Print the result of deck.deal()
+        Print a new line
+    Print 'The remaining cards are a', followed by the deck object
+
+End of pseudocode.

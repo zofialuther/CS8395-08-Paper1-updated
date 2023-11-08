@@ -1,0 +1,3 @@
+This code defines a predicate `foo/1` that takes an argument `X` and checks if it is not an integer, in which case it throws an exception indicating that it is not even an integer. If `X` is not between 1 and 10, it throws an exception indicating that it must be between 1 and 10. If `X` passes both checks, it prints a message indicating that it is a valid number.
+
+The `go/1` predicate catches any exceptions thrown by `foo/1` and calls a `handle/1` predicate to handle the exceptions. If the exception is of type `a`, it prints a message. If the exception is of any other type, it re-throws the exception.

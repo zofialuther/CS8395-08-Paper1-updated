@@ -1,0 +1,28 @@
+FUNCTION extractRange(list)
+    result = intercalate(",", f(list))
+    RETURN result
+END FUNCTION
+
+FUNCTION f(list)
+    IF length of list >= 3
+        IF first element + 1 = second element AND second element + 1 = third element
+            rangeStart = first element
+            rangeEnd, remainingList = g(third element + 1, rest of the list)
+            ADD (rangeStart + "-" + rangeEnd) to result
+            RETURN result + f(remainingList)
+        ELSE
+            ADD first element to result
+            RETURN result + f(rest of the list)
+    ELSE IF length of list = 2
+        ADD first element to result
+        RETURN result + f(rest of the list)
+    ELSE
+        RETURN result
+END FUNCTION
+
+FUNCTION g(start, list)
+    IF start = first element of list
+        RETURN g(start + 1, rest of the list)
+    ELSE
+        RETURN start - 1, list
+END FUNCTION

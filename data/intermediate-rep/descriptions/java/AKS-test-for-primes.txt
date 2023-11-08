@@ -1,0 +1,1 @@
+The given code is a Java program that implements the AKS primality test to check for prime numbers. The program includes methods for calculating coefficients, checking for primality, and displaying the polynomial expression for (x-1)^n. The main method runs a loop to test the AKS primality for the first 10 numbers and then prints the prime numbers found.

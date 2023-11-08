@@ -1,0 +1,11 @@
+FUNCTION showMat(mat)
+    result = ""
+    FOR EACH row IN mat
+        line = ""
+        FOR EACH element IN row
+            line = line + " " + element
+        END FOR
+        result = result + line + "\n"
+    END FOR
+    RETURN result
+END FUNCTION

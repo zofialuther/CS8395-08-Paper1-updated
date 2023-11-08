@@ -1,0 +1,43 @@
+```
+START
+  IMPORT BigInteger, InputMismatchException, Scanner
+
+  CLASS IterativeFactorial
+    FUNCTION factorial(n)
+      IF n == null THEN
+        THROW IllegalArgumentException
+      ELSE IF n.signum() == -1 THEN
+        THROW IllegalArgumentException("Argument must be a non-negative integer")
+      ELSE
+        factorial = 1
+        FOR i = 1 TO n
+          factorial = factorial * i
+        RETURN factorial
+      END IF
+    END FUNCTION
+
+    FUNCTION main(args)
+      scanner = new Scanner(System.in)
+      number, result = BigInteger
+      error = false
+      PRINT "FACTORIAL OF A NUMBER"
+      DO
+        PRINT "Enter a number:"
+        TRY
+          number = scanner.nextBigInteger()
+          result = new IterativeFactorial().factorial(number)
+          error = false
+          PRINT "Factorial of " + number + ": " + result
+        CATCH InputMismatchException
+          error = true
+          scanner.nextLine()
+        CATCH IllegalArgumentException
+          error = true
+          scanner.nextLine()
+        END TRY
+      WHILE error
+      scanner.close()
+    END FUNCTION
+  END CLASS
+END
+```

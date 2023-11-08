@@ -1,0 +1,16 @@
+```
+FUNCTION assign_empty_string(Variable)
+    Variable = ""
+
+FUNCTION is_empty_string(String)
+    IF String == ""
+        RETURN True
+    ELSE
+        RETURN False
+
+FUNCTION not_empty_string(String)
+    IF String \== ""
+        RETURN True
+    ELSE
+        RETURN False
+```

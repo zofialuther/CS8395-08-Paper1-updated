@@ -1,0 +1,1 @@
+This code defines a function called nAryCartProd that takes a list of lists as input and returns the Cartesian product of those lists as a list of tuples. It achieves this by using the foldl1 function to apply the cartesianProduct function to the input list of lists.

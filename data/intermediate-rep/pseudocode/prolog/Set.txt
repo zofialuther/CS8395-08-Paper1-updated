@@ -1,0 +1,32 @@
+1. Create an ordered set from a list:
+   - list_to_ord_set([1,2,3,4], A)
+   - list_to_ord_set([2,4,6,8], B)
+
+2. Check if an element is in a set:
+   - ord_memberchk(2, $A)
+
+3. Find the union of two sets:
+   - ord_union($A, $B, Union)
+
+4. Find the intersection of two sets:
+   - ord_intersection($A, $B, Intersection)
+
+5. Find the difference of two sets:
+   - ord_subtract($A, $B, Diff)
+
+6. Check if one set is a subset of another:
+   - ord_subset($A, $B)
+   - ord_subset([2,4], $B)
+
+7. Check if two sets are equal:
+   - $A == $B
+   - $A == [1,2,3,4]
+
+8. Define a proper subset:
+   - ord_propsubset(A, B) :-
+        ord_subset(A, B),
+        \+(A == B)
+
+9. Add or remove elements from a set:
+   - ord_add_element($A, 19, NewA)
+   - ord_del_element($NewA, 3, NewerA)

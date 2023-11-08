@@ -1,0 +1,50 @@
+```
+function main
+  term = Rational.ONE
+  print "First 20 terms of the Calkin-Wilf sequence are:"
+  for i = 1 to 20
+    print i + ": " + term
+    term = nextCalkinWilf(term)
+  end for
+  print ""
+  rational = new Rational(83_116, 51_639)
+  print rational + " is the " + termIndex(rational) + "th term of the sequence."
+end function
+
+function nextCalkinWilf(aTerm)
+  divisor = Rational.TWO.multiply(aTerm.floor()).add(Rational.ONE).subtract(aTerm)
+  return Rational.ONE.divide(divisor)
+end function
+
+function termIndex(aRational)
+  result = 0
+  binaryDigit = 1
+  power = 0
+  for term in continuedFraction(aRational)
+    for i = 0 to term
+      result |= (binaryDigit << power)
+      power = power + 1
+    end for
+    binaryDigit = (binaryDigit == 0) ? 1 : 0
+  end for
+  return result
+end function
+
+function continuedFraction(aRational)
+  numerator = aRational.numerator()
+  denominator = aRational.denominator()
+  result = new ArrayDeque()
+  while numerator != 1
+    result.addLast(numerator / denominator)
+    copyNumerator = numerator
+    numerator = denominator
+    denominator = copyNumerator % denominator
+  end while
+  if result is not empty and result.size() % 2 == 0
+    back = result.removeLast()
+    result.addLast(back - 1)
+    result.addLast(1)
+  end if
+  return result
+end function
+```

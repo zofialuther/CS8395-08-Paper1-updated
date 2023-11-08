@@ -1,0 +1,51 @@
+```
+function prime_partition(N, 1, [N], Min)
+    if is_prime(N) and N > Min
+        return true
+    end if
+end function
+
+function prime_partition(N, K, [P|Rest], Min)
+    if K > 1 and is_prime(P) and P > Min and P < N
+        K1 = K - 1
+        N1 = N - P
+        prime_partition(N1, K1, Rest, P)
+    end if
+end function
+
+function prime_partition(N, K, Primes)
+    prime_partition(N, K, Primes, 1)
+end function
+
+function print_primes([Prime])
+    writef('%w\n', [Prime])
+end function
+
+function print_primes([Prime|Primes])
+    writef('%w + ', [Prime])
+    print_primes(Primes)
+end function
+
+function print_prime_partition(N, K)
+    if prime_partition(N, K, Primes)
+        writef('%w = ', [N])
+        print_primes(Primes)
+    else
+        writef('%w cannot be partitioned into %w primes.\n', [N, K])
+    end if
+end function
+
+function main
+    find_prime_numbers(100000)
+    print_prime_partition(99809, 1)
+    print_prime_partition(18, 2)
+    print_prime_partition(19, 3)
+    print_prime_partition(20, 4)
+    print_prime_partition(2017, 24)
+    print_prime_partition(22699, 1)
+    print_prime_partition(22699, 2)
+    print_prime_partition(22699, 3)
+    print_prime_partition(22699, 4)
+    print_prime_partition(40355, 3)
+end function
+```

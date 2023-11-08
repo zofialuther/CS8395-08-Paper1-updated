@@ -1,0 +1,1 @@
+This code defines a function called insertionSort that takes a list of elements and sorts it using the insertion sort algorithm. It uses the foldr function along with the insert function from the Data.List module to perform the sorting. The example use demonstrates sorting a list of numbers and the expected output.

@@ -1,0 +1,30 @@
+```
+function lexically_equal(S, S, S) {
+    // code for comparing if three elements are lexically equal
+}
+
+function in_order(G, L, G) {
+    // code for comparing if the second element is less than the first element
+}
+
+function test_list(List) {
+    L = List[0]
+    write('for list '), write(List), newline
+    if foldl(lexically_equal, T, L, _) {
+        writeln('The items in the list ARE lexically equal')
+    } else {
+        writeln('The items in the list are NOT lexically equal')
+    }
+    if foldl(in_order, T, L, _) {
+        writeln('The items in the list ARE in ascending order')
+    } else {
+        writeln('The items in the list are NOT in ascending order')
+    }
+    newline
+}
+
+function test() {
+    for each List in los:
+        test_list(List)
+}
+```

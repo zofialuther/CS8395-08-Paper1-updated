@@ -1,0 +1,20 @@
+
+```
+function test() {
+  if (inputList.length == 0) {
+    output = {}
+  } else if (inputList.length == 1) {
+    output = {inputList[0]}
+  } else if (inputList.length == 2) {
+    output = {inputList[0] + " and " + inputList[1]}
+  } else {
+    output = ""
+    for (i = 0; i < inputList.length - 1; i++) {
+      output += inputList[i] + ", "
+    }
+    output += " and " + inputList[inputList.length - 1]
+  }
+  
+  return true
+}
+```

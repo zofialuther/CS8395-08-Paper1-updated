@@ -1,0 +1,34 @@
+```
+function qsort(array, result) {
+  if (array.length === 0) {
+    return result;
+  } else {
+    let H = array[0];
+    let U = array.slice(1);
+    let split = splitBy(H, U);
+    let L = split[0];
+    let R = split[1];
+    let SL = qsort(L, []);
+    let SR = qsort(R, []);
+    return SL.concat([H], SR);
+  }
+}
+
+function splitBy(H, U) {
+  let LS = [];
+  let RS = [];
+  if (U.length === 0) {
+    return [LS, RS];
+  } else {
+    let first = U[0];
+    let rest = U.slice(1);
+    if (first <= H) {
+      LS.push(first);
+    } else {
+      RS.push(first);
+    }
+    let splitRest = splitBy(H, rest);
+    return [LS.concat(splitRest[0]), RS.concat(splitRest[1])];
+  }
+}
+```

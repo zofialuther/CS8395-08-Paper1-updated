@@ -1,0 +1,1 @@
+This code is using the GHCi (Glasgow Haskell Compiler Interactive) to define a function "f" that takes three parameters (as, bs, and sep) and concatenates them together with the separator repeated twice in between. It then demonstrates the function by concatenating the strings "Rosetta" and "Code" with the separator ":" resulting in the output "Rosetta::Code".

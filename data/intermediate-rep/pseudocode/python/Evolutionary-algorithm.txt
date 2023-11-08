@@ -1,0 +1,31 @@
+```
+Import letters from string
+Import choice, random from random
+
+Set target as a list of characters "METHINKS IT IS LIKE A WEASEL"
+Set charset as the concatenation of letters and a space
+Set parent as a list of randomly chosen characters from charset of length equal to target
+Set minmutaterate as 0.09
+Set C as a range from 0 to 99
+
+Set perfectfitness as the float value of the length of the target
+
+Define a function fitness that takes in a trial and returns the sum of matching characters by position between trial and target
+Define a function mutaterate that returns 1 minus the result of (perfectfitness - fitness(parent)) divided by perfectfitness multiplied by (1 - minmutaterate)
+Define a function mutate that takes in a parent and a rate and returns a list of characters where each character is either the same as the parent character or a randomly chosen character from charset based on the rate
+Define a function que that prints the current iteration number, fitness percentage, and the parent list as a string
+Define a function mate that takes in two parents a and b, and returns a and b unchanged if a random number between 0 and 9 is less than 7, otherwise it returns a and b with a random position swap
+
+Set iterations as 0
+Set center as the length of C divided by 2
+While the parent list is not equal to the target list:
+    Set rate as the result of calling mutaterate()
+    Increment iterations by 1
+    If iterations modulo 100 is equal to 0, call que()
+    Set copies as a list of mutated parents based on the rate for each value in C, and the original parent
+    Set parent1 as the maximum fitness parent from the first half of copies
+    Set parent2 as the maximum fitness parent from the second half of copies
+    Set parent as the maximum fitness parent from the result of calling mate with parent1 and parent2
+
+Call que() to print the final result
+```

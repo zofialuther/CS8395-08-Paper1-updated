@@ -1,0 +1,5 @@
+// Check if the file "Abdu'l-Bah\u00E1.txt" exists
+IF the file "Abdu'l-Bah\u00E1.txt" exists
+    RETURN true
+ELSE
+    RETURN false

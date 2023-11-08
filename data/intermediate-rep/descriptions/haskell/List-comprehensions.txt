@@ -1,0 +1,1 @@
+This code generates a list of triplets (x, y, z) where each element satisfies the condition x^2 + y^2 = z^2, using the function triplets with n as a parameter.

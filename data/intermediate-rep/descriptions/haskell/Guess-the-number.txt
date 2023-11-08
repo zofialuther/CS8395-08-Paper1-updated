@@ -1,0 +1,1 @@
+This code uses the System.Random module to generate a random number between 1 and 10, and then initiates a game loop where the user is prompted to guess the number. If the guess is correct, the program displays "You got it!", otherwise it prompts the user to guess again. The game loop continues until the user guesses the correct number.

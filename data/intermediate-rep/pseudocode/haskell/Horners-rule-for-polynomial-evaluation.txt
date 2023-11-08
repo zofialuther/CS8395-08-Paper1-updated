@@ -1,0 +1,8 @@
+horner :: (Num a) => a -> [a] -> a
+horner x coefficients
+    result = 0
+    for each coefficient in reverse order of coefficients
+        result = coefficient + result * x
+    return result
+
+main = print $ horner 3 [-19, 7, -4, 6]

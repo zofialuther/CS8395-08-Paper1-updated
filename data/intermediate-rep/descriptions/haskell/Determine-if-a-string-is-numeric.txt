@@ -1,0 +1,1 @@
+This code defines a function called "areDigits" that checks if all the characters in a given input string are ASCII digits (0-9). It also includes helper functions like "isDigit" for selecting ASCII digits, "isOctDigit" for selecting octal digits (0-7), and "isHexDigit" for selecting hexadecimal digits (0-9, A-F, a-f).

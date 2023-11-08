@@ -1,0 +1,4 @@
+SET dog = 'Benjamin'
+SET Dog = 'Samba'
+SET DOG = 'Bernie'
+PRINT "The three dogs are named " + dog + ", " + Dog + " and " + DOG + "."

@@ -1,0 +1,5 @@
+1. Create a function called commaQuibble that takes a list s as input
+2. Inside the function, return a formatted string using the join method to join the elements of the list with " and " and then replace the last " and " with a comma
+3. The number of replacements is calculated as the length of the list minus 2
+4. Loop through a list of sequences, including an empty list, a list with one element, a list with two elements, and a list with four elements
+5. For each sequence, print the input sequence and the output of the commaQuibble function applied to that sequence.

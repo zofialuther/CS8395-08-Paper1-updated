@@ -1,0 +1,1 @@
+This code defines a FIFO (First In, First Out) data structure called Fifo, which is implemented as a list with two separate lists for input and output. The emptyFifo function creates an empty Fifo. The push function adds an item to the Fifo, while the pop function removes and returns the first item in the Fifo. The isEmpty function checks if the Fifo is empty.

@@ -1,0 +1,1 @@
+This code defines a predicate sym_diff that calculates the symmetric difference of two lists A and B. It first converts the lists into sets to remove any duplicate elements, and then it calculates the set differences A\B and B\A. Finally, it combines the two set differences to obtain the symmetric difference and prints the result.

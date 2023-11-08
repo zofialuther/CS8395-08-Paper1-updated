@@ -1,0 +1,1 @@
+This Python code is for working with Egyptian fractions, which are representations of rational numbers as the sum of unit fractions. The code includes functions for calculating Egyptian fractions, finding maximal values for supplied functions, and testing the results. It also includes generic functions for working with Maybe (option type) values and integer enumeration.

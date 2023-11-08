@@ -1,0 +1,10 @@
+1. Import necessary libraries
+2. Define Expr data type with two constructors
+3. Define function toDoc that takes an Expr and returns a Doc
+4. Define a list ops of tuples containing operators and corresponding functions
+5. Define a function solve that takes an Int and a list of Ints and returns a list of Expr
+6. Inside solve, define a function genAst that takes a list of Ints and returns a list of Expr
+7. Inside solve, define a function eval that takes an Expr and returns a Maybe Int
+8. Define a function select that takes an Int and a list of Ints and returns a list of lists of Ints
+9. Define a function split that takes a list of Ints and returns a list of tuples of two lists of Ints
+10. Define a main function that uses mapM_ to print the result of toDoc for each Expr returned from solve 24 [2,3,8,9]

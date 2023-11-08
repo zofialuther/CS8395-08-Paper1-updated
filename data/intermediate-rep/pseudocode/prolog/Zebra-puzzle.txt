@@ -1,0 +1,11 @@
+```
+Load the clpfd library
+
+Define the zebra predicate:
+    Create 5 lists - Nation, Color, Smoke, Pet, and Drink
+    Define the range of values for each list as 1 to 5
+    Ensure that the values in each list are unique
+    Add actual constraints to the lists
+    Flatten the lists and label the values
+    Sort and print the answers
+```

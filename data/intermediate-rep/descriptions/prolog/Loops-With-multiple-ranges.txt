@@ -1,0 +1,1 @@
+This code defines a range iterator and symbolic lookups for values. It then translates and calculates the sum and product of the values in the generated ranges. The range_value predicate enumerates values for all ranges in order, and the calc_values predicate calculates all values in the generated order to find the sum and product.

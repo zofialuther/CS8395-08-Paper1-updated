@@ -1,0 +1,6 @@
+1. Create a main function
+2. Open the file "/dev/lp0" in write mode and assign it to a variable Printer
+3. Write the string "Hello, world!" to the Printer
+4. Flush the output of the Printer
+5. Close the Printer
+6. End the main function.

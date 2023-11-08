@@ -1,0 +1,5 @@
+FUNCTION pali(testMe)
+    sb = CREATE StringBuilder(testMe)
+    reversedString = sb.reverse().toString()
+    RETURN testMe.equals(reversedString)
+END FUNCTION

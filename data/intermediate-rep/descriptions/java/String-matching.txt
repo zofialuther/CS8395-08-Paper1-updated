@@ -1,0 +1,1 @@
+This code extracts the last few characters from a given string and compares them with a specified suffix to determine if they match.

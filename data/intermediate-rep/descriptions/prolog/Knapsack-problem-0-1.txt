@@ -1,0 +1,1 @@
+This Prolog code implements a knapsack problem solution using constraint logic programming. It defines a list of items with their respective weights and values, and then uses CLP(FD) constraints to find the optimal combination of items to maximize the total value within a weight limit of 400. The code also includes a function to display the results in a readable format.

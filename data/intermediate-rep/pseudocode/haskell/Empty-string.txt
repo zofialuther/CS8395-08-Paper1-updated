@@ -1,0 +1,10 @@
+1. Import the Control.Monad module
+
+2. Define the main function
+   - Initialize a variable "s" with an empty string
+
+3. Use the "when" function to check if the string "s" is empty
+   - If it is empty, print "Empty."
+
+4. Use the "when" function to check if the string "s" is not empty
+   - If it is not empty, print "Not empty."

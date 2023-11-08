@@ -1,0 +1,1 @@
+This code uses the os module to check if a specified directory is empty or not. It prompts the user to input the directory path and then checks if there are any files or subdirectories within that directory. If the directory is not empty, it will print "not empty", otherwise it will print "empty".

@@ -1,0 +1,44 @@
+```
+Start
+  Define getSequence(rlistSize, slistSize)
+    rlist = new ArrayList<Integer>()
+    slist = new ArrayList<Integer>()
+    add 1, 3, 7 to rlist
+    add 2, 4, 5, 6 to slist
+    list = (rlistSize > 0) ? rlist : slist
+    targetSize = (rlistSize > 0) ? rlistSize : slistSize
+    while list.size() > targetSize
+      remove last element from list
+    while list.size() < targetSize
+      lastIndex = rlist.size() - 1
+      lastr = rlist.get(lastIndex)
+      r = lastr + slist.get(lastIndex)
+      add r to rlist
+      for s = lastr + 1 to r
+        if s < r and list.size() < targetSize
+          add s to slist
+    return list
+
+  Define ffr(n)
+    return getSequence(n, 0).get(n - 1)
+
+  Define ffs(n)
+    return getSequence(0, n).get(n - 1)
+
+  Define main(args)
+    Print "R():"
+    for n = 1 to 10
+      Print ffr(n)
+    first40R = new HashSet<Integer>()
+    for n = 1 to 40
+      add ffr(n) to first40R
+    first960S = new HashSet<Integer>()
+    for n = 1 to 960
+      add ffs(n) to first960S
+    for i = 1 to 1000
+      n = i
+      if first40R.contains(n) == first960S.contains(n)
+        Print "Integer " + i + " either in both or neither set"
+    Print "Done"
+End
+```

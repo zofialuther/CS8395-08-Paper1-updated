@@ -1,0 +1,10 @@
+1. Import the necessary modules: Data.Char (toLower) and Data.List ((\\))
+
+2. Define the pangram function that takes a String and returns a Bool:
+   - Convert the input string to lowercase using the map toLower function
+   - Subtract the lowercase alphabet from the input string using the (\\) operator
+   - Check if the result is null (i.e., if all letters of the alphabet are present in the input string)
+
+3. Define the main function:
+   - Call the pangram function with the given test string "How razorback-jumping frogs can level six piqued gymnasts!"
+   - Print the result of the pangram function.

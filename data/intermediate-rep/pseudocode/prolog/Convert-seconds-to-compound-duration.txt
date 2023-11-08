@@ -1,0 +1,38 @@
+```
+Load the clpfd library
+
+Define a predicate compound_time that takes a number N as input
+    Call the times predicate with N and store the result in R
+    Print N followed by a colon
+    Call the write_times predicate with R
+
+Define a predicate write_times that takes a list of time value pairs T as input
+    If T is not an empty list
+        Print the value and time type of the first element in T
+        Call the write_times predicate with the rest of the list T
+    If T contains only one element
+        Print the value and time type of the first and only element in T
+
+Define a predicate times that can take either a number N, a list of time split values, or both as input
+    Create a list TTs containing all time types
+    Call the times predicate with TTs, N, and R
+
+Define a predicate times that takes a list of time split values, a number N, and a list of time value pairs R as input
+    If the list of time split values is empty
+        Set the list of time value pairs R to an empty list
+    If the list of time split values is not empty
+        If the time type Tt and its corresponding divisor Div is the first element in the list of time split values
+            Calculate Val as N divided by Div
+            If Val is less than 1
+                Call the times predicate with the rest of the list of time split values T, N, and Rest
+            If Val is greater than or equal to 1
+                Calculate Rem as N modulo Div
+                Call the times predicate with the rest of the list of time split values T, Rem, and Rest with [[Tt,Val]] appended to the front of Rest
+
+Define the time_type predicate for different time split types
+    Define the time_type predicate for weeks as 60 * 60 * 24 * 7 seconds
+    Define the time_type predicate for days as 60 * 60 * 24 seconds
+    Define the time_type predicate for hours as 60 * 60 seconds
+    Define the time_type predicate for minutes as 60 seconds
+    Define the time_type predicate for seconds as 1 second
+```

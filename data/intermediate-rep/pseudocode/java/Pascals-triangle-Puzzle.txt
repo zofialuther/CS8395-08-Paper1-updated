@@ -1,0 +1,28 @@
+1. Start
+2. Create a main function
+    - Create a new Matrix object with given values
+    - Create a list of Double b with given values
+    - Call the cramersRule function with the matrix and b as parameters and store the result in a list called solution
+    - Print "Solution = " concatenated with the result of calling cramersRule function with matrix and b as parameters
+    - Print "X = " concatenated with the 9th element of the solution list
+    - Print "Y = " concatenated with the 10th element of the solution list
+    - Print "Z = " concatenated with the 11th element of the solution list
+3. Create the cramersRule function
+    - Calculate the determinant of the matrix and store it in a variable called denominator
+    - Create an empty list called result
+    - Iterate through the elements of list b
+        - Add the result of replacing the column of the matrix with the current element of b and calculating the determinant divided by the denominator to the result list
+    - Return the result list
+4. Create a Matrix class
+    - Create a private attribute matrix as a list of lists of Double
+    - Create a toString method that returns the string representation of the matrix
+    - Create a constructor that takes a variable number of lists as parameters and initializes the matrix attribute
+    - Create a constructor that takes a list of lists as parameter and initializes the matrix attribute
+    - Create a determinant method
+        - If the size of the matrix is 1, return the value at index (0, 0)
+        - If the size of the matrix is 2, return the value at index (0, 0) multiplied by the value at index (1, 1) minus the value at index (0, 1) multiplied by the value at index (1, 0)
+        - Otherwise, calculate the sum of the sign multiplied by the value at index (0, i) multiplied by the determinant of the coFactor(0, i) for each column and return the sum
+    - Create a coFactor method that returns a new Matrix object with the co-factor matrix of the given row and column
+    - Create a replaceColumn method that returns a new Matrix object with the column replaced by the given list b
+    - Create a get method that returns the value at the given row and column
+5. End

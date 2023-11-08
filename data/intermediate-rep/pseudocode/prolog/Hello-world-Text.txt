@@ -1,0 +1,2 @@
+OUTPUT "Hello world!" to the console
+MOVE TO NEXT LINE in the console.

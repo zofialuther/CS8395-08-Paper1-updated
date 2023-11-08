@@ -1,0 +1,11 @@
+Pseudocode for insertionSort(List<E> a):
+1. for i = 1 to a.size() - 1 do
+2.    j = absolute value of (binarySearch(a.subList(0, i), a.get(i)) + 1)
+3.    rotate elements in a.subList(j, i+1) by (j - i) positions
+
+Pseudocode for insertionSort(E[] a):
+1. for i = 1 to a.length - 1 do
+2.    x = a[i]
+3.    j = absolute value of (binarySearch(a, 0, i, x) + 1)
+4.    copy elements from a[j] to a[i-1] to a[j+1] to a[i]
+5.    set a[j] = x

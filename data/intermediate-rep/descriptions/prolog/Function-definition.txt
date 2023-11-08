@@ -1,0 +1,1 @@
+This code defines a predicate "go" which calculates the product of 5 and 2 and then uses the "format" predicate to display the result as a message "The product is 10."

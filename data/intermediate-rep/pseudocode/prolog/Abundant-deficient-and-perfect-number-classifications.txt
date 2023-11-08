@@ -1,0 +1,55 @@
+```
+function proper_divisors(N, L) {
+  if (N == 1) {
+    return [1];
+  }
+  let FSQRTN = floor(squareRoot(N));
+  proper_divisors_helper(2, FSQRTN, N, L);
+}
+
+function proper_divisors_helper(M, FSQRTN, N, L) {
+  if (M > FSQRTN) {
+    return;
+  }
+  if (N % M == 0) {
+    let MO = N // M;
+    L.push(M, MO);
+    proper_divisors_helper(M+1, FSQRTN, N, L);
+  } else {
+    proper_divisors_helper(M+1, FSQRTN, N, L);
+  }
+}
+
+function dpa(N, D, P, A) {
+  if (N == 1) {
+    D.push(1);
+    return;
+  }
+  let PN = proper_divisors(N);
+  let SPN = sumList(PN);
+  if (SPN < N) {
+    D.push(N);
+  } else if (SPN > N) {
+    A.push(N);
+  } else {
+    P.push(N);
+  }
+  dpa(N-1, D, P, A);
+}
+
+function dpa(N) {
+  let D = [];
+  let P = [];
+  let A = [];
+  let T0 = cpuTime();
+  dpa(N, D, P, A);
+  let Dur = cpuTime() - T0;
+  let LD = D.length;
+  let LP = P.length;
+  let LA = A.length;
+  print("deficient: " + LD);
+  print("abundant: " + LA);
+  print("perfect: " + LP);
+  print("took " + Dur + " seconds");
+}
+```

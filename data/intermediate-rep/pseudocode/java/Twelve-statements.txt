@@ -1,0 +1,98 @@
+```
+class LogicPuzzle {
+    boolean S[] = new boolean[13];
+    int Count = 0;
+    
+    function check2 () {
+        count = 0;
+        for (int k = 7; k <= 12; k++)
+            if (S[k]) count++;
+        return S[2] == (count == 3);
+    }
+
+    function check3 () {
+        count = 0;
+        for (int k = 2; k <= 12; k += 2)
+            if (S[k]) count++;
+        return S[3] == (count == 2);
+    }
+
+    function check4 () {
+        return S[4] == ( !S[5] || S[6] && S[7]);
+    }
+
+    function check5 () {
+        return S[5] == ( !S[2] && !S[3] && !S[4]);
+    }
+
+    function check6 () {
+        count = 0;
+        for (int k = 1; k <= 11; k += 2)
+            if (S[k]) count++;
+        return S[6] == (count == 4);
+    }
+
+    function check7 () {
+        return S[7] == ((S[2] || S[3]) && !(S[2] && S[3]));
+    }
+
+    function check8 () {
+        return S[8] == ( !S[7] || S[5] && S[6]);
+    }
+
+    function check9 () {
+        count = 0;
+        for (int k = 1; k <= 6; k++)
+            if (S[k]) count++;
+        return S[9] == (count == 3);
+    }
+
+    function check10 () {
+        return S[10] == (S[11] && S[12]);
+    }
+
+    function check11 () {
+        count = 0;
+        for (int k = 7; k <= 9; k++)
+            if (S[k]) count++;
+        return S[11] == (count == 1);
+    }
+
+    function check12 () {
+        count = 0;
+        for (int k = 1; k <= 11; k++)
+            if (S[k]) count++;
+        return S[12] == (count == 4);
+    }
+
+    function check () {
+        if (check2() && check3() && check4() && check5() && check6()
+            && check7() && check8() && check9() && check10() && check11()
+            && check12()) {
+            for (int k = 1; k <= 12; k++)
+                if (S[k]) print(k + " ");
+            println();
+            Count++;
+        }
+    }
+
+    function recurseAll (int k) {
+        if (k == 13)
+            check();
+        else {
+            S[k] = false;
+            recurseAll(k + 1);
+            S[k] = true;
+            recurseAll(k + 1);
+        }
+    }
+
+    function main (String args[]) {
+        LogicPuzzle P = new LogicPuzzle();
+        P.S[1] = true;
+        P.recurseAll(2);
+        println();
+        println(P.Count + " Solutions found.");
+    }
+}
+```

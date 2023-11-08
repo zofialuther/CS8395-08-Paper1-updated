@@ -1,0 +1,11 @@
+1. Import necessary modules: Graphics.UI.Gtk, Control.Monad
+
+2. Define a function called messDialog
+
+3. Inside the messDialog function:
+   - Call the initGUI function to initialize the GTK GUI
+   - Create a new message dialog with the message "Goodbye, World!" and type MessageInfo with Ok button using messageDialogNew
+   - Run the dialog and store the response in rs
+   - Check if the response is Ok or if the dialog was closed, and if so, destroy the dialog
+   - Set the onDestroy event for the dialog to call mainQuit to quit the main GUI
+   - Call mainGUI to start the main GTK event loop.

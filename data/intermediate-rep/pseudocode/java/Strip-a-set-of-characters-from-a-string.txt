@@ -1,0 +1,7 @@
+FUNCTION stripCharacters
+    PARAMETER string, characters
+    FOR EACH character IN characters
+        string = string.replace(character, "")
+    END FOR
+    RETURN string
+END FUNCTION

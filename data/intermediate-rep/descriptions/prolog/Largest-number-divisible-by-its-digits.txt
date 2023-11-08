@@ -1,0 +1,7 @@
+This code is designed to find the largest integer that is divisible by all of its digits, with no digit repeated. It utilizes a generic algorithm to achieve this. The algorithm calculates the least common multiple for all digits and tests whether a candidate number can be divided by the least common multiple without remainder, in order to determine validity.
+
+Instead of iterating through numbers and checking for repeating digits, the code uses a more efficient method of generating permutations of digits and then converting them to numbers. This helps to reduce the search space significantly.
+
+The code includes additional notes on potential optimizations for decimal numbers and hexadecimal numbers, as well as details on how odd numbers are handled in the algorithm.
+
+Overall, the code aims to efficiently find the largest integer that meets the specified criteria.

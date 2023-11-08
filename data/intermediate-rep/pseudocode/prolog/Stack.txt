@@ -1,0 +1,13 @@
+
+function push(ELEMENT, STACK, NEW)
+    NEW = [ELEMENT|STACK]
+
+function pop(STACK, TOP, NEW)
+    TOP = STACK[0]
+    NEW = STACK[1:]
+
+function empty(STACK)
+    if STACK is empty then
+        return True
+    else
+        return False

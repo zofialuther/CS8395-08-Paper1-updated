@@ -1,0 +1,1 @@
+This code first tries to use the raw_input function, but if it isn't available (which is the case in Python 3), it uses the input function instead. It then takes input from the user, splits it into numbers, converts them to integers, and then calculates the sum of the integers. Finally, it prints the sum.

@@ -1,0 +1,22 @@
+function cocktailSort(A: array of integers)
+   swapped = true
+   while swapped
+       swapped = false
+       for i from 0 to length(A) - 2
+           if A[i] > A[i + 1]
+               temp = A[i]
+               A[i] = A[i + 1]
+               A[i + 1] = temp
+               swapped = true
+       if not swapped
+           break
+       swapped = false
+       for i from length(A) - 2 downto 0
+           if A[i] > A[i + 1]
+               temp = A[i]
+               A[i] = A[i + 1]
+               A[i + 1] = temp
+               swapped = true
+       end for
+   end while
+end function

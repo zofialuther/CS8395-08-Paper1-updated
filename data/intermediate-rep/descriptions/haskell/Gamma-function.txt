@@ -1,0 +1,1 @@
+This code defines a function `gammaln` that calculates the natural logarithm of the gamma function for a given input. It uses a list of coefficients `cof` and a constant `ser` to perform the calculation. The main function then applies the `gammaln` function to a list of values between 0.1 and 1.0 and prints the results.

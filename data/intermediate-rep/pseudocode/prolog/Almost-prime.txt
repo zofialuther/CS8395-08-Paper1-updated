@@ -1,0 +1,63 @@
+```
+function nPrimes(M, Primes) {
+  nPrimes([2], M, Primes);
+}
+
+function nPrimes(Accumulator, I, Primes) {
+  let Prime = next_prime(Accumulator);
+  let Next = append(Accumulator, [Prime]);
+  let N = length(Next);
+  if (N === I) {
+    Primes = Next;
+  } else {
+    nPrimes(Next, I, Primes);
+  }
+}
+
+function next_prime(Primes) {
+  if (Primes === [2]) {
+    return 3;
+  } else {
+    let PP = last(Primes);
+    let P2 = PP + 2;
+    let N = generate(P2);
+    if (N % 2 === 1) {
+      let Max = floor(sqrt(N + 1));
+      let isPrime = true;
+      for (let i = 2; i <= Max; i++) {
+        if (N % i === 0) {
+          isPrime = false;
+          break;
+        }
+      }
+      if (isPrime) {
+        return N;
+      }
+    }
+  }
+}
+
+function multiply(A, List, Answer) {
+  if (List === []) {
+    return [];
+  } else {
+    let AX = A * List[0];
+    let As = multiply(A, List.slice(1));
+    return [AX].concat(As);
+  }
+}
+
+function multiplylist(L1, L2, List) {
+  if (L1 === []) {
+    return [];
+  } else {
+    let L1Result = multiply(L1[0], L2);
+    let L2Result = multiplylist(L1.slice(1), L2);
+    return L1Result.concat(L2Result);
+  }
+}
+
+function take(N, List, Head) {
+  Head = List.slice(0, N);
+}
+```

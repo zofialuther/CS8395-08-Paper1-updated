@@ -1,0 +1,3 @@
+This Python code uses the `functools` library to define a `mandelbrot` function and a `step` function. The `mandelbrot` function calculates the Mandelbrot set for a given complex number, while the `step` function generates a sequence of numbers based on a start value, step size, and number of iterations.
+
+The code then uses the `mandelbrot` and `step` functions to create a grid of points and determine whether each point is part of the Mandelbrot set. It then prints the grid as an ASCII representation of the Mandelbrot set, with '*' representing points in the set and ' ' representing points outside the set.

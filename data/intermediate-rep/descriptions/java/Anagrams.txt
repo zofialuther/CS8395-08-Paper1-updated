@@ -1,0 +1,1 @@
+This Java code defines an interface for finding anagrams in a given list of words. It includes methods for handling resources, creating functions, and a main method that uses a URL to fetch a list of words, then processes them to find anagrams and prints the results. The code makes use of concurrent data structures for efficiency.

@@ -1,0 +1,44 @@
+```
+function main():
+    print(take(8)(happyNumbers()))
+
+function happyNumbers():
+    x = 1
+    while True:
+        x = until(isHappy)(succ)(x)
+        yield x
+        x = succ(x)
+
+function isHappy(n):
+    seen = set()
+
+    function p(x):
+        if 1 == x or x in seen:
+            return True
+        else:
+            seen.add(x)
+            return False
+
+    function f(x):
+        return sum(int(d)**2 for d in str(x))
+
+    return 1 == until(p)(f)(n)
+
+function succ(x):
+    return 1 + x
+
+function take(n, xs):
+    if xs is a list:
+        return xs[0:n]
+    else:
+        return list(islice(xs, n))
+
+function until(p, f, x):
+    v = x
+    while not p(v):
+        v = f(v)
+    return v
+
+if __name__ == '__main__':
+    main()
+```

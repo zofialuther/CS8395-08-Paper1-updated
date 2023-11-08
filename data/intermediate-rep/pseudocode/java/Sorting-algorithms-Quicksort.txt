@@ -1,0 +1,10 @@
+FUNCTION sort(List col)
+    IF col is null OR col is empty
+        RETURN empty list
+    ELSE
+        SET pivot to col.get(0)
+        SET grouped to col.stream().collect(Collectors.groupingBy(pivot::compareTo))
+        RETURN Stream.of(sort(grouped.get(1)), grouped.get(0), sort(grouped.get(-1)))
+            .flatMap(Collection::stream).collect(Collectors.toList)
+    END IF
+END FUNCTION

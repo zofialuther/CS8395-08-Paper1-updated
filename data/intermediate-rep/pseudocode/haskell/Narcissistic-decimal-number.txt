@@ -1,0 +1,61 @@
+```
+FUNCTION narcissiOfLength
+  PARAMETER nDigits
+  LET powers = map((_, (x) => x ^ nDigits), [0..9])
+  LET go = (n, parents) => 
+    IF n > 0 THEN
+      CALL go(pred(n), f(parents))
+    ELSE
+      RETURN filter(isDaffodil(nDigits, snd), parents)
+    END IF
+  END FUNCTION
+
+FUNCTION f
+  PARAMETER parents
+  IF parents is empty THEN
+    RETURN powers
+  ELSE
+    RETURN parents.flatMap((d, pwrSum) => map((_, pwrSum +), powers.slice(0, d + 1)))
+  END IF
+END FUNCTION
+
+FUNCTION isDaffodil
+  PARAMETER e, n
+  RETURN e == length(digitList(n)) AND n == powerSum(e, digitList(n))
+END FUNCTION
+
+FUNCTION powerSum
+  PARAMETER n, list
+  LET result = 0
+  FOR EACH number IN list
+    SET result = result + (number ^ n)
+  END FOR
+  RETURN result
+END FUNCTION
+
+FUNCTION digitList
+  PARAMETER n
+  IF n == 0 THEN
+    RETURN [0]
+  ELSE
+    LET result = []
+    LET x = n
+    WHILE x > 0
+      ADD rem(x, 10) TO result
+      SET x = quot(x, 10)
+    END WHILE
+    RETURN result
+  END IF
+END FUNCTION
+
+FUNCTION main
+  PRINT fTable("Narcissistic decimal numbers of length 1-7:\n", show, show, narcissiOfLength, [1..7])
+END FUNCTION
+
+FUNCTION fTable
+  PARAMETER s, xShow, fxShow, f, xs
+  LET rjust = (n, c) => (string) => drop(c.length, replicate(n, c) + string)
+  LET w = maximum(map(x => length(xShow(x)), xs))
+  RETURN unlines([s, ...map(x => rjust(w, ' ')(xShow(x)) + " -> " + fxShow(f(x)), xs)])
+END FUNCTION
+```

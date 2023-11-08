@@ -1,0 +1,1 @@
+This Prolog code defines a predicate "lis" that takes a list as input and outputs the longest increasing subsequence of that list. The code first uses the "one_is" predicate to find all increasing subsequences, then uses the "aggregate" predicate to find the maximum length subsequence. Finally, it reverses the resulting subsequence and outputs it as the "Out" parameter.

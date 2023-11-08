@@ -1,0 +1,1 @@
+This Java code uses the Sieve of Eratosthenes algorithm to generate a list of prime numbers up to a given limit. It then finds groups of successive prime numbers with specified differences and prints out the results. The main method demonstrates the functionality by finding successive prime groups for a range of difference values.

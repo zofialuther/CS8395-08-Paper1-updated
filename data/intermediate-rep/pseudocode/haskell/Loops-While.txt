@@ -1,0 +1,14 @@
+START
+  Import Control.Monad (when)
+
+  Function main
+    SET n to 1024
+    CALL loop with n as argument
+
+  Function loop with parameter n
+    IF n > 0 THEN
+      PRINT n
+      CALL loop with n divided by 2 as argument
+    END IF
+  END Function
+END

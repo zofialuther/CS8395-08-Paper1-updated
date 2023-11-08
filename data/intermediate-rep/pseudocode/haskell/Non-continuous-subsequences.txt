@@ -1,0 +1,8 @@
+1. Define a function called disjoint that takes a list 'a' as input.
+2. Use concatMap to iterate through the list of integers from 1 to the length of 'a' - 2.
+3. For each element 'n' in the list of integers, define a function cutAt that takes a list 's' and an integer 'n' as input.
+4. Inside cutAt, define 'left' and 'right' by splitting the list 's' at index 'n'.
+5. Use delete to remove the empty list from the list of subsequences of 'right'.
+6. Use init and tails to generate all possible combinations of 'a' and 'b'.
+7. Concatenate the results of cutAt and return the final list of disjoint subsequences.
+8. Define the main function to print the length of the result of disjoint function with input [1..20].

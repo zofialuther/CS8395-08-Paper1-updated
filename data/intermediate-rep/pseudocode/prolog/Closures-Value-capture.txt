@@ -1,0 +1,18 @@
+```
+import lambda module
+
+function closure:
+    Lnum = generate list of numbers from 1 to 10
+    Lfunc = empty list
+    for each number in Lnum:
+        create a function using make_func and add it to Lfunc
+    for each number and function in Lnum and Lfunc:
+        call the function and print the result
+
+function make_func(I, \X^(X is I*I)):
+    create a function that takes X as input and returns the square of I
+
+function call_func(N, F):
+    R = call function F
+    print "Func N : R"
+```

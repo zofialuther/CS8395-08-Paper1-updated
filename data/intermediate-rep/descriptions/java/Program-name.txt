@@ -1,0 +1,1 @@
+This Java program retrieves the name of the currently running program and prints it to the console. It uses the System.getProperty method to get the command used to start the Java application, and then splits it to extract the program name. Finally, it outputs the program name to the console.

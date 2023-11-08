@@ -1,0 +1,82 @@
+FUNCTION main
+    OUTPUT new TruthTable(args)
+END FUNCTION
+
+CLASS TruthTable
+    DATA:
+        - variables: List<String>
+        - symbols: String[]
+
+    FUNCTION TruthTable(symbols)
+        SET variables = new LinkedHashSet<String>()
+        FOR EACH symbol in symbols
+            IF operators does not contain symbol THEN
+                ADD symbol to variables
+            END IF
+        END FOR EACH
+        SET this.variables = new ArrayList<String>(variables)
+        SET this.symbols = symbols
+    END FUNCTION
+
+    FUNCTION toString
+        SET result = new StringBuilder()
+        FOR EACH variable in variables
+            result.append(variable).append(' ')
+        END FOR EACH
+        result.append(' ')
+        FOR EACH symbol in symbols
+            result.append(symbol).append(' ')
+        END FOR EACH
+        result.append('\n')
+        FOR EACH values in enumerate(size of variables)
+            SET i = iterator for variables
+            FOR EACH value in values
+                result.append(String.format("%-" + i.next().length() + "c ", value ? 'T' : 'F'))
+            END FOR EACH
+            result.append(' ')
+            result.append(evaluate(values) ? 'T' : 'F')
+            result.append('\n')
+        END FOR EACH
+        RETURN result.toString()
+    END FUNCTION
+
+    FUNCTION enumerate(size)
+        IF size is 1
+            RETURN new ArrayList<List<Boolean>>() {{ add(new ArrayList<Boolean>() {{ add(false); }}); add(new ArrayList<Boolean>() {{ add(true); }}); }}
+        END IF
+        RETURN new ArrayList<List<Boolean>>() {{
+            FOR EACH head in enumerate(size - 1)
+                add(new ArrayList<Boolean>(head) {{ add(false); }})
+                add(new ArrayList<Boolean>(head) {{ add(true); }})
+            END FOR EACH
+        }}
+    END FUNCTION
+
+    FUNCTION evaluate(enumeration)
+        SET i = iterator for enumeration
+        SET values = new HashMap<String,Boolean>()
+        SET stack = new Stack<Boolean>()
+        FOR EACH variable in variables
+            values.put(variable, i.next())
+        END FOR EACH
+        FOR EACH symbol in symbols
+            SET op = operators.get(symbol)
+            stack.push(
+                IF op is null
+                    THEN values.get(symbol)
+                    ELSE op.evaluate(stack)
+            )
+        END FOR EACH
+        RETURN stack.pop()
+    END FUNCTION
+END CLASS
+
+INTERFACE Operator
+    FUNCTION evaluate(Stack<Boolean> s)
+END INTERFACE
+
+DECLARE operators as Map<String,Operator>
+operators.put("&", stack -> Boolean.logicalAnd(stack.pop(), stack.pop()))
+operators.put("|", stack -> Boolean.logicalOr(stack.pop(), stack.pop()))
+operators.put("!", stack -> !stack.pop())
+operators.put("^", stack -> !stack.pop().equals(stack.pop()))

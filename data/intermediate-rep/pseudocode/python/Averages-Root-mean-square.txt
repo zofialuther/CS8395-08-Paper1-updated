@@ -1,0 +1,7 @@
+1. Import the sqrt function from the math module
+2. Define a function named qmean that takes a list of numbers, num, as input
+3. Inside the qmean function, calculate the sum of the squares of each number in the input list using a generator expression
+4. Divide the sum by the length of the input list to get the mean
+5. Use the sqrt function to calculate the square root of the mean
+6. Return the square root as the result of the qmean function
+7. Call the qmean function with a range of numbers from 1 to 10 and print the result.

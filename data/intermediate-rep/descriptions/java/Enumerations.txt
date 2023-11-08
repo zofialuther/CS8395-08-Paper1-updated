@@ -1,0 +1,1 @@
+This code defines an enum type called Fruits that contains three constants: APPLE, BANANA, and CHERRY. This enum can be used to represent different types of fruits in a program, providing a convenient way to manage and access these values.

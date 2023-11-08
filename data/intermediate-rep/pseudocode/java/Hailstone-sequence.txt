@@ -1,0 +1,85 @@
+```
+function getHailstoneSequence(n)
+  if n <= 0 then
+    throw IllegalArgumentException with message "Invalid starting sequence number"
+  end if
+  list = create a new ArrayList of type Long
+  list.add(n)
+  while n is not equal to 1 do
+    if n AND 1 is equal to 0 then
+      n = n / 2
+    else
+      n = 3 * n + 1
+    end if
+    list.add(n)
+  end while
+  return list
+end function
+
+function main()
+  sequence27 = getHailstoneSequence(27)
+  print "Sequence for 27 has " + sequence27.size() + " elements: " + sequence27
+  
+  MAX = 100000
+  highestNumber1 = 1
+  highestCount1 = 1
+  for i = 2 to MAX - 1 do
+    count = getHailstoneSequence(i).size()
+    if count > highestCount1 then
+      highestCount1 = count
+      highestNumber1 = i
+    end if
+  end for
+  print "Method 1, number " + highestNumber1 + " has the longest sequence, with a length of " + highestCount1
+
+  highestNumber2 = 1
+  highestCount2 = 1
+  for i = 2 to MAX - 1 do
+    count = 1
+    n = i
+    while n is not equal to 1 do
+      if n AND 1 is equal to 0 then
+        n = n / 2
+      else
+        n = 3 * n + 1
+      end if
+      count = count + 1
+    end while
+    if count > highestCount2 then
+      highestCount2 = count
+      highestNumber2 = i
+    end if
+  end for
+  print "Method 2, number " + highestNumber2 + " has the longest sequence, with a length of " + highestCount2
+
+  highestNumber3 = 1
+  highestCount3 = 1
+  sequenceMap = create a new HashMap of type Long to Integer
+  sequenceMap.put(1, 1)
+  currentList = create a new ArrayList of type Long
+  for i = 2 to MAX - 1 do
+    currentList.clear()
+    n = i
+    count = sequenceMap.get(n)
+    while count is null do
+      currentList.add(n)
+      if n AND 1 is equal to 0 then
+        n = n / 2
+      else
+        n = 3 * n + 1
+      end if
+      count = sequenceMap.get(n)
+    end while
+    curCount = count
+    for j = currentList.size() - 1 down to 0 do
+      sequenceMap.put(currentList.get(j), curCount + 1)
+      curCount = curCount + 1
+    end for
+    if curCount > highestCount3 then
+      highestCount3 = curCount
+      highestNumber3 = i
+    end if
+  end for
+  print "Method 3, number " + highestNumber3 + " has the longest sequence, with a length of " + highestCount3
+end function
+```

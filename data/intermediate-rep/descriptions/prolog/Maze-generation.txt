@@ -1,0 +1,1 @@
+This Prolog code generates a window displaying a maze grid with a specified number of rows and columns. The code then proceeds to randomly choose a cell as the starting point and uses a search algorithm to create a maze by erasing lines between adjacent cells. The process continues until all cells are visited, resulting in a complete maze displayed in the window.

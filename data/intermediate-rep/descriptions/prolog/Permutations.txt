@@ -1,0 +1,1 @@
+This Prolog code defines a predicate permut_Prolog that takes two lists as input and checks if the first list is a permutation of the second list. It achieves this by recursively selecting elements from the second list and checking if the remaining elements form a permutation of the remaining elements in the first list.

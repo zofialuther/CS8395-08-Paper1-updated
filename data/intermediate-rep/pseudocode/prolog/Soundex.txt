@@ -1,0 +1,66 @@
+```
+function creplace(Ch, 0'1) 
+  if member(Ch, "bfpv")
+function creplace(Ch, 0'2) 
+  if member(Ch, "cgjkqsxz")
+function creplace(Ch, 0'3) 
+  if member(Ch, "dt")
+function creplace(0'l, 0'4)
+function creplace(Ch, 0'5) 
+  if member(Ch, "mn")
+function creplace(0'r, 0'6)
+
+function strip(Set, [H|T], Tr) 
+  if memberchk(H, Set) 
+    strip(Set, T, Tr)
+  else
+    strip(Set, T, Tr)
+
+function consonants([H|T], [Ch|Tr]) 
+  creplace(H, Ch)
+  consonants(T, Tr)
+function consonants([H|T], [H|Tr]) 
+  consonants(T, Tr)
+function consonants([], [])
+
+function adjacent([Ch, Ch|T], [Ch|Tr]) 
+  if between(0'0, 0'9, Ch) 
+    adjacent(T, Tr)
+  else
+    adjacent(T, Tr)
+function adjacent([H|T], [H|Tr]) 
+  adjacent(T, Tr)
+function adjacent([], [])
+
+function chk_digit([H,D|T], [H|T]) 
+  if between(0'0, 0'9, D) 
+    chk_digit([_,H|T], [H|T])
+
+function do_soundex([H|T], Res) 
+  strip("hw", T, Ts)
+  consonants([H|Ts], Tc)
+  adjacent(Tc, [C|Ta])
+  strip("aeiouy", Ta, Tv)
+  chk_digit([H,C|Tv], Td)
+  append(Td, "0000", Tr)
+  atom_codes(Tf, Tr)
+  sub_string(Tf, 0, 4, _, Res)
+
+function soundex(Text, Res) 
+  downcase_atom(Text, Lower)
+  atom_codes(Lower, T)
+  do_soundex(T, Res)
+
+function test(S,V) 
+  if not(soundex(S,V)) 
+    writef('%w failed\n', [S])
+
+function test() 
+  test('Robert', 'r163')
+  test('Rupert', 'r163')
+  test('Rubin', 'r150')
+  test('Ashcroft', 'a261')
+  test('Ashcraft', 'a261')
+  test('Tymczak', 't522')
+  test('Pfister', 'p236')
+```

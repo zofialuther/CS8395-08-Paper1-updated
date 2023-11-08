@@ -1,0 +1,1 @@
+This code defines a function called entropy that calculates the entropy of a given string based on the frequency of each character. It uses the log2 function from the math module to perform the calculations and the Counter class from the collections module to count the frequency of each character in the string. The result is then printed for the input string "1223334444".

@@ -1,0 +1,15 @@
+```
+1. Define a list of animals
+2. Define a list of elements
+3. Define a list of animal characters
+4. Define a list of element characters
+5. Define a list of years
+6. Define a predicate to determine the animal for a given year
+7. Define a predicate to determine the element for a given year
+8. Define a predicate to determine the animal character for a given year
+9. Define a predicate to determine the element character for a given year
+10. Define a predicate to determine the yin or yang for a given year
+11. Define the main function
+12. In the main function, iterate through each year in the list of years
+13. For each year, print the year, the element, the animal, the yin or yang, the element character, and the animal character
+```

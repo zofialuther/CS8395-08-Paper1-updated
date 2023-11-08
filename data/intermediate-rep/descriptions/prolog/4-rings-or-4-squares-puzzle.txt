@@ -1,0 +1,5 @@
+This Prolog code uses the Constraint Logic Programming over Finite Domains (CLPFD) library to define a main predicate my_sum, which takes a minimum value, maximum value, a top value, and a list of lists as input. Inside the predicate, a list L is defined with seven variables, which are constrained to be within the specified minimum and maximum values. Depending on the value of Top, the variables in the list L are either required to be distinct or not. Then, a series of arithmetic constraints are applied to the variables in L. Finally, the predicate uses the setof/3 built-in predicate to find all possible solutions for L and store them in the output list LL.
+
+Additionally, two helper predicates my_sum_1 and my_sum_2 are defined, which call the main predicate my_sum with different values for the top parameter and manipulate the resulting list of lists in different ways.
+
+Overall, this code performs arithmetic operations and constraint satisfaction using CLPFD to find all possible solutions to a set of constraints and store them in a list of lists.

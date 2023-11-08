@@ -1,0 +1,33 @@
+```
+Class CartesianProduct
+  Method product(List<List<V>> lists)
+    product = new ArrayList<List<V>>()
+    product(product, new ArrayList<V>(), lists)
+    return product
+
+  Method product(List<List<V>> result, List<V> existingTupleToComplete, List<List<V>> valuesToUse)
+    for value in valuesToUse.get(0)
+      newExisting = new ArrayList(existingTupleToComplete)
+      newExisting.add(value)
+      if valuesToUse.size() == 1
+        result.add(newExisting)
+      else
+        newValues = new ArrayList<List<V>>()
+        for i = 1 to valuesToUse.size() - 1
+          newValues.add(valuesToUse.get(i))
+        product(result, newExisting, newValues)
+
+Main
+  list1 = new ArrayList(Arrays.asList(new Integer[] { 1776, 1789 }))
+  list2 = new ArrayList(Arrays.asList(new Integer[] { 7, 12 }))
+  list3 = new ArrayList(Arrays.asList(new Integer[] { 4, 14, 23 }))
+  list4 = new ArrayList(Arrays.asList(new Integer[] { 0, 1 }))
+  input = new ArrayList<List<Integer>>()
+  input.add(list1)
+  input.add(list2)
+  input.add(list3)
+  input.add(list4)
+  cartesianProduct = new CartesianProduct<Integer>()
+  product = cartesianProduct.product(input)
+  print(product)
+```

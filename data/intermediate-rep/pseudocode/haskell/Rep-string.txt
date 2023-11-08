@@ -1,0 +1,9 @@
+Pseudocode:
+1. Define the function repCycles with input parameter cs of type String and output type [String]
+2. Inside the function, filter the list of strings by a condition that checks if the input string cs is equal to the first n characters of the cyclic repetition of each string, where n is the length of cs.
+3. Use the functions take, cycle, tail, inits, quot, and length to achieve the filtering condition.
+4. Define the main function of type IO ()
+5. Inside the main function, use putStrLn to print the result of calling the fTable function with specific input parameters.
+6. Define the fTable function with input parameters s, xShow, fxShow, f, and xs, and output type String.
+7. Inside the fTable function, use let to define a helper function rjust and calculate the maximum length of the string representations of the input list xs.
+8. Use unlines to concatenate the input string s with the mapped results of applying the functions xShow, fxShow, and f to the input list xs.

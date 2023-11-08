@@ -1,0 +1,1 @@
+This is a Python function that calculates the greatest common divisor (GCD) of two numbers using the Euclidean algorithm. It takes two parameters, u and v, and returns the GCD of the two numbers. The function uses recursion to continually calculate the GCD until v becomes 0, at which point it returns the absolute value of u.

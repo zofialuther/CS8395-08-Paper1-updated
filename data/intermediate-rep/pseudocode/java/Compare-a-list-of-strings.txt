@@ -1,0 +1,8 @@
+function allEqual(strings)
+    stringA = strings[0]
+    for each string in strings
+        if string is not equal to stringA
+            return false
+    end for
+    return true
+end function

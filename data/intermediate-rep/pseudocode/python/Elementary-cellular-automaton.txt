@@ -1,0 +1,28 @@
+```
+FUNCTION eca(cells, rule):
+    lencells = LENGTH(cells)
+    c = "0" + cells + "0"    # Zero pad the ends
+    rulebits = CONVERT rule TO 8-bit binary
+    neighbours2next = CREATE DICTIONARY
+        FOR n IN RANGE(8):
+            neighbours2next['{0:03b}'.format(n)] = rulebits REVERSED AT INDEX n
+    YIELD c[1:-1]
+    WHILE True:
+        c = ''
+        FOR i IN RANGE(1, lencells+1):
+            c = c + neighbours2next[c[i-1:i+2]]
+        c = '0' + c + '0'
+        YIELD c[1:-1]
+
+IF __name__ EQUALS '__main__':
+    lines, start, rules = 50, '0000000001000000000', (90, 30, 122)
+    zipped = CREATE LIST
+        ADD RANGE(lines)
+        FOR rule IN rules:
+            ADD eca(start, rule)
+    PRINT('\n   Rules: %r' % (rules,))
+    FOR data IN ZIP(*zipped):
+        i = data[0]
+        cells = data[1:]
+        PRINT('%2i: %s' % (i, '    '.join(cells).replace('0', '.').replace('1', '#')))
+```

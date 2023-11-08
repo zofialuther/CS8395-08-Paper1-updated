@@ -1,0 +1,63 @@
+FUNCTION is_prime(n)
+    IF n < 2 THEN
+        RETURN false
+    END IF
+    IF n % 2 == 0 THEN
+        RETURN n == 2
+    END IF
+    IF n % 3 == 0 THEN
+        RETURN n == 3
+    END IF
+    d = 5
+    WHILE d * d <= n DO
+        IF n % d == 0 THEN
+            RETURN false
+        END IF
+        d += 2
+        IF n % d == 0 THEN
+            RETURN false
+        END IF
+        d += 4
+    END WHILE
+    RETURN true
+END FUNCTION
+
+FUNCTION count_prime_factors(n)
+    IF n == 1 THEN
+        RETURN 0
+    END IF
+    IF is_prime(n) THEN
+        RETURN 1
+    END IF
+    count = 0
+    f = 2
+    WHILE true DO
+        IF n % f == 0 THEN
+            count++
+            n /= f
+            IF n == 1 THEN
+                RETURN count
+            END IF
+            IF is_prime(n) THEN
+                f = n
+            END IF
+        ELSE 
+            IF f >= 3 THEN
+                f += 2
+            ELSE 
+                f = 3
+            END IF
+        END IF
+    END WHILE
+END FUNCTION
+
+FUNCTION main()
+    max = 120
+    PRINT "The attractive numbers up to and including " + max + " are:"
+    FOR i = 1 TO max DO
+        n = count_prime_factors(i)
+        IF is_prime(n) THEN
+            PRINT i
+        END IF
+    END FOR
+END FUNCTION

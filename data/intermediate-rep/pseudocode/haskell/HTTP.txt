@@ -1,0 +1,8 @@
+1. Import necessary modules: Network.Browser, Network.HTTP, Network.URI
+
+2. Define the main function:
+   - Set rsp to the result of browsing the specified URL using Network.Browser.browse
+   - Set allowRedirects to True
+   - Set the output handler to a function that returns without doing anything
+   - Make a request to get the specified URL using getRequest
+   - Print the response body of the second element of the rsp tuple using putStrLn

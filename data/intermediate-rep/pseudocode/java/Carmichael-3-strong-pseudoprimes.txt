@@ -1,0 +1,48 @@
+```
+FUNCTION mod(n, m)
+    RETURN ((n MOD m) + m) MOD m
+END FUNCTION
+
+FUNCTION isPrime(n)
+    IF (n = 2) OR (n = 3) THEN
+        RETURN True
+    ELSE IF (n < 2) OR (n MOD 2 = 0) OR (n MOD 3 = 0) THEN
+        RETURN False
+    END IF
+    div = 5
+    inc = 2
+    WHILE (div^2 <= n)
+        IF (n MOD div = 0) THEN
+            RETURN False
+        END IF
+        div = div + inc
+        inc = 6 - inc
+    END WHILE
+    RETURN True
+END FUNCTION
+
+FUNCTION main(args)
+    FOR p = 2 TO 61
+        IF NOT isPrime(p) THEN
+            CONTINUE
+        END IF
+        FOR h3 = 2 TO p - 1
+            g = h3 + p
+            FOR d = 1 TO g - 1
+                IF ((g * (p - 1)) MOD d != 0) OR (mod(-p * p, h3) != d MOD h3) THEN
+                    CONTINUE
+                END IF
+                q = 1 + (p - 1) * g / d
+                IF NOT isPrime(q) THEN
+                    CONTINUE
+                END IF
+                r = 1 + (p * q / h3)
+                IF (NOT isPrime(r)) OR ((q * r) MOD (p - 1) != 1) THEN
+                    CONTINUE
+                END IF
+                PRINT p, q, r
+            END FOR
+        END FOR
+    END FOR
+END FUNCTION
+```

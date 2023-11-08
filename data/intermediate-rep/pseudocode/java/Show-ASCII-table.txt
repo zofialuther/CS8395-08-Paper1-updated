@@ -1,0 +1,19 @@
+START 
+    DECLARE i as integer
+    FOR i = 32 to 127
+        IF i == 32 or i == 127 THEN
+            DECLARE s as string
+            IF i == 32 THEN
+                s = "Spc"
+            ELSE
+                s = "Del"
+            END IF
+            PRINT i, s
+        ELSE
+            PRINT i, ASCII character of i
+        END IF
+        IF (i-1) % 6 == 0 THEN
+            PRINT new line
+        END IF
+    END FOR
+END

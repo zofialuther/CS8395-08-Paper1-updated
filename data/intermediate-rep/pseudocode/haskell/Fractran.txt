@@ -1,0 +1,6 @@
+```
+1. Define a function called findIndex that takes two parameters: a list and a value
+2. Inside the function, use the elemIndex function from Data.List to find the index of the value in the list
+3. Use the mapMaybe function from Data.Maybe to remove any Nothing values from the result of elemIndex
+4. Return the index of the value in the list
+```

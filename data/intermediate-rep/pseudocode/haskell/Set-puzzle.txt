@@ -1,0 +1,43 @@
+```
+1. Import necessary modules
+
+2. Define function combinations with parameters Int and [a]
+    a. If k is 0, return an empty list
+    b. If the list is empty, return an empty list
+    c. If k is not 0 and the list is not empty, 
+        i. Map the first element of the list with combinations (k - 1) of the rest of the list, and append it to combinations of k of the rest of the list
+        ii. Return the result
+
+3. Define data type Color with values Red, Green, Purple
+4. Define data type Symbol with values Oval, Squiggle, Diamond
+5. Define data type Count with values One, Two, Three
+6. Define data type Shading with values Solid, Open, Striped
+7. Define data type Card with fields color, symbol, count, shading
+
+8. Define function isSet with parameter [Card]
+    a. Calculate total as the length of unique sorted attributes of the cards
+    b. Check if 2 is not an element of the list [total color, total symbol, total count, total shading]
+
+9. Define function getCard
+    a. Get the head of the deck and remove it from the deck
+    b. Return the card and the new deck
+
+10. Define function getHand with parameter Int
+    a. Create a new deck with all possible combinations of attributes
+    b. Get n cards from the deck
+    c. Return the cards and the new deck
+
+11. Define function getManyHands with parameter Int
+    a. Repeat the process of getting a hand indefinitely
+
+12. Define function showSolutions with parameters Int and Int
+    a. Print the hand size and the number of solutions
+    b. Generate a random number generator
+    c. Find the first hand with the desired number of sets
+    d. Print the hand
+    e. Print the solutions
+
+13. Define function main
+    a. Show a hand of 9 cards with 4 solutions
+    b. Show a hand of 12 cards with 6 solutions
+```

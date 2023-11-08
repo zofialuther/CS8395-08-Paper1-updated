@@ -1,0 +1,1 @@
+This code demonstrates a nested loop using the Prolog predicate between. It iterates through a range of numbers from 1 to 5 for the outer loop and from 1 to the current value of the outer loop for the inner loop. Each iteration of the inner loop prints an asterisk (*) to the console before failing and moving on to the next iteration.

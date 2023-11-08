@@ -1,0 +1,23 @@
+```plaintext
+MorseCode
+  create 2D array code with Morse code mappings
+  create map as HashMap
+
+  static block
+    for each pair in code
+      add pair[0] as key and pair[1] as value to map
+
+  main function
+    call printMorse with "sos"
+    call printMorse with "   Hello     World!"
+    call printMorse with "Rosetta Code"
+
+  printMorse function with input
+    print input
+    trim and uppercase input
+    for each character c in input
+      retrieve Morse code s from map with key c
+      if s is not null
+        print s
+    print new line
+```

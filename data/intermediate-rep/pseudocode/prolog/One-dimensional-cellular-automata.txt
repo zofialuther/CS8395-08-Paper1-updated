@@ -1,0 +1,46 @@
+```
+one_dimensional_cellular_automata(L) {
+    maplist(my_write, L);
+    print a new line;
+    N = length(L);
+    LN = length(L, N);
+    compute_next([0 | L], LN);
+    if (L != LN) {
+        one_dimensional_cellular_automata(LN);
+    } else {
+        return true;
+    }
+}
+
+compute_next([0, 0, 0 | R], [0 | R1]) {
+    compute_next([0, 0 | R], R1);
+}
+
+compute_next([0, 0, 1 | R], [0 | R1]) {
+    compute_next([0, 1 | R], R1);
+}
+
+compute_next([0, 1, 0 | R], [0 | R1]) {
+    compute_next([1, 0 | R], R1);
+}
+
+compute_next([0, 1, 1 | R], [1 | R1]) {
+    compute_next([1, 1 | R], R1);
+}
+
+compute_next([1, 0, 0 | R], [0 | R1]) {
+    compute_next([0, 0 | R], R1);
+}
+
+compute_next([1, 0, 1 | R], [1 | R1]) {
+    compute_next([0, 1 | R], R1);
+}
+
+compute_next([1, 1, 0 | R], [1 | R1]) {
+    compute_next([1, 0 | R], R1);
+}
+
+compute_next([1, 1, 1 | R], [0 | R1]) {
+    compute_next([1, 1 | R], R1);
+}
+```

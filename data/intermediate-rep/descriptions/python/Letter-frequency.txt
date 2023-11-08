@@ -1,0 +1,1 @@
+This code uses the collections module to create a function called filecharcount, which takes an open file as input and returns a sorted list of tuples containing the count of each unique character in the file. The program then opens a file specified by the command line argument and prints the result of calling the filecharcount function on that file.

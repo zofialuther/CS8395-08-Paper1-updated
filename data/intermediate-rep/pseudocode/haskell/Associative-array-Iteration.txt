@@ -1,0 +1,14 @@
+1. Import the Data.Map module as M
+
+2. Declare a variable myMap of type M.Map String Int and initialize it with M.fromList [("hello", 13), ("world", 31), ("!", 71)]
+
+3. Define the main function of type IO ()
+
+4. Within the main function:
+      a. Perform the following operations and combine the results using <*>
+         i. Show the list of pairs using M.toList
+         ii. Show the keys using M.keys
+         iii. Show the values using M.elems
+      b. Apply the <*> operator to the pure myMap
+
+5. End of main function.

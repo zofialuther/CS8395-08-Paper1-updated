@@ -1,0 +1,134 @@
+```
+BEGIN
+    CLASS ZeroOneKnapsack
+        VARIABLE itemList = new ArrayList<Item>()
+        VARIABLE maxWeight = 0
+        VARIABLE solutionWeight = 0
+        VARIABLE profit = 0
+        VARIABLE calculated = false
+
+        FUNCTION ZeroOneKnapsack()
+            // Constructor
+
+        FUNCTION ZeroOneKnapsack(_maxWeight)
+            // Constructor
+            maxWeight = _maxWeight
+
+        FUNCTION ZeroOneKnapsack(_itemList)
+            // Constructor
+            itemList = _itemList
+
+        FUNCTION ZeroOneKnapsack(_itemList, _maxWeight)
+            // Constructor
+            itemList = _itemList
+            maxWeight = _maxWeight
+
+        FUNCTION calcSolution()
+            // Calculate the solution of 0-1 knapsack problem with dynamic method
+            n = itemList.size()
+            setInitialStateForCalculation()
+            IF n > 0 AND maxWeight > 0 THEN
+                c = new ArrayList< List<Integer> >()
+                curr = new ArrayList<Integer>()
+                c.add(curr)
+                FOR j = 0 TO maxWeight
+                    curr.add(0)
+                FOR i = 1 TO n
+                    prev = curr
+                    c.add(curr = new ArrayList<Integer>())
+                    FOR j = 0 TO maxWeight
+                        IF j > 0 THEN
+                            wH = itemList.get(i-1).getWeight()
+                            curr.add(
+                                IF wH > j THEN
+                                    prev.get(j)
+                                ELSE
+                                    Math.max(
+                                        prev.get(j),
+                                        itemList.get(i-1).getValue() + prev.get(j-wH)
+                                    )
+                            )
+                        ELSE
+                            curr.add(0)
+                    profit = curr.get(maxWeight)
+                    FOR i = n, j = maxWeight
+                        tempI = c.get(i).get(j)
+                        tempI_1 = c.get(i-1).get(j)
+                        IF (i == 0 AND tempI > 0) OR (i > 0 AND tempI != tempI_1) THEN
+                            iH = itemList.get(i-1)
+                            wH = iH.getWeight()
+                            iH.setInKnapsack(1)
+                            j -= wH
+                            solutionWeight += wH
+                calculated = true
+            RETURN itemList
+
+        FUNCTION add(name, weight, value)
+            // Add an item to the item list
+            IF name.equals("") THEN
+                name = "" + (itemList.size() + 1)
+            itemList.add(new Item(name, weight, value))
+            setInitialStateForCalculation()
+
+        FUNCTION add(weight, value)
+            // Add an item to the item list
+            add("", weight, value)
+
+        FUNCTION remove(name)
+            // Remove an item from the item list
+            FOR it = itemList.iterator()
+                IF name.equals(it.next().getName()) THEN
+                    it.remove()
+            setInitialStateForCalculation()
+
+        FUNCTION removeAllItems()
+            // Remove all items from the item list
+            itemList.clear()
+            setInitialStateForCalculation()
+
+        FUNCTION getProfit()
+            // Get profit
+            IF !calculated THEN
+                calcSolution()
+            RETURN profit
+
+        FUNCTION getSolutionWeight()
+            // Get solution weight
+            RETURN solutionWeight
+
+        FUNCTION isCalculated()
+            // Check if calculated
+            RETURN calculated
+
+        FUNCTION getMaxWeight()
+            // Get max weight
+            RETURN maxWeight
+
+        FUNCTION setMaxWeight(_maxWeight)
+            // Set max weight
+            maxWeight = Math.max(_maxWeight, 0)
+
+        FUNCTION setItemList(_itemList)
+            // Set item list
+            IF _itemList != null THEN
+                itemList = _itemList
+                FOR item IN _itemList
+                    item.checkMembers()
+
+        FUNCTION setInKnapsackByAll(inKnapsack)
+            // Set the member with name "inKnapsack" by all items
+            FOR item IN itemList
+                IF inKnapsack > 0 THEN
+                    item.setInKnapsack(1)
+                ELSE
+                    item.setInKnapsack(0)
+
+        FUNCTION setInitialStateForCalculation()
+            // Set the data members of class in the state of starting the calculation
+            setInKnapsackByAll(0)
+            calculated = false
+            profit = 0
+            solutionWeight = 0
+    END CLASS
+END
+```

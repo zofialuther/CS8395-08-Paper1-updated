@@ -1,0 +1,7 @@
+1. Import the System module
+2. Define the main function with the type IO ()
+3. Inside the main function:
+   a. Call the getProgName function
+   b. Use the >>= operator to pass the result to the putStrLn function
+   c. Inside the putStrLn function, concatenate the string "Program: " with the result of getProgName
+4. End the main function

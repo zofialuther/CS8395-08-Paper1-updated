@@ -1,0 +1,16 @@
+// Load the native library
+System.loadLibrary("JNIDemo");
+
+// Define the JNIDemo class
+public class JNIDemo 
+{
+  // Define the main method
+  public static void main(String[] args) 
+  {
+    // Print the result of calling the callStrdup method with "Hello World!" as the argument
+    System.out.println(callStrdup("Hello World!"));
+  }
+
+  // Define the callStrdup method as a native method
+  private static native String callStrdup(String s);
+}

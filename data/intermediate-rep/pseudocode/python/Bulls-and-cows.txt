@@ -1,0 +1,32 @@
+```
+FUNCTION generateNumber
+    digits = '123456789'
+    size = 4
+    chosen = ''.join(random.sample(digits, size))
+    RETURN chosen
+
+FUNCTION playGame
+    chosen = generateNumber()
+    guesses = 0
+    WHILE True
+        guesses += 1
+        WHILE True
+            guess = GET userInput
+            IF length(guess) == size AND all characters in guess are in digits AND unique characters in guess
+                BREAK
+            ELSE
+                PRINT "Problem, try again. You need to enter 4 unique digits from 1 to 9"
+        IF guess == chosen
+            PRINT "Congratulations you guessed correctly in", guesses, "attempts"
+            BREAK
+        ELSE
+            bulls = 0
+            cows = 0
+            FOR i = 0 to size
+                IF guess[i] == chosen[i]
+                    bulls += 1
+                ELSE IF guess[i] in chosen
+                    cows += 1
+            PRINT bulls, "Bulls"
+            PRINT cows, "Cows"
+```

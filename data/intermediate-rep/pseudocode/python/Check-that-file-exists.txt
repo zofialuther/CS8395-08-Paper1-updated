@@ -1,0 +1,28 @@
+
+```
+import os
+
+# Check if "input.txt" is a file
+if os.path.isfile("input.txt"):
+    print("input.txt is a file")
+else:
+    print("input.txt is not a file")
+
+# Check if "/input.txt" is a file
+if os.path.isfile("/input.txt"):
+    print("/input.txt is a file")
+else:
+    print("/input.txt is not a file")
+
+# Check if "docs" is a directory
+if os.path.isdir("docs"):
+    print("docs is a directory")
+else:
+    print("docs is not a directory")
+
+# Check if "/docs" is a directory
+if os.path.isdir("/docs"):
+    print("/docs is a directory")
+else:
+    print("/docs is not a directory")
+```

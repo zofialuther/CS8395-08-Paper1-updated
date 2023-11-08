@@ -1,0 +1,20 @@
+```
+rosetta_menu([], "").  % Base case for empty list
+
+rosetta_menu(Items, SelectedItem) :-
+    repeat,
+        display_menu(Items),
+        get_choice(Choice),
+        number(Choice),
+        nth1(Choice, Items, SelectedItem),
+    !.
+
+display_menu(Items) :-
+    nl,
+    foreach( nth1(Index, Items, Item),
+             format('~w) ~s~n', [Index, Item]) ).
+
+get_choice(Choice) :-
+    prompt1('Select a menu item by number:'),
+    read(Choice).
+```

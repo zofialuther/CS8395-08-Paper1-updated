@@ -1,0 +1,7 @@
+Start
+  Initialize i as long type variable
+  Set i = 1
+  Repeat the following steps indefinitely:
+    Print the value of i
+    Increment i by 1
+End

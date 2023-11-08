@@ -1,0 +1,60 @@
+```
+import System.Random
+import Data.List
+import Data.Ord
+import Data.Array
+import Control.Monad
+import Control.Arrow
+
+target = "METHINKS IT IS LIKE A WEASEL"
+mutateRate = 0.1
+popSize = 100
+printEvery = 10
+
+alphabet = listArray (0,26) (' ':['A'..'Z'])
+
+function randomChar() {
+    return randomRIO (0,26) :: IO Int) >>= return . (alphabet !)
+}
+
+function createChar(c) {
+    return randomChar
+}
+
+function fitness(str) {
+    return length (filter id (zipWith (==) target str))
+}
+
+function mutateChar(c) {
+    r = randomRIO (0.0,1.0) :: IO Double
+    if r < mutateRate {
+        return randomChar
+    } else {
+        return c
+    }
+}
+
+function mutateArr(arr) {
+    return mapM mutateChar arr
+}
+
+function converge(n, parent) {
+    if n`mod`printEvery == 0 {
+        print fmtd
+    }
+    if target == parent {
+        print "\nFinal: " ++ fmtd
+    } else {
+        mutated = mapM mutateArr (replicate (popSize-1) parent)
+        newParents = map fst (maximumBy (comparing snd) (map (id &&& fitness) (mutated ++ [parent])))
+        converge (n+1) newParents
+    }
+    fmtd = parent ++ ": " ++ show (fitness parent) ++ " (" ++ show n ++ ")"
+}
+
+function origin() {
+    return mapM createChar target
+}
+
+main = origin >>= converge 0
+```

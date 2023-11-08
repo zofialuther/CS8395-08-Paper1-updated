@@ -1,0 +1,19 @@
+```
+function powerset(inputSet) {
+    return convertToSet(convertToList(inputSet));
+}
+
+function convertToList(inputSet) {
+    return inputSet.toList();
+}
+
+function convertToSet(inputList) {
+    return inputList.fromList();
+}
+
+function listPowerset(inputList) {
+    return inputList.filterM(function() {
+        return [True, False];
+    });
+}
+```

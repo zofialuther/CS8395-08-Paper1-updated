@@ -1,0 +1,29 @@
+1. Import necessary libraries
+2. Create a class called BarnsleyFern that extends JPanel
+3. Declare a BufferedImage variable called img
+4. Create a constructor for BarnsleyFern:
+   a. Initialize a variable dim to 640
+   b. Set the preferred size of the panel to a new Dimension with values dim, dim
+   c. Set the background color to white
+   d. Create a new BufferedImage img with dimensions dim, dim and type BufferedImage.TYPE_INT_ARGB
+   e. Call the createFern method with parameters dim, dim
+5. Create a method called createFern with parameters w, h:
+   a. Initialize variables x and y to 0
+   b. Use a for loop to iterate 200,000 times:
+      i. Generate a random number r between 0 and 1
+      ii. Use if-else statements to determine the new values of tmpx and tmpy based on the value of r
+      iii. Update x and y to tmpx and tmpy
+      iv. Set the RGB value of the image at the calculated position to green
+6. Override the paintComponent method:
+   a. Call the superclass paintComponent method
+   b. Create a Graphics2D object g and set rendering hints for antialiasing
+   c. Draw the image on the panel
+7. Create a main method:
+   a. Use SwingUtilities.invokeLater to create a new JFrame
+   b. Set the default close operation to EXIT_ON_CLOSE
+   c. Set the title of the frame to "Barnsley Fern"
+   d. Disable frame resizing
+   e. Add a new instance of BarnsleyFern to the center of the frame
+   f. Pack the frame
+   g. Set the location of the frame to the center of the screen
+   h. Make the frame visible

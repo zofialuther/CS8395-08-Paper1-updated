@@ -1,0 +1,15 @@
+fizzbuzz
+  for X = 1 to 100 do
+      print_item(X)
+
+print_item(X)
+  if X mod 15 = 0 then
+      write "FizzBuzz"
+  else if X mod 3 = 0 then
+      write "Fizz"
+  else if X mod 5 = 0 then
+      write "Buzz"
+  else
+      write X
+  end if
+  newline

@@ -1,0 +1,1 @@
+This code uses the Graphics.HGL library to create a window with the title "Rosetta Code task: Creating a window" and dimensions of 300x200 pixels. Inside the window, it displays the text "Hello World" at coordinates (100, 100). It then waits for the user to press a key before closing the window.

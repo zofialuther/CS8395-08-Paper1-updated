@@ -1,0 +1,84 @@
+```
+class VisualizeTree {
+    function main(args)
+        tree = new BinarySearchTree()
+        tree.insert(100)
+        for i = 0 to 19
+            randomNum = random() * 200
+            tree.insert(randomNum)
+        end for
+        tree.display()
+    end function
+end class
+
+class BinarySearchTree {
+    private root
+
+    class Node {
+        private key
+        private left
+        private right
+
+        function Node(k)
+            key = k
+        end function
+    }
+
+    function insert(key)
+        if root is null
+            root = new Node(key)
+        else
+            n = root
+            parent
+            while true
+                if n.key is equal to key
+                    return false
+                end if
+                parent = n
+                goLeft = key < n.key
+                n = if goLeft then n.left else n.right
+                if n is null
+                    if goLeft
+                        parent.left = new Node(key)
+                    else
+                        parent.right = new Node(key)
+                    end if
+                    break
+                end if
+            end while
+        end if
+        return true
+    end function
+
+    function display()
+        height = 5
+        width = 64
+        len = width * height * 2 + 2
+        sb = new StringBuilder(len)
+        for i = 1 to len
+            if i < len - 2 and i mod width is equal to 0
+                sb.append("\n")
+            else
+                sb.append(' ')
+            end if
+        end for
+        displayR(sb, width / 2, 1, width / 4, width, root, " ")
+        print(sb)
+    end function
+
+    function displayR(sb, c, r, d, w, n, edge)
+        if n is not null
+            displayR(sb, c - d, r + 2, d / 2, w, n.left, " /")
+            s = n.key
+            idx1 = r * w + c - (length(s) + 1) / 2
+            idx2 = idx1 + length(s)
+            idx3 = idx1 - w
+            if idx2 < length(sb)
+                replace(sb, idx1, idx2, s)
+                replace(sb, idx3, idx3 + 2, edge)
+            end if
+            displayR(sb, c + d, r + 2, d / 2, w, n.right, "\\ ")
+        end if
+    end function
+end class
+```

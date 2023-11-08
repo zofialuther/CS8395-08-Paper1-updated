@@ -1,0 +1,79 @@
+Start
+  Import necessary libraries
+
+  Define class ChatServer
+    Define private instance variables port and clients
+
+    Define constructor ChatServer with parameter port
+
+    Define method run
+      Try
+        Create a new ServerSocket with the specified port
+        While true
+          Accept incoming connections and create a new thread for each client
+      Catch any exceptions and print the stack trace
+
+    Define private synchronized method registerClient with parameter client
+      For each client in clients
+        If the client's name is the same as the new client's name, return false
+      Add the new client to the clients list and return true
+
+    Define private method deregisterClient with parameter client
+      Set wasRegistered to false
+      Synchronize the block
+        Remove the client from the clients list and set wasRegistered to true
+      If wasRegistered is true, broadcast that the client has left
+
+    Define private synchronized method getOnlineListCSV
+      Create a StringBuilder
+      Append the number of clients online and " user(s) online: "
+      For each client in clients
+        Append the client's name to the StringBuilder
+      Return the StringBuilder as a string
+
+    Define private method broadcast with parameters fromClient and msg
+      Create a new list of clients
+      Synchronize the block
+        Copy the clients list to the new list
+      For each client in the new list
+        If the client is not the same as the fromClient
+          Try to write the message to the client
+          Catch any exceptions
+
+    Define class Client
+      Define private instance variables socket, output, and clientName
+
+      Define constructor Client with parameter socket
+
+      Define method run
+        Try
+          Set the send buffer size and TCP no delay for the socket
+          Create a BufferedReader and OutputStreamWriter for the socket
+          Write "Please enter your name: "
+          Read input from the client
+          If the clientName is null
+            Trim the input and check if it's empty
+              If it's empty, ask for a name again
+            Set the clientName to the input
+            If the clientName is already registered, ask for a name again
+            Write the online client list
+            Broadcast that the client has arrived
+          If the input is "/quit", return
+          Broadcast the client's message to other clients
+        Catch any exceptions
+        Finally
+          Deregister the client
+          Set output to null
+          Close the socket
+
+      Define method write with parameter msg
+        Write the message to the output and flush it
+
+      Define method equals with parameter client
+        Return true if the client is not null, is an instance of Client, and has the same clientName
+
+  Define main method
+    Set the default port to 4004
+    If there are command line arguments, parse the port from the arguments
+    Create a new ChatServer with the specified port and run it
+End

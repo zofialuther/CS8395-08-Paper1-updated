@@ -1,0 +1,1 @@
+This code contains two functions. The first function, int2bin, takes a positive integer as input and returns a list of binary bits representing that integer, with the most significant bit at index 0. The second function, bin2int, takes a list of binary bits as input and returns the corresponding integer value.

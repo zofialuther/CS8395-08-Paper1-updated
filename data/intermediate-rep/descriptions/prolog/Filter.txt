@@ -1,0 +1,1 @@
+This Prolog code defines a predicate "evens" that takes a list "D" as input and returns a list "Es" containing all the even numbers from the input list. It uses the "findall" predicate to collect all elements "E" from the input list "D" such that "E" is even (i.e., the remainder of dividing "E" by 2 is 0) and stores them in the output list "Es".

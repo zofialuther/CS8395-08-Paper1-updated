@@ -1,0 +1,2 @@
+Set Extra to "little"
+Set Atom to "Mary had a " + Extra + " lamb"

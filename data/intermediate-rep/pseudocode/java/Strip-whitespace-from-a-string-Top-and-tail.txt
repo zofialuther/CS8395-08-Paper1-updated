@@ -1,0 +1,9 @@
+1. Initialize a variable "string" and set it to "abc    "
+2. Create a function called "stripTrailing" that takes in a string as input
+3. Inside the function, initialize a variable "result" and set it to an empty string
+4. Initialize a variable "i" and set it to the length of the input string minus 1
+5. While "i" is greater than or equal to 0 and the character at index "i" is a whitespace:
+    - Decrement "i" by 1
+6. Set "result" to be the substring of the input string from index 0 to "i" + 1
+7. Return "result" as the output of the function
+8. Call the "stripTrailing" function with the "string" variable as the input and store the result in a new variable.

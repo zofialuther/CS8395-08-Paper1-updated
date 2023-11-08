@@ -1,0 +1,21 @@
+FUNCTION factorial(n)
+    ans = 1
+    FOR x = 1 to n
+        ans = ans * x
+    RETURN ans
+
+FUNCTION leftFact(n)
+    ans = 0
+    FOR k = 0 to n-1
+        ans = ans + factorial(k)
+    RETURN ans
+
+FUNCTION main()
+    FOR i = 0 to 10
+        PRINT "!" + i + " = " + leftFact(i)
+
+    FOR i = 20 to 110 by 10
+        PRINT "!" + i + " = " + leftFact(i)
+
+    FOR i = 1000 to 10000 by 1000
+        PRINT "!" + i + " has " + length(leftFact(i)) + " digits"

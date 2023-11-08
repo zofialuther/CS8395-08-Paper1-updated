@@ -1,0 +1,61 @@
+ChurchZero()
+    return lambda f: identity
+
+ChurchSucc(cn)
+    return lambda f: compose(f)(cn(f))
+
+ChurchAdd(m)
+    return lambda n: lambda f: compose(m(f))(n(f))
+
+ChurchMult(m)
+    return lambda n: compose(m)(n)
+
+ChurchExp(m)
+    return lambda n: n(m)
+
+ChurchFromInt(n)
+    return lambda f: (
+        foldl
+        (compose)
+        (identity)
+        (replicate(n)(f))
+    )
+
+ChurchFromInt_(n)
+    if 0 == n:
+        return churchZero()
+    else:
+        return churchSucc(churchFromInt(n - 1))
+
+IntFromChurch(cn)
+    return cn(succ)(0)
+
+Main()
+    cThree = churchFromInt(3)
+    cFour = churchFromInt(4)
+
+    print(list(map(intFromChurch, [
+        churchAdd(cThree)(cFour),
+        churchMult(cThree)(cFour),
+        churchExp(cFour)(cThree),
+        churchExp(cThree)(cFour),
+    ]))
+
+Compose(f)
+    return lambda g: lambda x: g(f(x))
+
+Foldl(f)
+    return lambda acc: lambda xs: go(acc, xs)
+        def go(acc, xs):
+            return reduce(lambda a, x: f(a)(x), xs, acc)
+
+Identity(x)
+    return x
+
+Replicate(n)
+    return lambda x: repeat(x, n)
+
+Succ(x)
+    return 1 + x if isinstance(x, int) else (
+        chr(1 + ord(x))
+    )

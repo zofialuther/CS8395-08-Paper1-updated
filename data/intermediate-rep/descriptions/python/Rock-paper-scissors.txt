@@ -1,0 +1,1 @@
+This code simulates a simple game of rock, paper, scissors between a human and a computer. The rules are defined in a dictionary and the computer's choice is randomly selected from the previous choices. The user is prompted to input their choice and the outcome of the game is determined based on the rules. The game continues until the user enters 'quit' or 'exit'.

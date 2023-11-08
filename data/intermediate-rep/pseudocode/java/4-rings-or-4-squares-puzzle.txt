@@ -1,0 +1,75 @@
+```
+FUNCTION main
+    fourSquare(1, 7, true, true)
+    fourSquare(3, 9, true, true)
+    fourSquare(0, 9, false, false)
+
+FUNCTION fourSquare(low, high, unique, print)
+    count = 0
+
+    IF print
+        OUTPUT "a b c d e f g"
+    END IF
+
+    FOR a = low TO high
+        FOR b = low TO high
+            IF notValid(unique, a, b) THEN
+                CONTINUE
+            END IF
+            fp = a + b
+            FOR c = low TO high
+                IF notValid(unique, c, a, b) THEN
+                    CONTINUE
+                END IF
+                FOR d = low TO high
+                    IF notValid(unique, d, a, b, c) THEN
+                        CONTINUE
+                    END IF
+                    IF fp != b + c + d THEN
+                        CONTINUE
+                    END IF
+                    FOR e = low TO high
+                        IF notValid(unique, e, a, b, c, d) THEN
+                            CONTINUE
+                        END IF
+                        FOR f = low TO high
+                            IF notValid(unique, f, a, b, c, d, e) THEN
+                                CONTINUE
+                            END IF
+                            IF fp != d + e + f THEN
+                                CONTINUE
+                            END IF
+                            FOR g = low TO high
+                                IF notValid(unique, g, a, b, c, d, e, f) THEN
+                                    CONTINUE
+                                END IF
+                                IF fp != f + g THEN
+                                    CONTINUE
+                                END IF
+                                count = count + 1
+                                IF print THEN
+                                    OUTPUT a, b, c, d, e, f, g
+                                END IF
+                            END FOR
+                        END FOR
+                    END FOR
+                END FOR
+            END FOR
+        END FOR
+    END FOR
+    IF unique THEN
+        OUTPUT "There are " + count + " unique solutions in [" + low + ", " + high + "]"
+    ELSE
+        OUTPUT "There are " + count + " non-unique solutions in [" + low + ", " + high + "]"
+    END IF
+END FUNCTION
+
+FUNCTION notValid(unique, needle, haystack)
+    FOR each p in haystack
+        IF p == needle THEN
+            RETURN true
+        END IF
+    END FOR
+    RETURN false
+END FUNCTION
+```

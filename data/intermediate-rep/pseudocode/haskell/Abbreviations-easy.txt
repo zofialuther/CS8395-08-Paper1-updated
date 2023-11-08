@@ -1,0 +1,33 @@
+1. import Data.Maybe (fromMaybe)
+2. import Data.List (find, isPrefixOf)
+3. import Data.Char (toUpper, isUpper)
+
+4. isAbbreviationOf :: String -> String -> Bool
+5. isAbbreviationOf abbreviation command =
+6.   minimumPrefix `isPrefixOf` normalizedAbbreviation
+7.   && normalizedAbbreviation `isPrefixOf` normalizedCommand
+8.   where
+9.     normalizedAbbreviation = map toUpper abbreviation
+10.     normalizedCommand = map toUpper command
+11.     minimumPrefix = takeWhile isUpper command
+
+12. expandAbbreviation :: String -> String -> Maybe String
+13. expandAbbreviation commandTable abbreviation = do
+14.   command <- find (isAbbreviationOf abbreviation) (words commandTable)
+15.   return $ map toUpper command
+
+16. commandTable = unwords [
+17.   "Add ALTer  BAckup Bottom  CAppend Change SCHANGE  CInsert CLAst COMPress COpy",
+18.   "COUnt COVerlay CURsor DELete CDelete Down DUPlicate Xedit EXPand EXTract Find",
+19.   "NFind NFINDUp NFUp CFind FINdup FUp FOrward GET Help HEXType Input POWerinput",
+20.   "Join SPlit SPLTJOIN  LOAD  Locate CLocate  LOWercase UPPercase  LPrefix MACRO",
+21.   "MErge MODify MOve MSG Next Overlay PARSE PREServe PURge PUT PUTD  Query  QUIT",
+22.   "READ  RECover REFRESH RENum REPeat  Replace CReplace  RESet  RESTore  RGTLEFT",
+23.   "RIght LEft  SAVE  SET SHift SI  SORT  SOS  STAck STATus  TOP TRAnsfer Type Up"]
+
+24. main :: IO ()
+25. main = do
+26.   input <- getLine
+27.   let abbreviations = words input
+28.   let commands = map (fromMaybe "*error*" . expandAbbreviation commandTable) abbreviations
+29.   putStrLn $ unwords results

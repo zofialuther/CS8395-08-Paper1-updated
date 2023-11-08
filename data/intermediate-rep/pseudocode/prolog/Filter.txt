@@ -1,0 +1,6 @@
+function evens(D, Es)
+    Es = []
+    for each element E in D
+        if E is even
+            add E to Es
+    return Es

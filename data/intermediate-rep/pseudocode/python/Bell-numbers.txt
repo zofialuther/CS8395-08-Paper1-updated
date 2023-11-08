@@ -1,0 +1,123 @@
+```
+# bellNumbers :: [Int]
+function bellNumbers()
+    return map(itemgetter(0), bellTriangle())
+
+# bellTriangle :: [[Int]]
+function bellTriangle()
+    return map(
+        itemgetter(1),
+        iterate(
+            compose(
+                bimap(last)(identity),
+                list, uncurry(scanl(add))
+            )
+        )((1, [1]))
+    )
+
+# main :: IO ()
+function main()
+    showIndex = compose(repr, succ, itemgetter(0))
+    showValue = compose(repr, itemgetter(1))
+    print(
+        fTable(
+            'First fifteen Bell numbers:'
+        )(showIndex)(showValue)(identity)(list(
+            enumerate(take(15)(bellNumbers()))
+        ))
+    )
+
+    print('\nFiftieth Bell number:')
+    bells = bellNumbers()
+    drop(49)(bells)
+    print(
+        next(bells)
+    )
+
+    print(
+        fTable(
+            "\nFirst 10 rows of Bell's triangle:"
+        )(showIndex)(showValue)(identity)(list(
+            enumerate(take(10)(bellTriangle()))
+        ))
+    )
+
+# bimap :: (a -> b) -> (c -> d) -> (a, c) -> (b, d)
+function bimap(f)
+    return function(g)
+        return function(x)
+            return (f(x), g(x))
+
+# compose :: ((a -> a), ...) -> (a -> a)
+function compose(fs)
+    return reduce(go, fs, identity)
+
+# drop :: Int -> [a] -> [a]
+# drop :: Int -> String -> String
+function drop(n)
+    return function(xs)
+        if isinstance(xs, (list, tuple, str))
+            return xs[n:]
+        else
+            take(n)(xs)
+            return xs
+
+# fTable :: String -> (a -> String) -> (b -> String) -> (a -> b) -> [a] -> String
+function fTable(s)
+    return function(xShow)
+        return function(fxShow)
+            return function(f)
+                return function(xs)
+                    ys = map(xShow, xs)
+                    w = max(map(len, ys))
+                    return s + '\n' + '\n'.join(
+                        map(arrowed, xs, ys)
+                    )
+                    function arrowed(x, y)
+                        return y.rjust(w, ' ') + ' -> ' + fxShow(f(x))
+
+# identity :: a -> a
+function identity(x)
+    return x
+
+# iterate :: (a -> a) -> a -> Gen [a]
+function iterate(f)
+    return function(x)
+        v = x
+        while True
+            yield v
+            v = f(v)
+
+# last :: [a] -> a
+function last(xs)
+    return xs[-1]
+
+# scanl :: (b -> a -> b) -> b -> [a] -> [b]
+function scanl(f)
+    return function(a)
+        return function(xs)
+            return accumulate(chain([a], xs), f)
+
+# succ :: Enum a => a -> a
+function succ(x)
+    return 1 + x
+
+# take :: Int -> [a] -> [a]
+# take :: Int -> String -> String
+function take(n)
+    return function(xs)
+        return (
+            xs[0:n]
+            if isinstance(xs, (list, tuple))
+            else list(islice(xs, n))
+        )
+
+# uncurry :: (a -> b -> c) -> ((a, b) -> c)
+function uncurry(f)
+    return function(tpl)
+        return f(tpl[0])(tpl[1])
+
+# MAIN ---
+if __name__ == '__main__':
+    main()
+```

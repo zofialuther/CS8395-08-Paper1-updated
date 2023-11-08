@@ -1,0 +1,19 @@
+1. Create a list of nodes called pileTops
+2. For each element x in the input list n:
+    - Create a new node and set its value to x
+    - Use binary search to find the index i of the node in pileTops
+    - If i < 0, set i to its complement
+    - If i is not 0, set node.pointer to pileTops[i-1]
+    - If i is not the size of pileTops, set pileTops[i] to node
+    - Else, add node to pileTops
+3. Create a new list called result
+4. For each node in pileTops from the last index to the first:
+    - Add the value of the node to the result list
+5. Reverse the result list
+6. Return the result list
+7. Create a private class Node with a value and a pointer to another Node
+8. Implement the Comparable interface for Node by comparing the values of the nodes
+9. In the main method:
+    - Create a list of integers d
+    - Print the input list and the result of calling lis with the input list
+    - Repeat the above step for a different input list

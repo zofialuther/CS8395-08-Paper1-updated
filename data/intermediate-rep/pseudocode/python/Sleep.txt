@@ -1,0 +1,5 @@
+1. Import the time module
+2. Prompt the user for input and store it in the variable seconds as a float
+3. Print "Sleeping..."
+4. Call the time.sleep function with the input seconds as the argument
+5. Print "Awake!"

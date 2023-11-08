@@ -1,0 +1,1 @@
+This code creates a concurrent program in Haskell that uses the forkIO function to run three separate processes simultaneously. Each process prints a different word - "Enjoy", "Rosetta", and "Code" - to the console. This allows for parallel execution of the processes, improving the overall efficiency and speed of the program.

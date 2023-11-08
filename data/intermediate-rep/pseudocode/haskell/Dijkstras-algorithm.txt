@@ -1,0 +1,31 @@
+```
+1. Import necessary modules and language extensions
+
+2. Define dijkstra function with type constraints and parameters
+   - Initialize min_distance array with maximum value
+   - Write 0 to min_distance at source index
+   - Initialize previous array with invalid index
+   - Define aux function with vertex_queue parameter
+     - If vertex_queue is empty, return
+     - If not, get minimum distance vertex from vertex_queue
+       - Get edges for the vertex from adj_list
+       - Define a function to iterate over edges
+         - Calculate new distance through u
+         - Compare with old distance and update if new distance is smaller
+         - Update vertex_queue and arrays accordingly
+       - Recursively call aux function with updated vertex_queue
+   - Call aux function with initial vertex_queue
+   - Freeze min_distance and previous arrays
+   - Return the frozen arrays
+
+3. Define shortest_path_to function with target and previous parameters
+   - Define auxiliary function to recursively find the shortest path
+   - Call auxiliary function with target and empty list
+
+4. Define adj_list array with data
+
+5. Define main function
+   - Call dijkstra function with source, invalid index, and adj_list
+   - Print distance from source to target
+   - Call shortest_path_to function and print the path
+```

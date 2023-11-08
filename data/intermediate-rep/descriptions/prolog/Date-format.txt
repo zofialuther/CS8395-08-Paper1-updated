@@ -1,0 +1,1 @@
+This code defines a predicate display_date that uses Prolog's built-in get_time and format_time predicates to retrieve the current date and time and then formats it into two different representations: a short version in the format "YYYY-MM-DD" and a long version in the format "Day of the week, Month Day, Year". Finally, it prints both versions to the standard output.

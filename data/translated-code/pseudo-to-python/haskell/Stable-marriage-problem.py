@@ -1,0 +1,1 @@
+s0 = State(lambda guys0: (guys0[0], list(map(lambda x: x[::-1], guys0[1]))))

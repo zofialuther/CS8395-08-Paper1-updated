@@ -1,0 +1,1 @@
+This Java program creates a simple GUI application that displays a rotating text "Hello World!" in a JFrame. The text rotates left or right based on mouse click events. The rotation speed is controlled by a TimerTask that updates the displayed text every 500 milliseconds. The JFrame closes and the timer stops when the window is closed.

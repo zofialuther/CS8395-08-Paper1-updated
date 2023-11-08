@@ -1,0 +1,15 @@
+1. Start
+2. Import necessary libraries: Control.Monad, Data.List, Data.Monoid, Data.Tuple
+3. Define function ethMult with parameters n and m of type Monoid
+4. Inside ethMult, use foldr to iterate through a tuple generated from the zip of the result of unfoldr and the result of iterate
+5. Define function half with parameter n of type Integral
+6. Inside half, use pattern matching to check if n is not equal to 0, and return a tuple of quotRem n 2
+7. Use addedWhereOdd function to add the values where the first element of the tuple is odd
+8. Define addedWhereOdd function with parameters (d, x) and a of type (Eq a, Num a, Semigroup p)
+9. Inside addedWhereOdd, use pattern matching to check if d is not equal to 0, then return a concatenated with x, else return a
+10. Define main function of type IO ()
+11. Inside main, use mapM_ to print the results of ethMult with different parameters
+12. Use getProduct and getSum to get the product and sum of the results
+13. Use <$> and <*> to apply ethMult to different combinations of parameters
+14. Print the results of ethMult with different parameter types
+15. End

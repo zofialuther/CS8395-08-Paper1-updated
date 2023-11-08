@@ -1,0 +1,1 @@
+This Java code creates a HashMap and populates it with keys and values from two arrays. The keys array contains strings "a", "b", and "c" while the vals array contains integers 1, 2, and 3. The code then iterates through the arrays and adds the key-value pairs to the HashMap.

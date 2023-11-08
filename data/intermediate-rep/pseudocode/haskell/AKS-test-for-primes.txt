@@ -1,0 +1,36 @@
+pseudocode:
+
+FUNCTION expand(p)
+    FOR i = 1 TO p
+        z = z * (p - i + 1) DIV i
+        PRINT z
+
+FUNCTION test(p)
+    IF p < 2 THEN
+        RETURN False
+    ELSE
+        FOR n in (init . tail $ expand(p))
+            IF mod(n, p) == 0 THEN
+                RETURN True
+            ELSE
+                RETURN False
+
+FUNCTION printPoly(p)
+    IF p == [1] THEN
+        PRINT "1"
+    ELSE
+        l = length(p)
+        FOR i = l-1 TO 1
+            IF even(i) THEN
+                sgn = "+"
+            ELSE
+                sgn = "-"
+            pow = take(i, "x^") + IF i > 1 THEN show(i) ELSE ""
+            PRINT pow, sgn, p[i-1]
+
+FUNCTION main()
+    PRINT "-- p: (x-1)^p for small p"
+    FOR i = 0 TO 10
+        PRINT show(i) + ": " + printPoly(expand(i))
+    PRINT "-- Primes up to 100:"
+    PRINT filter(test, [1..100])

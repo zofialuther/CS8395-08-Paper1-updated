@@ -1,0 +1,1 @@
+This code defines a main method that calls a concat method to concatenate the strings "Rosetta" and "Code" with a colon in between. The concat method takes three strings as input and returns the concatenation of the first string, a colon, the second string, and the third string. The output of the main method is "Rosetta::Code".

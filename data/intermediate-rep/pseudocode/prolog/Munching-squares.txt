@@ -1,0 +1,15 @@
+```plaintext
+1. Create a new window called 'XOR Pattern'
+2. Set the size of the window to 512x512
+3. Create a new image called 'Img' with width 512, height 512, and kind pixmap
+4. For each value I in the range 0 to 511 do the following:
+   a. For each value J in the range 0 to 511 do the following:
+      i. Calculate V as the result of I xor J
+      ii. Calculate R as (V * 1024) mod 65536
+      iii. Calculate G as (65536 - V * 1024) mod 65536
+      iv. If V mod 2 is 0 then calculate B as (V * 4096) mod 65536, else calculate B as (65536 - (V * 4096)) mod 65536
+      v. Set the pixel at position (I, J) in Img to the color with RGB values (R, G, B)
+5. Create a new bitmap 'Bmp' using Img
+6. Display Bmp at the position (0,0) in the window
+7. Open the window
+```

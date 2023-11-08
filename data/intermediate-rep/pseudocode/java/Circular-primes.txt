@@ -1,0 +1,71 @@
+```
+// import necessary libraries
+import java.math.BigInteger;
+import java.util.Arrays;
+
+// define the CircularPrimes class
+public class CircularPrimes {
+    // define the main function
+    public static void main(String[] args) {
+        // print the first 19 circular primes
+        System.out.println("First 19 circular primes:");
+        int p = 2;
+        for (int count = 0; count < 19; ++p) {
+            if (isCircularPrime(p)) {
+                if (count > 0)
+                    System.out.print(", ");
+                System.out.print(p);
+                ++count;
+            }
+        }
+        System.out.println();
+        // print the next 4 circular primes
+        int repunit = 1, digits = 1;
+        for (; repunit < p; ++digits)
+            repunit = 10 * repunit + 1;
+        BigInteger bignum = BigInteger.valueOf(repunit);
+        for (int count = 0; count < 4; ) {
+            if (bignum.isProbablePrime(15)) {
+                if (count > 0)
+                    System.out.print(", ");
+                System.out.printf("R(%d)", digits);
+                ++count;
+            }
+            ++digits;
+            bignum = bignum.multiply(BigInteger.TEN);
+            bignum = bignum.add(BigInteger.ONE);
+        }
+        System.out.println();
+        // test specific repunits
+        testRepunit(5003);
+        testRepunit(9887);
+        testRepunit(15073);
+        testRepunit(25031);
+    }
+
+    // define the isPrime function
+    private static boolean isPrime(int n) {
+        // check for prime numbers
+    }
+
+    // define the cycle function
+    private static int cycle(int n) {
+        // calculate the cycle of a number
+    }
+
+    // define the isCircularPrime function
+    private static boolean isCircularPrime(int p) {
+        // check if a number is a circular prime
+    }
+
+    // define the testRepunit function
+    private static void testRepunit(int digits) {
+        // test if a repunit is prime
+    }
+
+    // define the repunit function
+    private static BigInteger repunit(int digits) {
+        // generate a repunit with a given number of digits
+    }
+}
+```

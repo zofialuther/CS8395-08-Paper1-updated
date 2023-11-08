@@ -1,0 +1,21 @@
+
+FUNCTION identity(size)
+    matrix = empty list
+    FOR i = 0 to size
+        row = empty list
+        FOR j = 0 to size
+            IF i = j
+                row.append(1)
+            ELSE
+                row.append(0)
+        END FOR
+        matrix.append(row)
+    END FOR
+    
+    FOR row in matrix
+        FOR element in row
+            PRINT element
+        END FOR
+        PRINT new line
+    END FOR
+END FUNCTION

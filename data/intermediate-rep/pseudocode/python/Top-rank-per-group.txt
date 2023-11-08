@@ -1,0 +1,9 @@
+1. Import the necessary modules (collections and itertools)
+2. Set the value of N to 2
+3. Create a string containing the database information
+4. Split the string into rows based on newline character
+5. Create a namedtuple for the DBRecord using the column names from the first row
+6. Create a list of records by splitting each row and creating a DBRecord object for each row
+7. Sort the records based on Department and then by Salary in descending order
+8. Use groupby to group the records by Department
+9. Print the first N records for each Department separated by newline characters.

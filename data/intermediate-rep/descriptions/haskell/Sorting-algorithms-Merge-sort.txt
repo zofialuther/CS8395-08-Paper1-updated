@@ -1,0 +1,1 @@
+This code implements the merge sort algorithm in Haskell. The merge function takes two sorted lists and merges them into a single sorted list. The split function takes a list and splits it into two roughly equal halves. The mergeSort function recursively applies the merge and split functions to sort a given list of elements.

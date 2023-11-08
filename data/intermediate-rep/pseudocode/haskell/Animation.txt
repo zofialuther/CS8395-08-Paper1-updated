@@ -1,0 +1,9 @@
+FUNCTION runAnim
+    DECLARE variable animationRunning = true
+    WHILE animationRunning
+        CALL updateFrame
+        IF frameCount >= maxFrameCount
+            SET animationRunning to false
+        END IF
+    END WHILE
+END FUNCTION

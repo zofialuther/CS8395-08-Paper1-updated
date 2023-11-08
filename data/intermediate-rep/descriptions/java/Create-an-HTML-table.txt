@@ -1,0 +1,1 @@
+This code creates a simple HTML table with four columns (X, Y, Z) and four rows. Each row represents a set of numerical values, with the first column representing the row number. The table provides a clear and organized way to display and compare the values in each row.

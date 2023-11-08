@@ -1,0 +1,29 @@
+```
+FUNCTION durationString with parameters componentGap, numberLabelGap, daysPerWeek, hoursPerDay, xs, n
+    INTERCALATE componentGap
+        FOLDR with parameters timeTags numberLabelGap, empty list, ZIP with parameters weekParts daysPerWeek hoursPerDay n and xs
+
+FUNCTION timeTags with parameters numberLabelGap, pair (n, s), xs
+    IF n > 0 THEN
+        RETURN INTERCALATE numberLabelGap [show n, s] APPENDED TO xs
+    ELSE
+        RETURN xs
+
+FUNCTION weekParts with parameters daysPerWeek, hoursPerDay
+    RETURN SECOND ELEMENT of result of MAPACCUMR with parameters byUnits, list [0, daysPerWeek, hoursPerDay, 60, 60]
+
+FUNCTION byUnits with parameters rest, x
+    SET (u, m) to result of IF x > 0 THEN (x, rest MOD x) ELSE (1, rest)
+    RETURN tuple (quotient of (rest - m) and u, m)
+
+FUNCTION translation with parameters local, daysPerWeek, hoursPerDay, n
+    RETURN INTERCALATE "  ->  " with list of [show, durationString ", " " " daysPerWeek hoursPerDay (words local)] applied to n
+
+FUNCTION main
+    SET names to "wk d hr min sec"
+    SET tests to list of [7259, 86400, 6000000]
+    OUTPUT "Assuming 24 hrs per day:"
+    MAPM_ (OUTPUT . translation names 7 24) tests
+    OUTPUT "\nor, at 8 hours per day, 5 days per week:"
+    MAPM_ (OUTPUT . translation names 5 8) tests
+```

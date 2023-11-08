@@ -1,0 +1,7 @@
+1. Import the java.math.BigInteger library.
+2. Create a public class called PowMod.
+3. Create a main method that takes in an array of strings as arguments.
+4. Create a BigInteger variable "a" and initialize it with the value "2988348162058574136915891421498819466320163312926952423791023078876139".
+5. Create a BigInteger variable "b" and initialize it with the value "2351399303373464486466122544523690094744975233415544072992656881240319".
+6. Create a BigInteger variable "m" and initialize it with the value "10000000000000000000000000000000000000000".
+7. Print the result of a.modPow(b, m) to the console.

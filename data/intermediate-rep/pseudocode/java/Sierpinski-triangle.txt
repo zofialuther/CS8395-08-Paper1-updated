@@ -1,0 +1,41 @@
+```
+function getSierpinskiTriangle(n) {
+    if (n == 0) {
+        return "*";
+    }
+    
+    let s = getSierpinskiTriangle(n - 1);
+    let split = s.split("\n");
+    let length = split.length;
+    let sb = new StringBuilder();
+    
+    // Top triangle
+    let top = buildSpace(Math.pow(2, n - 1));
+    for (let i = 0; i < length; i++) {
+        sb.append(top);
+        sb.append(split[i]);
+        sb.append("\n");
+    }
+    
+    // Two triangles side by side
+    for (let i = 0; i < length; i++) {
+        sb.append(split[i]);
+        sb.append(buildSpace(length - i));
+        sb.append(split[i]);
+        sb.append("\n");
+    }
+    
+    return sb.toString();
+}
+
+function buildSpace(n) {
+    let sb = new StringBuilder();
+    while (n > 0) {
+        sb.append(" ");
+        n--;
+    }
+    return sb.toString();
+}
+
+console.log(getSierpinskiTriangle(4));
+```

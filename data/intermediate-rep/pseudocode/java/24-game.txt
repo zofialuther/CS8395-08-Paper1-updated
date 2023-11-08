@@ -1,0 +1,41 @@
+Start
+  Import necessary libraries
+  Define class Game24
+    Define static Random variable r
+    Define main method
+      Declare and initialize int array digits with randomDigits()
+      Create Scanner object in
+      Print "Make 24 using these digits: " followed by the digits array
+      Print "> "
+      Create Stack s
+      Initialize long variable total to 0
+      Create for loop to iterate through the characters of the input
+        If the character is a digit
+          Convert the character to an integer and add to total
+          Push the digit as a float onto the stack
+        Else if the character is an operator
+          Apply the operator to the last two items in the stack and push the result onto the stack
+      If the total tally of the digits does not match the total from the input
+        Print "Not the same digits."
+      Else if the absolute value of 24 minus the top item in the stack is less than 0.001
+        Print "Correct!"
+      Else
+        Print "Not correct."
+    Define static method applyOperator with parameters float a, float b, and char c
+      Switch on the operator character
+        Case '+': return a + b
+        Case '-': return b - a
+        Case '*': return a * b
+        Case '/': return b / a
+        Default: return Float.NaN
+    Define static method tallyDigits with parameter int array a
+      Initialize long variable total to 0
+      Create for loop to iterate through the first 4 elements of the array
+        Add the value of (1 << (a[i] * 5)) to total
+      Return total
+    Define static method randomDigits
+      Initialize int array result with 4 elements
+      Create for loop to iterate 4 times
+        Set each element of the array to a random number between 1 and 9
+      Return result
+End

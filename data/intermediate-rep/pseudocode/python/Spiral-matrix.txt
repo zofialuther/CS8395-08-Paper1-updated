@@ -1,0 +1,24 @@
+```
+function spiral(n):
+    dat = create 2D array of size n x n filled with None
+    le = create list of lists [[i + 1, i + 1] for i in reversed(range(n))]
+    le = sum(le, [])[1:]  # for n = 5 le will be [5, 4, 4, 3, 3, 2, 2, 1, 1]
+    dxdy = create list of lists [[1, 0], [0, 1], [-1, 0], [0, -1]] repeated ((len(le) + 4) / 4) times  # long enough
+    x = -1
+    y = 0
+    val = -1
+    for each steps, (dx, dy) in zip(le, dxdy):
+        x = x + dx
+        y = y + dy
+        val = val + 1
+        for j in range(steps):
+            dat[y][x] = val
+            if j != steps - 1:
+                x = x + dx
+                y = y + dy
+                val = val + 1
+    return dat
+
+for each row in spiral(5):  # calc spiral and print it
+    print ' '.join('%3s' % x for x in row)
+```

@@ -1,0 +1,23 @@
+
+```
+FUNCTION tr(s, (k, v)):
+    WHILE isPrefixOf(k, fst(s)):
+        s = bimap((drop . length) k, (v +), s)
+    END WHILE
+    RETURN s
+
+FUNCTION romanValue(s):
+    trList = [ ("M", 1000), ("CM", 900), ("D", 500), ("CD", 400), ("C", 100), ("XC", 90), ("L", 50), ("XL", 40), ("X", 10), ("IX", 9), ("V", 5), ("IV", 4), ("I", 1) ]
+    sum = 0
+    FOR EACH pair IN trList:
+        sum = sum + snd(mapAccumL(tr, s, pair))
+    END FOR
+    RETURN sum
+
+FUNCTION main():
+    inputs = [ "MDCLXVI", "MCMXC", "MMVIII", "MMXVI", "MMXVII" ]
+    FOR EACH input IN inputs:
+        PRINT(romanValue(input))
+    END FOR
+END FUNCTION
+```

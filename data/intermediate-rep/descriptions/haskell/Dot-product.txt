@@ -1,0 +1,1 @@
+This code defines a function called dotp that takes two lists of numbers and calculates their dot product. If the two lists are of different lengths, it will throw an error. The main function uses the dotp function to calculate the dot product of two given vectors and prints the result. In this case, it will print 3.

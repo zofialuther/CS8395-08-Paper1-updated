@@ -1,0 +1,14 @@
+
+```
+1. Create a function named generateTable
+2. Create a variable named tableData and set it to an empty array
+3. Create a variable named header and set it to an array containing the table headers: ["", "X", "Y", "Z"]
+4. Add the header array to the tableData array
+5. Create a loop to iterate through the rows of the table
+6. Inside the loop, create a variable named row and set it to an empty array
+7. Add the row number to the row array
+8. Add the X, Y, and Z values to the row array
+9. Add the row array to the tableData array
+10. End the loop
+11. Return the tableData array
+```

@@ -1,0 +1,20 @@
+```
+function floyd(N) {
+    for (let I = 1; I <= N; I++) {
+        for (let J = 1; J <= I; J++) {
+            let Last = N * (N-1)/2 + J;
+            let V = I * (I-1) /2 + J;
+            let C = get_column(Last);
+            let AR = `    ${C} ${V}| `;
+            let AF = AR;
+            console.log(AF);
+        }
+        console.log('\n');
+    }
+}
+
+function get_column(Last) {
+    let N1 = Last.toString();
+    return N1.length;
+}
+```

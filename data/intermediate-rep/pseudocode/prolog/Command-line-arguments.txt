@@ -1,0 +1,2 @@
+1. Set Args as the value of current_prolog_flag(argv, Args)
+2. Write the value of Args to the console.

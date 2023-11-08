@@ -1,0 +1,19 @@
+FUNCTION calc(f, n)
+    temp = 0
+    FOR ni FROM n DOWN TO 1
+        p = f(ni)
+        temp = p[1] / (p[0] + temp)
+    END FOR
+    RETURN f(0)[0] + temp
+END FUNCTION
+
+FUNCTION main()
+    fList = new ArrayList<Function<Integer, Integer[]>>()
+    fList.add(n -> new Integer[]{n > 0 ? 2 : 1, 1})
+    fList.add(n -> new Integer[]{n > 0 ? n : 2, n > 1 ? (n - 1) : 1})
+    fList.add(n -> new Integer[]{n > 0 ? 6 : 3, (int) pow(2 * n - 1, 2)})
+
+    FOR EACH f IN fList
+        PRINT calc(f, 200)
+    END FOR
+END FUNCTION

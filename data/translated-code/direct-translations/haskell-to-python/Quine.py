@@ -1,0 +1,1 @@
+print("ap(++)show\"ap(++)show\"")

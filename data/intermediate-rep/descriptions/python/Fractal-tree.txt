@@ -1,0 +1,1 @@
+This code uses the pygame library to create a window and draw a fractal tree. The drawTree function recursively draws lines to create the fractal tree pattern, with the depth of the tree determining the number of levels. The input function handles the event loop, allowing the user to exit the window. When the program is run, a fractal tree will be displayed in the pygame window.

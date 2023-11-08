@@ -1,0 +1,69 @@
+```
+from itertools import accumulate, chain, count, islice
+from fractions import Fraction
+
+function faulhaberTriangle(m):
+    function go(rs, n):
+        function f(x, y):
+            return Fraction(n, x) * y
+        xs = map(f, islice(count(2), m), rs)
+        return [Fraction(1 - sum(xs), 1)] + xs
+    
+    return accumulate([[]] + list(islice(count(0), 1 + m)), go)[1:]
+
+function faulhaberSum(p, n):
+    function go(x, y):
+        return y * (n ** x)
+
+    return sum(map(go, count(1), faulhaberTriangle(p)[-1]))
+
+function main():
+    fs = faulhaberTriangle(9)
+    print(fTable(__doc__ + ':\n')(str)(compose(concat))(fmap(showRatio(3)(3)))(index(fs))(range(0, len(fs)))
+    print('')
+    print(faulhaberSum(17, 1000))
+
+function fTable(s):
+    function gox(xShow):
+        function gofx(fxShow):
+            function gof(f):
+                function goxs(xs):
+                    ys = map(xShow, xs)
+                    w = max(map(len, ys))
+
+                    function arrowed(x, y):
+                        return y.rjust(w, ' ') + ' -> ' + (fxShow(f(x)))
+                    return s + '\n' + '\n'.join(map(arrowed, xs, ys))
+                return goxs
+            return gof
+        return gofx
+    return gox
+
+function compose(g):
+    return lambda f: lambda x: g(f(x))
+
+function concat(xs):
+    function f(ys):
+        zs = list(chain(*ys))
+        return ''.join(zs) if isinstance(ys[0], str) else zs
+    return f(xs) if isinstance(xs, list) else (chain.from_iterable(xs)) if xs else []
+
+function fmap(f):
+    function go(xs):
+        return list(map(f, xs))
+    return go
+
+function index(xs):
+    return lambda n: None if 0 > n else (xs[n] if (hasattr(xs, "__getitem__")) else next(islice(xs, n, None))
+
+function showRatio(m):
+    function go(n):
+        function f(r):
+            d = r.denominator
+            return str(r.numerator).rjust(m, ' ') + (('/' + str(d).ljust(n, ' ')) if 1 != d else (' ' * (1 + n)))
+        return f
+    return go
+
+if __name__ == '__main__':
+    main()
+```

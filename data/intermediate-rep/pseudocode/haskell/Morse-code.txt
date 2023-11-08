@@ -1,0 +1,6 @@
+1. Import necessary libraries: System.IO, MorseCode, MorsePlaySox
+2. Define the main function:
+   a. Set the buffering of standard input to NoBuffering
+   b. Read the input text from standard input
+   c. Convert the input text to Morse code using the toMorse function
+   d. Play the Morse code using the play function

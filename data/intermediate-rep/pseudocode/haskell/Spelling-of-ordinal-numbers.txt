@@ -1,0 +1,19 @@
+1. Create a function called spellOrdinal that takes an integer as input and returns a string representing the ordinal form of the number (e.g. 1st, 2nd, 3rd, etc.).
+
+2. Create a list of integers [1, 2, 3, 4, 5, 11, 65, 100, 101, 272, 23456, 8007006005004003].
+
+3. Iterate through the list using the mapM_ function and apply the following function to each element:
+    a. Convert the integer to a string and concatenate with a tab character ("\t").
+    b. Call the spellOrdinal function on the integer and concatenate the result with the string from step a.
+    c. Print the resulting string to the console.
+
+Pseudocode:
+
+function spellOrdinal(n):
+    // function definition to return the ordinal form of a number
+
+function main:
+    numbers = [1, 2, 3, 4, 5, 11, 65, 100, 101, 272, 23456, 8007006005004003]
+    mapM_:
+        for each n in numbers:
+            print (show n + "\t" + spellOrdinal(n))

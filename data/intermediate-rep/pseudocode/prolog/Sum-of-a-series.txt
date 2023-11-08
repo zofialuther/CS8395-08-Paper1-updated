@@ -1,0 +1,5 @@
+1. Initialize an empty list Ls
+2. Loop through N from 1 to 1000
+3. Calculate L as 1 divided by N squared
+4. Add L to the list Ls
+5. Calculate the sum of the elements in Ls and store it in S

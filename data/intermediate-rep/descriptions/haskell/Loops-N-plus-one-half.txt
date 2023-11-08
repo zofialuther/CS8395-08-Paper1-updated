@@ -1,0 +1,1 @@
+This code defines a main function that uses the forM_ function to iterate through the numbers 1 to 10. For each number, it prints the number and a comma if it's not the last number, or a newline if it is the last number.

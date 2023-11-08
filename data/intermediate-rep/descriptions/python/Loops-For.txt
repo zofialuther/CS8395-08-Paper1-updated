@@ -1,0 +1,1 @@
+This code uses a for loop to iterate through the range of numbers 1 to 5. For each number, it prints a corresponding number of asterisks on a new line, creating a visual representation of a pyramid shape.

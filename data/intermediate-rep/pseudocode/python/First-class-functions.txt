@@ -1,0 +1,25 @@
+```
+FUNCTION main
+    pwr = flip(curry(pow))
+    fs = [sin, cos, pwr(3.0)]
+    ifs = [asin, acos, pwr(1 / 3.0)]
+    PRINT list comprehension with f(0.5) for f in zipWith(compose)(fs)(ifs)
+
+FUNCTION compose(g)
+    RETURN lambda f: lambda x: g(f(x))
+
+FUNCTION curry(f)
+    RETURN lambda a: lambda b: f(a, b)
+
+FUNCTION flip(f)
+    IF 1 < length of parameters of f
+        RETURN lambda a, b: f(b, a)
+    ELSE
+        RETURN lambda a: lambda b: f(b)(a)
+
+FUNCTION zipWith(f)
+    RETURN lambda xs: lambda ys: list comprehension of f(a)(b) for (a, b) in zip(xs, ys)
+
+IF __name__ == '__main__'
+    CALL main()
+```

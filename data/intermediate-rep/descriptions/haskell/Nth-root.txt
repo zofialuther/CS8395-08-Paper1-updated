@@ -1,0 +1,1 @@
+This code defines a function called `nthRoot` that calculates the nth root of a given number. It uses an iterative method to find the root by repeatedly updating the guess until the result converges. The function returns the first element of the final tuple, which represents the nth root of the input number.

@@ -1,0 +1,11 @@
+function removeDuplicates(values: array of integers) -> array of integers
+    create list as an empty ArrayList of integers
+    for each value in values
+        if value is not in list
+            add value to list
+    create newValues as an array of integers with the size of list
+    set index as 0
+    for each value in list
+        set newValues[index] to value
+        increment index by 1
+    return newValues

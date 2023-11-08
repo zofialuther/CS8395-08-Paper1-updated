@@ -1,0 +1,1 @@
+This code calculates the result of raising the number 'a' to the power of 'b' modulo 'm', and then prints the result. The numbers 'a' and 'b' are extremely large integers, and 'm' is set to 10 raised to the power of 40. The 'pow' function is used to efficiently calculate the result of the exponentiation operation with modulo.

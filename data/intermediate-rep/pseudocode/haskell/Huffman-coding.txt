@@ -1,0 +1,8 @@
+1. Import required modules and libraries
+2. Define HTree data type with Leaf and Branch constructors
+3. Define test function that takes a String as input and outputs IO action
+4. Define serialize function that takes an HTree and returns a list of tuples
+5. Define huffmanTree function that takes a list of tuples and returns an HTree
+6. Define hstep function that takes a list of tuples and returns a new list of tuples
+7. Define freq function that takes a list and returns a list of tuples with frequency of elements
+8. Define main function that calls test function with a sample string as input.

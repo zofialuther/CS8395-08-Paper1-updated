@@ -1,0 +1,12 @@
+Function pascal(n):
+    for i from 0 to n-1:
+        create an array row of size i+1
+        for j from 0 to i:
+            if j is 0 or j is i:
+                set row[j] to 1
+            else:
+                set row[j] to pascalTriangle[i-1][j-1] + pascalTriangle[i-1][j]
+        print row
+        append row to pascalTriangle array
+    end for
+End function

@@ -1,0 +1,1 @@
+This code uses the numpy library to perform polynomial evaluation. It imports the numpy library and then uses the polyval function to evaluate the polynomial with coefficients (-19, 7, -4, 6) at the value of 3. The result of the evaluation is 128.0.

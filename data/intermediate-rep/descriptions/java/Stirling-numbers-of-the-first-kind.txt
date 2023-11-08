@@ -1,0 +1,1 @@
+This Java program calculates and displays the unsigned Stirling numbers of the first kind. It uses a recursive method to calculate the values and stores the results in a HashMap to avoid redundant calculations. The program also finds the maximum value of S1(100, k) and displays the result along with the number of digits and the value of k.

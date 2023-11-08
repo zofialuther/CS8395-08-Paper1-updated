@@ -1,0 +1,44 @@
+
+```
+function main() {
+    try {
+        List<String> ordered = readLinesFromFile("unixdict.txt")
+                                .filter( word -> isOrdered(word) ).toList();
+        
+        int maxLength = findMaxLength(ordered);
+        printLongestWords(ordered, maxLength);
+    } catch (IOException e) {
+        handleIOException(e);
+    }
+}
+
+function readLinesFromFile(fileName) {
+    return Files.lines(Path.of(fileName));
+}
+
+function isOrdered(aWord) {
+    return aWord.chars()
+                .mapToObj( i -> (char) i )
+                .sorted()
+                .map(String::valueOf)
+                .reduce("", String::concat)
+                .equals(aWord);
+}
+
+function findMaxLength(words) {
+    return words.stream()
+                .map( word -> word.length() )
+                .max(Integer::compare)
+                .get();
+}
+
+function printLongestWords(words, maxLength) {
+    words.stream()
+         .filter( word -> word.length() == maxLength )
+         .forEach(System.out::println);
+}
+
+function handleIOException(exception) {
+    // Handle the IOException
+}
+```

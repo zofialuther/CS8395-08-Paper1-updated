@@ -1,0 +1,1 @@
+This Prolog code defines a predicate swap/4 which takes in four arguments and swaps the first two with the last two. The second part of the code is a query that uses the swap predicate to swap the values 1 and 2, resulting in X=2 and Y=1.

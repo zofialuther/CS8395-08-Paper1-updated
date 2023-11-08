@@ -1,0 +1,40 @@
+Pseudocode:
+
+1. Initialize class SierpinskiCarpet:
+    a. Set dim = 513
+    b. Set margin = 20
+    c. Set limit = dim
+
+2. Create a constructor for SierpinskiCarpet:
+    a. Set preferred size to (dim + 2 * margin, dim + 2 * margin)
+    b. Set background color to white
+    c. Set foreground color to orange
+    d. Create a new timer with delay of 2000 milliseconds:
+        i. Update limit by dividing it by 3
+        ii. If limit is less than or equal to 3, set limit back to dim
+        iii. Repaint the panel
+
+3. Create a method drawCarpet with parameters (Graphics2D g, int x, int y, int size):
+    a. If size is less than limit, return
+    b. Divide size by 3
+    c. Loop from 0 to 8:
+        i. If i is equal to 4, fill rectangle at (x + size, y + size) with size
+        ii. Else, recursively call drawCarpet with updated x, y, and size
+
+4. Override the paintComponent method:
+    a. Call super class's paintComponent method
+    b. Cast Graphics object to Graphics2D
+    c. Set rendering hint for anti-aliasing
+    d. Translate graphics by margin
+    e. Call drawCarpet method with initial x, y, and dim
+
+5. Create a main method:
+    a. Use SwingUtilities to invoke a new Runnable:
+        i. Create a new JFrame
+        ii. Set default close operation to EXIT_ON_CLOSE
+        iii. Set title to "Sierpinski Carpet"
+        iv. Set resizable to false
+        v. Add a new instance of SierpinskiCarpet to the center of the frame
+        vi. Pack the frame
+        vii. Set location of the frame to center of screen
+        viii. Set frame visible to true

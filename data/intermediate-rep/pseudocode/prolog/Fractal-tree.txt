@@ -1,0 +1,27 @@
+```
+function fractal() {
+  let D = new Window('Fractal');
+  D.setSize(800, 600);
+  drawTree(D, 400, 500, -90, 9);
+  D.open();
+}
+
+function drawTree(D, X, Y, Angle, Depth) {
+  if (Depth === 0) {
+    return;
+  }
+  let X1 = X;
+  let Y1 = Y;
+  let X2 = X1 + Math.cos(Angle * Math.PI / 180.0) * Depth * 10.0;
+  let Y2 = Y1 + Math.sin(Angle * Math.PI / 180.0) * Depth * 10.0;
+  let Line = new Line(X1, Y1, X2, Y2);
+  D.display(Line);
+  let A1 = Angle - 30;
+  let A2 = Angle + 30;
+  let De = Depth - 1;
+  drawTree(D, X2, Y2, A1, De);
+  drawTree(D, X2, Y2, A2, De);
+}
+
+fractal();
+```

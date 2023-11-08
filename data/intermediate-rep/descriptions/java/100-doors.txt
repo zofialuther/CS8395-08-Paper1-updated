@@ -1,0 +1,1 @@
+This code represents a simulation of 100 doors and their states. It uses a for loop to iterate through each door and prints out whether the door is open or closed. The condition for the door being open is when the door number is a perfect square. The output will display the door number and its state, indicating which doors are open.

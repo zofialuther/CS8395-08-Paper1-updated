@@ -1,0 +1,36 @@
+FUNCTION nth(N, N_Th)
+    IF tween(N) THEN
+        Th = "th"
+    ELSE IF 1 is N mod 10 THEN
+        Th = "st"
+    ELSE IF 2 is N mod 10 THEN
+        Th = "nd"
+    ELSE IF 3 is N mod 10 THEN
+        Th = "rd"
+    ELSE
+        Th = "th"
+    END IF
+    string_concat(N, Th, N_Th)
+END FUNCTION
+
+FUNCTION tween(N)
+    Tween = N mod 100
+    RETURN between(11, 13, Tween)
+END FUNCTION
+
+FUNCTION test
+    FOR N in range(0, 25)
+        nth(N, N_Th)
+        PRINT N_Th
+    END FOR
+    PRINT newline
+    FOR N in range(250, 265)
+        nth(N, N_Th)
+        PRINT N_Th
+    END FOR
+    PRINT newline
+    FOR N in range(1000, 1025)
+        nth(N, N_Th)
+        PRINT N_Th
+    END FOR
+END FUNCTION

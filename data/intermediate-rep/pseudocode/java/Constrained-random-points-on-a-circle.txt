@@ -1,0 +1,14 @@
+1. Import the Random class from java.util package
+2. Create a class called FuzzyCircle
+3. Declare a static final variable rnd of type Random
+4. Create a main method that takes an array of strings as input
+5. Create a 2D array called field with dimensions 31x31
+6. Use nested for loops to initialize all elements of the field array to ' '
+7. Declare a variable pointsInDisc and initialize it to 0
+8. Create a while loop that runs as long as pointsInDisc is less than 100
+9. Inside the while loop, generate random x and y coordinates using the rnd.nextInt(31) - 15 method
+10. Calculate the distance from the origin using Math.hypot(x, y)
+11. Check if the distance is between 10 and 15 and if the corresponding element in the field array is empty
+12. If the conditions are met, set the element in the field array to 'X' and increment pointsInDisc
+13. Use nested for-each loops to print each element of the field array
+14. End the main method.

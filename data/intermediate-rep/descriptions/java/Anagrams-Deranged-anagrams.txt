@@ -1,0 +1,1 @@
+This Java program reads a list of words from a file and then finds the longest pair of deranged anagrams from the list. It uses a HashMap to group words with the same sorted character sequence, and then iterates through each group to find deranged anagrams. The program then prints the longest pair of deranged anagrams found, or "no result" if none are found.

@@ -1,0 +1,24 @@
+```
+1. Load clpfd library
+
+2. Define knapsack predicate
+   - Set up the list of items with their properties (name, weights, value, nb pieces)
+   - Use maplist to collect the weights, values, and number of items taken for each item
+   - Use scalar_product to ensure the total weight of the selected items is less than or equal to 400
+   - Use scalar_product to calculate the total value of the selected items (VM)
+   - Use time and labeling to find the optimal solution for the maximum value (VM)
+   - Use scalar_product to calculate the total weight of the selected items (WM)
+   - Use compute_lenword to find the maximum length of the item names
+   - Use print_results to display the selected items and their properties
+
+3. Define collect predicate
+   - Extract the weights, values, and number of items for each item
+
+4. Define compute_lenword predicate
+   - Calculate the maximum length of the item names
+
+5. Define print_results predicate
+   - Base case: Print the total weight and value of the selected items
+   - If the number of a specific item is 0, skip to the next item
+   - Print the name, weight, and value of the selected items
+```

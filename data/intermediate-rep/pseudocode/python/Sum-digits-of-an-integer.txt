@@ -1,0 +1,19 @@
+FUNCTION sumDigits(num, base=10)
+    IF base < 2 THEN
+        OUTPUT "Error: base must be at least 2"
+        RETURN
+    END IF
+    num = ABS(num)
+    sum = 0
+    WHILE num >= base DO
+        num, rem = divmod(num, base)
+        sum = sum + rem
+    END WHILE
+    RETURN sum + num
+END FUNCTION
+
+OUTPUT sumDigits(1)
+OUTPUT sumDigits(12345)
+OUTPUT sumDigits(-123045)
+OUTPUT sumDigits(0xfe, 16)
+OUTPUT sumDigits(0xf0e, 16)

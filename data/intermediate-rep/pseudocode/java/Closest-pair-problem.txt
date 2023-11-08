@@ -1,0 +1,92 @@
+```
+function distance(p1, p2):
+    xdist = p2.x - p1.x
+    ydist = p2.y - p1.y
+    return Math.hypot(xdist, ydist)
+
+function bruteForce(points):
+    numPoints = points.length
+    if numPoints < 2:
+        return null
+    pair = new Pair(points[0], points[1])
+    if numPoints > 2:
+        for i from 0 to numPoints - 1:
+            point1 = points[i]
+            for j from i + 1 to numPoints:
+                point2 = points[j]
+                distance = distance(point1, point2)
+                if distance < pair.distance:
+                    pair.update(point1, point2, distance)
+    return pair
+
+function sortByX(points):
+    points.sortByX()
+
+function sortByY(points):
+    points.sortByY()
+
+function divideAndConquer(points):
+    pointsSortedByX = points.clone()
+    sortByX(pointsSortedByX)
+    pointsSortedByY = points.clone()
+    sortByY(pointsSortedByY)
+    return divideAndConquerRec(pointsSortedByX, pointsSortedByY)
+
+function divideAndConquerRec(pointsSortedByX, pointsSortedByY):
+    numPoints = pointsSortedByX.length
+    if numPoints <= 3:
+        return bruteForce(pointsSortedByX)
+
+    dividingIndex = numPoints / 2
+    leftOfCenter = pointsSortedByX.subList(0, dividingIndex)
+    rightOfCenter = pointsSortedByX.subList(dividingIndex, numPoints)
+
+    tempList = leftOfCenter.clone()
+    sortByY(tempList)
+    closestPair = divideAndConquerRec(leftOfCenter, tempList)
+
+    tempList.clear()
+    tempList.addAll(rightOfCenter)
+    sortByY(tempList)
+    closestPairRight = divideAndConquerRec(rightOfCenter, tempList)
+
+    if closestPairRight.distance < closestPair.distance:
+        closestPair = closestPairRight
+
+    tempList.clear()
+    shortestDistance = closestPair.distance
+    centerX = rightOfCenter[0].x
+    for point in pointsSortedByY:
+        if abs(centerX - point.x) < shortestDistance:
+            tempList.add(point)
+
+    for i from 0 to tempList.length - 1:
+        point1 = tempList[i]
+        for j from i + 1 to tempList.length:
+            point2 = tempList[j]
+            if (point2.y - point1.y) >= shortestDistance:
+                break
+            distance = distance(point1, point2)
+            if distance < closestPair.distance:
+                closestPair.update(point1, point2, distance)
+                shortestDistance = distance
+    return closestPair
+
+function main(args):
+    numPoints = (args.length == 0) ? 1000 : parseInt(args[0])
+    points = []
+    r = new Random()
+    for i from 0 to numPoints - 1:
+        points.add(new Point(r.nextDouble(), r.nextDouble()))
+    print("Generated " + numPoints + " random points")
+    startTime = System.currentTimeMillis()
+    bruteForceClosestPair = bruteForce(points)
+    elapsedTime = System.currentTimeMillis() - startTime
+    print("Brute force (" + elapsedTime + " ms): " + bruteForceClosestPair)
+    startTime = System.currentTimeMillis()
+    dqClosestPair = divideAndConquer(points)
+    elapsedTime = System.currentTimeMillis() - startTime
+    print("Divide and conquer (" + elapsedTime + " ms): " + dqClosestPair)
+    if bruteForceClosestPair.distance != dqClosestPair.distance:
+        print("MISMATCH")
+```

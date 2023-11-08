@@ -1,0 +1,11 @@
+```
+FUNCTION sampleFunction
+    OUTPUT "a"
+END FUNCTION
+
+FUNCTION main
+    FOR i = 1 to 5
+        CALL sampleFunction
+    END FOR
+END FUNCTION
+```

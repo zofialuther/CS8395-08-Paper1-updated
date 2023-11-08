@@ -1,0 +1,1 @@
+This code creates a window titled "Goodbye" with a size of 250x100 pixels. It then creates a text string that says "Goodbye, World !" and displays it in the center of the window. Finally, it opens the window for the user to see.

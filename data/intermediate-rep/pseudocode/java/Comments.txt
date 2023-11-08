@@ -1,0 +1,11 @@
+START
+  SET variable x to 10
+  SET variable y to 5
+  SET variable z to 0
+
+  // Adding x and y and storing the result in z
+  z = x + y
+  
+  // Output z
+  PRINT z
+END

@@ -1,0 +1,25 @@
+```
+FUNCTION main
+    frm = CREATE frame WITH text "Interact"
+    fld = CREATE textEntry WITH text "0", on keyboard checkKeys
+    inc = CREATE button WITH text "increment", on command increment fld
+    ran = CREATE button WITH text "random", on command randReplace fld frm
+    SET frm layout TO margin 5, floatCentre, column 2
+        [centre widget fld, row 2 [widget inc, widget ran]]
+    RETURN start frm
+
+FUNCTION increment WITH field
+    val = GET field text
+    IF NOT (null val)
+        SET field text TO show(1 + read val)
+
+FUNCTION checkKeys WITH EventKey
+    IF elem (show key) ["Backspace", show 0, show 1, show 2, show 3, show 4, show 5, show 6, show 7, show 8, show 9]
+        RETURN propagateEvent
+
+FUNCTION randReplace WITH field, frame
+    answer = confirmDialog frame "Random" "Generate a random number?" True
+    IF answer
+        num = getStdRandom (randomR (1,100))
+        SET field text TO show (num :: Int)
+```

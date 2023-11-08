@@ -1,0 +1,26 @@
+```
+function member1(X, [H|_]) {
+    if (X == H) {
+        return true;
+    }
+    return false;
+}
+
+function member1(X, [_|T]) {
+    return member1(X, T);
+}
+
+function distinct([], []) {
+    return;
+}
+
+function distinct([H|T], C) {
+    if (member1(H, T)) {
+        distinct(T, C);
+    }
+    else {
+        C.push(H);
+        distinct(T, C);
+    }
+}
+```

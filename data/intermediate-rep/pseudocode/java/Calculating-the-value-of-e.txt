@@ -1,0 +1,5 @@
+1. Declare a class and name it as "MainClass".
+2. Inside the MainClass, declare a public static method and name it as "main".
+3. Inside the "main" method, declare a BigDecimal variable "number" and initialize it with a value.
+4. Declare a BigDecimal variable "roundedNumber" and initialize it with the value of "number" rounded to 2 decimal places using the HALF_UP rounding mode.
+5. Print the value of "roundedNumber" to the console.

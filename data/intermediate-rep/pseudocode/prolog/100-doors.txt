@@ -1,0 +1,5 @@
+doors_optimized(N):
+    Max = floor(sqrt(N))
+    for I = 1 to Max:
+        J = I * I
+        print "Door" + J + "is open"

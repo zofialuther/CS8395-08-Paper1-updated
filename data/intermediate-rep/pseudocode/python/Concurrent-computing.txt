@@ -1,0 +1,5 @@
+1. Import the futures module from the concurrent library
+2. Create a ProcessPoolExecutor object and assign it to the variable executor
+3. Use the map function of the executor to print each word in the 'Enjoy Rosetta Code' string after splitting it
+4. Convert the result of the map function to a list and assign it to the variable _
+5. End the program.

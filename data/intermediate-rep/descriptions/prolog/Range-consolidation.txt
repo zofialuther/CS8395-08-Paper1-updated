@@ -1,0 +1,5 @@
+This code defines a program to consolidate a list of ranges into a simplified list of non-overlapping ranges. The `consolidate_ranges` predicate takes a list of ranges as input and returns the consolidated list of ranges. It first normalizes the input ranges by ensuring that the minimum value is always stored as the `Min` and the maximum value is always stored as the `Max`. Then, it sorts the normalized ranges and merges any overlapping ranges to create the consolidated list of non-overlapping ranges.
+
+There are also predicates to write a single range and a list of ranges in a human-readable format, as well as test cases to demonstrate the functionality of the `consolidate_ranges` predicate.
+
+The `main` predicate runs the test cases and prints the original list of ranges and the consolidated list of ranges for each test case.

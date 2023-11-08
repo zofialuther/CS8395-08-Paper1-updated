@@ -1,0 +1,29 @@
+import itertools
+
+def factors(n):
+    def prime_powers(n):
+        c = 2
+        while True:
+            c = c + 1
+            if c * c > n:
+                break
+            if n % c != 0:
+                continue
+            d = ()
+            p = c
+            while n % c == 0:
+                n = n // c
+                p = p * c
+                d = d + (p,)
+            yield(d)
+        if n > 1:
+            yield((n,))
+
+    r = [1]
+    for e in prime_powers(n):
+        temp = []
+        for a in r:
+            for b in e:
+                temp = temp + [a * b]
+        r = temp
+    return r

@@ -1,0 +1,8 @@
+
+function task(Length) {
+    N = 5^4^3^2
+    Codes = number_codes(N)
+    Codes = append(`62060698786608744707`, Codes)
+    Codes = append(Codes, `92256259918212890625`)
+    Length = length(Codes)
+}

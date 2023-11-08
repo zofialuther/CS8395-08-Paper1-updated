@@ -1,0 +1,7 @@
+FUNCTION isEven(i)
+    IF i MOD 2 = 0 THEN
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+    ENDIF
+END FUNCTION

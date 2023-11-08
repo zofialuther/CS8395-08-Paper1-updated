@@ -1,0 +1,113 @@
+```
+function main
+    print "Regular hands:\n"
+    for each input in ["2H 2D 2S KS QD", "2H 5H 7D 8S 9D", "AH 2D 3S 4S 5S", "2H 3H 2D 3S 3D", "2H 7H 2D 3S 3D", "2H 7H 7D 7S 7C", "TH JH QH KH AH", "4H 4C KC 5D TC", "QC TC 7C 6C 4C", "QC TC 7C 7C TD"]
+        print analyzeHand(input.split(" "))
+    end for
+    print "\nHands with wildcards:\n"
+    for each input in ["2H 2D 2S KS WW", "2H 5H 7D 8S WW", "AH 2D 3S 4S WW", "2H 3H 2D 3S WW", "2H 7H 2D 3S WW", "2H 7H 7D WW WW", "TH JH QH WW WW", "4H 4C KC WW WW", "QC TC 7C WW WW", "QC TC 7H WW WW"]
+        print analyzeHandWithWildcards(input.split(" "))
+    end for
+end function
+
+function analyzeHand(hand)
+    if length of hand is not 5
+        return new Score("invalid hand: wrong number of cards", -1, hand)
+    end if
+    if size of new HashSet(Arrays.asList(hand)) is not equal to length of hand
+        return new Score("invalid hand: duplicates", -1, hand)
+    end if
+    faceCount = new int array of length faces.length()
+    straight = 0
+    flush = 0
+    for each card in hand
+        face = index of card[0] in faces
+        if face is -1
+            return new Score("invalid hand: non existing face", -1, hand)
+        end if
+        straight = straight bitwise OR (1 left shift face)
+        increment faceCount[face]
+        if index of card[1] in suits is -1
+            return new Score("invalid hand: non-existing suit", -1, hand)
+        end if
+        flush = flush bitwise OR (1 left shift index of card[1])
+    end for
+    while straight modulus 2 is 0
+        shift right straight by 1
+    end while
+    hasStraight = straight is equal to 0b11111 or straight is equal to 0b1111000000001
+    hasFlush = (flush bitwise AND (flush minus 1)) is equal to 0
+    if hasStraight and hasFlush
+        return new Score("straight-flush", 9, hand)
+    end if
+    total = 0
+    for each count in faceCount
+        if count is 4
+            return new Score("four-of-a-kind", 8, hand)
+        end if
+        if count is 3
+            add 3 to total
+        else if count is 2
+            add 2 to total
+        end if
+    end for
+    if total is 5
+        return new Score("full-house", 7, hand)
+    end if
+    if hasFlush
+        return new Score("flush", 6, hand)
+    end if
+    if hasStraight
+        return new Score("straight", 5, hand)
+    end if
+    if total is 3
+        return new Score("three-of-a-kind", 4, hand)
+    end if
+    if total is 4
+        return new Score("two-pair", 3, hand)
+    end if
+    if total is 2
+        return new Score("one-pair", 2, hand)
+    end if
+    return new Score("high-card", 1, hand)
+end function
+
+function analyzeHandWithWildcards(hand)
+    if frequency of "WW" in Arrays.asList(hand) is greater than 2
+        throw new IllegalArgumentException("too many wildcards")
+    end if
+    return new WildScore(analyzeHandWithWildcardsR(hand, null), copy of hand)
+end function
+
+function analyzeHandWithWildcardsR(hand, best)
+    for i from 0 to length of hand
+        if hand[i] is equal to "WW"
+            for each card in deck
+                if card is not in Arrays.asList(hand)
+                    set hand[i] to card
+                    best = analyzeHandWithWildcardsR(hand, best)
+                end if
+            end for
+            set hand[i] to "WW"
+            break
+        end if
+    end for
+    result = analyzeHand(hand)
+    if best is null or result.weight is greater than best.weight
+        set best to result
+    end if
+    return best
+end function
+
+function buildDeck
+    dck = new String array of size suits.length() times faces.length()
+    i = 0
+    for each s in suits
+        for each f in faces
+            set dck[i] to f concatenation s
+            increment i
+        end for
+    end for
+    return dck
+end function
+```

@@ -1,0 +1,14 @@
+1. Start
+2. Function shuffleBS with input parameters n and s
+3. Set s as yieldMany (unpack s)
+4. Set s as shuffleC n
+5. Set s as mapC charUtf8
+6. Set s as builderToByteString
+7. Set s as foldC
+8. End shuffleBS
+9. Function main
+10. Set stdin as sourceHandle
+11. Set shuffleBS 10 as mapMC
+12. Set stdout as sinkHandle
+13. End main
+14. End.

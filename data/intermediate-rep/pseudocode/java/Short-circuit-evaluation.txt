@@ -1,0 +1,25 @@
+```
+function main(args)
+    print "F and F = " + a(false) && b(false) + "\n"
+    print "F or F = " + a(false) || b(false) + "\n"
+
+    print "F and T = " + a(false) && b(true) + "\n"
+    print "F or T = " + a(false) || b(true) + "\n"
+
+    print "T and F = " + a(true) && b(false) + "\n"
+    print "T or F = " + a(true) || b(false) + "\n"
+
+    print "T and T = " + a(true) && b(true) + "\n"
+    print "T or T = " + a(true) || b(true) + "\n"
+end function
+
+function a(a)
+    print "a"
+    return a
+end function
+
+function b(b)
+    print "b"
+    return b
+end function
+```

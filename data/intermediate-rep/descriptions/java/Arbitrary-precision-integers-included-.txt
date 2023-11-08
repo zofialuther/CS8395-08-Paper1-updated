@@ -1,0 +1,1 @@
+This Java program calculates the result of 5 raised to the power of 4 raised to the power of 3 raised to the power of 2 using the BigInteger class to handle large numbers. It then converts the result to a string and prints the first and last 20 digits, along with the total number of digits in the final result.

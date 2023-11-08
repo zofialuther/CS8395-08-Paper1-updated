@@ -1,0 +1,1 @@
+This is a Haskell code that defines a function "longmult" to multiply two integers using a long multiplication algorithm. It also includes helper functions "polymul" for polynomial multiplication and "digits" to convert an integer into a list of its digits. The "main" function demonstrates the use of "longmult" by multiplying two large numbers (2^64).

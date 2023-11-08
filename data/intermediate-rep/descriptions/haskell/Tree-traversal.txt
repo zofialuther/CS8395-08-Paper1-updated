@@ -1,0 +1,1 @@
+This code defines a Tree data type and four tree traversal functions: preorder, inorder, postorder, and levelorder. It also includes a test tree with integer values and an ASCII representation of the tree. The main function outputs the ASCII tree and the results of each traversal function applied to the test tree, displaying the values of the nodes in the specified order.

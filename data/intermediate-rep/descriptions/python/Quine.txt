@@ -1,0 +1,1 @@
+This code is written in Python and it prints the name of the file it is being executed from, excluding the last three characters.

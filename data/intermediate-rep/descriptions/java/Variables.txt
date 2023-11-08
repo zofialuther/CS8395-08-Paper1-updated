@@ -1,0 +1,1 @@
+This code declares three variables: an integer named "a", a double named "b", and an object of class "AClassNameHere" named "c". These variables are ready to be used and assigned values in a program.

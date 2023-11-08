@@ -1,0 +1,16 @@
+FUNCTION collapse(input: string) {
+    sb = new StringBuilder()
+    FOR i = 0 to input.length - 1 {
+        IF i == 0 OR input[i-1] != input[i] {
+            sb.append(input[i])
+        }
+    }
+    RETURN sb.toString()
+}
+
+FUNCTION main() {
+    FOR s in ["", "\"If I were two-faced, would I be wearing this one?\" --- Abraham Lincoln ", "..1111111111111111111111111111111111111111111111111111111111111117777888", "I never give 'em hell, I just tell the truth, and they think it's hell. ", " --- Harry S Truman  ", "122333444455555666666777777788888888999999999", "The better the 4-wheel drive, the further you'll be from help when ya get stuck!", "headmistressship"] {
+        result = collapse(s)
+        PRINT "old:  %2d <<<%s>>>%nnew:  %2d <<<%s>>>%n%n", s.length(), s, result.length(), result
+    }
+}

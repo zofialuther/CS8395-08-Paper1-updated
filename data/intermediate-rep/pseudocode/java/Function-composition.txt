@@ -1,0 +1,6 @@
+FUNCTION compose(f, g)
+    RETURN x -> f(g(x))
+
+FUNCTION main
+    sin_asin = compose(Math.sin, Math.asin)
+    PRINT sin_asin(0.5)

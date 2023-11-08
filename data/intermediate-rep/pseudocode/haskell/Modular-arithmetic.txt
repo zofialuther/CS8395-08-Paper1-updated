@@ -1,0 +1,9 @@
+1. Import the Data.Modular library
+
+2. Define a function f that takes a ℤ/13 as input and returns a ℤ/13 as output
+   - Set the input as x
+   - Calculate x^100 + x + 1
+   - Return the result
+
+3. Define the main function of type IO ()
+   - Call the print function with the result of f when called with 10 as an argument.

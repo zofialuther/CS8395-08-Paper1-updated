@@ -1,0 +1,40 @@
+function fix(f) {
+  return f(fix(f));
+}
+
+function fac(n) {
+  return fix(function (f, n, i) {
+    if (i <= 0) {
+      return n;
+    } else {
+      return f(i * n, i - 1);
+    }
+  }, 1);
+}
+
+function fib(n) {
+  return fix(function (fnc, f, s, i) {
+    if (i <= 1) {
+      return f;
+    } else {
+      return (f + s, function (n) {
+        return n `seq` fnc(s, n, i - 1);
+      });
+    }
+  }, 0, 1);
+}
+
+function fibs() {
+  return fix(function (fnc, f, s) {
+    return [0, 1, fix(zipP(f, fnc, s, tail(s)))];
+  }, 0, 1);
+}
+
+function main() {
+  mapM_(
+    function (result) {
+      print(result);
+    },
+    [map(fac, [1, 20]), map(fib, [1, 20]), take(20, fibs())]
+  );
+}

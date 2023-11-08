@@ -1,0 +1,27 @@
+```
+begin
+  import Bitmap
+  import Control.Monad
+  import Control.Monad.ST
+  import qualified Data.STRef
+
+  var = Data.STRef.newSTRef
+  get = Data.STRef.readSTRef
+  mutate = Data.STRef.modifySTRef
+
+  function line(i, Pixel (xa, ya), Pixel (xb, yb), c)
+    yV = var(y1)
+    errorV = var(deltax div 2)
+    for x in range(x1, x2)
+      y = get(yV)
+      setPix(i, if steep then Pixel(y, x) else Pixel(x, y), c)
+      mutate(errorV, -deltay)
+      error = get(errorV)
+      if error < 0 then
+        mutate(yV, y + ystep)
+        mutate(errorV, deltax + error)
+      end if
+    end for
+  end function
+end
+```

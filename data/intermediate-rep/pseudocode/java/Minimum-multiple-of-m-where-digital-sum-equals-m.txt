@@ -1,0 +1,23 @@
+BEGIN
+    FUNCTION digitSum(aN)
+        sum = 0
+        WHILE aN > 0
+            sum = sum + (aN % 10)
+            aN = aN / 10
+        END WHILE
+        RETURN sum
+    END FUNCTION
+
+    FOR n = 1 to 70
+        k = 0
+        WHILE digitSum(k += n) != n
+            CONTINUE WHILE
+        END WHILE
+        PRINT k / n
+        IF n % 10 == 0
+            PRINT newline
+        ELSE
+            PRINT " "
+        END IF
+    END FOR
+END

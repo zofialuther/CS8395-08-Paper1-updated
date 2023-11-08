@@ -1,0 +1,29 @@
+FUNCTION prime_factors(m=2)
+    FOR i in range 2 to m
+        r, q = divmod(m, i)
+        IF q is not 0
+            RETURN [i] + prime_factors(r)
+    RETURN [m]
+
+FUNCTION k_almost_primes(n, k=2)
+    multiples = empty set
+    lists = empty list
+    FOR x in range 0 to k
+        lists.append(empty list)
+
+    FOR i in range 2 to n
+        IF i is not in multiples
+            IF length of lists[1] < 10
+                append i to lists[1]
+            multiples.update(range(i*i, n+1, i))
+    PRINT "k=1: {}".format(lists[1])
+
+    FOR j in range 2 to k
+        FOR m in multiples
+            l = prime_factors(m)
+            ll = length of l
+            IF ll equals j and length of lists[j] < 10
+                append m to lists[j]
+        PRINT "k={}: {}".format(j, lists[j])
+
+k_almost_primes(200, 5)

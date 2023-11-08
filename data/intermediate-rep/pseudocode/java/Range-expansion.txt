@@ -1,0 +1,37 @@
+
+Pseudocode:
+
+1. Begin RangeExpander class
+2.  Initialize private static final Pattern TOKEN_PATTERN with value "([+-]?\d+)-([+-]?\d+)"
+3.  Initialize private variables:
+      a. tokensIterator as Iterator
+      b. inRange as boolean
+      c. upperRangeEndpoint as integer
+      d. nextRangeValue as integer
+4.  Create constructor RangeExpander with parameter range:
+      a. Split range by comma and assign to tokens array
+      b. Convert tokens array to list and assign to tokensIterator
+5.  Define hasNext method:
+      a. Return true if hasNextRangeValue is true or tokensIterator has next value
+6.  Define hasNextRangeValue method:
+      a. Return true if inRange is true and nextRangeValue is less than or equal to upperRangeEndpoint
+7.  Define next method:
+      a. If hasNext is false, throw NoSuchElementException
+      b. If hasNextRangeValue is true:
+          i. Return nextRangeValue and increment nextRangeValue
+      c. Get next token from tokensIterator
+      d. Match token with TOKEN_PATTERN
+      e. If match found:
+          i. Set inRange to true
+          ii. Set upperRangeEndpoint to second group of matcher
+          iii. Set nextRangeValue to first group of matcher
+          iv. Return nextRangeValue and increment nextRangeValue
+      f. Set inRange to false and return token as integer
+8.  Define iterator method:
+      a. Return this as Iterator<Integer>
+9. End RangeExpander class
+10. Begin RangeExpanderTest class
+11. Create main method with parameter args:
+      a. Initialize re as new RangeExpander with value "-6,-3--1,3-5,7-11,14,15,17-20"
+      b. Iterate over re and print each value
+12. End RangeExpanderTest class

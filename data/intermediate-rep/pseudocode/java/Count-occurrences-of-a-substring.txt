@@ -1,0 +1,17 @@
+START
+  FUNCTION countSubstring(subStr, str)
+    count = 0
+    loc = str.indexOf(subStr)
+    WHILE loc != -1
+      count = count + 1
+      loc = str.indexOf(subStr, loc + subStr.length())
+    END WHILE
+    RETURN count
+  END FUNCTION
+
+  FUNCTION main(args)
+    CALL countSubstring("th", "the three truths")
+    CALL countSubstring("abab", "ababababab")
+    CALL countSubstring("a*b", "abaabba*bbaba*bbab")
+  END FUNCTION
+END

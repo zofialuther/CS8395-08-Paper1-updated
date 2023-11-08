@@ -1,0 +1,121 @@
+```
+FUNCTION numeric(X)
+    IF 48 =< X AND X =< 57 THEN
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+
+FUNCTION not_numeric(X)
+    IF 48 > X OR X > 57 THEN
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+
+FUNCTION lex1([], [])
+    RETURN
+
+FUNCTION lex1([40|Xs], ['('|Ys])
+    lex1(Xs, Ys)
+    RETURN
+
+FUNCTION lex1([41|Xs], [')'|Ys])
+    lex1(Xs, Ys)
+    RETURN
+
+FUNCTION lex1([43|Xs], ['+'|Ys])
+    lex1(Xs, Ys)
+    RETURN
+
+FUNCTION lex1([45|Xs], ['-'|Ys])
+    lex1(Xs, Ys)
+    RETURN
+
+FUNCTION lex1([42|Xs], ['*'|Ys])
+    lex1(Xs, Ys)
+    RETURN
+
+FUNCTION lex1([47|Xs], ['/'|Ys])
+    lex1(Xs, Ys)
+    RETURN
+
+FUNCTION lex1([X|Xs], [N|Ys])
+    IF numeric(X) THEN
+        N = X - 48
+        lex1(Xs, Ys)
+    ELSE
+        RETURN
+
+FUNCTION lex2([], [])
+    RETURN
+
+FUNCTION lex2([X], [X])
+    RETURN
+
+FUNCTION lex2([Xa,Xb|Xs], [Xa|Ys])
+    IF atom(Xa) OR (number(Xa) AND atom(Xb)) THEN
+        lex2([Xb|Xs], Ys)
+    ELSE IF number(Xa) AND number(Xb) THEN
+        N = Xa * 10 + Xb
+        lex2([N|Xs], [Y|Ys])
+
+FUNCTION oper(1, *, X, Y, X * Y)
+    RETURN
+
+FUNCTION oper(1, /, X, Y, X / Y)
+    RETURN
+
+FUNCTION oper(2, +, X, Y, X + Y)
+    RETURN
+
+FUNCTION oper(2, -, X, Y, X - Y)
+    RETURN
+
+FUNCTION num(D) --> [D], {number(D)}
+
+FUNCTION expr(0, Z) --> num(Z)
+    RETURN
+
+FUNCTION expr(0, Z) --> {Z = (X)}, ['('], expr(2, X), [')']
+    RETURN
+
+FUNCTION expr(N, Z) --> {succ(N0, N)}, {oper(N, Op, X, Y, Z)}, expr(N0, X), [Op], expr(N, Y)
+    RETURN
+
+FUNCTION expr(N, Z) --> {succ(N0, N)}, expr(N0, Z)
+    RETURN
+
+FUNCTION parse(Tokens, Expr)
+    expr(2, Expr, Tokens, [])
+    RETURN
+
+FUNCTION evaluate(E, E)
+    IF number(E) THEN
+        RETURN
+    ELSE IF E = A + B THEN
+        evaluate(A, Ae)
+        evaluate(B, Be)
+        E = Ae + Be
+    ELSE IF E = A - B THEN
+        evaluate(A, Ae)
+        evaluate(B, Be)
+        E = Ae - Be
+    ELSE IF E = A * B THEN
+        evaluate(A, Ae)
+        evaluate(B, Be)
+        E = Ae * Be
+    ELSE IF E = A / B THEN
+        evaluate(A, Ae)
+        evaluate(B, Be)
+        E = Ae / Be
+
+FUNCTION calculator(String, Value)
+    string_codes(String, Codes)
+    lex1(Codes, Tokens1)
+    lex2(Tokens1, Tokens2)
+    parse(Tokens2, Expression)
+    evaluate(Expression, Value)
+    RETURN
+
+% Example use
+calculator("(3+50)*7-9", X)
+```

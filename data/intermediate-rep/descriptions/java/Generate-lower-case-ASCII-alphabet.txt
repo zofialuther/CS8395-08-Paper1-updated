@@ -1,0 +1,1 @@
+This Java program creates a string of lowercase ASCII characters using a StringBuilder. It iterates through the lowercase alphabet and appends each character to the StringBuilder. Finally, it prints the lowercase ASCII string and its length.

@@ -1,0 +1,10 @@
+1. Start
+2. Import necessary libraries: java.io.FileWriter, java.io.IOException
+3. Define a public class LinePrinter
+4. Define the main method
+5. Try the following block of code:
+   a. Create a new FileWriter object lp0 and point it to the device /dev/lp0
+   b. Write the string "Hello World!" to lp0
+   c. Close lp0
+6. Catch any IOException and print the stack trace
+7. End

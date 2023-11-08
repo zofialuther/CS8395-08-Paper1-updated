@@ -1,0 +1,32 @@
+```
+BEGIN
+  FUNCTION carmichaels()
+    primesList = generatePrimesUpTo(61)
+    result = []
+    FOR EACH p IN primesList
+      FOR h3 IN 2 TO (p-1)
+        g = h3 + p
+        FOR EACH d IN 1 TO (g-1)
+          IF (g * (p - 1)) % d == 0 AND (-1 * p * p) % h3 == d % h3 THEN
+            q = 1 + (((p - 1) * g) / d)
+            IF isPrime(q) THEN
+              r = 1 + ((p * q) / h3)
+              IF isPrime(r) AND (q * r) % (p - 1) == 1 THEN
+                result.append((p, q, r))
+              END IF
+            END IF
+          END IF
+        END FOR
+      END FOR
+    END FOR
+    RETURN result
+  END FUNCTION
+
+  FUNCTION main()
+    carmichaelsList = carmichaels()
+    FOR EACH c IN carmichaelsList
+      PRINT c
+    END FOR
+  END FUNCTION
+END
+```

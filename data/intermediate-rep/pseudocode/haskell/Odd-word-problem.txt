@@ -1,0 +1,25 @@
+
+START
+  Import necessary modules
+
+  Define function split with input String and output (String, String)
+    Set split to span isAlpha
+
+  Define function parse with input String and output String
+    If input String is empty
+      Return empty string
+    Else
+      Set (a, w) to the result of split with input string
+      Set (b, x) to the result of splitAt 1 with input w
+      Set (c, y) to the result of split with input x
+      Set (d, z) to the result of splitAt 1 with input y
+      Return a concatenated with b concatenated with reverse c concatenated with d concatenated with parse z
+
+  Define function main with no input and output IO ()
+    Set buffering for stdin and stdout to NoBuffering
+    Get contents from stdin
+    Apply parse to the input and take while the result is not '.'
+    Print the result of the previous step
+    Print a new line with "."
+
+END

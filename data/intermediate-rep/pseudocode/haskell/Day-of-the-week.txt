@@ -1,0 +1,14 @@
+
+```
+FUNCTION isXmasSunday(year: Integer) -> Boolean
+    weekDay = toWeekDate(fromGregorian(year, 12, 25))
+    RETURN 7 == weekDay
+
+FUNCTION main() -> VOID
+    FOR year = 2008 TO 2121
+        IF isXmasSunday(year)
+            PRINT "Sunday 25 December " + year
+        ENDIF
+    ENDFOR
+ENDFUNCTION
+```

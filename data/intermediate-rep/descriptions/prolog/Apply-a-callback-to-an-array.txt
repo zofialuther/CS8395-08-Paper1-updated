@@ -1,0 +1,1 @@
+This Prolog code defines a predicate fun(X, Y) that doubles the value of X and assigns it to Y. The code then uses the maplist predicate to apply the fun predicate to each element of the list [1,2,3,4,5], resulting in the list L = [2,4,6,8,10].

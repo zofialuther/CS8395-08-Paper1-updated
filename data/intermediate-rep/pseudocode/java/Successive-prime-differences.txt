@@ -1,0 +1,58 @@
+```
+function sieve(limit)
+    primes = new ArrayList
+    primes.add(2)
+    c = new boolean[limit + 1]
+    p = 3
+    while true
+        p2 = p * p
+        if p2 > limit
+            break
+        end if
+        for i from p2 to limit by 2 * p
+            c[i] = true
+        end for
+        do
+            p += 2
+        while c[p]
+    end while
+    for i from 3 to limit by 2
+        if not c[i]
+            primes.add(i)
+        end if
+    end for
+    return primes.toArray(new Integer[0])
+end function
+
+function successivePrimes(primes, diffs)
+    results = new ArrayList
+    dl = length of diffs
+    for i from 0 to length of primes - dl
+        group = new Integer[dl + 1]
+        group[0] = primes[i]
+        for j from i to i + dl
+            if primes[j + 1] - primes[j] != diffs[j - i]
+                continue outer
+            end if
+            group[j - i + 1] = primes[j + 1]
+        end for
+        results.add(Arrays.asList(group))
+    end for
+    return results
+end function
+
+primes = sieve(999999)
+diffsList = {{2}, {1}, {2, 2}, {2, 4}, {4, 2}, {6, 4, 2}}
+print "For primes less than 1,000,000:-\n"
+for each diffs in diffsList
+    print "  For differences of " + Arrays.toString(diffs) + " ->\n"
+    sp = successivePrimes(primes, diffs)
+    if sp.isEmpty()
+        print "    No groups found\n"
+        continue
+    end if
+    print "    First group   = " + Arrays.toString(sp.get(0).toArray(new Integer[0])) + "\n"
+    print "    Last group    = " + Arrays.toString(sp.get(length of sp - 1).toArray(new Integer[0])) + "\n"
+    print "    Number found  = " + length of sp + "\n\n"
+end for
+```

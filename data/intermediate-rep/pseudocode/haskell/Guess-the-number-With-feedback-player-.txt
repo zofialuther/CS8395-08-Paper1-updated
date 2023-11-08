@@ -1,0 +1,27 @@
+```
+function main()
+    output "Please enter the range:"
+    output "From: "
+    from = input
+    output "To: "
+    to = input
+    if (from is a valid integer) and (to is a valid integer) and (from < to) then
+        loop(from, to)
+    else
+        output "Invalid input."
+        main()
+
+function loop(from, to)
+    guess = (to + from) / 2
+    output "Is it " + guess + "? ((l)ower, (c)orrect, (h)igher)"
+    answer = input
+    if answer is "c" then
+        output "Awesome!"
+    else if answer is "l" then
+        loop(from, guess)
+    else if answer is "h" then
+        loop(guess, to)
+    else
+        output "Invalid answer."
+        loop(from, to)
+```

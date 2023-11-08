@@ -1,0 +1,25 @@
+```
+function bin_search(Elt, List, Result)
+    N = length(List)
+    bin_search_inner(Elt, List, 1, N, Result)
+    
+function bin_search_inner(Elt, List, J, J, J, Result)
+    if J = J = J
+        Result = List[J]
+    else
+        if Begin < End
+            Mid = (Begin + End) / 2
+            Result = List[Mid]
+        else if Begin < End
+            Mid = (Begin + End) / 2
+            MidElt = List[Mid]
+            if MidElt < Elt
+                NewBegin = Mid + 1
+                bin_search_inner(Elt, List, NewBegin, End, Result)
+            else if Begin < End
+                Mid = (Begin + End) / 2
+                MidElt = List[Mid]
+                if MidElt > Elt
+                    NewEnd = Mid - 1
+                    bin_search_inner(Elt, List, Begin, NewEnd, Result)
+```

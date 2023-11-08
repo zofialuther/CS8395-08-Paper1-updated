@@ -1,0 +1,11 @@
+1. Start
+2. Import java.nio.file.*
+3. Import static java.util.Arrays.stream
+4. Create class MaxPathSum
+5. Create main method with args as String array and throws Exception
+6. Initialize int[][] data with the result of reading lines from "triangle.txt" file, splitting the lines, parsing them to integers and converting them to an array of arrays
+7. Iterate for each row from the second to the first (r = data.length - 1; r > 0; r--)
+    8. Iterate for each column from 0 to the length of the row - 1 (c = 0; c < data[r].length - 1; c++)
+        9. Add the maximum value between the current position and the one below to the position above (data[r - 1][c] += Math.max(data[r][c], data[r][c + 1]))
+10. Print the value in the top of the triangle (data[0][0])
+11. End

@@ -1,0 +1,20 @@
+```
+FUNCTION ludic(nmax=100000):
+    yield 1
+    lst = list(range(2, nmax + 1))
+    WHILE lst is not empty:
+        yield lst[0]
+        delete from lst every element at the index of lst[0]
+
+SET ludics as a list containing the results of ludic()
+
+DISPLAY 'First 25 ludic primes:'
+DISPLAY the first 25 elements of ludics
+DISPLAY '\nThere are %i ludic numbers <= 1000' % sum(1 for l in ludics if l <= 1000)
+DISPLAY '\n2000'th..2005'th ludic primes:'
+DISPLAY the elements of ludics from index 1999 to 2004
+
+SET n as 250
+SET triplets as a list containing the results of [(x, x+2, x+6) for x in ludics if x+6 < n and x+2 in ludics and x+6 in ludics]
+DISPLAY '\nThere are %i triplets less than %i:\n  %r' % (len(triplets), n, triplets)
+```

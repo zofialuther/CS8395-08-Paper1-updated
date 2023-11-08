@@ -1,0 +1,4 @@
+```
+while stack is not empty:
+    // do something
+```

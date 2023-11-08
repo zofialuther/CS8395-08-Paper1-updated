@@ -1,0 +1,16 @@
+FUNCTION powerMod(b, e, m)
+    x = 1
+    WHILE e > 0
+        IF e % 2 == 1
+            x = (b * x) % m
+        END IF
+        b = (b * b) % m
+        e = e / 2
+    END WHILE
+    RETURN x
+END FUNCTION
+
+FUNCTION main()
+    result = powerMod(2988348162058574136915891421498819466320163312926952423791023078876139, 2351399303373464486466122544523690094744975233415544072992656881240319, (10 ^ 40))
+    PRINT result
+END FUNCTION

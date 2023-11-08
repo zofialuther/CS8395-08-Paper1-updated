@@ -1,0 +1,275 @@
+```
+Game24Player:
+  patterns = ["nnonnoo", "nnonono", "nnnoono", "nnnonoo", "nnnnooo"]
+  ops = "+-*/^"
+  solution = ""
+  digits = []
+
+  function main():
+    Game24Player().play()
+
+  function play():
+    digits = getSolvableDigits()
+    in = Scanner(System.in)
+
+    while (true):
+      print("Make 24 using these digits: ")
+      println(digits)
+      println("(Enter 'q' to quit, 's' for a solution)")
+      print("> ")
+
+      line = in.nextLine()
+      if (line.equalsIgnoreCase("q")):
+        println("\nThanks for playing")
+        return
+      end if
+
+      if (line.equalsIgnoreCase("s")):
+        println(solution)
+        digits = getSolvableDigits()
+        continue
+      end if
+
+      entry = line.replaceAll("[^*+-/)(\\d]", "").toCharArray()
+
+      try:
+        validate(entry)
+
+        if (evaluate(infixToPostfix(entry))):
+          println("\nCorrect! Want to try another? ")
+          digits = getSolvableDigits()
+        else:
+          println("\nNot correct.")
+        end if
+
+      catch (Exception e):
+        printf("%n%s Try again.%n", e.getMessage())
+      end try
+    end while
+  end function
+
+  function validate(input):
+    total1 = 0
+    parens = 0
+    opsCount = 0
+
+    for each c in input:
+      if (Character.isDigit(c)):
+        total1 += 1 << (c - '0') * 4
+      else if (c == '('):
+        parens++
+      else if (c == ')'):
+        parens--
+      else if (ops.indexOf(c) != -1):
+        opsCount++
+      end if
+
+      if (parens < 0):
+        throw new Exception("Parentheses mismatch.")
+      end if
+    end for
+
+    if (parens != 0):
+      throw new Exception("Parentheses mismatch.")
+    end if
+
+    if (opsCount != 3):
+      throw new Exception("Wrong number of operators.")
+    
+    total2 = 0
+    for each d in digits:
+      total2 += 1 << d * 4
+    end for
+
+    if (total1 != total2):
+      throw new Exception("Not the same digits.")
+  end function
+
+  function evaluate(line):
+    s = Stack<Float>()
+    try:
+      for each c in line:
+        if ('0' <= c && c <= '9'):
+          s.push((float) c - '0')
+        else:
+          s.push(applyOperator(s.pop(), s.pop(), c))
+        end if
+      end for
+    catch (EmptyStackException e):
+      throw new Exception("Invalid entry.")
+    end try
+    return (Math.abs(24 - s.peek()) < 0.001F)
+  end function
+
+  function applyOperator(a, b, c):
+    switch (c):
+      case '+':
+        return a + b
+      case '-':
+        return b - a
+      case '*':
+        return a * b
+      case '/':
+        return b / a
+      default:
+        return Float.NaN
+    end switch
+  end function
+
+  function randomDigits():
+    r = Random()
+    result = ArrayList(4)
+    for i from 0 to 3:
+      result.add(r.nextInt(9) + 1)
+    end for
+    return result
+  end function
+
+  function getSolvableDigits():
+    result = []
+    do:
+      result = randomDigits()
+    while (!isSolvable(result))
+    return result
+  end function
+
+  function isSolvable(digits):
+    dPerms = HashSet(4 * 3 * 2)
+    permute(digits, dPerms, 0)
+
+    total = 4 * 4 * 4
+    oPerms = ArrayList(total)
+    permuteOperators(oPerms, 4, total)
+
+    sb = StringBuilder(4 + 3)
+
+    for each pattern in patterns:
+      patternChars = pattern.toCharArray()
+
+      for each dig in dPerms:
+        for each opr in oPerms:
+          i = 0
+          j = 0
+          for each c in patternChars:
+            if (c == 'n'):
+              sb.append(dig.get(i++))
+            else:
+              sb.append(ops.charAt(opr.get(j++)))
+            end if
+          end for
+
+          candidate = sb.toString()
+          try:
+            if (evaluate(candidate.toCharArray())):
+              solution = postfixToInfix(candidate)
+              return true
+            end if
+          catch (Exception ignored):
+          end try
+          sb.setLength(0)
+        end for
+      end for
+    end for
+    return false
+  end function
+
+  function postfixToInfix(postfix):
+    class Expression:
+      op
+      ex
+      prec = 3
+
+      constructor(e):
+        ex = e
+      end constructor
+
+      constructor(e1, e2, o):
+        ex = String.format("%s %s %s", e1, o, e2)
+        op = o
+        prec = ops.indexOf(o) / 2
+      end constructor
+    end class
+
+    expr = Stack<Expression>()
+
+    for each c in postfix.toCharArray():
+      idx = ops.indexOf(c)
+      if (idx != -1):
+        r = expr.pop()
+        l = expr.pop()
+        opPrec = idx / 2
+
+        if (l.prec < opPrec):
+          l.ex = '(' + l.ex + ')'
+        end if
+
+        if (r.prec <= opPrec):
+          r.ex = '(' + r.ex + ')'
+        end if
+
+        expr.push(Expression(l.ex, r.ex, "" + c))
+      else:
+        expr.push(Expression("" + c))
+      end if
+    end for
+    return expr.peek().ex
+  end function
+
+  function infixToPostfix(infix):
+    sb = StringBuilder()
+    s = Stack<Integer>()
+    try:
+      for each c in infix:
+        idx = ops.indexOf(c)
+        if (idx != -1):
+          if (s.isEmpty()):
+            s.push(idx)
+          else:
+            while (!s.isEmpty()):
+              prec2 = s.peek() / 2
+              prec1 = idx / 2
+              if (prec2 >= prec1):
+                sb.append(ops.charAt(s.pop()))
+              else:
+                break
+              end if
+            end while
+            s.push(idx)
+          end if
+        else if (c == '('):
+          s.push(-2)
+        else if (c == ')'):
+          while (s.peek() != -2):
+            sb.append(ops.charAt(s.pop()))
+          end while
+          s.pop()
+        else:
+          sb.append(c)
+        end if
+      end for
+      while (!s.isEmpty()):
+        sb.append(ops.charAt(s.pop()))
+      end while
+    catch (EmptyStackException e):
+      throw new Exception("Invalid entry.")
+    end try
+    return sb.toString().toCharArray()
+  end function
+
+  function permute(lst, res, k):
+    for i from k to lst.size():
+      Collections.swap(lst, i, k)
+      permute(lst, res, k + 1)
+      Collections.swap(lst, k, i)
+    end for
+    if (k == lst.size()):
+      res.add(ArrayList(lst))
+    end if
+  end function
+
+  function permuteOperators(res, n, total):
+    for i from 0 to total:
+      res.add(Arrays.asList((i / (n * n)), ((i % (n * n)) / n), (i % n)))
+    end for
+  end function
+```

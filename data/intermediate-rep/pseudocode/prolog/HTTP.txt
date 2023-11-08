@@ -1,0 +1,5 @@
+1. Include necessary libraries
+2. Define a predicate http
+3. Call http_open with the URL 'http://www.rosettacode.org/' and store the response in In
+4. Copy the data from In to the user output
+5. Close the input stream In

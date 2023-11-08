@@ -1,0 +1,79 @@
+```
+FUNCTION rotated(xs)
+    IF any element in xs is less than the first element of xs THEN
+        RETURN empty list
+    ELSE
+        rotatedList = rotate(xs)
+        RETURN map asNum(take(length(xs) - 1, rotatedList))
+END FUNCTION
+
+FUNCTION rotate(xs)
+    IF xs is empty THEN
+        RETURN empty list
+    ELSE
+        firstElement = first element of xs
+        restOfList = rest of elements in xs
+        rotatedList = restOfList concatenated with [firstElement]
+        RETURN rotatedList concatenated with rotate(restOfList concatenated with [firstElement])
+END FUNCTION
+
+FUNCTION asNum(n)
+    IF n is empty THEN
+        RETURN 0
+    ELSE
+        firstElement = first element of n
+        restOfList = rest of elements in n
+        IF all elements in n are 1 THEN
+            RETURN integer value of concatenated elements in n as a string
+        ELSE
+            RETURN (firstElement multiplied by (10 raised to the power of length of restOfList)) plus asNum(restOfList)
+END FUNCTION
+
+FUNCTION digits(n)
+    IF n is 0 THEN
+        RETURN empty list
+    ELSE
+        d, r = n divided by 10 with remainder
+        RETURN digits(d) concatenated with [r]
+END FUNCTION
+
+FUNCTION isCircular(repunit, n)
+    IF repunit is true THEN
+        RETURN result of millerRabinV with parameters 0 and n
+    ELSE IF n is less than 10 THEN
+        RETURN true
+    ELSE IF n is even THEN
+        RETURN false
+    ELSE
+        rotations = rotated(digits(n))
+        IF rotations is empty THEN
+            RETURN false
+        ELSE IF any element in rotations is less than n THEN
+            RETURN false
+        ELSE
+            RETURN true if all elements in rotations are prime, otherwise false
+END FUNCTION
+
+FUNCTION repunits()
+    RETURN result of go(2)
+END FUNCTION
+
+FUNCTION go(n)
+    RETURN asNum(replicate n 1) concatenated with go(n + 1)
+END FUNCTION
+
+FUNCTION asRepunit(n)
+    RETURN asNum(replicate n 1)
+END FUNCTION
+
+FUNCTION main()
+    PRINT "The first 19 circular primes are:"
+    PRINT circular(primes)
+    PRINT "The next 4 circular primes, in repunit format are:"
+    FOR each rep in reps(repunits)
+        PRINT "R(" concatenated with rep concatenated with ") "
+    PRINT "The following repunits are probably circular primes:"
+    FOR each pair in checkReps
+        PRINT "R(" concatenated with first element of pair concatenated with ") : " concatenated with result of isCircular True with parameter asRepunit(second element of pair)
+END FUNCTION
+```

@@ -1,0 +1,1 @@
+This Prolog code defines a rule "student" which states that a person X is a student of a person Y if Y taught X. It also provides a fact that Socrates taught Plato. This code can be used to find relationships between teachers and students in a knowledge base.

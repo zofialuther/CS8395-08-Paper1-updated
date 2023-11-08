@@ -1,0 +1,1 @@
+This code uses the http_open module to make a request to the 'http://www.rosettacode.org/' website and then copies the response data to the user's output. Finally, it closes the connection.

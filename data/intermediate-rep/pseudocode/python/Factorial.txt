@@ -1,0 +1,5 @@
+1. Import the accumulate and chain functions from the itertools module
+2. Import the mul function from the operator module
+3. Create a function called factorial that takes an integer n as input
+4. Inside the factorial function, use the accumulate function to calculate the cumulative product of a chain of numbers ranging from 1 to n
+5. Return the last element of the list obtained from the accumulate function, which represents the factorial of n.

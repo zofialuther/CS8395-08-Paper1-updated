@@ -1,0 +1,1 @@
+This code is a quine, a program that is designed to output its own source code. It calls the listing/1 predicate to print out its own source code.

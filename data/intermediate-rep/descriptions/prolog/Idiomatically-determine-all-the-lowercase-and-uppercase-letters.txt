@@ -1,0 +1,1 @@
+This code uses Prolog to find and display all lower and upper case characters. It first uses the char_type predicate to find all lower case characters and then all upper case characters, and prints the results to the console.

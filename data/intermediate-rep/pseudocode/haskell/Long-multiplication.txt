@@ -1,0 +1,27 @@
+```
+FUNCTION longmult(x, y)
+    digitsX = digits(x)
+    digitsY = digits(y)
+    products = polymul(digitsX, digitsY)
+    result = foldl1((+) . (10 *), products)
+    RETURN result
+
+FUNCTION polymul(xs, ys)
+    zeros = inits(repeat(0))
+    zipped = zipWith(concat, zeros, ((\f x -> fmap((<$>x) . f), *) xs ys))
+    transposed = transpose(zipped)
+    result = sum(transposed)
+    RETURN result
+
+FUNCTION digits(num)
+    strNum = show(num)
+    result = []
+    FOR each character in strNum
+        digit = digitToInt(character)
+        append digit to result
+    RETURN result
+
+FUNCTION main()
+    result = (2 ^ 64) `longmult` (2 ^ 64)
+    PRINT result
+```

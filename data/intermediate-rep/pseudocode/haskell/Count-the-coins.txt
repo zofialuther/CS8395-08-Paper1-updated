@@ -1,0 +1,17 @@
+FUNCTION count(x, coins)
+    IF x = 0 THEN
+        RETURN 1
+    END IF
+    IF coins = [] THEN
+        RETURN 0
+    END IF
+    sum = 0
+    FOR n FROM 0 TO x / coins[0]
+        sum = sum + count(x - (n * coins[0]), coins[1:])
+    END FOR
+    RETURN sum
+END FUNCTION
+
+FUNCTION main()
+    PRINT count(100, [1, 5, 10, 25])
+END FUNCTION

@@ -1,0 +1,1 @@
+This code uses the Control.Monad module to iterate through the numbers 1 to 10 and calls the 'out' function for each number. The 'out' function checks if the number is divisible by 5 and prints it if it is, otherwise it prints the number followed by a comma.

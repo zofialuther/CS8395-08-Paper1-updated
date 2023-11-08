@@ -1,0 +1,1 @@
+This code calculates the factorial of a given number 'n' by using the foldl function to multiply all the numbers from 1 to 'n' together. It initializes the product as 1 and then multiplies each number in the range [1..n] to calculate the factorial.

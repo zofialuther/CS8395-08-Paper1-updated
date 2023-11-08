@@ -1,0 +1,3 @@
+This Prolog code defines a predicate `word_wrap` that takes a string, a length, and returns the wrapped version of the string. The `word_wrap` predicate splits the input string into words, and then uses the `wrap` predicate to wrap the words to the specified line length.
+
+The `wrap` predicate takes a list of words, line length, space left, and returns the wrapped result. It iteratively adds words to the current line until the remaining space is not enough, then starts a new line. The sample text and a test predicate `test_word_wrap` are provided to demonstrate the word wrapping functionality. The `main` predicate tests the word wrapping for different line lengths.

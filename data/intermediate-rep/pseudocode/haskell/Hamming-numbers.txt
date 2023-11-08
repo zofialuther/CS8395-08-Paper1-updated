@@ -1,0 +1,18 @@
+Function hammings():
+   Set initial list as [1]
+   Set list of prime factors as [2, 3, 5]
+   For each prime factor n in list of prime factors:
+      Set r as merge result of list s and list of multiples of n
+      Merge list s and list of multiples of n
+         If list a is empty, return list b
+         If list b is empty, return list a
+         If the first element of list a is less than the first element of list b:
+            Add the first element of list a to the result and merge the rest of list a with list b
+         Otherwise:
+            Add the first element of list b to the result and merge list a with the rest of list b
+   Return the first 20 elements of the result
+
+Main function:
+   Print the first 20 elements of the result of hammings()
+   Print the element at index 1690 of the result of hammings()
+   Print the element at index 999999 of the result of hammings()

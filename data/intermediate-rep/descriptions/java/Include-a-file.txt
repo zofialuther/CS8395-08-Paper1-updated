@@ -1,0 +1,1 @@
+This code defines a class named Class1 with a main method. Within the main method, an instance of Class2 is created and two methods of Class2, func1 and func2, are called. However, there is a syntax error in the code as the main method should be declared as public and static.

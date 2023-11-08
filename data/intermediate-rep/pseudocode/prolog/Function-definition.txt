@@ -1,0 +1,4 @@
+1. Start
+2. Set A as 5*2
+3. Display "The product is " followed by the value of A
+4. End

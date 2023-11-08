@@ -1,0 +1,4 @@
+1. Import the CGIHTTPServer module
+2. Create a new instance of the CGIHTTPServer class
+3. Set the port number for the server
+4. Start the server with the start method

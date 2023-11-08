@@ -1,0 +1,23 @@
+1. Import necessary libraries:
+   - import java.util.Arrays;
+   - import java.util.Collections;
+   - import java.util.Comparator;
+   - import java.util.DoubleSummaryStatistics;
+   - import java.util.List;
+
+2. Create a class named MergeAndAggregateDatasets.
+
+3. Define the main method:
+   - Create a list of Patient objects and initialize it with patient data.
+   - Create a list of Visit objects and initialize it with visit data.
+   - Sort the list of patients based on patientID.
+   - Print the header for the output table.
+   - Iterate through each patient:
+     - Filter the visits for the current patient.
+     - Find the last visit date for the patient.
+     - Calculate the score sum and score average for the patient's visits.
+     - Create a formatted string with patient details and print it.
+
+4. Define a static record for Patient with patientID and lastName attributes.
+
+5. Define a static record for Visit with visitID, visitDate, and score attributes.

@@ -1,0 +1,14 @@
+Set Base to 16
+Set N to 4
+Set Paddy_cnt to 1
+for each V in the range of numbers from 1 to Base raised to the power of N
+  for each B in the range of numbers from 1 to N multiplied by 2, subtracted by 1
+    set x to the result of dividing V multiplied by V by Base raised to the power of B
+    set y to the remainder of V multiplied by V divided by Base raised to the power of B
+    if V is equal to x plus y and y is greater than 0
+      print the value of V in hexadecimal format along with Paddy_cnt
+      increment Paddy_cnt by 1
+      exit the inner loop
+    end if
+  end for
+end for

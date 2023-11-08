@@ -1,0 +1,6 @@
+1. Generate a random number between 1 and 10 and store it in variable n
+2. Print "Guess the number between 1 and 10: "
+3. While the input number is not equal to n
+   a. Read the input number
+   b. Print "Wrong! Guess again: "
+4. Print "Well guessed!"

@@ -1,0 +1,46 @@
+```
+function farey(n: integer) -> array of rational
+    initialize result array with 0
+    initialize a, b, c, d as 0, 1, 1, n
+    while c <= n do
+        k = (n + b) / d
+        append c / d to result array
+        a = c
+        b = d
+        c = k * c - a
+        d = k * d - b
+    end while
+    return result array
+
+function fareys(fn: function, ns: array of integer) -> array of pairs of integer and a
+    initialize result array
+    initialize rs as the result of calling farey with the last element of ns
+    for each n in reverse order of ns do
+        rs'' = filter elements of rs where denominator <= n
+        rs = rs''
+        append pair (n, fn(rs'')) to result array
+    end for
+    return result array
+
+function fprint(fmt: string, pairs: array of pairs of integer and b) -> void
+    for each pair in pairs do
+        printf fmt with pair's elements as arguments
+    end for
+
+function showFracs(fracs: array of rational) -> string
+    initialize result as empty string
+    for each frac in fracs do
+        append numerator of frac to result
+        append "/" to result
+        append denominator of frac to result
+        append " " to result
+    end for
+    return result
+
+function main() -> void
+    print "Farey Sequences\n"
+    call fprint with "%2d %s\n" and fareys(showFracs, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+    print "\nSequence Lengths\n"
+    call fprint with "%4d %d\n" and fareys(length, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
+end
+```

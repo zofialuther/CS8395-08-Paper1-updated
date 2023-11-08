@@ -1,0 +1,28 @@
+function mergeSort(xs):
+    if length of xs is 0:
+        return []
+    else if length of xs is 1:
+        return xs
+    else:
+        (as,bs) = split(xs)
+        return merge(mergeSort(as), mergeSort(bs))
+
+function merge(xs, ys):
+    if length of xs is 0:
+        return ys
+    else if length of ys is 0:
+        return xs
+    else if first element of xs is less than or equal to first element of ys:
+        return first element of xs concatenated with merge(rest of xs, ys)
+    else:
+        return first element of ys concatenated with merge(xs, rest of ys)
+
+function split(xs):
+    if length of xs is greater than or equal to 2:
+        (x, y, zs) = first two elements of xs and the rest
+        (xs, ys) = split(zs)
+        return (x concatenated with xs, y concatenated with ys)
+    else if length of xs is 1:
+        return (xs, [])
+    else:
+        return ([], [])

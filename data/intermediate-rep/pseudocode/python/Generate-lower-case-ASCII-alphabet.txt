@@ -1,0 +1,7 @@
+1. Import the ascii_lowercase string from the string module.
+2. Create an empty list called "lower".
+3. For each character in the range of 'a' to 'z' (inclusive):
+      a. Convert the character to its ASCII value.
+      b. Convert the ASCII value to the corresponding character.
+      c. Add the character to the "lower" list.
+4. Return the "lower" list.

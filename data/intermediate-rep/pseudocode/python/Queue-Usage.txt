@@ -1,0 +1,7 @@
+1. Initialize a queue called my_queue using the Queue module.
+2. Put the string "foo" into my_queue using the put() method.
+3. Put the string "bar" into my_queue using the put() method.
+4. Put the string "baz" into my_queue using the put() method.
+5. Print the result of calling the get() method on my_queue, which will return "foo".
+6. Print the result of calling the get() method on my_queue, which will return "bar".
+7. Print the result of calling the get() method on my_queue, which will return "baz".

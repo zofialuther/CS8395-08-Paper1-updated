@@ -1,0 +1,4 @@
+1. Set X as the variable for the Fibonacci sequence
+2. Set A as the list with a length of 15
+3. Use the append function to add elements to list A from the Fibonacci sequence
+4. Print list A using the writeln function.

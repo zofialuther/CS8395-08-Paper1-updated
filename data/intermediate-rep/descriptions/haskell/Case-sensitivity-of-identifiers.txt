@@ -1,0 +1,1 @@
+This code uses the Text.Printf module to format and print a sentence stating the names of three dogs. The names "Benjamin," "Samba," and "Bernie" are assigned to variables dog, dOG, and dOg, and then inserted into the formatted string using the printf function. When executed, the code will output: "The three dogs are named Benjamin, Samba and Bernie."

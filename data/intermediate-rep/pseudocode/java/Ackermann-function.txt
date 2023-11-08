@@ -1,0 +1,39 @@
+```
+1. Create a class called IterativeAckermannMemoryOptimization that extends Thread
+2. Create a constant variable SYSTEM_MEMORY_LIMIT_PERCENTAGE and set its value to 0.1
+3. Create a variable iterativeAckermann of type IterativeAckermann
+4. Create a constructor that takes an instance of IterativeAckermann as a parameter and sets it to the iterativeAckermann variable
+5. Create a getter method for iterativeAckermann
+6. Create a setter method for iterativeAckermann
+7. Create a getter method for SYSTEM_MEMORY_LIMIT_PERCENTAGE
+8. Override the run method
+    1. Get the operating system name
+    2. If the operating system is Windows, Linux, or Macintosh, set SYSTEM_MEMORY_LIMIT_PERCENTAGE to 0.25
+    3. While the consumed heap of iterativeAckermann is greater than or equal to SYSTEM_MEMORY_LIMIT_PERCENTAGE multiplied by the free memory, wait
+    4. If iterativeAckermann is not alive, start it, else notify all
+
+9. Create a class called IterativeAckermann that extends Thread
+10. Create a constant variable HASH_SIZE_LIMIT and set its value to 636
+11. Create variables m, n, hash_size, and consumed_heap
+12. Create a constructor that takes m, n, invalid, and invalid2 as parameters and sets them to the corresponding variables
+13. Create a default constructor that sets m and n to null, hash_size to 0, and consumed_heap to 0
+14. Create a getter method for LIMIT
+15. Create a nested class called Pair with generic types T1 and T2
+    1. Create a constructor that takes x and y as parameters and sets them to the corresponding variables
+    2. Override the hashCode method to return the XOR of the hash codes of x and y
+    3. Override the equals method to compare the Pair objects based on the values of x and y
+16. Override the run method
+    1. While hash_size is greater than or equal to HASH_SIZE_LIMIT, wait
+    2. Use nested loops to iterate through values of i and j from 0 to LIMIT
+    3. Create a new instance of IterativeAckermann with i, j, null, and null as parameters
+    4. Print the result of iterative_ackermann method for i and j
+17. Create getter and setter methods for m, n, hash_size, and consumed_heap
+18. Create a method called iterative_ackermann that takes m and n as parameters and returns a BigInteger
+    1. Check if m and n are non-negative integers
+    2. Create a HashMap called solved_set and a Stack called to_solve
+    3. Use a while loop to iterate through to_solve until it is empty
+    4. Implement the algorithm for iterative Ackermann function and store the result in solved_set
+    5. Set hash_size to the size of solved_set and consumed_heap to the total memory consumed
+    6. Return the result from solved_set
+19. Create a main method to create an instance of IterativeAckermannMemoryOptimization and start the thread
+```

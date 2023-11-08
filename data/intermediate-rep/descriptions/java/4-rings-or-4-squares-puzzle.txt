@@ -1,0 +1,1 @@
+This Java program, FourSquares, generates and prints all possible combinations of integers a, b, c, d, e, f, and g within a specified range. The combinations are checked for uniqueness and are only printed if they meet certain criteria. The program also counts the number of unique and non-unique solutions within the specified range.

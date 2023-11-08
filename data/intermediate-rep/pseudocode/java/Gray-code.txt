@@ -1,0 +1,57 @@
+```
+function grayEncode(n)
+    return n XOR ( n right shift 1 )
+
+function grayDecode(n)
+    p = n
+    while ( n right shift 1 ) != 0
+        p = p XOR n
+    return p
+
+function grayEncode(n)
+    return n XOR ( n shift right 1 )
+
+function grayDecode(n)
+    p = n
+    while ( n shift right 1 ).signum() != 0
+        p = p XOR n
+    return p
+
+function grayDecode2(n)
+    nBits = n.toString(2)
+    result = nBits.substring(0, 1)
+    for i = 1 to nBits.length() - 1
+        result += nBits.charAt(i) != result.charAt(i - 1) ? "1" : "0"
+    return new BigInteger(result, 2)
+
+function grayEncode2(n)
+    result = 0
+    for exp = 0, n > 0, n right shift 1
+        nextHighestBit = ( n right shift 1 ) AND 1
+        if nextHighestBit == 1
+            result += ( ( n AND 1 ) == 0 ) ? ( 1 left shift exp ) : 0
+        else
+            result += ( n AND 1 ) * ( 1 left shift exp )
+    return result
+
+function main(args)
+    print "i\tBinary\tGray\tGray2\tDecoded"
+    print "======================================="
+    for i = 0 to 31
+        print i + "\t"
+        print Integer.toBinaryString(i) + "\t"
+        print Long.toBinaryString(grayEncode(i)) + "\t"
+        print Long.toBinaryString(grayEncode2(i)) + "\t"
+        print grayDecode(grayEncode(i))
+    print ""
+    
+    base = BigInteger.TEN.pow(25).add( new BigInteger("12345678901234567890") )
+    for i = 0 to 4
+        test = base.add(BigInteger.valueOf(i))
+        print "test decimal      = " + test
+        print "gray code decimal = " + grayEncode(test)
+        print "gray code binary  = " + grayEncode(test).toString(2)
+        print "decoded decimal   = " + grayDecode(grayEncode(test))
+        print "decoded2 decimal  = " + grayDecode2(grayEncode(test))
+        print ""
+```

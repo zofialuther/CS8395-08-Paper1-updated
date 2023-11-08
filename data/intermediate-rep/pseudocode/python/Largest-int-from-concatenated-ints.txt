@@ -1,0 +1,9 @@
+FUNCTION maxnum(x)
+    maxlen = length of string representation of maximum value in x
+    sorted_numbers = sort numbers in x in descending order based on custom key
+        key = lambda i: i multiplied by (maxlen * 2) divided by length of i
+    return sorted_numbers joined as a string
+
+FOR numbers IN [(212, 21221), (1, 34, 3, 98, 9, 76, 45, 4), (54, 546, 548, 60)]:
+    PRINT 'Numbers: %r\n  Largest integer: %15s' with numbers and maxnum(numbers) as arguments
+END FOR

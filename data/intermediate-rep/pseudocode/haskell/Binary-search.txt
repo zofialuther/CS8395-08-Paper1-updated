@@ -1,0 +1,35 @@
+FUNCTION bSearch(p, (low, high))
+    IF high < low THEN
+        RETURN Nothing
+    ELSE
+        mid = (low + high) / 2
+        SWITCH p(mid)
+            CASE LT:
+                RETURN bSearch(p, (low, mid - 1))
+            CASE GT:
+                RETURN bSearch(p, (mid + 1, high))
+            CASE EQ:
+                RETURN Just mid
+        END SWITCH
+    END IF
+END FUNCTION
+
+FUNCTION bSearchArray(a, x)
+    bounds = bounds(a)
+    p = compare(x, a(bounds))
+    RETURN bSearch(p, bounds)
+END FUNCTION
+
+ARRAY axs = listArray((0, 11), ["alpha", "beta", "delta", "epsilon", "eta", "gamma", "iota", "kappa", "lambda", "mu", "theta", "zeta"])
+
+FUNCTION main()
+    e = "mu"
+    found = bSearchArray(axs, e)
+    PRINT "' : " + e + (
+        IF found == Nothing THEN
+            "' Not found"
+        ELSE
+            "' found at index " + show(found)
+        END IF
+    )
+END FUNCTION

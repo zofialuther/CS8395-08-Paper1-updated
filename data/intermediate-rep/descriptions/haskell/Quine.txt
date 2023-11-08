@@ -1,0 +1,1 @@
+This code uses the ap function to apply the ++ operator to the string "ap(++)show" and then displays the result using the show function.

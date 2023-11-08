@@ -1,0 +1,36 @@
+```
+function nthprime(n, prime) {
+    // function to return nth prime value
+}
+
+function conspiracy(M) {
+    let N = 10**M;
+    let P = nthprime(N);
+    let Ps = sieve(P);
+    let Counts = tally(Ps);
+    let Sorted = sort(Counts);
+    show(Sorted);
+}
+
+function show(Results) {
+    for each tr(D1, D2, Count) in Results {
+        print D1, D2, Count;
+    }
+}
+
+function tally(L, R) {
+    // function to tally results
+}
+
+function count(D1, D2, T, R) {
+    // function to count occurrences of D1 and D2 in T and return R
+}
+
+function sieve(Limit, Ps) {
+    // function to implement a prime sieve
+}
+
+function remove_multiples(N, M, L, R) {
+    // function to remove multiples of N from L and return R
+}
+```

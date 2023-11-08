@@ -1,0 +1,1 @@
+This code uses the Data.Random library to generate a random sample from the list [1, 2, 3]. The randomElement function is used to select a single element from the list and the sample function is used to create a sample from that element.

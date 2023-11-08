@@ -1,0 +1,5 @@
+1. Create a list called "funcs".
+2. Iterate through a range of numbers from 0 to 9, and for each number, do the following:
+    a. Define a lambda function that takes a parameter "i" and returns a lambda function that takes no parameters and returns "i * i".
+    b. Append the lambda function to the "funcs" list.
+3. Print the result of calling the lambda function at index 3 in the "funcs" list.

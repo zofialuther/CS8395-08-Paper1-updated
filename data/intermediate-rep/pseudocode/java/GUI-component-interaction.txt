@@ -1,0 +1,36 @@
+```
+// Define interface FunctionalKeyListener
+public interface FunctionalKeyListener extends KeyListener {
+  // Override methods from KeyListener interface with default implementations
+  @Override
+  public default void keyPressed(KeyEvent event) {}
+  @Override
+  public default void keyTyped(KeyEvent event) {}
+  @Override
+  public default void keyReleased(KeyEvent event) {}
+
+  // Define functional interface Pressed that extends FunctionalKeyListener
+  @FunctionalInterface
+  public static interface Pressed extends FunctionalKeyListener {
+    // Override keyPressed method with a functional implementation
+    @Override
+    public void keyPressed(KeyEvent event);
+  }
+
+  // Define functional interface Typed that extends FunctionalKeyListener
+  @FunctionalInterface
+  public static interface Typed extends FunctionalKeyListener {
+    // Override keyTyped method with a functional implementation
+    @Override
+    public void keyTyped(KeyEvent event);
+  }
+
+  // Define functional interface Released that extends FunctionalKeyListener
+  @FunctionalInterface
+  public static interface Released extends FunctionalKeyListener {
+    // Override keyReleased method with a functional implementation
+    @Override
+    public void keyReleased(KeyEvent event);
+  }
+}
+```

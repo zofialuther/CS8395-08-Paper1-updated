@@ -1,0 +1,7 @@
+This code defines a predicate `cuboid` that creates a graphical representation of a 3D cuboid shape with given dimensions. It uses the Prolog constraint logic programming language and the PCE library for graphical user interface development.
+
+The `cuboid` predicate takes three dimensions (D1, D2, D3) as input and calculates the corresponding width, height, and depth for the cuboid shape. It then creates a window to display the cuboid and computes the size of the window based on the dimensions of the cuboid.
+
+The code also defines two classes, `hpara` and `vpara`, which are used to draw horizontal and vertical parallelograms, representing the top and left faces of the cuboid respectively. These classes handle the initialization and drawing of the parallelogram shapes with specified dimensions and colors.
+
+Overall, this code provides a visual representation of a 3D cuboid shape using graphical elements and is a demonstration of how Prolog and the PCE library can be used for graphical programming.

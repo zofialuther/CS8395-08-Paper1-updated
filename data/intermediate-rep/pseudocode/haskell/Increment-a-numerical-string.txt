@@ -1,0 +1,13 @@
+1. Declare a function called "showBoolToString" that takes a boolean input and returns a string output.
+2. Inside the function, first use the "read" function to convert the input string to a boolean value.
+3. Then use the "succ" function to increment the boolean value by 1.
+4. Finally, use the "show" function to convert the incremented boolean value to a string.
+5. Return the resulting string.
+
+Pseudocode:
+
+function showBoolToString(input: string):
+    booleanValue = read(input)
+    incrementedValue = succ(booleanValue)
+    stringResult = show(incrementedValue)
+    return stringResult

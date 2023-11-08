@@ -1,0 +1,1 @@
+This code defines a program that generates an ASCII table, listing the ASCII characters from 32 to 127 along with their numerical values and names. The program uses various functions to format the table and display it in the console. The ASCII table is then printed to the console when the program is executed.

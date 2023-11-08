@@ -1,0 +1,1 @@
+This code uses the 'requests' library to send a GET request to the website "http://rosettacode.org" and then prints out the HTML content of the response.

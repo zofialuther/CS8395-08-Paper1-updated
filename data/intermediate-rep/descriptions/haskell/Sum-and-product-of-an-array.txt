@@ -1,0 +1,1 @@
+This code creates an array using the Data.Array library, containing the numbers 11 to 20. It then applies the sum and product functions to the elements of the array and prints the results. The mapM_ function is used to apply the print function to each result, displaying the sum and product of the array elements.

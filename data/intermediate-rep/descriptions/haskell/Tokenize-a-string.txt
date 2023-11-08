@@ -1,0 +1,1 @@
+This code uses the OverloadedStrings extension in GHC to work with text data. It imports the necessary modules for working with text and then defines a main function that splits a string "Hello,How,Are,You,Today" by commas, then concatenates the resulting list with periods, and finally prints the result to the console.

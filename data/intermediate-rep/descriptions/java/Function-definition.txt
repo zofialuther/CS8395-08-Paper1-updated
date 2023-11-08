@@ -1,0 +1,1 @@
+This code defines a class called Math with two static methods for multiplying numbers. The first method takes two integers as parameters and returns their product as an integer. The second method takes two doubles as parameters and returns their product as a double. This allows for multiplication operations on both integer and floating-point numbers.

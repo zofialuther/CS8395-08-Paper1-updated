@@ -1,0 +1,3 @@
+var-name = "hello"
+evaluated_var = eval("(var " + var-name + ")")
+result = evaluated_var(123)

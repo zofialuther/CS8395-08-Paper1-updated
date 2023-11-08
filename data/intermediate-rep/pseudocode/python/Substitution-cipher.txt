@@ -1,0 +1,30 @@
+```
+from string import printable
+import random
+
+EXAMPLE_KEY = ''.join(sorted(printable, key=lambda _:random.random()))
+
+function encode(plaintext, key)
+    encodedText = ""
+    for each char in plaintext
+        index = find index of char in printable
+        encodedChar = key[index]
+        append encodedChar to encodedText
+    return encodedText
+
+function decode(plaintext, key)
+    decodedText = ""
+    for each char in plaintext
+        index = find index of char in key
+        decodedChar = printable[index]
+        append decodedChar to decodedText
+    return decodedText
+
+original = "A simple example."
+encoded = encode(original, EXAMPLE_KEY)
+decoded = decode(encoded, EXAMPLE_KEY)
+print("The original is: " + original)
+print("Encoding it with the key: " + EXAMPLE_KEY)
+print("Gives: " + encoded)
+print("Decoding it by the same key gives: " + decoded)
+```

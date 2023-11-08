@@ -1,0 +1,23 @@
+from turtle import Turtle
+
+def DrawSierpinskiTriangle(num_iterations):
+    # Initialize turtle
+    turt = Turtle()
+    
+    # Set initial parameters
+    turn = 0
+    point = [0, 0]
+    fwd = 10
+    angle = 120
+    
+    # Loop for number of iterations
+    for i in range(num_iterations):
+        # Draw triangle
+        turn, point, fwd, angle, turt = Left(turn, point, fwd, angle, turt)
+        turn, point, fwd, angle, turt = Forward(turn, point, fwd, angle, turt)
+        turn, point, fwd, angle, turt = Right(turn, point, fwd, angle, turt)
+        turn, point, fwd, angle, turt = Forward(turn, point, fwd, angle, turt)
+        turn, point, fwd, angle, turt = Right(turn, point, fwd, angle, turt)
+        turn, point, fwd, angle, turt = Forward(turn, point, fwd, angle, turt)
+        
+    # End of loop

@@ -1,0 +1,10 @@
+1. Define the main function:
+   - Print the sum of the integers 1, 2, 3, 4, 5
+   - Print the result of reducing the integers 1, 2, 3, 4, 5 using multiplication
+
+Pseudocode:
+```
+function main():
+    print sum of integers(1, 2, 3, 4, 5)
+    print result of reducing integers(1, 2, 3, 4, 5) using multiplication
+```

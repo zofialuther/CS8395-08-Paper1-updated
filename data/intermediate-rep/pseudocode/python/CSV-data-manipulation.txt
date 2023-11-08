@@ -1,0 +1,6 @@
+1. Import the pandas library as pd
+2. Set the filepath variable to 'data.csv'
+3. Read the data from the csv file into a dataframe and store it in the variable df using pd.read_csv(filepath)
+4. Calculate the sum of each row in the dataframe and store it in the variable rows_sums using df.sum(axis=1)
+5. Add a new column to the dataframe called 'SUM' and assign the values from the rows_sums variable to it using df['SUM'] = rows_sums
+6. Write the updated dataframe back to the csv file, without including the index, using df.to_csv(filepath, index=False)

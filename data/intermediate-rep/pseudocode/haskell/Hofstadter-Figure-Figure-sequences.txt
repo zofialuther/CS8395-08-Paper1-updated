@@ -1,0 +1,31 @@
+```
+FUNCTION ffr(n)
+    rl = [1]
+    n_ = 1
+    x = 2
+    WHILE length(rl) < n
+        n_ = n_ + x
+        rl.append(n_)
+        x = next number in sequence
+    END WHILE
+    RETURN rl[n - 1]
+END FUNCTION
+
+FUNCTION ffs(n)
+    rl = [2]
+    n_ = 1
+    x = 2
+    WHILE length(rl) <= n
+        n_ = n_ + x
+        rl.append(n_)
+        x = next number in sequence
+    END WHILE
+    RETURN rl[n]
+END FUNCTION
+
+FUNCTION main()
+    PRINT ffr(1), ffr(2), ..., ffr(10)
+    i1000 = sort(ffr(1), ffr(2), ..., ffr(40) + ffs(1), ffs(2), ..., ffs(960))
+    PRINT i1000 == [1, 2, ..., 1000]
+END FUNCTION
+```

@@ -1,0 +1,1 @@
+This Java code defines a class called Test with a main method that sorts an array of strings in descending order based on their length. If two strings have the same length, they are sorted in alphabetical order ignoring case. The sorted strings are then printed to the console.

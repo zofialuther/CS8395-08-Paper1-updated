@@ -1,0 +1,32 @@
+Pseudocode:
+
+function lahNumber(int n, int k)
+    key = n + "," + k
+    if CACHE contains key
+        return value of key from CACHE
+    result = 0
+    if n = 0 and k = 0
+        result = 1
+    else if k = 0
+        result = 0
+    else if k > n
+        result = 0
+    else if n = 1 and k = 1
+        result = 1
+    else
+        result = (n-1+k) * lahNumber(n-1, k) + lahNumber(n-1, k-1)
+    put key and result into CACHE
+    return result
+
+function main()
+    print "Show the unsigned Lah numbers up to n = 12:"
+    for n = 0 to 12
+        print n
+        for k = 0 to n
+            print lahNumber(n, k)
+    print "Show the maximum value of L(100, k):"
+    n = 100
+    max = 0
+    for k = 0 to n
+        max = max(max, lahNumber(n, k))
+    print max

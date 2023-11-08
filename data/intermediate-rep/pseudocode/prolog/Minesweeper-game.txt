@@ -1,0 +1,36 @@
+```
+1. Initialize the minesweeper game
+    a. Set the width and height of the game
+    b. Print a welcome message and instructions for playing
+
+2. Create a new grid
+    a. Generate a flat list of cells
+    b. Calculate the number of bombs to place in the grid
+    c. Add the bombs to the grid list
+    d. Randomize the grid list and convert it into a 2D array
+    e. Populate the hidden part of the grid with the number of bombs next to each cell
+
+3. Play the game
+    a. Check if the win condition is true
+    b. Check if the lose condition is true
+    c. If still playing, continue to expose cells and perform operations based on user input
+        i. Get user input (operation, X, Y)
+        ii. Perform the specified operation on the grid
+        iii. Continue playing with the updated grid
+
+4. Define operations on cells in the grid
+    a. Get a value from the grid by X Y
+    b. Set a value on the grid by X Y
+    c. Determine the number of bombs next to a cell
+    d. Print the grid
+    e. Determine if the game is still being played
+    f. Determine if the game has been won
+
+5. Get user operation from input
+    a. Parse the user input to determine the operation and cell coordinates
+
+6. Perform the specified operation on the grid
+    a. Mark a cell as containing a bomb
+    b. Open a cell, revealing if it contains a bomb or a number
+    c. Expose the grid by checking adjacent cells and updating the grid accordingly
+```

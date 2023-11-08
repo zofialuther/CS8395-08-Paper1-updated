@@ -1,0 +1,9 @@
+FUNCTION arithmetic(x, y)
+    FOR op IN ["+", "-", "*", "//", "%", "**"]
+        expr = x + op + y
+        PRINT expr + " => " + eval(expr)
+    ENDFOR
+ENDFUNCTION
+
+arithmetic(12, 8)
+arithmetic(input("Number 1: "), input("Number 2: "))

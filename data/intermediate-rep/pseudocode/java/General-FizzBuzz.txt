@@ -1,0 +1,31 @@
+FUNCTION FizzBuzz
+    sounds = ARRAY OF OBJECTS {NEW Sound(3, "Fizz"), NEW Sound(5, "Buzz"), NEW Sound(7, "Baxx")}
+    FOR i = 1 to 20
+        sb = NEW StringBuilder()
+        FOR EACH sound IN sounds
+            sb.append(sound.generate(i))
+        END FOR
+        IF sb.length() == 0
+            PRINT i
+        ELSE
+            PRINT sb.toString()
+        END IF
+    END FOR
+END FUNCTION
+
+FUNCTION Sound
+    trigger = INTEGER
+    onomatopoeia = STRING
+    FUNCTION Sound(trigger, onomatopoeia)
+        this.trigger = trigger
+        this.onomatopoeia = onomatopoeia
+    END FUNCTION
+
+    FUNCTION generate(i)
+        IF i MOD trigger == 0
+            RETURN onomatopoeia
+        ELSE
+            RETURN ""
+        END IF
+    END FUNCTION
+END FUNCTION

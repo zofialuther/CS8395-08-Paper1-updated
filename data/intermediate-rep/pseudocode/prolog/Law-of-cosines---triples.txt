@@ -1,0 +1,66 @@
+find_solutions(Limit, Solutions):-
+    find_solutions(Limit, Solutions, Limit, []).
+
+find_solutions(_, S, 0, S):-
+    return.
+find_solutions(Limit, Solutions, A, S):-
+    find_solutions1(Limit, A, A, S1, S),
+    A_next = A - 1,
+    find_solutions(Limit, Solutions, A_next, S1).
+
+find_solutions1(Limit, _, B, Triples, Triples):-
+    if B > Limit, then return.
+find_solutions1(Limit, A, B, [Triple|Triples], T):-
+    if is_solution(Limit, A, B, Triple), then
+        B_next = B + 1,
+        find_solutions1(Limit, A, B_next, Triples, T).
+      else
+        B_next = B + 1,
+        find_solutions1(Limit, A, B_next, Triples, T).
+
+is_solution(Limit, A, B, t(Angle, A, B, C)):-
+    X = A * A + B * B,
+    Y = A * B,
+    if Angle = 90, then
+        C = round(sqrt(X)),
+        if X = C * C, then
+            C =< Limit, return
+    else if Angle = 120, then
+        C2 = X + Y,
+        C = round(sqrt(C2)),
+        if C2 = C * C, then
+            C =< Limit, return
+    else if Angle = 60, then
+        C2 = X - Y,
+        C = round(sqrt(C2)),
+        if C2 = C * C, then
+            C =< Limit, return.
+
+write_triples(Angle, Solutions):-
+    find_triples(Angle, Solutions, List, 0, Count),
+    writef('There are %w solutions for gamma = %w:\n', [Count, Angle]),
+    write_triples1(List),
+    nl.
+
+find_triples(_, [], [], Count, Count):-
+    return.
+find_triples(Angle, [Triple|Triples], [Triple|Result], C, Count):-
+    Triple = t(Angle, _, _, _),
+    C1 = C + 1,
+    find_triples(Angle, Triples, Result, C1, Count).
+find_triples(Angle, [_|Triples], Result, C, Count):-
+    find_triples(Angle, Triples, Result, C, Count).
+
+write_triples1([]):-return.
+write_triples1([t(_, A, B, C)]):-
+    writef('(%w,%w,%w)\n', [A, B, C]),
+    return.
+write_triples1([t(_, A, B, C)|Triples]):-
+    writef('(%w,%w,%w) ', [A, B, C]),
+    write_triples1(Triples).
+
+main:-
+    find_solutions(13, Solutions),
+    write_triples(60, Solutions),
+    write_triples(90, Solutions),
+    write_triples(120, Solutions).

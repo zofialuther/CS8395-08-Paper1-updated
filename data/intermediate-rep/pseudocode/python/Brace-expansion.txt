@@ -1,0 +1,42 @@
+```
+function getitem(s, depth=0)
+    out = [""]
+    while s is not empty
+        c = first character of s
+        if depth is not 0 and (c is ',' or c is '}') then
+            return out, s
+        if c is '{' then
+            x = getgroup(s[1:], depth+1)
+            if x is not null then
+                out, s = [a+b for a in out for b in x[0]], x[1]
+                continue
+        if c is '\' and length of s > 1 then
+            s, c = s[1:], c + s[1]
+
+        out, s = [a+c for a in out], s[1:]
+
+    return out, s
+
+function getgroup(s, depth)
+    out = []
+    comma = false
+    while s is not empty
+        g, s = getitem(s, depth)
+        if s is empty then
+            break
+        out += g
+
+        if first character of s is '}' then
+            if comma then
+                return out, s[1:]
+            return ['{' + a + '}' for a in out], s[1:]
+
+        if first character of s is ',' then
+            comma, s = true, s[1:]
+
+    return null
+
+# Add test cases
+for each s in ['~/{Downloads,Pictures}/*.{jpg,gif,png}', 'It{{em,alic}iz,erat}e{d,}, please.', '{,{,gotta have{ ,\, again\, }}more }cowbell!', '{}} some }{,{\\\\{ edge, edge} \,}{ cases, {here} \\\\\\\\\}']:
+    print "\n\t".join([s] + getitem(s)[0]) + "\n"
+```

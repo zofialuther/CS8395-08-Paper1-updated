@@ -1,0 +1,33 @@
+
+```
+function ascii
+    for N from 32 to 47
+        row(N)
+
+function row(N)
+    if N > 127
+        output newline
+        exit
+    else
+        call code(N)
+        call ascii(N)
+        Nn = N + 16
+        call row(Nn)
+
+function code(N)
+    if N < 100
+        output "  " + N + " : "
+    else
+        output " " + N + " : "
+
+function ascii(N)
+    if N = 32
+        output " Spc    "
+        exit
+    else if N = 127
+        output " Del   "
+        exit
+    else
+        D = character corresponding to N
+        output " " + D + "      "
+```

@@ -1,0 +1,7 @@
+FOR i in range(1, 101)
+    IF i raised to the power of 0.5 modulo 1 is not equal to 0
+        state = 'closed'
+    ELSE
+        state = 'open'
+    PRINT "Door {}:{}".format(i, state)
+END FOR

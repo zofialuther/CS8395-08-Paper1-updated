@@ -1,0 +1,15 @@
+```
+main:
+    call sum with arguments b=2, output=Output, a=1
+    output Output
+
+sum(A1, B1, C1):
+    named_args with arguments [A1, B1, C1] and [a=A, b=B, output=Output]
+    Output = A + B
+
+named_args([], _)
+
+named_args([A|B], C):
+    check if A is a member of C
+    call named_args with arguments B and C
+```

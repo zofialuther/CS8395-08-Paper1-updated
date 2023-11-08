@@ -1,0 +1,3 @@
+1. Set y to the string representation of (5 ^ 4 ^ 3 ^ 2)
+2. Set l to the length of y
+3. Print "5**4**3**2 = " followed by the first 20 characters of y, then "..." then the last 20 characters of y, then " and has " followed by the length of y, then " digits"

@@ -1,0 +1,22 @@
+START
+  Import java.time.LocalDate
+  Import java.time.temporal.WeekFields
+
+  Class LongYear
+    Function main
+      Display "Long years this century:"
+      FOR year = 2000 to 2099
+        IF longYear(year) is true THEN
+          Display year
+        END IF
+      END FOR
+    END Function
+
+    Function longYear
+      IF LocalDate.of(year, 12, 28).get(WeekFields.ISO.weekOfYear()) equals 53 THEN
+        RETURN true
+      ELSE
+        RETURN false
+      END IF
+    END Function
+END

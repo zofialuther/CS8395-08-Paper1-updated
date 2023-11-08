@@ -1,0 +1,47 @@
+```
+import Graphics.HGL.Draw.Monad (Graphic, )
+import Graphics.HGL.Draw.Picture
+import Graphics.HGL.Utils
+import Graphics.HGL.Window
+import Graphics.HGL.Run
+import Control.Exception (bracket, )
+import Control.Arrow
+
+function toInt(num) {
+  return fromIntegral(round(num))
+}
+
+function nextAVT(a, v, t, dt, l, g) {
+  a_prime = - (g / l) * sin(t)
+  v_prime = v + a_prime * dt
+  t_prime = t + v_prime * dt
+  return (a_prime, v_prime, t_prime)
+}
+
+function calculatePts(l, g, dt) {
+  t = - pi/4
+  pts = []
+  for (i = 0; i < 30; i++) {
+    (a, t, _) = nextAVT(- (g / l) * sin(t), t, 0, dt, l, g)
+    x = toInt(300 + (300 * cos(pi/2 + 0.6 * t)))
+    y = toInt(300 * sin(pi/2 + 0.6 * t))
+    pts.append((x, y))
+  }
+  return pts
+}
+
+function pendulumAnimation() {
+  window = openWindowEx("Pendulum animation task", Nothing, (600, 400), DoubleBuffered, 30)
+  forEach(pts in calculatePts(1, 9.812, 1/30)) {
+    x = pts[0]
+    y = pts[1]
+    line = line(300, 0, x, y)
+    ellipse = ellipse(x - 12, y + 12, x + 12, y - 12)
+    setGraphic(window, overGraphic(line, ellipse))
+    getWindowTick(window)
+  }
+  closeWindow(window)
+}
+
+pendulumAnimation()
+```

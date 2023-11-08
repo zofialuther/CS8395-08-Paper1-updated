@@ -1,0 +1,30 @@
+START
+  FUNCTION splitAt(str, idx)
+    ans = new String[2]
+    ans[0] = str.substring(0, idx)
+    IF ans[0] equals ""
+      ans[0] = "0"
+    ans[1] = str.substring(idx)
+    RETURN ans
+  END FUNCTION
+
+  FUNCTION main(args)
+    count = 0
+    base = IF args.length > 0 THEN parseInt(args[0]) ELSE 10
+    FOR i = 1 TO 1000000
+      sqrStr = toString(i * i, base)
+      FOR j = 0 TO sqrStr.length() / 2 + 1
+        parts = splitAt(sqrStr, j)
+        firstNum = parseInt(parts[0], base)
+        secNum = parseInt(parts[1], base)
+        IF secNum equals 0 THEN BREAK
+        IF firstNum + secNum equals i THEN
+          PRINT i + "\t" + toString(i, base) + "\t" + sqrStr + "\t" + parts[0] + " + " + parts[1]
+          count++
+          BREAK
+        END IF
+      END FOR
+    END FOR
+    PRINT count + " Kaprekar numbers < 1000000 (base 10) in base " + base
+  END FUNCTION
+END

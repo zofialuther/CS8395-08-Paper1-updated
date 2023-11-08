@@ -1,0 +1,1 @@
+This code defines two functions, f1 and f2, which double and square a given number, respectively. It then uses the map function to apply these functions to a list of numbers. The main function prints the results of applying f1 and f2 to different lists of numbers.

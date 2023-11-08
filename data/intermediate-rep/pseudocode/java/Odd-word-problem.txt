@@ -1,0 +1,78 @@
+START
+  CREATE interface CharHandler
+    FUNCTION handle(char c) 
+      PRINT c
+      IF c is a letter
+        RETURN fwd
+      ELSE 
+        RETURN rev
+    END FUNCTION
+  END INTERFACE
+
+  CREATE class Reverser
+    INHERIT CharHandler
+    CREATE ch
+    FUNCTION recur() 
+      NOTIFY
+      WHILE ch is null 
+        WAIT
+      END WHILE
+      SET c = ch
+      SET ret = c
+      SET ch = null
+      IF c is a letter
+        SET ret = recur()
+        PRINT c
+      END IF
+      RETURN ret
+    END FUNCTION
+    FUNCTION run() 
+      WHILE true 
+        PRINT recur()
+        NOTIFY
+      END WHILE
+    END FUNCTION
+    FUNCTION handle(char c) 
+      WHILE ch is not null 
+        WAIT
+      END WHILE
+      SET ch = c
+      NOTIFY
+      WHILE ch is not null 
+        WAIT
+      END WHILE
+      IF c is a letter
+        RETURN rev
+      ELSE 
+        RETURN fwd
+      END IF
+    END FUNCTION
+  END CLASS
+
+  CREATE fwd
+    SET fwd to new CharHandler
+      FUNCTION handle(char c) 
+        PRINT c
+        IF c is a letter
+          RETURN fwd
+        ELSE 
+          RETURN rev
+        END IF
+      END FUNCTION
+    END CharHandler
+  END fwd
+  
+  CREATE rev
+    SET rev to new Reverser
+  END rev
+
+  FUNCTION loop() 
+    SET handler to fwd
+    WHILE c is not end of input
+      GET next character from input
+      SET handler to handler.handle(c)
+    END WHILE
+  END FUNCTION
+
+  CALL loop()
+END

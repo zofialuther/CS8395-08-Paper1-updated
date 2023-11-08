@@ -1,0 +1,21 @@
+function cartProdN(arrays) {
+  if (arrays.length === 0) {
+    return [[]];
+  } else {
+    const [currentArray, ...remainingArrays] = arrays;
+    const remainingProduct = cartProdN(remainingArrays);
+    const currentProduct = [];
+    for (let value of currentArray) {
+      for (let product of remainingProduct) {
+        currentProduct.push([value, ...product]);
+      }
+    }
+    return currentProduct;
+  }
+}
+
+main() {
+  print(cartProdN([[1776, 1789], [7,12], [4, 14, 23], [0,1]]);
+  print(cartProdN([[1,2,3], [30], [500, 100]]);
+  print(cartProdN([[1,2,3], [], [500, 100]]);
+}

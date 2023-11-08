@@ -1,0 +1,23 @@
+1. Import necessary libraries:
+    - java.net.URI
+    - java.net.http.HttpClient
+    - java.net.http.HttpRequest
+    - java.net.http.HttpResponse
+    - java.nio.charset.Charset
+
+2. Create a class called Main.
+
+3. Define a public static void main method that takes an array of strings as input.
+
+4. Inside the main method:
+    a. Create a HttpRequest object using the builder pattern with the URI "https://www.rosettacode.org", set the request method to GET, and build the request.
+
+    b. Use the HttpClient.newHttpClient() method to create a new HttpClient, then call the sendAsync method with the request and HttpResponse.BodyHandlers.ofString(Charset.defaultCharset()) as parameters. This returns a CompletableFuture<HttpResponse<String>>.
+
+    c. Use the thenApply method to extract the body from the HttpResponse object.
+
+    d. Use the thenAccept method to print the body to the console.
+
+    e. Call the join method to block and wait for the asynchronous request to complete.
+
+5. End of main method.

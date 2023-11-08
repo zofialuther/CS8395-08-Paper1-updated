@@ -1,0 +1,4 @@
+strdup(InputString, OutputString) :-
+    c_malloc(100, CString),
+    c_strcpy(CString, InputString),
+    c_assign_string(OutputString, CString).

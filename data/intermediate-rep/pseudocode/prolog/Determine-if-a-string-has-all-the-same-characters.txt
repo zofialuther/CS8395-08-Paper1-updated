@@ -1,0 +1,30 @@
+```
+Set Prolog flag to use double quotes as chars
+
+Main:
+- Call same_or_different with empty string
+- Call same_or_different with string of spaces
+- Call same_or_different with "2"
+- Call same_or_different with "333"
+- Call same_or_different with ".55"
+- Call same_or_different with "tttTTT"
+- Call same_or_different with "4444 444k"
+
+same_or_different(INPUTz0):
+- Format and print input string
+- Call examine with INPUTz0
+
+examine(INPUTz0):
+- If input is empty, print "all the same characters"
+- Otherwise, call examine with first character and rest of the input
+
+examine([],_COMPARE0_,INDEX0,INDEX0):
+- Print "all the same characters"
+
+examine([COMPARE0|INPUTz0],COMPARE0,INDEX0,INDEX):
+- If first character matches, increment INDEX0 and call examine with the rest of the input
+
+examine([DIFFERENT0|_INPUTz0_],COMPARE0,INDEX0,INDEX0):
+- Get the code of the different character
+- Format and print the message with the different character, its code, the compared character, and the index
+```

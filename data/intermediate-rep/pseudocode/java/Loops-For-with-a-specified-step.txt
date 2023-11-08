@@ -1,0 +1,6 @@
+Declare variable i as an integer and set it to 2
+While i is less than or equal to 8
+  Print the value of i followed by a comma and a space
+  Increment i by 2
+End while
+Print "who do we appreciate?"

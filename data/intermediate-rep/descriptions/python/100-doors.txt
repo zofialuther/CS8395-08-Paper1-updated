@@ -1,0 +1,1 @@
+This code iterates through the numbers 1 to 100 and determines whether each number represents a closed or open door. If the square root of the number is a whole number, the door is considered open, otherwise, it is closed. The code then prints the result for each door in the format "Door number: state".

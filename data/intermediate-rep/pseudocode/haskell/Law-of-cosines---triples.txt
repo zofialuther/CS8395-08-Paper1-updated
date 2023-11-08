@@ -1,0 +1,28 @@
+```
+FUNCTION triangles(f, n)
+    mapRoots = createMapRoots(n)
+    triSet = createEmptySet()
+    FOR a = 1 to n
+        FOR b = 1 to a
+            suma2b2 = calculateSuma2b2(a, b)
+            c = f(mapRoots, suma2b2, a * b, a, b)
+            IF c != null
+                triSet = insertIntoSet(triSet, (a, b, c))
+            END IF
+        END FOR
+    END FOR
+    RETURN elementsOfSet(triSet)
+END FUNCTION
+
+FUNCTION createMapRoots(n)
+    mapRoots = emptyMap()
+    FOR i = 1 to n
+        mapRoots = addToMap(mapRoots, i * i, i)
+    END FOR
+    RETURN mapRoots
+END FUNCTION
+
+FUNCTION calculateSuma2b2(a, b)
+    RETURN a * a + b * b
+END FUNCTION
+```

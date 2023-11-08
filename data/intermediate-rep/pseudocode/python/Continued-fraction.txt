@@ -1,0 +1,26 @@
+1. Import the Fraction module from the fractions library
+2. Import the itertools module
+3. Try to define the zip function as itertools.izip
+4. Define the CF function that takes parameters a, b, and t
+5. Create a list of terms using itertools.islice and zip
+6. Set z to be a Fraction of 1/1
+7. Loop through the reversed terms and update z
+8. Return z
+9. Define the pRes function that takes parameters x and d
+10. Use divmod to get the quotient and remainder of x
+11. Convert the quotient to a string and add a decimal point
+12. For i in range(d), multiply x by 10 and update q and x
+13. Convert q to a string and add it to res
+14. Return res
+15. Define the sqrt2_a function that yields 1 and repeats 2
+16. Define the sqrt2_b function that yields 1
+17. Calculate the continued fraction of sqrt2 using CF and store it in cf
+18. Print the approximate fraction using pRes with a precision of 200
+19. Define the Napier_a function that yields 2 and counts up from 1
+20. Define the Napier_b function that yields 1 and counts up from 1
+21. Calculate the continued fraction of Napier's Constant using CF and store it in cf
+22. Print the approximate fraction using pRes with a precision of 200
+23. Define the Pi_a function that yields 3 and repeats 6
+24. Define the Pi_b function that counts up from 1, incrementing by 2 and squaring the result
+25. Calculate the continued fraction of Pi using CF and store it in cf
+26. Print the approximate fraction using pRes with a precision of 10

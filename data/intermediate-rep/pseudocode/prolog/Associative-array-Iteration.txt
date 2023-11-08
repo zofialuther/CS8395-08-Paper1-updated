@@ -1,0 +1,4 @@
+BEGIN
+  ASSERT mymap(key1, value1)
+  ASSERT mymap(key2, value1)
+END

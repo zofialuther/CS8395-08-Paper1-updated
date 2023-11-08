@@ -1,0 +1,12 @@
+FUNCTION countSubstring(s, sub):
+    count = 0
+    FOR i = 0 to length(s) - length(sub) DO
+        IF s[i:i+length(sub)] == sub THEN
+            count = count + 1
+        END IF
+    END FOR
+    RETURN count
+END FUNCTION
+
+OUTPUT countSubstring("the three truths", "th")
+OUTPUT countSubstring("ababababab", "abab")

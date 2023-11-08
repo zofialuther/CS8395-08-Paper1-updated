@@ -1,0 +1,1 @@
+This code defines a predicate synchronized_goal(G) that ensures mutual exclusion using a mutex named my_mutex while executing the goal G. This prevents concurrent access to the goal G by multiple threads, ensuring that it is executed in a synchronized manner.

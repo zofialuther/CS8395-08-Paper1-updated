@@ -1,0 +1,39 @@
+```
+Load the clpfd library
+
+Define the hidato predicate:
+    Call the init1 predicate with Li as the argument
+    Call the init2 predicate with arguments 1, 1, 10, and Li
+    Call the my_write predicate with Li as the argument
+
+Define the init1 predicate with Li as the argument:
+    Set Li to a list of 100 elements
+    Set LV to a list containing a subset of elements from Li
+    Constrain the elements of LV to be in the range 1 to 40
+    Ensure all elements in LV are distinct
+
+Define the init2 predicate with arguments _N, Col, Max_Col, and _L:
+    If Col is equal to Max_Col - 1, then stop
+    If the element at position I in L is 0, then skip to the next value of N and update the values of Lig and Col
+    If Col is 1, then skip to the next column
+    If Col is equal to the maximum column, then skip to the next line
+    If none of the above conditions are met, then compute the BI values based on the neighboring elements and update the values of N, Lig, and Col
+
+Define the compute_BI predicate with arguments L, V, I, VI, and BI:
+    Get the value of the element at position I in L and store it in VI
+    If VI is 0, then set BI to 0
+    If VI is not 0, then set BI to 1 if the difference between V and VI is 1 or -1
+
+Define the my_write predicate with argument [0, A, B, C, D, E, F, G, H, 0 | T]:
+    Print the values of A, B, C, D, E, F, G, and H in a specific format
+    Call my_write with T as the argument
+
+Define the my_write predicate with an empty list as the argument:
+    Do nothing
+
+Define the my_write_1 predicate with argument 0:
+    Print three spaces
+
+Define the my_write_1 predicate with argument X:
+    Print the value of X in a specific format
+```

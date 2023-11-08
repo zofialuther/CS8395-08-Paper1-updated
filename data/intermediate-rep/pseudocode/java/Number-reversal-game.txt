@@ -1,0 +1,33 @@
+1. Start
+2. Initialize gameList as an empty list
+3. Initialize ReversalGame
+4. Call initialize() method
+5. Call play() method
+6. Define initialize() method
+    - Initialize gameList as a new ArrayList of integers
+    - Add integers from 1 to 9 to gameList
+    - Shuffle gameList while it is sorted
+7. Define play() method
+    - Initialize i and moveCount to 0
+    - Create a new Scanner object
+    - Start a while loop that runs indefinitely
+        - Print gameList
+        - Prompt user to enter an index to reverse from 2 to 9 or enter 99 to quit
+        - Read user input into i
+        - If i is 99, break the loop
+        - If i is less than 2 or greater than 9, print "Invalid input"
+        - Else, increment moveCount and call reverse(i) method
+        - If gameList is sorted, print "Congratulations you solved this in " + moveCount + " moves!" and break the loop
+    - Close the scanner
+8. Define reverse(position) method
+    - Reverse the sublist of gameList from 0 to position
+9. Define isSorted() method
+    - Start a for loop from 0 to gameList size - 1
+        - If gameList at index i is greater than gameList at index i + 1, return false
+    - Return true
+10. Define main method
+    - Try
+        - Create a new ReversalGame object
+        - Call play() method
+    - Catch any exceptions and print error message and stack trace
+11. End

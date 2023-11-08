@@ -1,0 +1,10 @@
+1. Import the random module to generate random numbers.
+2. Define the number of doors and the number of iterations.
+3. Create a function called monty_hall with parameters choice, switch (default False), and doorCount (default to doors).
+4. Inside the monty_hall function, set up the doors with a prize behind one of them.
+5. Check if the chosen door is the one with the prize.
+6. Create a list of unpicked doors and remove the chosen door from the list.
+7. Determine the alternative door based on the remaining unpicked doors.
+8. If the switch parameter is True, return the alternative door, else return the chosen door.
+9. Print a simulation of the Monty Hall problem with the specified number of doors and iterations.
+10. Print the results of not switching and switching after running the simulation for the specified number of iterations.

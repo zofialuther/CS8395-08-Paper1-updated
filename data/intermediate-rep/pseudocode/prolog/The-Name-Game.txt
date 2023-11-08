@@ -1,0 +1,29 @@
+Pseudocode:
+
+FUNCTION map_name1(C, Cs, Fc, NChars)
+    IF C = Cs
+        RETURN NChars
+    ELSE IF C is a member of ['a','e','i','o','u']
+        APPEND Fc, C, Cs to NChars
+    ELSE IF C is not a member of ['a','e','i','o','u'] AND C is different from Fc
+        APPEND Fc, Cs to NChars
+
+FUNCTION map_name(C, Cs, Fc, Name)
+    NChars = map_name1(C, Cs, Fc, NChars)
+    Name = convert NChars to string
+
+FUNCTION song(Name)
+    LName = convert Name to lowercase
+    First = the first character of LName
+    Chars = the rest of the characters of LName
+    BName = map_name(First, Chars, 'b', BName)
+    FName = map_name(First, Chars, 'f', FName)
+    MName = map_name(First, Chars, 'm', MName)
+    OUTPUT Name, ", ", Name, ", bo-", BName, '\n'
+    OUTPUT "Banana-fana fo-", FName, '\n'
+    OUTPUT "Fee-fi-mo-", MName, '\n'
+    OUTPUT Name, "!\n\n"
+
+FUNCTION test()
+    FOR each name in ["Gary", "Earl", "Billy", "Felix", "Mary"]
+        CALL song(name)

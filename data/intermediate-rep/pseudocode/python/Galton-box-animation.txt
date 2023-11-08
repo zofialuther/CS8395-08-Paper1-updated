@@ -1,0 +1,34 @@
+```
+1. Import the necessary libraries: sys, os, random, time
+
+2. Define a function called print_there with parameters x, y, and text:
+    a. Write the text to the specified position
+    b. Flush the output
+
+3. Define a class called Ball:
+    a. Initialize the x and y coordinates to 0
+    b. Define an update method to update the x and y coordinates based on random values
+    c. Define a fall method to update the y coordinate
+
+4. Define a class called Board:
+    a. Initialize the balls list, fallen list, width, well_depth, N, and shift
+    b. Define an update method to update the position of the balls on the board
+    c. Define a method to count the number of balls on the board
+    d. Define a method to add a new ball to the board
+    e. Define a method to print the board
+    f. Define a method to print a specific ball
+    g. Define a method to print all the balls on the board
+
+5. Define a main function:
+    a. Create a new Board object with specified parameters
+    b. Add a ball to the board
+    c. While there are still balls on the board:
+        i. Print the board
+        ii. Update the position of the balls
+        iii. Print the board
+        iv. Update the position of the balls
+        v. Add a new ball to the board
+
+6. Check if the script is being run as the main program:
+    a. Call the main function
+```

@@ -1,0 +1,7 @@
+FUNCTION multiply
+    IF a and b are integers
+        RETURN a * b
+    ELSE IF a and b are doubles
+        RETURN a * b
+    END IF
+END FUNCTION

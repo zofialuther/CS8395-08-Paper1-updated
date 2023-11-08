@@ -1,0 +1,22 @@
+Pseudocode:
+
+Function isBrilliant(n)
+  primeFactors = find prime factors of n
+  if length of primeFactors is 2 then
+    if length of string representation of first element of primeFactors is equal to length of string representation of second element of primeFactors then
+      return True
+    else
+      return False
+  else
+    return False
+
+Function main()
+  indexedBrilliants = create a list of tuples containing index and brilliant numbers from 1 to 100
+  print the table of chunks of 10 brilliant numbers
+  print "(index, brilliant)"
+  take 6 elements from the list of indexedBrilliants and compare the length of the string representation of the brilliant numbers
+
+Function table(gap, rows)
+  ws = get the maximum length of each column in the rows
+  pw = function to format the rows with proper spacing
+  print the rows with proper spacing and alignment

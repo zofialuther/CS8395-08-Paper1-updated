@@ -1,0 +1,28 @@
+FUNCTION sum35(n: Integer) -> Integer
+    f = sumMul(n)
+    return f(3) + f(5) - f(15)
+
+FUNCTION sumMul(n: Integer, f: Integer) -> Integer
+    n1 = (n - 1) / f
+    return f * n1 * (n1 + 1) / 2
+
+FUNCTION main() -> Void
+    values = [sum35(1000), sum35(100000000000000000000000000000000), sumMulS(1000, [3, 5]), sumMulS(10000000, [2, 3, 5, 7, 11, 13])]
+    mapM_(print, values)
+
+FUNCTION pairLCM(arr: [Integer]) -> [Integer]
+    IF arr is empty
+        RETURN empty list
+    ELSE
+        x = first element of arr
+        xs = remaining elements of arr
+        RETURN (lcm(x, xs)) concatenated with pairLCM(xs)
+
+FUNCTION sumMulS(n: Integer, s: [Integer]) -> Integer
+    uniqueS = removeDuplicates(s)
+    f = sumMul(n)
+    g = sumMulS(n)
+    return (sum(f) - sum(g(uniqueS)))
+
+FUNCTION removeDuplicates(arr: [Integer]) -> [Integer]
+    RETURN unique elements of arr

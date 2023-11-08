@@ -1,0 +1,61 @@
+```
+FUNCTION last_first(Len, Nb, L)
+    CALL retractall(res(_,_,_))
+    CALL assert(res(0, 0, []))
+    CALL last_first()
+    CALL res(Len, Nb, L1)
+    CALL maplist(\X^Y^(X = [Y, _, _]), L1, L)
+
+FUNCTION last_first()
+    CALL init(L)
+    FOR EACH Word IN L
+        IF NOT lance_p([Word | L1]) THEN
+            CONTINUE
+
+FUNCTION lance_p(L)
+    LET LF = p(L)
+    CALL retract(res(Len, Nb, Lst))
+    LET Len1 = length(LF)
+    IF Len1 > Len THEN
+        CALL assert(res(Len1, 1, LF))
+    ELSE IF Len1 = Len THEN
+        LET Nb1 = Nb + 1
+        CALL assert(res(Len, Nb1, Lst))
+    ELSE
+        CALL assert(res(Len, Nb, Lst))
+    END IF
+    RETURN false
+
+FUNCTION p([A | T], [A | L])
+    IF NOT select(B, L, L1) THEN
+        RETURN false
+    END IF
+    IF NOT p0(A,B) THEN
+        RETURN false
+    END IF
+    LET T = [B | T1]
+    CALL p([B | T1], [B | L1])
+
+FUNCTION p([_], _)
+    RETURN true
+
+FUNCTION p0([_, _, W], [_, W, _])
+    RETURN true
+
+FUNCTION init(L)
+    LET L0 = [ audino, bagon, baltoy, ... ] % (list of words)
+    CALL maplist(init_, L0, L)
+
+FUNCTION init_(W, [W, F, L])
+    CALL first_letter(W, F)
+    CALL last_letter(W, L)
+
+FUNCTION first_letter(A, F)
+    LET FC = atom_chars(A)
+    LET F = FC[0]
+
+FUNCTION last_letter(A, L)
+    LET LC = atom_chars(A)
+    LET RLC = reverse(LC)
+    LET L = RLC[0]
+```

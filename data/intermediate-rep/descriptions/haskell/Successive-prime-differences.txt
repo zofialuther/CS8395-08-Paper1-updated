@@ -1,0 +1,1 @@
+This code defines a program that generates prime numbers up to 1,000,000 and then organizes them into groups based on their differences. The program then displays the length, first, and last elements of each group. The main function calls the showGroup function with different group types as arguments to display the information for each group.

@@ -1,0 +1,50 @@
+```
+Declare dynamic predicate fusc_cache/2
+
+Define fusc(0, 0) as a base case
+Define fusc(1, 1) as a base case
+Define fusc(N, F) as follows:
+    If fusc_cache(N, F) exists, then return F
+    If N is even, then
+        Set M to N divided by 2
+        Calculate fusc(M, F)
+        Add (N, F) to fusc_cache
+    Else,
+        Set N1 to (N - 1) divided by 2
+        Set N2 to (N + 1) divided by 2
+        Calculate fusc(N1, F1)
+        Calculate fusc(N2, F2)
+        Set F to F1 + F2
+        Add (N, F) to fusc_cache
+
+Define print_fusc_sequence(N) as follows:
+    Write "First N fusc numbers:"
+    Call print_fusc_sequence(N, 0)
+    Write a new line
+
+Define print_fusc_sequence(N, M) as follows:
+    If M is greater than or equal to N, then return
+    Calculate fusc(M, F)
+    Write F followed by a space
+    Set M to M + 1
+    Call print_fusc_sequence(N, M)
+
+Define print_max_fusc(N) as follows:
+    Write "Fusc numbers up to N that are longer than any previous one:"
+    Call print_max_fusc(N, 0, 0)
+
+Define print_max_fusc(N, M, Max) as follows:
+    If M is greater than or equal to N, then return
+    Calculate fusc(M, F)
+    If F is greater than or equal to Max, then
+        Write "n = M, fusc(n) = F" followed by a new line
+        Set Max1 to the maximum of 10 and Max * 10
+    Else,
+        Set Max1 to Max
+    Set M to M + 1
+    Call print_max_fusc(N, M, Max1)
+
+Define main as follows:
+    Call print_fusc_sequence(61)
+    Call print_max_fusc(1000000)
+```

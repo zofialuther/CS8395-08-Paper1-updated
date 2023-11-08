@@ -1,0 +1,4 @@
+1. Declare a list variable called "numbers" and assign it the values [2, 3, 4].
+
+Pseudocode:
+numbers = [2, 3, 4]

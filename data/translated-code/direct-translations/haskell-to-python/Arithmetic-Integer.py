@@ -1,0 +1,14 @@
+a = int(input())
+b = int(input())
+print("a + b =", a + b)
+print("a - b =", a - b)
+print("a * b =", a * b)
+print("a to the power of b =", a ** b)
+print("a to the power of b =", a ^ b)
+print("a to the power of b =", a ^^ b)
+print("a `div` b =", a // b)  # truncates towards negative infinity
+print("a `mod` b =", a % b)  # same sign as second operand
+print("a `divMod` b =", divmod(a, b))
+print("a `quot` b =", a // b)  # truncates towards 0
+print("a `rem` b =", a % b)  # same sign as first operand
+print("a `quotRem` b =", divmod(a, b))

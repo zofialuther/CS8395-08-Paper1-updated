@@ -1,0 +1,20 @@
+```
+function collapse_(inputList, outputList) {
+    if (inputList.length === 0) {
+        outputList = [];
+    } else if (inputList.length === 1) {
+        outputList = [inputList[0]];
+    } else if (inputList[0] === inputList[1]) {
+        outputList = collapse_([inputList[0], ...inputList.slice(2)], outputList);
+    } else {
+        outputList = [inputList[0], ...collapse_([inputList[1], ...inputList.slice(2)], outputList)];
+    }
+}
+
+function collapse(inputStr, outputCollapsed) {
+    let inputChars = inputStr.split('');
+    let result = [];
+    collapse_(inputChars, result);
+    outputCollapsed = result.join('');
+}
+```

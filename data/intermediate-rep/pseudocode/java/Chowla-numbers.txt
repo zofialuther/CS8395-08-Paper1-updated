@@ -1,0 +1,71 @@
+```
+function main
+    chowlaNumbers = findChowlaNumbers(37)
+    for i = 0 to chowlaNumbers.length
+        print "chowla(" + (i+1) + ") = " + chowlaNumbers[i]
+    
+    primes = countPrimes(100, 10_000_000)
+    for i = 0 to primes.length
+        print "There is " + primes[i][1] + " primes up to " + primes[i][0]
+    
+    perfectNumbers = findPerfectNumbers(35_000_000)
+    for i = 0 to perfectNumbers.length
+        print perfectNumbers[i] + " is a perfect number"
+    print "There are " + perfectNumbers.length + " perfect numbers < 35,000,000"
+
+function chowla(n)
+    if n < 0
+        throw IllegalArgumentException("n is not positive")
+    sum = 0
+    for i = 2 to sqrt(n)
+        if n % i == 0
+            sum += i + (i == (j = n / i) ? 0 : j)
+    return sum
+
+function countPrimes(power, limit)
+    count = 0
+    num = new int[countMultiplicity(limit, power)][2]
+    for n = 2, i = 0 to n <= limit
+        if chowla(n) == 0
+            count++
+        if n % power == 0
+            num[i][0] = power
+            num[i][1] = count
+            i++
+            power *= 10
+    return num
+
+function countMultiplicity(limit, start)
+    count = 0
+    cur = limit
+    while cur >= start
+        count++
+        cur = cur / 10
+    return count
+
+function findChowlaNumbers(limit)
+    num = new int[limit]
+    for i = 0 to limit
+        num[i] = chowla(i+1)
+    return num
+
+function findPerfectNumbers(limit)
+    count = 0
+    num = new int[count]
+
+    k = 2
+    kk = 3
+    p = 0
+    while (p = k * kk) < limit
+        if chowla(p) == p - 1
+            num = increaseArr(num)
+            num[count++] = p
+        k = kk + 1
+        kk += k
+    return num
+
+function increaseArr(arr)
+    tmp = new int[arr.length + 1]
+    copy arr to tmp
+    return tmp
+```

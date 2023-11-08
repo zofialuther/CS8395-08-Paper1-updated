@@ -1,0 +1,13 @@
+1. Create an interface IntConcat
+2. Define a static Comparator<Integer> SORTER
+3. Inside SORTER, compare two integers o1 and o2 by converting them to strings
+4. If the lengths of the strings are equal, return the result of comparing o2s to o1s
+5. If the lengths are not equal, find the maximum length between o1 and o2
+6. While the length of o1s is less than mlen * 2, concatenate o1s with itself
+7. While the length of o2s is less than mlen * 2, concatenate o2s with itself
+8. Return the result of comparing o2s to o1s
+9. Define the main method
+10. Create a Stream of Integers ints1 with specified values
+11. Print the result of sorting ints1 in parallel using SORTER, converting to strings and joining
+12. Create a Stream of Integers ints2 with specified values
+13. Print the result of sorting ints2 in parallel using SORTER, converting to strings and joining

@@ -1,0 +1,14 @@
+Start
+    Declare settings as CsvParserSettings
+    Set line separator in settings
+    Declare rowProcessor as BeanListProcessor<Employee> with Employee class
+    Set rowProcessor in settings
+    Create parser as CsvParser with settings
+    Parse CSV file using FileReader("/examples/employees.csv") and store in resolvedBeans
+    // 5th, Store, Delete duplicates, Re-arrange the words in specific order
+    Declare writerSettings as CsvWriterSettings
+    Create writerSettings with rowWriterProcessor as BeanWriterProcessor<Employee> with Employee class
+    Create writer as CsvWriter with FileWriter("/examples/processed_employees.csv") and writerSettings
+    Process records in writer with resolvedBeans
+    Write rows in writer with empty ArrayList<List<Object>>
+End

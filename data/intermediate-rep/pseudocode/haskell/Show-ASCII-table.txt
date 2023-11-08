@@ -1,0 +1,17 @@
+1. Start
+2. Import required modules: Data.Char, Data.List, Data.List.Split, Text.Printf
+3. Define function "asciiEntry" that takes an integer "n" as input:
+    a. If the input is null, return the input
+    b. Otherwise, concatenate the formatted string of the input and its corresponding asciiName
+4. Define function "asciiName" that takes an integer "n" as input:
+    a. If n < 32, return an empty list
+    b. If n > 127, return an empty list
+    c. If n is 32, return "Spc"
+    d. If n is 127, return "Del"
+    e. Otherwise, return the character representation of n
+5. Define function "asciiTable" that does the following:
+    a. Transpose the chunks of 16 ascii entries from 32 to 127
+    b. Format the entries using printf
+6. Define function "main" that does the following:
+    a. Print the asciiTable
+7. End.

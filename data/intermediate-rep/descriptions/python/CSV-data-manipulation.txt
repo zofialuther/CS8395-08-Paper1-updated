@@ -1,0 +1,1 @@
+This code uses the pandas library to read a csv file and create a dataframe. It then calculates the sum of each row and adds a new column to the dataframe with the row sums. Finally, it overwrites the original csv file with the updated dataframe, without including the index column.

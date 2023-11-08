@@ -1,0 +1,13 @@
+1. Start
+2. Initialize the Sleep class
+3. Create a main method
+4. Try
+5. Print "Enter time to sleep in milliseconds:"
+6. Create a new Scanner object
+7. Read an integer input and assign it to the variable "delay"
+8. Close the scanner
+9. Print "Sleeping..."
+10. Call TimeUnit.MILLISECONDS.sleep with the delay as the parameter
+11. Print "Awake!"
+12. Catch InputMismatchException or InterruptedException and print the stack trace
+13. End

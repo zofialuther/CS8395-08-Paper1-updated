@@ -1,0 +1,23 @@
+```
+FUNCTION isPrefixOf(a, b)
+    IF a is a prefix of b
+        RETURN True
+    ELSE
+        RETURN False
+
+FUNCTION isSuffixOf(a, b)
+    IF a is a suffix of b
+        RETURN True
+    ELSE
+        RETURN False
+
+FUNCTION isInfixOf(a, b)
+    IF a is an infix of b
+        RETURN True
+    ELSE
+        RETURN False
+
+FUNCTION infixes(a, b)
+    indices = findIndices(isPrefixOf(a, b), tails(b))
+    RETURN indices
+```

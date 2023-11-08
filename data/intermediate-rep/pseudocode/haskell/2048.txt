@@ -1,0 +1,18 @@
+```
+1. Import necessary libraries
+2. Define probability to get 4
+3. Define Position type
+4. Define combine and shift functions
+5. Define reflect function
+6. Define Move type
+7. Define left, right, up, down functions
+8. Define progress function
+9. Define lost and win functions
+10. Define go function
+11. Define indicesOf and indices2Of functions
+12. Define add2or4 function
+13. Define play function
+14. Define main function
+15. Define colors and showTile
+16. Define draw function
+```

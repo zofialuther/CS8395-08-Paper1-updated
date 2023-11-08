@@ -1,0 +1,1 @@
+This code is a simple for loop that starts at 10 and counts down to 0, printing each number on a new line.

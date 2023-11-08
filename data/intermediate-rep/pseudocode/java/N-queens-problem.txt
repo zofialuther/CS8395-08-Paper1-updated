@@ -1,0 +1,37 @@
+```
+function unsafe(y):
+  x = b[y]
+  for i = 1 to y:
+    t = b[y - i]
+    if t == x OR
+       t == x - i OR
+       t == x + i:
+      return true
+  return false
+
+function putboard():
+  print "Solution " + (++s)
+  for y = 0 to 7:
+    for x = 0 to 7:
+      if b[y] == x:
+        print "|Q"
+      else:
+        print "|_"
+    print "|"
+
+function main():
+  y = 0
+  b[0] = -1
+  while y >= 0:
+    do:
+      b[y]++
+    while b[y] < 8 AND unsafe(y)
+    if b[y] < 8:
+      if y < 7:
+        y++
+        b[y] = -1
+      else:
+        putboard()
+    else:
+      y--
+```

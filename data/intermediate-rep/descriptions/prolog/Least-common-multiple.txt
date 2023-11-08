@@ -1,0 +1,1 @@
+This code defines a predicate `lcm` that takes three arguments `X`, `Y`, and `Z`. It calculates the least common multiple (LCM) of `X` and `Y` and assigns the result to `Z`. The LCM is calculated by multiplying the absolute values of `X` and `Y` and then dividing by their greatest common divisor (gcd).

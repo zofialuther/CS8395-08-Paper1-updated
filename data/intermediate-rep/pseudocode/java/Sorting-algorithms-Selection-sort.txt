@@ -1,0 +1,17 @@
+```
+function sort(nums)
+    for currentPlace = 0 to length of nums - 1
+        smallest = MAX_VALUE
+        smallestAt = currentPlace + 1
+        for check = currentPlace to length of nums
+            if nums[check] < smallest
+                smallestAt = check
+                smallest = nums[check]
+            end if
+        end for
+        temp = nums[currentPlace]
+        nums[currentPlace] = nums[smallestAt]
+        nums[smallestAt] = temp
+    end for
+end function
+```

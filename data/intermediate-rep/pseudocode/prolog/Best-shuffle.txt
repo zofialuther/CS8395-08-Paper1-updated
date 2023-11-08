@@ -1,0 +1,27 @@
+```
+1. Declare score/2 as dynamic
+2. Define best_shuffle predicate that takes no arguments
+3. For each element in the list ["abracadabra", "eesaw", "elk", "grrrrrr", "up", "a"], call best_shuffle
+4. Define best_shuffle predicate that takes a string Str as input
+5. Retract all score(_,_)
+6. Get the length of the string and assert it as the score
+7. Calculate the minimum value using calcule_min predicate
+8. Repeat the following steps
+9. Shuffle the string and store the result in Shuffled
+10. Compare each character of the original string with the shuffled string using comp predicate
+11. Sum the results and store it in V
+12. Retract the current score and compare V with the previous score, then assert the new score if V is less
+13. If V is equal to the minimum value, retract the current score and write the string, current score, and previous score
+14. Define comp predicate that takes two characters and returns 1 if they are equal, 0 otherwise
+15. Define shuffle predicate that takes a list and returns a shuffled list
+16. Define shuffle predicate that takes 3 arguments (0, empty list, empty list) and returns true
+17. Define shuffle predicate that takes the length of the list, the list, and the shuffled list and performs the shuffling
+18. Define calcule_min predicate that takes a string, its length, and the minimum value
+19. Sort the string, pack it, and calculate the minimum value based on the quantity of letters
+20. Define packList predicate that takes a list and packs it by grouping the same elements together
+21. Define packList predicate that takes a single element list and returns a list with the element and its quantity
+22. Define packList predicate that takes a list and packs it by grouping the same elements together
+23. Define run predicate that takes a variable and an empty list and returns a list with the variable and its quantity
+24. Define run predicate that takes a variable and a list and returns a list with the variable and its quantity
+25. Define run predicate that takes a variable and a list and returns a list with the variable and its quantity
+```

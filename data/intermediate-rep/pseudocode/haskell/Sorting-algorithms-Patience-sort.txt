@@ -1,0 +1,12 @@
+1. Initialize a newtype called Pile with a single constructor that takes a list of elements.
+2. Create an instance of the Eq typeclass for Pile where two Pile instances are equal if their first elements are equal.
+3. Create an instance of the Ord typeclass for Pile where Pile instances are compared based on their first elements.
+4. Define a function called patienceSort that takes a list of elements and returns a sorted list using the patience sort algorithm.
+5. Inside patienceSort, define a function called sortIntoPiles that takes a list and sorts it into multiple piles using the patience sort algorithm.
+6. Inside sortIntoPiles, use the runST function to create a new ST array to store the piles.
+7. Define a helper function called bsearchPiles that uses binary search to find the correct pile to insert an element into.
+8. Define a helper function called f that inserts an element into the correct pile and updates the length of the pile array.
+9. Return the sorted piles as a single list.
+10. Define a function called mergePiles that takes a list of piles and merges them into a single sorted list using the patience sort algorithm.
+11. Inside mergePiles, use the unfoldr function to repeatedly extract the minimum element from the set of piles and merge them into a single list.
+12. Define the main function that prints the result of calling patienceSort with a test input list.

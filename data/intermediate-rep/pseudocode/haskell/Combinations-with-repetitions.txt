@@ -1,0 +1,24 @@
+FUNCTION combinationsWithRepetition
+  PARAMETERS k, xs
+  SET result = []
+  IF k = 0
+    RETURN result
+  ELSE
+    SET temp = []
+    FOR i = 0 to length of xs
+      SET current = combinationsWithRepetition(k - 1, xs)
+      FOR j = 0 to length of current
+        ADD xs[i] to current[j]
+        ADD current[j] to temp
+      END FOR
+    END FOR
+    RETURN temp
+  END IF
+END FUNCTION
+
+FUNCTION main
+  CALL combinationsWithRepetition with parameters 2 and ["iced", "jam", "plain"]
+  PRINT result
+  SET lengthResult = length of combinationsWithRepetition(3, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+  PRINT lengthResult
+END FUNCTION

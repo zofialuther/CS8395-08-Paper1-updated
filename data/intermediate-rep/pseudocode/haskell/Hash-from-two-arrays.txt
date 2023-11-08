@@ -1,0 +1,8 @@
+```
+import Data.Map
+
+function makeMap(keys, values):
+    return fromList(zip(keys, values))
+
+mymap = makeMap(['a', 'b', 'c'], [1, 2, 3])
+```

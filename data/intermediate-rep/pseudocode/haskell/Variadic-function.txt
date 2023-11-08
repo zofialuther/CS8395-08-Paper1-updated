@@ -1,0 +1,10 @@
+```
+-- Define a type class with a functional dependency
+class PrintAllType a b | a -> b where
+    process :: a -> b
+
+-- Define an instance of the type class for IO a where a is equivalent to ()
+instance a ~ () => PrintAllType (IO a) (IO ()) where
+    process args = do 
+        mapM_ putStrLn args
+```

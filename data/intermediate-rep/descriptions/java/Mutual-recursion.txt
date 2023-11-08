@@ -1,0 +1,1 @@
+This Java code defines a class called MutualRecursion that calculates the first 20 values of two sequences, the Female sequence and the Male sequence, using mutual recursion. The sequences are calculated using the f() and m() methods, which store results in HashMaps to avoid redundant calculations. The main method prints the calculated values for both sequences.

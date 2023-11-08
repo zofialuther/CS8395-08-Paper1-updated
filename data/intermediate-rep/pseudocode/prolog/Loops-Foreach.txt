@@ -1,0 +1,4 @@
+FOR EACH color IN [red,green,blue,black,white]
+    PRINT color
+END FOR
+RETURN true

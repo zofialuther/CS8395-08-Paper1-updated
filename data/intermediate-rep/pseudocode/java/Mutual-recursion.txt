@@ -1,0 +1,27 @@
+```
+Create a new class MutualRecursion
+    Create a main method that takes in an array of strings as input
+        Set max = 20
+        Print "First %d values of the Female sequence:  %n", max
+        For i = 0 to max
+            Print "  f(%d) = %d%n", i, f(i)
+        Print "First %d values of the Male sequence:  %n", max
+        For i = 0 to 20
+            Print "  m(%d) = %d%n", i, m(i)
+
+    Create a private static Map F_MAP and set it equal to a new HashMap
+    Create a private static method f that takes in an integer n
+        If F_MAP contains key n
+            Return the value of F_MAP at key n
+        Set fn = if n equals 0 then 1 else n - m(f(n - 1))
+        Put n and fn into F_MAP
+        Return fn
+
+    Create a private static Map M_MAP and set it equal to a new HashMap
+    Create a private static method m that takes in an integer n
+        If M_MAP contains key n
+            Return the value of M_MAP at key n
+        Set mn = if n equals 0 then 0 else n - f(m(n - 1))
+        Put n and mn into M_MAP
+        Return mn
+```

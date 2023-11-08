@@ -1,0 +1,9 @@
+1. Define a module called Digestor
+2. Import the Data.Digest.Pure.SHA module and qualify Data.ByteString.Lazy as B
+3. Define a function convertString that takes a String as input and returns a B.ByteString
+4. Inside the convertString function, pack the result of mapping each character of the input String to its ASCII value and converting it to an integral value
+5. Define a function convertToSHA1 that takes a String as input and returns a String
+6. Inside the convertToSHA1 function, use the showDigest function to convert the result of applying the sha1 function to the input String converted to a B.ByteString using convertString
+7. Define the main function
+8. Inside the main function, print "Rosetta Code SHA1-codiert: " using putStr
+9. Inside the main function, print the result of applying convertToSHA1 to the input "Rosetta Code" using putStrLn

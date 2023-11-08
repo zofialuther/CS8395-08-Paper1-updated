@@ -1,0 +1,1 @@
+This Prolog code is designed to read the content of a file into a string. It uses the built-in predicate `current_prolog_flag` to get the command line arguments and then reads the content of the specified file using `read_file_to_string`. The file name is expected to be provided as a command line argument when running the program.

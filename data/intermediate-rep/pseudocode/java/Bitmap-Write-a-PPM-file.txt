@@ -1,0 +1,28 @@
+FUNCTION bitmapToPPM(file, bitmap)
+    file.delete()
+    
+    TRY
+        os = new FileOutputStream(file, true)
+        bw = new BufferedOutputStream(os)
+        
+        header = String.format("P6\n%d %d\n255\n", bitmap.getWidth(), bitmap.getHeight())
+        
+        bw.write(header.getBytes(StandardCharsets.US_ASCII))
+        
+        FOR y = 0 TO bitmap.getHeight()
+            FOR x = 0 TO bitmap.getWidth()
+                pixel = bitmap.getPixel(x, y)
+                bw.write(pixel.getRed())
+                bw.write(pixel.getGreen())
+                bw.write(pixel.getBlue())
+            END FOR
+        END FOR
+        
+    CATCH IOException
+        PRINT "An error occurred while writing the PPM file."
+    
+    FINALLY
+        bw.close()
+        os.close()
+    END TRY
+END FUNCTION

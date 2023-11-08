@@ -1,0 +1,1 @@
+This Prolog code defines a predicate max_list/2 which takes a list L and returns the maximum value V in the list. It achieves this by using the select/3 predicate to remove the maximum value from the list, and then checks that there are no elements in the remaining list that are greater than the maximum value.

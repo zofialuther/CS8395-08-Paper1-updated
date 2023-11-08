@@ -1,0 +1,1 @@
+This code uses list comprehension to generate a new list called "square" by applying the square function to each value in the original list called "values".

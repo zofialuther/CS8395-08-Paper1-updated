@@ -1,0 +1,19 @@
+1. Import java.math.BigInteger
+
+2. Create a class called IntegerPower
+
+3. Within the class, create a public static void main method that takes in an array of strings as an argument.
+
+4. Inside the main method, create a BigInteger variable called power and set it to the result of the following calculation:
+   - Calculate 4 to the power of 3
+   - Calculate the result of 3 to the power of 2
+   - Convert the result to an int using intValueExact()
+   - Calculate 5 to the power of the previous result
+   - Store the result as a BigInteger
+
+5. Convert the BigInteger power to a string and store it in a variable called str
+
+6. Get the length of the string and store it in a variable called len
+
+7. Print the following message using System.out.printf:
+   "5**4**3**2 = %s...%s and has %d digits%n", where %s...%s represents the first 20 and last 20 characters of the string, and %d represents the length of the string.

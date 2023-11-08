@@ -1,0 +1,43 @@
+```
+BEGIN
+  Create a class Zebra
+    Create arrays of integers orders, nations, animals, drinks, cigarettes, and colors
+    Create a static class Solver
+      Create a puzzleTable of possible lines
+      Create a method solve
+        Create constraints of possible lines
+        Loop through each order, nation, color, animal, drink, and cigarette
+          Add possible neighbors based on constraints
+        Print the remaining lines after general rule set validation
+        Loop through each line in the puzzleTable
+          Check for valid left and right neighbors
+        Print the remaining lines after removing out of bound neighbors
+        Loop through each puzzle line in the puzzleTable
+          Set left and right neighbors
+        Set iteration and lastSize variables to 1 and 0
+        Loop while the puzzleTable size is greater than 5 and lastSize is not equal to the puzzleTable size
+          Set lastSize to the puzzleTable size
+          Clear line count flags in the puzzleTable
+          Recursively search for valid lines
+          Clear constraints
+          Loop through lines 1 to 5
+            Add valid lines to constraints
+          Remove invalid lines from puzzleTable
+          Print the remaining lines after each recursive iteration
+        Print the results of the puzzleTable
+      End method
+    Create a method main
+      Create a new solver
+      Call the solve method
+    End method
+    Create a static class PossibleLines
+      Create a count array
+      Create methods to get, get similar lines, check if it contains a line, accept a line, rise line count flags, clear line count flags, get line count by order id
+    End class
+    Create a static class PossibleLine
+      Create properties for order, nation, color, animal, drink, cigarette, right neighbor, left neighbor, and neighbors
+      Create methods to check for common facts count, set left and right neighbors, check for neighbors, get a neighbor, get the whole line, merge lines, and copy lines
+    End class
+  End class
+END
+```

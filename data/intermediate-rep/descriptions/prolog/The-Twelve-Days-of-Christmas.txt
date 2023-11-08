@@ -1,0 +1,1 @@
+This code defines the lyrics for the song "The Twelve Days of Christmas" in Prolog. It has predicates for the days of Christmas, the gifts associated with each day, and a way to print out the entire song. The main function calls the writeLoop predicate to print out the entire song and then ends the program.

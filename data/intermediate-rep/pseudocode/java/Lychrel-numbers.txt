@@ -1,0 +1,58 @@
+```
+function rev(bi):
+    s = reverse(bi.toString())
+    return new BigInteger(s)
+
+function lychrel(n):
+    res = null
+    if cache contains n:
+        return cache[n]
+
+    r = rev(n)
+    res = new Tuple(true, n)
+    seen = []
+
+    for i from 0 to 499:
+        n = n + r
+        r = rev(n)
+
+        if n equals r:
+            res = new Tuple(false, BigInteger.ZERO)
+            break
+
+        if cache contains n:
+            res = cache[n]
+            break
+
+        seen.append(n)
+
+    for each bi in seen:
+        cache[bi] = res
+
+    return res
+
+function main():
+    seeds = []
+    related = []
+    palin = []
+
+    for i from 1 to 10000:
+        n = new BigInteger(i)
+
+        t = lychrel(n)
+
+        if t.flag is false:
+            continue
+
+        if n equals t.bi:
+            seeds.append(t.bi)
+        else:
+            related.append(t.bi)
+
+        if n equals t.bi:
+            palin.append(t.bi)
+
+    print seeds.size(), "Lychrel seeds:", seeds
+    print related.size(), "Lychrel related"
+    print palin.size(), "Lychrel palindromes:", palin
+```

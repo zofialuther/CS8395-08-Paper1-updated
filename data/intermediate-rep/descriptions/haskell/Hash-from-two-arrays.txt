@@ -1,0 +1,1 @@
+This code creates a function called makeMap that takes two lists of keys (ks) and values (vs) and uses the Data.Map library to create a map from the zipped pairs of keys and values. It then creates a map called mymap using the makeMap function with the keys 'a', 'b', 'c' and the values 1, 2, 3 respectively.

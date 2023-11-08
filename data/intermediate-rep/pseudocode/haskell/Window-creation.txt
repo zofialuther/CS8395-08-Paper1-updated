@@ -1,0 +1,7 @@
+1. Import the Graphics.HGL library
+2. Define aWindow as the result of running the runGraphics function with the following parameters:
+   - withWindow_ function with the window title "Rosetta Code task: Creating a window" and dimensions (300, 200)
+   - Inside the withWindow_ function, create a lambda function that takes the window w as a parameter
+   - Inside the lambda function, use the drawInWindow function to draw the text "Hello World" at coordinates (100, 100)
+   - Use the getKey function to wait for a key press in the window
+3. End of the pseudocode.

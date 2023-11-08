@@ -1,0 +1,1 @@
+This Java program determines if a given string is collapsible by removing consecutive duplicate characters and returning the modified string. The main method loops through a set of example strings and prints the original and collapsed versions. The collapse method uses a StringBuilder to iterate through the input string and remove consecutive duplicate characters.

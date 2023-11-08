@@ -1,0 +1,67 @@
+```
+% Pseudocode for the maze generation code
+
+function maze(Lig,Col):
+    retractall(cell(_,_))
+    D = createWindow('Maze')
+    
+    % creation of the grid
+    for I from 0 to Lig:
+        XL = 50
+        YL = I * 30 + 50
+        XR = Col * 30 + 50
+        createLine(D, XL, YL, XR, YL)
+    
+    for I from 0 to Col:
+        XT = 50 + I * 30
+        YT = 50
+        YB = Lig * 30 + 50
+        createLine(D, XT, YT, XT, YB)
+    
+    SX = Col * 30 + 100
+    SY = Lig * 30 + 100
+    setWindowSize(D, SX, SY)
+    
+    % choosing a first cell
+    L0 = random(Lig)
+    C0 = random(Col)
+    assertCell(L0, C0)
+    if not search(D, Lig, Col, L0, C0):
+        openWindow(D)
+
+function search(D, Lig, Col, L, C):
+    Dir = random(4)
+    L1, C1 = nextcell(Dir, Lig, Col, L, C)
+    assertCell(L1, C1)
+    assertCur(L1, C1)
+    erase_line(D, L, C, L1, C1)
+    search(D, Lig, Col, L1, C1)
+
+function erase_line(D, L, C, L1, C1):
+    if C < C1:
+        C2 = C1
+    else:
+        C2 = C
+    XT = C2 * 30 + 50
+    YT = L * 30 + 51
+    YR = (L + 1) * 30 + 50
+    createLine(D, XT, YT, XT, YR, 'white')
+
+    % similar for the other case
+
+function nextcell(Dir, Lig, Col, L, C):
+    if next(Dir, Lig, Col, L, C, L1, C1):
+        return (L1, C1)
+    else if next(Dir1, Lig, Col, L, C, L1, C1):
+        return (L1, C1)
+    else if next(Dir2, Lig, Col, L, C, L1, C1):
+        return (L1, C1)
+    else if next(Dir3, Lig, Col, L, C, L1, C1):
+        return (L1, C1)
+
+function next(direction, Lig, Col, L, C):
+    if direction == 0:
+        if L > 0 and not cell(L1, C):
+            return true
+    % similar for other directions
+```

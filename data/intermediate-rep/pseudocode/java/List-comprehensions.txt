@@ -1,0 +1,34 @@
+```
+// Define the PythagComp interface
+interface PythagComp {
+    // Define the main method
+    static void main(String... args) {
+        // Print the result of the run method with input 20
+        System.out.println(run(20));
+    }
+
+    // Define the run method with input parameter n
+    static List<List<Integer>> run(int n) {
+        // Use range to create a stream of integers from 1 to n
+        return range(1, n).mapToObj(
+            // For each x in the stream, create a new stream of integers from x to n
+            x -> range(x, n).mapToObj(
+                // For each y in the second stream, create a new stream of integers from y to n
+                y -> range(y, n).mapToObj(
+                    // For each z in the third stream, create a new Integer array with x, y, and z
+                    z -> new Integer[]{x, y, z}
+                )
+            )
+        )
+            // Flatten the nested streams into a single stream of Integer arrays
+            .flatMap(identity())
+            .flatMap(identity())
+            // Filter the arrays based on the Pythagorean theorem
+            .filter(a -> a[0] * a[0] + a[1] * a[1] == a[2] * a[2])
+            // Convert the arrays to lists
+            .map(Arrays::asList)
+            // Collect the lists into a single list
+            .collect(toList());
+    }
+}
+```

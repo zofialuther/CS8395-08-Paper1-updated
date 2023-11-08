@@ -1,0 +1,43 @@
+function findIndices(array, condition) {
+  let indices = [];
+  for (let i = 0; i < array.length; i++) {
+    if (condition(array[i])) {
+      indices.push(i);
+    }
+  }
+  return indices;
+}
+
+function toggleEvery(k, array) {
+  let result = [];
+  let cycleArray = [1, 0];
+  let cycleIndex = 0;
+  for (let i = 0; i < array.length; i++) {
+    result.push(array[i] + cycleArray[cycleIndex]);
+    cycleIndex = (cycleIndex + 1) % k;
+  }
+  return result;
+}
+
+function foldr(func, initialValue, array) {
+  let result = initialValue;
+  for (let i = array.length - 1; i >= 0; i--) {
+    result = func(array[i], result);
+  }
+  return result;
+}
+
+function replicate(n, value) {
+  let result = [];
+  for (let i = 0; i < n; i++) {
+    result.push(value);
+  }
+  return result;
+}
+
+function run(n) {
+  let initialArray = replicate(n, 0);
+  let toggleFunc = (k, array) => toggleEvery(k, array);
+  let foldedArray = foldr(toggleFunc, initialArray, [0, 1, 2, ..., n]);
+  return findIndices(foldedArray, (num) => num % 2 !== 0);
+}

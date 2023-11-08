@@ -1,0 +1,6 @@
+1. Initialize an array called "array" with values {1, 2, 3, 4, 5}
+2. Initialize a new list called "evensList" of type Integer
+3. For each element "i" in the "array" do the following:
+    a. Check if "i" is an even number (i % 2 == 0)
+    b. If it is, add "i" to the "evensList"
+4. Convert the "evensList" to an array called "evens" using the toArray method and specifying a new int array of size 0.

@@ -1,0 +1,1 @@
+This code defines a function called strAppend, which takes two string inputs and uses the built-in (++) concatenation operator to append them together. This function can be used to join any two strings, whether they are variables or typed strings.

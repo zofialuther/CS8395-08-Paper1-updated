@@ -1,0 +1,14 @@
+FUNCTION print_verse(n)
+    l = ['b', 'f', 'm']
+    s = n[1:]
+    IF str.lower(n[0]) IN l THEN
+        l[l.index(str.lower(n[0]))] = ''
+    ELSE IF n[0] IN ['A', 'E', 'I', 'O', 'U'] THEN
+        s = str.lower(n)
+    END IF
+    PRINT '{0}, {0}, bo-{2}{1}\nBanana-fana fo-{3}{1}\nFee-fi-mo-{4}{1}\n{0}!\n'.FORMAT(n, s, *l)
+END FUNCTION
+
+FOR n IN ['Gary', 'Earl', 'Billy', 'Felix', 'Mary']
+    CALL print_verse(n)
+END FOR

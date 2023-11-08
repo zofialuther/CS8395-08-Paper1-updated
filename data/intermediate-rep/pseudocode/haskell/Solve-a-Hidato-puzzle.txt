@@ -1,0 +1,153 @@
+global nCells, cMap, best
+record Pos(r,c)
+
+function main(A) 
+    puzzle = showPuzzle("Input", readPuzzle())
+    QMouse(puzzle, findStart(puzzle), null, 0)
+    if solvePuzzle(puzzle) then 
+        showPuzzle("Output", puzzle)
+    else 
+        write("No solution!")
+    end
+end
+
+function readPuzzle() 
+    p = [[-1]]
+    nCells = maxCols = 0
+    for each line in input do 
+        put(p, [-1 | gencells(line) | -1])
+        maxCols = max(maxCols, len(p[-1]))
+    end
+    put(p, [-1])
+    for i = 1 to len(p) do 
+        p[i] = p[i] + [-1]*(maxCols - len(p[i]))
+    end
+    return p
+end
+
+function gencells(s) 
+    static WS, NWS
+    NWS = complement(WS := " \t")
+    cMap = table()
+    cMap["#"] = -1 
+    cMap["_"] = 0
+    cMap[-1] = " "
+    cMap[0] = "_"
+    i = 1
+    while i <= len(s) do 
+        w = (match(many(WS)) | "", match(many(NWS))) 
+        w = numeric(cMap[w] if w in cMap else w)
+        if w != -1 then 
+            nCells = nCells + 1
+            yield w
+        end
+        i = i + 1
+    end
+end
+
+function showPuzzle(label, p) 
+    write(label, " with ", nCells, " cells:")
+    for each r in p do 
+        for each c in r do 
+            writes(right(cMap[c] if c in cMap else c, nCells+1))
+        end
+        write()
+    end
+    return p
+end
+
+function findStart(p) 
+    if p[r := len(p)][c := len(p[r])] = 1 then 
+        return Pos(r, c)
+    end
+end
+
+function solvePuzzle(puzzle) 
+    if path := best then 
+        while true do 
+            loc = path.getLoc()
+            puzzle[loc.r][loc.c] = path.getVal()
+            path = path.getParent()
+            if not path then 
+                return puzzle
+            end
+        end
+    else 
+        return false
+    end
+end
+
+class QMouse(puzzle, loc, parent, val) 
+    method getVal() 
+        return val
+    end
+    method getLoc() 
+        return loc
+    end
+    method getParent() 
+        return parent
+    end
+    method atEnd() 
+        return nCells = val = puzzle[loc.r][loc.c]
+    end
+    method goNorth() 
+        return visit(loc.r-1, loc.c)
+    end
+    method goNE() 
+        return visit(loc.r-1, loc.c+1)
+    end
+    method goEast() 
+        return visit(loc.r, loc.c+1)
+    end
+    method goSE() 
+        return visit(loc.r+1, loc.c+1)
+    end
+    method goSouth() 
+        return visit(loc.r+1, loc.c)
+    end
+    method goSW() 
+        return visit(loc.r+1, loc.c-1)
+    end
+    method goWest() 
+        return visit(loc.r, loc.c-1)
+    end
+    method goNW() 
+        return visit(loc.r-1, loc.c-1)
+    end
+
+    method visit(r, c) 
+        if not best and validPos(r, c) then 
+            return Pos(r, c)
+        end
+    end
+
+    method validPos(r, c) 
+        xv = puzzle[r][c]
+        if xv = (val+1) then 
+            return true
+        end
+        if xv = 0 then 
+            ancestor = self
+            while xl := ancestor.getParent().getLoc() do 
+                if (xl.r = r) and (xl.c = c) then 
+                    return false
+                end
+                ancestor = ancestor.getParent()
+            end
+            return true
+        end
+    end
+
+    if atEnd() then 
+        best = self
+    else 
+        QMouse(puzzle, goNorth(), self, val)
+        QMouse(puzzle, goNE(), self, val)
+        QMouse(puzzle, goEast(), self, val)
+        QMouse(puzzle, goSE(), self, val)
+        QMouse(puzzle, goSouth(), self, val)
+        QMouse(puzzle, goSW(), self, val)
+        QMouse(puzzle, goWest(), self, val)
+        QMouse(puzzle, goNW(), self, val)
+    end
+end

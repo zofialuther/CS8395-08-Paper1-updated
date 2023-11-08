@@ -1,0 +1,10 @@
+FUNCTION qsort(array)
+    IF array is empty THEN
+        RETURN empty array
+    END IF
+    SET x to first element of array
+    SET xs to rest of array
+    SET smaller to qsort([y | y <- xs, y < x])
+    SET larger to qsort([y | y <- xs, y >= x])
+    RETURN smaller + [x] + larger
+END FUNCTION

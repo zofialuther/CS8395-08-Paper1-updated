@@ -1,0 +1,62 @@
+```
+function generatePermutations(apartmentDwellers, set, curPermutation) {
+    for each s in apartmentDwellers {
+        if curPermutation does not contain s {
+            nextPermutation = curPermutation + s
+            if nextPermutation length is equal to apartmentDwellers length {
+                add nextPermutation to set
+            } else {
+                generatePermutations(apartmentDwellers, set, nextPermutation)
+            }
+        }
+    }
+}
+
+function topFloor(permutation, person) {
+    return permutation ends with person
+}
+
+function bottomFloor(permutation, person) {
+    return permutation starts with person
+}
+
+function livesAbove(permutation, upperPerson, lowerPerson) {
+    return permutation index of upperPerson > permutation index of lowerPerson
+}
+
+function adjacent(permutation, person1, person2) {
+    return absolute value of permutation index of person1 - permutation index of person2 is equal to 1
+}
+
+function isPossible(s) {
+    if topFloor(s, "B") {
+        return false
+    }
+    if bottomFloor(s, "C") {
+        return false
+    }
+    if topFloor(s, "F") or bottomFloor(s, "F") {
+        return false
+    }
+    if not livesAbove(s, "M", "C") {
+        return false
+    }
+    if adjacent(s, "S", "F") {
+        return false
+    }
+    return not adjacent(s, "F", "C")
+}
+
+function main(args) {
+    set = new HashSet()
+    generatePermutations(["B", "C", "F", "M", "S"], set, "")
+    for each iterator in set {
+        if not isPossible(iterator) {
+            remove iterator from set
+        }
+    }
+    for each s in set {
+        print "Possible arrangement: " + s
+    }
+}
+```

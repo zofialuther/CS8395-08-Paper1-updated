@@ -1,0 +1,1 @@
+This code imports the necessary modules for handling input/output and Morse code conversion. The main function reads standard input, converts the text to Morse code, and then plays the result using the MorsePlaySox module. It turns off buffering on stdin so that the Morse code will play as the user types.

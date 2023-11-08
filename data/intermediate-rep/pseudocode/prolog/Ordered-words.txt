@@ -1,0 +1,24 @@
+```
+Open the HTTP module
+Define the ordered_words predicate
+    Open the URL of the word list
+    Read the file and store the result in Out
+    Close the file
+    Sort the list Out and store the result in MOut
+    Group the pairs in MOut by key and store the result in POut
+    Sort the list POut in decreasing order of the length of values and store the result in OutSort
+    Iterate over the values in OutSort and print each value
+Define the mwritef predicate
+    Print the input value
+Define the read_file predicate with input In, initial list L and output list L1
+    Read a line from In and store it in W
+    If W is the end of the file, set L1 to L
+    Otherwise, sort the list of codes in W and keep only the "good words"
+    If the sorted list is successful, get the length of W and store it as a pair with W in L2, and print W if its length is 6
+    Otherwise, set L2 to L
+    Call read_file recursively with In, L2, and L1
+Define the my_compare predicate with input R, Key1-Value1, and Key2-Value2
+    If Key1 is less than Key2, set R to >
+    Otherwise, if Key1 is greater than Key2, set R to <
+    Otherwise, set R to =
+```

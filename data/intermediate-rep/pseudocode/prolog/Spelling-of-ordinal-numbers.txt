@@ -1,0 +1,52 @@
+```
+number_name(Number, Type, Name) :-
+    Number < 20,
+    !,
+    get_small_name(Number, Type, Name).
+number_name(Number, Type, Name) :-
+    Number < 100,
+    !,
+    N is Number mod 10,
+    (N = 0 ->
+        get_small_name(Number, Type, Name)
+        ;
+        N1 is Number - N,
+        get_small_name(N1, cardinal, Name1),
+        get_small_name(N, Type, Name2),
+        atomic_list_concat([Name1, '-', Name2], Name)
+     ).
+number_name(Number, Type, Name) :-
+    big_name(Number, big(P, C, O)),
+    N is Number // P,
+    number_name(N, cardinal, Name1),
+    M is Number mod P,
+    (M = 0 ->
+        get_big_name(big(P, C, O), Type, Name2)
+        ;
+        number_name(M, Type, Name3),
+        atomic_list_concat([C, ' ', Name3], Name2)
+    ),
+    atomic_list_concat([Name1, ' ', Name2], Name).
+
+get_small_name(Number, cardinal, Name) :-
+    small_name(Number, Name, _),
+    !.
+get_small_name(Number, ordinal, Name) :-
+    small_name(Number, _, Name).
+
+get_big_name(big(_, C, _), cardinal, C).
+get_big_name(big(_, _, O), ordinal, O).
+
+big_name(Number, Big) :-
+    big_names(Names),
+    big_name(Names, Number, Big).
+
+big_name([Big], _, Big) :-
+    !.
+big_name([Big1, Big2|_], Number, Big1) :-
+    Big2 = big(N2, _, _),
+    Number < N2,
+    !.
+big_name([_|Names], Number, Big) :-
+    big_name(Names, Number, Big).
+```

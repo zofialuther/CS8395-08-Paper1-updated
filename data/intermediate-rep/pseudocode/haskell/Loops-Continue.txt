@@ -1,0 +1,13 @@
+```
+function out(x) {
+  if (x % 5 == 0) {
+    print(x);
+  } else {
+    putStr(show(x) + ", ");
+  }
+}
+
+for (let i = 1; i <= 10; i++) {
+  out(i);
+}
+```

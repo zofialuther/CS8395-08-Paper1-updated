@@ -1,0 +1,11 @@
+```
+fun(X, Y) {
+  Y = 2 * X
+}
+
+maplist(fun, List, Result) {
+  for each element in List {
+    apply fun to the element and add the result to Result
+  }
+}
+```

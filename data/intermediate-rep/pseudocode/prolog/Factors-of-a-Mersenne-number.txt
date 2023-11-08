@@ -1,0 +1,53 @@
+```
+function mersenne_factor(P, F) {
+    if (prime(P)) {
+        for (let K = 1; K <= 100000; K++) {
+            let Q = 2 * K * P + 1;
+            if (test_factor(Q, P, F)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function test_factor(Q, P, F) {
+    if (Q*Q > (1 << P - 1)) {
+        return true;
+    } else {
+        let R = Q % 7;
+        if (R === 1 || R === 7) {
+            if (prime(Q) && powm(2, P, Q) === 1) {
+                F = Q;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function wheel235(L) {
+    let W = [4, 2, 4, 2, 4, 6, 2, 6];
+    W = W.concat(W);  // Repeats W infinitely
+    L = [1, 2, 2].concat(W);
+}
+
+function prime(N) {
+    if (N >= 2) {
+        let W = wheel235(W);
+        return prime(N, 2, W);
+    }
+}
+
+function prime(N, D, W) {
+    if (D*D > N) {
+        return true;
+    } else {
+        if (N % D !== 0) {
+            let A = W.shift();
+            let D2 = D + A;
+            return prime(N, D2, W);
+        }
+    }
+}
+```

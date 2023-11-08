@@ -1,0 +1,6 @@
+function hanoiIO(n):
+    towers = hanoi(n, 1, 2, 3)
+    for each move in towers:
+        print "Move " + move.x + " to " + move.y
+    end for
+end function

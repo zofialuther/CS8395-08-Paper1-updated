@@ -1,0 +1,1 @@
+This Java code defines a Test class with a method to generate a stream of prime numbers within a given range. The isPrime method is used to check whether a given number is prime. The main method calls the getPrimes method to obtain a stream of prime numbers between 0 and 100, and then prints each prime number to the console.

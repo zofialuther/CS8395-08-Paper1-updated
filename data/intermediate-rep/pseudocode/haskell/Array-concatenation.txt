@@ -1,0 +1,5 @@
+function concatenateList(list1, list2):
+    if list1 is empty:
+        return list2
+    else:
+        return first element of list1 + concatenateList(rest of list1, list2)

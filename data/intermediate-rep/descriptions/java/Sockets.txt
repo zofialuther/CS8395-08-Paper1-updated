@@ -1,0 +1,1 @@
+This Java program creates a simple client side socket to send a message to a server. The main method is used to call the sendData method, passing the host and message as parameters. The sendData method creates a new socket, writes the message to the output stream, flushes the stream, and then closes the socket. This code can be used to send data over a network using sockets.

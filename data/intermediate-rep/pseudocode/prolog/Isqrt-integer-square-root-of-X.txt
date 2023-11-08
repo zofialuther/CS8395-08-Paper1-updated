@@ -1,0 +1,69 @@
+```
+FUNCTION pow4gtx(X, Q):
+    IF pow4gtx(X, 1, Q) is true THEN
+        RETURN Q
+    END IF
+    IF X < A THEN
+        Q = A
+    END IF
+    A1 = A * 4
+    pow4gtx(X, A1, Q)
+
+FUNCTION isqrt(X, R):
+    IF isqrt(X, R, _) is true THEN
+        RETURN
+    END IF
+    Q = pow4gtx(X, Q)
+    isqrt(X, Q, 0, X, R, Z)
+
+    IF _ = 1 AND R0 = Z0 THEN
+        R = R0
+        Z = Z0
+    END IF
+
+    Q1 = Q // 4
+    T = Z0 - R0 - Q1
+    IF T >= 0 THEN
+        R1 = R0 // 2 + Q1
+        isqrt(X, Q1, R1, T, R, Z)
+    ELSE
+        R1 = R0 // 2
+        isqrt(X, Q1, R1, Z0, R, Z)
+    END IF
+
+FUNCTION roots(N):
+    roots(0, N)
+    IF I = N THEN
+        WRITE(R)
+    ELSE
+        WRITE(R + " ")
+        I = I + 1
+        IF N < I + 1 THEN
+            RETURN
+        ELSE
+            roots(I + 1, N)
+        END IF
+    END IF
+
+FUNCTION rootspow7(N):
+    rootspow7(1, N)
+    Pow7 = 7^I
+    R = isqrt(Pow7)
+    FORMAT("I: ~D, 7^I: ~D, isqrt(7^I): ~D", [I, Pow7, R])
+    I = I + 2
+    IF N < I + 1 THEN
+        RETURN
+    ELSE
+        rootspow7(I + 2, N)
+    END IF
+
+FUNCTION main():
+    FORMAT("isqrt(i) for 0 <= i <= 65:~2n")
+    roots(65)
+    FORMAT("~3n")
+    FORMAT("isqrt(7**i) for 1 <= i <= 73, i odd:~2n")
+    FORMAT("I: ~s, 7^I: ~s, isqrt(7^I): ~s")
+    FORMAT("-----------------------------------------------------------------------------------------------------------------------------------~n")
+    rootspow7(73)
+    HALT
+```

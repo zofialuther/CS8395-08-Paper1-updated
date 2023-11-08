@@ -1,0 +1,36 @@
+FUNCTION printVerse(name)
+    sb = create new StringBuilder with name in lowercase
+    sb.setCharAt(0, convert first character to uppercase)
+    x = convert sb to string
+    y = if first character of x is a vowel (A, E, I, O, U)
+        then convert x to lowercase
+        else get substring of x starting from index 1
+    b = "b" + y
+    f = "f" + y
+    m = "m" + y
+    SWITCH (first character of x)
+        CASE 'B':
+            b = y
+            BREAK
+        CASE 'F':
+            f = y
+            BREAK
+        CASE 'M':
+            m = y
+            BREAK
+        DEFAULT: 
+            // no adjustment needed
+            BREAK
+    END SWITCH
+    OUTPUT "%s, %s, bo-%s" with x, x, b
+    OUTPUT "Banana-fana fo-%s" with f
+    OUTPUT "Fee-fi-mo-%s" with m
+    OUTPUT "%s!" with x
+END FUNCTION
+
+FUNCTION main(args)
+    names = ["Gary", "Earl", "Billy", "Felix", "Mary", "Steve"]
+    FOR EACH name in names
+        CALL printVerse with name
+    END FOR EACH
+END FUNCTION

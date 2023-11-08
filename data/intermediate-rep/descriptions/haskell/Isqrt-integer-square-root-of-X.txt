@@ -1,0 +1,1 @@
+This code defines a function isqrt that calculates the integer square root of a given integer using bitwise operations. The main function demonstrates the use of the isqrt function by applying it to a range of numbers and iterating over a sequence of numbers multiplied by 49 and added to 7.

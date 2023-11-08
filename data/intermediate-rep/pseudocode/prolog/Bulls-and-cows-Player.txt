@@ -1,0 +1,70 @@
+```
+1. Store the previous guesses and their answers
+2. Set the length of the guess to 4
+3. Set the number of digits to 8
+
+tirage(Ms) :-
+	(  bagof([P, R], guess(P,R), Propositions)
+	->  tirage(Propositions, Ms)
+	;   
+	    tirage_1(Ms)),
+	!.
+
+tirage_1(L):-
+	proposition(Len),
+	Max is Len-1,
+	numlist(0, Max, L).
+
+tirage(L, Ms) :-
+	proposition(Len),
+    length(Ms, Len),
+	digits(Digits),
+    Ms ins 0..Digits,
+	all_different(Ms),
+    maplist(placees(Ms), L),
+	label(Ms).
+
+placees(Sol, [Prop, [BP, MP]]) :-
+	V #= 0,
+	compte_bien_placees(Sol, Prop, V, BP1),
+	BP1 #= BP,
+	compte_mal_placees(Sol, Prop, 0, V, MP1),
+	MP1 #= MP.
+
+compte_mal_placees(_, [], _, MP, MP).
+
+compte_mal_placees(Sol, [H | T], N, MPC, MPF) :-
+	compte_une_mal_placee(H, N, Sol, 0,  0, VF),
+	MPC1 #= MPC + VF,
+	N1 is N+1,
+	compte_mal_placees(Sol, T, N1, MPC1, MPF).
+
+compte_une_mal_placee(_H, _N, [], _, TT, TT).
+
+compte_une_mal_placee(H, NH, [_H1 | T], NH, TTC, TTF) :-
+	NH1 is NH + 1, !,
+	compte_une_mal_placee(H, NH, T, NH1, TTC, TTF).
+
+compte_une_mal_placee(H, NH, [H1 | T], NH1, TTC, TTF) :-
+	H #= H1,
+	NH \= NH1,
+	NH2 is NH1 + 1,
+	TTC1 #= TTC + 1,
+	compte_une_mal_placee(H, NH, T, NH2, TTC1, TTF).
+
+compte_une_mal_placee(H, NH, [H1 | T], NH1, TTC, TTF) :-
+	H #\= H1,
+	NH2 is NH1 + 1,
+	compte_une_mal_placee(H, NH, T, NH2, TTC, TTF).
+
+compte_bien_placees([], [], MP, MP).
+
+compte_bien_placees([H | T], [H1 | T1], MPC, MPF) :-
+	H #= H1,
+	MPC1 #= MPC + 1,
+	compte_bien_placees(T, T1, MPC1, MPF).
+
+compte_bien_placees([H | T], [H1 | T1], MPC, MPF) :-
+	H #\= H1,
+	compte_bien_placees(T, T1, MPC, MPF).
+```

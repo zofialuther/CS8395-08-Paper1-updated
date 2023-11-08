@@ -1,0 +1,30 @@
+```
+function pick_number(Min, Max)
+    min(Min)
+    max(Max)
+    print('Pick a number between ' + Min + ' and ' + Max + ', and I will guess it...')
+    print('Ready? (Enter anything when ready):')
+    input()
+
+function guess_number(Min, Max)
+    Guess = (Min + Max) // 2
+    print('I guess ' + Guess + '...')
+    print('Am I correct (c), too low (l), or too high (h)? ')
+    Score = input()
+    while true
+        if Score = 'l'
+            NewMin = Guess + 1
+            guess_number(NewMin, Max)
+        else if Score = 'h'
+            NewMax = Guess - 1
+            guess_number(Min, NewMax)
+        else if Score = 'c'
+            print('I am correct!')
+        else
+            print('Invalid input')
+            return false
+
+function play()
+    pick_number(Min, Max)
+    guess_number(Min, Max)
+```

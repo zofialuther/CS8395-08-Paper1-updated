@@ -1,0 +1,86 @@
+```
+function nonogram(RowSpec, ColSpec, Grid) {
+  rows(RowSpec, Grid);
+  transpose(Grid, GridT);
+  rows(ColSpec, GridT);
+}
+
+function rows([], []) {
+  return;
+}
+
+function rows([C|Cs], [R|Rs]) {
+  row(C, R);
+  rows(Cs, Rs);
+}
+
+function row(Ks, Row) {
+  sum(Ks, #=, Ones);
+  sum(Row, #=, Ones);
+  arcs(Ks, Arcs, start, Final);
+  append(Row, [0], RowZ);
+  automaton(RowZ, [source(start), sink(Final)], [arc(start,0,start) | Arcs]);
+}
+
+function arcs([], [], Final, Final) {
+  return;
+}
+
+function arcs([K|Ks], Arcs, CurState, Final) {
+  let NextState = gensym(state, NextState);
+  if (K == 0) {
+    Arcs = [arc(CurState,0,CurState), arc(CurState,0,NextState) | Rest];
+    arcs(Ks, Rest, NextState, Final);
+  } else {
+    Arcs = [arc(CurState,1,NextState) | Rest];
+    let K1 = K-1;
+    arcs([K1|Ks], Rest, NextState, Final);
+  }
+}
+
+function make_grid(Grid, X, Y, Vars) {
+  length(Grid,X);
+  make_rows(Grid, Y, Vars);
+}
+
+function make_rows([], _, []) {
+  return;
+}
+
+function make_rows([R|Rs], Len, Vars) {
+  length(R, Len);
+  make_rows(Rs, Len, Vars0);
+  append(R, Vars0, Vars);
+}
+
+function print([]) {
+  return;
+}
+
+function print([R|Rs]) {
+  print_row(R);
+  print(Rs);
+}
+
+function print_row([]) {
+  nl;
+}
+
+function print_row([X|R]) {
+  if (X == 0) {
+    write(' ');
+  } else {
+    write('x');
+  }
+  print_row(R);
+}
+
+function nonogram(Rows, Cols) {
+  length(Rows, X);
+  length(Cols, Y);
+  make_grid(Grid, X, Y, Vars);
+  nono(Rows, Cols, Grid);
+  label(Vars);
+  print(Grid);
+}
+```

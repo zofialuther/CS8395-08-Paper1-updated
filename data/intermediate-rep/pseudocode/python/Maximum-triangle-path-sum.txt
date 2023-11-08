@@ -1,0 +1,5 @@
+1. Import the itertools module and specifically the imap function
+2. Define a lambda function f that takes three parameters x, y, and z and returns the sum of x and the maximum of y and z
+3. Define a lambda function g that takes two parameters xs and ys and returns a list of the result of applying the function f to each element of ys, the corresponding element of xs, and the next element of xs
+4. Read the data from the "triangle.txt" file, split each row, convert the values to integers, and store the result in a list called data. Reverse the list.
+5. Print the result of applying the reduce function to g and the data list, and take the first element of the result.

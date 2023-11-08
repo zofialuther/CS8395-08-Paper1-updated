@@ -1,0 +1,21 @@
+Import floor and sqrt from math
+
+Define a function called fac that takes a parameter n
+    Set step to a lambda function that takes a parameter x and returns 1 + (x<<2) - ((x>>1)<<1)
+    Set maxq to the floor of the square root of n
+    Set d to 1
+    Set q to 2 if n modulo 2 equals 0, else set it to 3
+    While q is less than or equal to maxq and n modulo q is not equal to 0
+        Set q to the result of the step function with parameter d
+        Increment d by 1
+    If q is less than or equal to maxq
+        Return a list containing q and the result of calling fac with parameter n integer divided by q
+    Else
+        Return a list containing n
+
+If the name of the current module is equal to '__main__'
+    Import the time module
+    Set start to the current time
+    Set tocalc to 2 raised to the power of 59 minus 1
+    Print the string "%s = %s" with the values tocalc and the result of calling fac with parameter tocalc
+    Print the string "Needed %ss" with the value of the current time minus start

@@ -1,0 +1,1 @@
+This code snippet checks a condition, and if the condition is true, it returns the value 3. If the condition is false, it throws a SomeException.

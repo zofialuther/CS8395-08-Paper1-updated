@@ -1,0 +1,14 @@
+```
+function inconsistentChar(xs) {
+  if (xs.length === 0) {
+    return null;
+  } else {
+    let index = findIndex(xs, (item) => item !== xs[0]);
+    if (index !== -1) {
+      return [index, xs[index]];
+    } else {
+      return null;
+    }
+  }
+}
+```

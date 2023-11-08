@@ -1,0 +1,11 @@
+```
+Function selSort
+    Input: xs, a list of elements
+    Output: sorted list of elements
+
+    if xs is empty
+        return an empty list
+    else
+        set x to the maximum element in xs
+        return selSort(delete x from xs) concatenated with [x]
+```

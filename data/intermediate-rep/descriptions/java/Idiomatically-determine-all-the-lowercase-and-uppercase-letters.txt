@@ -1,0 +1,1 @@
+This Java program generates and prints the first 72 upper case and lower case letters in the Unicode character set. It uses the IntStream class to generate a range of Unicode code points and filters them based on whether they are upper case or lower case letters. The program then prints the filtered code points as characters.

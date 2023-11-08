@@ -1,0 +1,1 @@
+This code manipulates a given string "abcdefgh" in various ways. It extracts a substring starting from a specific position and of a certain length, as well as from a known character or substring within the string. The code demonstrates how to extract substrings from different positions within the string based on the provided indices and characters.

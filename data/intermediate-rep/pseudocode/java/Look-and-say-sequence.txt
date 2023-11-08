@@ -1,0 +1,23 @@
+FUNCTION lookandsay(num)
+    SET result = ""
+    SET i = 0
+    WHILE i < length of num
+        SET count = 1
+        WHILE i + 1 < length of num AND num[i] = num[i + 1]
+            INCREMENT count
+            INCREMENT i
+        END WHILE
+        APPEND count to result
+        APPEND num[i] to result
+        INCREMENT i
+    END WHILE
+    RETURN result
+END FUNCTION
+
+FUNCTION main()
+    SET num = "1"
+    FOR i = 1 TO 10
+        OUTPUT num
+        num = lookandsay(num)
+    END FOR
+END FUNCTION

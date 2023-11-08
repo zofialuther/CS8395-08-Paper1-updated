@@ -1,0 +1,8 @@
+function sieve(primeList)
+    outputList = []
+    for each number p in primeList
+        add p to outputList
+        for each number x in primeList
+            if x % p > 0
+                add x to primeList
+    return outputList

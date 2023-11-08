@@ -1,0 +1,22 @@
+```
+import Diagrams.Prelude
+import Diagrams.Backend.Cairo.CmdLine
+
+function eqTriangle(fc, lw){
+  return eqTriangle # fc black # lw 0
+}
+
+function reduce(t){
+  return t
+        |||
+        t
+}
+
+function iterate(reduce, triangle){
+  return reduce(triangle)
+}
+
+function main(sierpinski){
+  return defaultMain(sierpinski[7])
+}
+```

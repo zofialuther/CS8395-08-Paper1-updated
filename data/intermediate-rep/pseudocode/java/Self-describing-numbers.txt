@@ -1,0 +1,29 @@
+FUNCTION isSelfDescribing(a)
+    s = CONVERT a TO STRING
+    FOR i = 0 to LENGTH(s)
+        s0 = s[i]
+        b = CONVERT s0 TO INTEGER 
+        count = 0
+        FOR j = 0 to LENGTH(s)
+            temp = CONVERT s[j] TO INTEGER
+            IF temp = i THEN
+                count = count + 1
+            END IF
+            IF count > b THEN
+                RETURN false
+            END IF
+        END FOR
+        IF count != b THEN
+            RETURN false
+        END IF
+    END FOR
+    RETURN true
+END FUNCTION
+
+FUNCTION main(args)
+    FOR i = 0 to 100000000
+        IF isSelfDescribing(i) THEN
+            OUTPUT i
+        END IF
+    END FOR
+END FUNCTION

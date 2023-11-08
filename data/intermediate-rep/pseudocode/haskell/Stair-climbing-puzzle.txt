@@ -1,0 +1,11 @@
+```
+stepUp :: Robot ()
+stepUp = untilM (liftM2 (&&) atEnd (liftM not clearAhead)) step
+
+untilM :: Monad m => m Bool -> m () -> m ()
+untilM test action = do
+    result <- test
+    if result
+        then return ()
+        else action >> untilM test action
+```

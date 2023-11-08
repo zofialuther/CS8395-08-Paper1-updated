@@ -1,0 +1,22 @@
+```
+import itertools
+
+function harshad():
+    for n in infinite_range(1):
+        if n % sum_of_digits(n) == 0:
+            yield n
+
+function sum_of_digits(num):
+    total = 0
+    for digit in str(num):
+        total = total + int(digit)
+    return total
+
+harshad_numbers = list(islice(harshad(), 0, 20))
+print(harshad_numbers)
+
+for n in harshad():
+    if n > 1000:
+        print(n)
+        break
+```

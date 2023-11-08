@@ -1,0 +1,4 @@
+FUNCTION compose(f, g, x)
+    result = f(g(x))
+    RETURN result
+END FUNCTION

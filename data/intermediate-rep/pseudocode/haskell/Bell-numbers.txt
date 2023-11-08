@@ -1,0 +1,23 @@
+1. Initialize bellTri as a list of lists of integers.
+
+2. Define a function f that takes a list of integers xs and returns a tuple of the last element of xs and xs.
+
+3. Use the map function to apply the snd function to the result of iterating the function f composed with the uncurry function applied to scanl (+) over the initial tuple (1, [1]).
+
+4. Define bell as a list of integers by applying the head function to each element of bellTri.
+
+5. Define the main function as an IO action.
+
+6. Within the main function, print the message "First 10 rows of Bell's Triangle:".
+
+7. Use the mapM_ function to print each of the first 10 elements of bellTri.
+
+8. Print a newline character.
+
+9. Print the message "First 15 Bell numbers:".
+
+10. Use the mapM_ function to print each of the first 15 elements of bell.
+
+11. Print a newline character.
+
+12. Print the 50th element of bell.

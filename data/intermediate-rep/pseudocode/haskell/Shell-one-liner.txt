@@ -1,0 +1,4 @@
+```plaintext
+1. Set variable ghc to the value of -e
+2. Print "Hello" to the console
+```

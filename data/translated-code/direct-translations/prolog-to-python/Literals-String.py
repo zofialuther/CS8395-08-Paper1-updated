@@ -1,0 +1,1 @@
+print(97 == ord('a')) # True

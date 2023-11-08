@@ -1,0 +1,1 @@
+This code defines a solution to a puzzle involving the permutation of numbers from 1 to 8. The solution is found by filtering permutations and checking if they meet certain criteria. The main function prints the solution and the numbers in a specific format.

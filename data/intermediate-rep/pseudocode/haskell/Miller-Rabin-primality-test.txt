@@ -1,0 +1,48 @@
+```
+module Primes where
+
+import System.Random
+import System.IO.Unsafe
+
+function isPrime(n) 
+    return unsafePerformIO(isMillerRabinPrime(100, n))
+
+function isMillerRabinPrime(k, n)
+    if n is even
+        return n == 2
+    else if n < 100
+        return n in primesTo100
+    else
+        (evens, odds) = span even (iterate(div(n-1, 2)))
+        ws = witnesses(k, n)
+        return checkWitnesses(ws, n, n-1, evens, head odds)
+
+function checkWitnesses(ws, n, n_1, evens, d)
+    for each a in ws
+        x = powerMod(n, a, d)
+        powers = map(powerMod(n, a), evens)
+        if x in [1, n_1] or n_1 in powers
+            return True
+    return False
+
+function witnesses(k, n)
+    if n < 9080191
+        return [31, 73]
+    else if n < 4759123141
+        return [2, 7, 61]
+    else if n < 3474749660383
+        return [2, 3, 5, 7, 11, 13]
+    else if n < 341550071728321
+        return [2, 3, 5, 7, 11, 13, 17]
+    else
+        g = newStdGen
+        return take(k, randomRs(2, n-1, g))
+
+function powerMod(m, x, n)
+    return f(n-1, x, x) % m
+    where 
+        f(d, a, y) = if d == 0 then y else g(d, a, y)
+        g(i, b, y) = if even(i) then g(i/2, b*b % m, y) else f(i-1, b, b*y % m)
+
+primesTo100 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+```

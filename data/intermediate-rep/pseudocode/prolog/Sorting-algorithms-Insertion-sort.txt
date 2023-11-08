@@ -1,0 +1,15 @@
+FUNCTION insert_sort(L1, L2)
+    insert_sort_intern(L1, [], L2)
+
+FUNCTION insert_sort_intern([], L, L)
+FUNCTION insert_sort_intern([H|T], L1, L)
+    L2 = insert(L1, H)
+    insert_sort_intern(T, L2, L)
+
+FUNCTION insert([], X, [X])
+FUNCTION insert([H|T], X, [X,H|T]) 
+    IF X =< H THEN
+        RETURN [X,H|T]
+    ELSE
+        insert(T, X, T2)
+        RETURN [H|T2]

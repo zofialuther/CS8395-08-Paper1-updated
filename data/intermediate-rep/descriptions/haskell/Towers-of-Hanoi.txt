@@ -1,0 +1,1 @@
+This code defines a function hanoiIO that takes an integer n as input and uses the hanoi function to generate a list of moves needed to solve the Towers of Hanoi problem with n disks. It then uses the mapM_ function to apply the f function to each pair of moves and print out a message for each move, indicating which disk is being moved and to which peg.

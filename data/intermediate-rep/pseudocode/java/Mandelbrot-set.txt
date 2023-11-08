@@ -1,0 +1,34 @@
+1. Import necessary libraries:
+   - import java.awt.Graphics;
+   - import java.awt.image.BufferedImage;
+   - import javax.swing.JFrame;
+
+2. Create a class Mandelbrot that extends JFrame.
+
+3. Define class variables:
+   - MAX_ITER = 570
+   - ZOOM = 150
+   - BufferedImage I
+   - double zx, zy, cX, cY, tmp
+
+4. Create a constructor Mandelbrot:
+   - Call the super constructor with the title "Mandelbrot Set"
+   - Set the bounds of the JFrame to (100, 100, 800, 600)
+   - Set the JFrame to be not resizable
+   - Set the default close operation to EXIT_ON_CLOSE
+   - Initialize the BufferedImage I with the width and height of the JFrame
+   - Use nested for loops to iterate through each pixel in the BufferedImage:
+     - Set zx and zy to 0
+     - Calculate cX and cY based on the current pixel's position
+     - Set iter to MAX_ITER
+     - Use a while loop to calculate the Mandelbrot set for the current pixel:
+       - Calculate tmp, zy, and zx based on the Mandelbrot formula
+       - Decrement iter
+     - Set the RGB value of the current pixel in the BufferedImage based on the iter value
+
+5. Override the paint method:
+   - Draw the BufferedImage I at position (0, 0) in the JFrame
+
+6. Create a main method:
+   - Create a new instance of Mandelbrot
+   - Set the visibility of the Mandelbrot JFrame to true.

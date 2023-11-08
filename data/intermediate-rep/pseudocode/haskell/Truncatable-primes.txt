@@ -1,0 +1,9 @@
+1. Import the necessary modules for working with prime numbers.
+
+2. Define a variable "primes1e6" as the reverse of the result of filtering the list of primes less than or equal to 1,000,000, removing those containing the digit '0'.
+
+3. Define two functions "rightT" and "leftT" to check if a number is right-truncatable and left-truncatable, respectively.
+
+4. Define the "main" function to:
+   a. Find the first left-truncatable and right-truncatable numbers from the list of "primes1e6".
+   b. Print the results.

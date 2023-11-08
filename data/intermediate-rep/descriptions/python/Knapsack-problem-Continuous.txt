@@ -1,0 +1,1 @@
+This code creates a list of items with their respective weights and values. It then sorts the items based on their value-to-weight ratio and selects the items to be placed in a bag to maximize the total value without exceeding a maximum weight. The program then prints out the selected items, their portions, and total weight and value.

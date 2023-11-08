@@ -1,0 +1,65 @@
+```
+1. Import necessary libraries
+
+2. Create a class called FaulhabersTriangle
+   - Initialize a constant MathContext object MC with precision 256
+
+3. Define a method called gcd that takes two long integers a and b as input and returns a long
+   - If b is equal to 0, return a
+   - Otherwise, return the result of calling gcd with b and the remainder of a divided by b
+
+4. Define a class Frac with private fields num and denom
+   - Define a constant Frac object ZERO with values 0 and 1
+   - Define a constructor that takes two long integers n and d as input
+      - If d is equal to 0, throw an IllegalArgumentException
+      - Otherwise, initialize nn with n and dd with d
+      - If nn is equal to 0, set dd to 1
+      - If dd is less than 0, set nn to -nn and dd to -dd
+      - Calculate the greatest common divisor g of nn and dd
+      - If g is greater than 1, divide nn and dd by g
+      - Set num to nn and denom to dd
+   - Define methods plus, unaryMinus, minus, times, compareTo, equals, toString, toDouble, and toBigDecimal
+
+5. Define a method called bernoulli that takes an integer n as input and returns a Frac
+   - If n is less than 0, throw an IllegalArgumentException
+   - Create an array of Frac objects a with length n+1, and initialize all elements to Frac.ZERO
+   - Loop through integers m from 0 to n
+      - Set a[m] to a new Frac with values 1 and m+1
+      - Loop through integers j from m to 1
+         - Set a[j-1] to the result of subtracting a[j] from a[j-1] and multiplying it by a new Frac with values j and 1
+   - If n is not equal to 1, return a[0]
+   - Otherwise, return the unaryMinus of a[0]
+
+6. Define a method called binomial that takes two integers n and k as input and returns a long
+   - If n or k is less than 0, or n is less than k, throw an IllegalArgumentException
+   - If n or k is equal to 0, return 1
+   - Calculate the numerator num using LongStream
+   - Calculate the denominator den using LongStream
+   - Return the result of num divided by den
+
+7. Define a method called faulhaberTriangle that takes an integer p as input and returns an array of Frac
+   - Create an array of Frac objects coeffs with length p+1, and initialize all elements to Frac.ZERO
+   - Create a new Frac object q with values 1 and p+1
+   - Initialize an integer sign to -1
+   - Loop through integers j from 0 to p
+      - Multiply sign by -1
+      - Set coeffs[p-j] to the result of multiplying q, a new Frac with the current sign, a new Frac with the binomial coefficient, and the result of calling bernoulli with j
+   - Return coeffs
+
+8. Define the main method
+   - Loop through integers i from 0 to 9
+      - Set coeffs to the result of calling faulhaberTriangle with i as input
+      - Loop through Frac objects coeff in coeffs
+         - Print the coeff
+      - Print a new line
+   - Set k to 17
+   - Set cc to the result of calling faulhaberTriangle with k as input
+   - Set n to 1000
+   - Create a new BigDecimal object nn with the value of n
+   - Create a new BigDecimal object np with the value of 1
+   - Create a new BigDecimal object sum with the value of 0
+   - Loop through Frac objects c in cc
+      - Multiply np by nn
+      - Add the result of multiplying np by c.toBigDecimal to sum
+   - Print the integer value of sum
+```

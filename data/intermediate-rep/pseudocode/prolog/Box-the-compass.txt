@@ -1,0 +1,14 @@
+```
+FUNCTION compassangle(index, name, heading, angle)
+    IF angle is not null THEN
+        resolveindex(angle, index)
+        compassangle(index, name, heading, null)
+    END IF
+END FUNCTION
+
+FUNCTION resolveindex(angle, index)
+    N = angle / 11.25 + 0.5
+    I = floor(N)
+    index = (I mod 32) + 1
+END FUNCTION
+```

@@ -1,0 +1,15 @@
+Main
+    Display "Guess an integer between 1 and 10"
+    Number = GetInputFromUser()
+    While Number is not a valid input
+        Display "Invalid input"
+        Number = GetInputFromUser()
+    End While
+    If Number is less than 3
+        Display "Your guess is too low"
+    Else if Number is greater than 3
+        Display "Your guess is too high"
+    Else
+        Display "Congratulations! You guessed it right!"
+    End If
+End Main

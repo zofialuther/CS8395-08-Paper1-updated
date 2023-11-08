@@ -1,0 +1,1 @@
+This code defines a predicate "prime" that takes an integer N as input and succeeds if N is a prime number. The code first defines that 2 is a prime number. Then, for any N greater than 2, it checks if N is odd and then iterates through all odd numbers less than or equal to the square root of N to see if any of them evenly divide N. If none do, then N is considered prime.

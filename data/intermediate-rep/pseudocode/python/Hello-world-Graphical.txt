@@ -1,0 +1,9 @@
+```
+# Pseudocode for the above code
+1. Import the necessary libraries - kivy.app, kivy.lang.builder
+2. Define the kv string with the Kivy language code for the layout and popup
+3. Create a class GoodByeApp that inherits from App
+4. Define the build method in GoodByeApp class
+    - Load the layout and popup from the kv string using Builder.load_string
+5. Instantiate the GoodByeApp and run it
+```

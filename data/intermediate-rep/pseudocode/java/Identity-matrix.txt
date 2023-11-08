@@ -1,0 +1,12 @@
+BEGIN
+    n = 5
+    array = new int[n][n]
+    
+    FOR i from 0 to n-1 DO
+        array[i][i] = 1
+    END FOR
+    
+    FOR each row in array DO
+        PRINT row
+    END FOR
+END

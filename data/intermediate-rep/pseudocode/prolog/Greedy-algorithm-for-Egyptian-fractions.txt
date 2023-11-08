@@ -1,0 +1,99 @@
+```
+count_digits(Number, Count)
+    A = convert Number to string
+    Count = length of A
+
+integer_to_atom(Number, Atom)
+    A = convert Number to string
+    Count = length of A
+    if Count <= 20 then
+        Atom = A
+    else
+        A1 = substring of A from index 0 to 10
+        P = Count - 10
+        A2 = substring of A from index P to 10
+        A3 = concatenate A1 with '...'
+        Atom = concatenate A3 with A2
+
+egyptian(0, _, [])
+    stop
+egyptian(X, Y, [Z|E])
+    Z = (Y + X - 1) divided by X
+    X1 = -Y modulo X
+    Y1 = Y multiplied by Z
+    egyptian(X1, Y1, E)
+
+print_egyptian([])
+    stop
+print_egyptian([N|List])
+    A = convert N to string
+    if List is empty then
+        write 1/A
+    else
+        write 1/A + 
+        print_egyptian(List)
+
+print_egyptian(X, Y)
+    write 'Egyptian fraction for X/Y: '
+    if X > Y then
+        N = X divided by Y
+        write '[N] '
+        X1 = X modulo Y
+    else
+        X1 = X
+    egyptian(X1, Y, E)
+    print_egyptian(E)
+    move to next line
+
+max_terms_and_denominator1(D, Max_terms, Max_denom, Max_terms1, Max_denom1)
+    call max_terms_and_denominator1(D, 1, Max_terms, Max_denom, Max_terms1, Max_denom1)
+
+max_terms_and_denominator1(D, D, Max_terms, Max_denom, Max_terms, Max_denom)
+    stop
+max_terms_and_denominator1(D, N, Max_terms, Max_denom, Max_terms1, Max_denom1)
+    Max_terms1 = f(_, _, _, Len1)
+    Max_denom1 = f(_, _, _, Max1)
+    egyptian(N, D, E)
+    Len = length of E
+    Max = last element of E
+    if Len > Len1 then
+        Max_terms2 = f(N, D, E, Len)
+    else
+        Max_terms2 = Max_terms1
+    if Max > Max1 then
+        Max_denom2 = f(N, D, E, Max)
+    else
+        Max_denom2 = Max_denom1
+    N1 = N + 1
+    max_terms_and_denominator1(D, N1, Max_terms, Max_denom, Max_terms2, Max_denom2)
+
+max_terms_and_denominator(N, Max_terms, Max_denom)
+    call max_terms_and_denominator(N, 1, Max_terms, Max_denom, f(0, 0, [], 0), f(0, 0, [], 0))
+
+max_terms_and_denominator(N, N, Max_terms, Max_denom, Max_terms, Max_denom)
+    stop
+max_terms_and_denominator(N, N1, Max_terms, Max_denom, Max_terms1, Max_denom1)
+    call max_terms_and_denominator1(N1, Max_terms2, Max_denom2, Max_terms1, Max_denom1)
+    N2 = N1 + 1
+    max_terms_and_denominator(N, N2, Max_terms, Max_denom, Max_terms2, Max_denom2)
+
+show_max_terms_and_denominator(N)
+    write 'Proper fractions with most terms and largest denominator, limit = N:'
+    max_terms_and_denominator(N, f(N_max_terms, D_max_terms, E_max_terms, Len), f(N_max_denom, D_max_denom, E_max_denom, Max))
+    write 'Most terms (Len): N_max_terms/D_max_terms = '
+    print_egyptian(E_max_terms)
+    move to next line
+    count_digits(Max, Digits)
+    write 'Largest denominator (Digits digits): N_max_denom/D_max_denom = '
+    print_egyptian(E_max_denom)
+    move to next line
+
+main
+    print_egyptian(43, 48)
+    print_egyptian(5, 121)
+    print_egyptian(2014, 59)
+    move to next line
+    show_max_terms_and_denominator(100)
+    move to next line
+    show_max_terms_and_denominator(1000)
+```

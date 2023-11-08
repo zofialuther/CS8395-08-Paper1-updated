@@ -1,0 +1,1 @@
+This code uses the mapM_ function to iterate through a list of numbers from 1 to infinity and print each number to the console. The mapM_ function applies the print function to each element of the list without returning a new list. This code will continuously print numbers to the console until it is interrupted.

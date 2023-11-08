@@ -1,0 +1,58 @@
+```
+# Define the command table text
+command_table_text = """
+Add ALTer  BAckup Bottom  CAppend Change SCHANGE  CInsert CLAst COMPress COpy
+COUnt COVerlay CURsor DELete CDelete Down DUPlicate Xedit EXPand EXTract Find
+NFind NFINDUp NFUp CFind FINdup FUp FOrward GET Help HEXType Input POWerinput
+Join SPlit SPLTJOIN  LOAD  Locate CLocate  LOWercase UPPercase LPrefix MACRO
+MErge MODify MOve MSG Next Overlay PARSE PREServe PURge PUT PUTD  Query  QUIT
+READ  RECover REFRESH RENum REPeat  Replace CReplace  RESet  RESTore  RGTLEFT
+RIght LEft  SAVE  SET SHift SI  SORT  SOS  STAck STATus  TOP TRAnsfer Type Up
+"""
+
+# Define the user words
+user_words = "riG   rePEAT copies  put mo   rest    types   fup.    6       poweRin"
+
+# Function to find the minimal abbreviation length for each word
+function find_abbreviations_length(command_table_text):
+    command_table = empty dictionary
+    for each word in command_table_text split by space:
+        abbreviation_length = count uppercase letters in word
+        if abbreviation_length is 0:
+            abbreviation_length = length of word
+        insert word and abbreviation_length into command_table
+    return command_table
+
+# Function to find the abbreviations for each command
+function find_abbreviations(command_table):
+    abbreviations = empty dictionary
+    for each command and abbreviation length in command_table:
+        for each length from abbreviation length to length of command:
+            abbreviation = lowercase command up to current length
+            insert abbreviation and uppercase command into abbreviations
+    return abbreviations
+
+# Function to parse user string using abbreviations
+function parse_user_string(user_string, abbreviations):
+    split user_string into lowercase words
+    commands = empty list
+    for each word in user_string:
+        if word is in abbreviations:
+            add corresponding command to commands
+        else:
+            add "*error*" to commands
+    return joined commands
+
+# Call find_abbreviations_length with command_table_text and store the result in command_table
+command_table = find_abbreviations_length(command_table_text)
+
+# Call find_abbreviations with command_table and store the result in abbreviations_table
+abbreviations_table = find_abbreviations(command_table)
+
+# Call parse_user_string with user_words and abbreviations_table and store the result in full_words
+full_words = parse_user_string(user_words, abbreviations_table)
+
+# Print the user words and full words
+print("user words:", user_words)
+print("full words:", full_words)
+```

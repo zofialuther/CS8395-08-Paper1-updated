@@ -1,0 +1,9 @@
+1. Create a function text2morse that takes in a string as input and returns the Morse code equivalent.
+2. Create a dictionary mapping each letter in the alphabet to its corresponding Morse code.
+3. Create an empty string variable called Morse to store the Morse code translation.
+4. Convert the input string to uppercase to handle both upper and lower case letters.
+5. Loop through each character in the input string:
+    a. If the character is a letter, look up its Morse code in the dictionary and add it to the Morse string.
+    b. If the character is a space, add a space to the Morse string.
+    c. If the character is not a letter or a space, ignore it.
+6. Return the Morse string.

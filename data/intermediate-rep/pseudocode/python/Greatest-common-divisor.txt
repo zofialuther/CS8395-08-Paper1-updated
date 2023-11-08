@@ -1,0 +1,5 @@
+function gcd(u, v):
+    if v is not equal to 0:
+        return gcd(v, u % v)
+    else:
+        return absolute value of u

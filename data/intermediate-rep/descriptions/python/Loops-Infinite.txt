@@ -1,0 +1,1 @@
+This code creates an infinite loop that continuously prints the word "SPAM" to the console. It will continue to run until it is manually stopped.

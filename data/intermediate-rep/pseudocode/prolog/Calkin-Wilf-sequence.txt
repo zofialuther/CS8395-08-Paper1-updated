@@ -1,0 +1,38 @@
+```
+FUNCTION g(N, [A/B|_]-_, A/B)
+    IF N > 0 THEN
+        RETURN A/B
+    END IF
+END FUNCTION
+
+FUNCTION g(N, [A/B|Ls]-[A/C,C/B|Ys], X)
+    IF N > 1 THEN
+        M = N - 1
+        C = A + B
+        CALL g(M, Ls-Ys, X)
+    END IF
+END FUNCTION
+
+FUNCTION g(N, X)
+    CALL g(N, [1/1|Ls]-Ls, X)
+END FUNCTION
+
+FUNCTION t(A/1, S, C, X)
+    X = C * (2**(A-1+S) - S)
+END FUNCTION
+
+FUNCTION t(A/B, S, C, X)
+    IF B > 1 THEN
+        divmod(A, B, M, N)
+        T = 1 - S
+        D = C * 2**M
+        CALL t(B/N, T, D, Y)
+        X = Y + S * C * (2**M - 1)
+    END IF
+END FUNCTION
+
+FUNCTION t(A/B, X)
+    CALL t(A/B, 1, 1, X)
+    EXIT
+END FUNCTION
+```

@@ -1,0 +1,13 @@
+FUNCTION f(x)
+    RETURN 1 / (x * x)
+
+FUNCTION main()
+    start = 1
+    end = 1000
+    sum = 0
+
+    FOR x = start TO end
+        sum = sum + f(x)
+    
+    PRINT "Sum of f(x) from " + start + " to " + end + " is " + sum
+END FUNCTION

@@ -1,0 +1,1 @@
+This code defines a function called `sampleFunction` that simply prints "a" to the console. In the `main` function, `replicateM_` is used to execute `sampleFunction` five times in succession. This means that "a" will be printed to the console five times when the program is run.

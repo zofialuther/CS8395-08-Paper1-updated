@@ -1,0 +1,14 @@
+FUNCTION BiggestSubsum(t)
+    sum = 0
+    maxsum = 0
+    FOR i IN t
+        sum = sum + t[i]
+        IF sum < 0
+            sum = 0
+        END IF
+        IF sum > maxsum
+            maxsum = sum
+        END IF
+    END FOR
+    RETURN maxsum
+END FUNCTION

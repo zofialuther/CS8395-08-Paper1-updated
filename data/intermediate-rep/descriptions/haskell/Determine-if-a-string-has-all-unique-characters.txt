@@ -1,0 +1,9 @@
+The code imports various modules and defines two functions, `duplicatedCharIndices` and `duplicatedCharIndices_`, which take a string as input and return the indices of any duplicated characters along with the character itself. The program also includes a `main` function to test the `duplicatedCharIndices_` function with different input strings.
+
+The `duplicatedCharIndices` function uses `Data.Map.Strict` to process the input string and find the indices of duplicated characters, while the `duplicatedCharIndices_` function uses a slightly different approach to achieve the same result.
+
+The `main` function tests the `duplicatedCharIndices_` function with various input strings and displays the results.
+
+Additionally, the code includes a `fTable` function for displaying the results in a formatted table format.
+
+Overall, the code is designed to identify and display the indices of any duplicated characters in a given string.

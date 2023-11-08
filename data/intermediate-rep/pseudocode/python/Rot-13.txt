@@ -1,0 +1,27 @@
+```
+BEGIN
+    lets = "abcdefghijklmnopqrstuvwxyz"
+    key = {}
+    FOR i = 0 to 25 DO
+        key[lets[i]] = lets[(i + 13) % 26]
+    ENDFOR
+    FOR i = 0 to 25 DO
+        key[lets[i].upper()] = key[lets[i]].upper()
+    ENDFOR
+    encode = FUNCTION(x)
+        result = ""
+        FOR c in x DO
+            result += key.get(c, c)
+        ENDFOR
+        RETURN result
+    ENDFUNCTION
+
+    IF __name__ = '__main__' THEN
+        PRINT "Peform line-by-line rot-13 encoding on any files listed on our command line or act as a standard UNIX filter (if no arguments specified)."
+        import fileinput
+        FOR line in fileinput.input() DO
+            PRINT encode(line)
+        ENDFOR
+    ENDIF
+END
+```

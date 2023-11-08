@@ -1,0 +1,6 @@
+```
+while true:
+    print('SPAM')
+    print('\n')
+    continue
+```

@@ -1,0 +1,17 @@
+FUNCTION pow(base, exp)
+    IF exp < 0 THEN
+        RETURN 1 / pow(base, -exp)
+    END IF
+    ans = 1.0
+    WHILE exp > 0 DO
+        ans = ans * base
+        exp = exp - 1
+    END WHILE
+    RETURN ans
+END FUNCTION
+
+FUNCTION main()
+    OUTPUT pow(2, 30)
+    OUTPUT pow(2.0, 30) //tests
+    OUTPUT pow(2.0, -2)
+END FUNCTION

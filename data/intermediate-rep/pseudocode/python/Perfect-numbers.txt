@@ -1,0 +1,30 @@
+FUNCTION perfect(n)
+    root = squareRoot(n)
+    lows = []
+    for x in enumFromTo(2)(int(root)):
+        if 0 == (n % x):
+            lows.append(x)
+    sumLows = 0
+    for x in lows:
+        sumLows = sumLows + x
+    highs = []
+    for x in lows:
+        if root != x:
+            highs.append(n / x)
+    sumHighs = 0
+    for x in highs:
+        sumHighs = sumHighs + x
+    return 1 < n AND n == 1 + sumLows + sumHighs
+
+FUNCTION main()
+    result = []
+    for x in enumFromTo(1)(10000):
+        if perfect(x):
+            result.append(x)
+    print(result)
+
+FUNCTION enumFromTo(m)
+    return lambda n: list(range(m, 1 + n))
+
+IF __name__ == '__main__' THEN
+    main()

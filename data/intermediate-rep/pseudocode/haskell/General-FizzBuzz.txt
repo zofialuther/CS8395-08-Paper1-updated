@@ -1,0 +1,26 @@
+```
+TYPE Rule = (Int, String)
+
+FUNCTION fizzEtc(rules: List[Rule]) -> List[String]:
+    result = []
+    x = 1
+    WHILE True:
+        IF noise = [] THEN:
+            result.append(x)
+        ELSE:
+            result.append(noise)
+        x = x + 1
+        noise = []
+        FOR rule in rules DO:
+            IF x % rule[0] == 0 THEN:
+                noise += rule[1]
+    RETURN result
+
+FUNCTION fizzTest() -> List[String]:
+    RETURN fizzEtc([(3, "Fizz"), (5, "Buzz"), (7, "Baxx")])
+
+FUNCTION main() -> None:
+    testResult = fizzTest()
+    FOR line in testResult[:20] DO:
+        PRINT line
+```

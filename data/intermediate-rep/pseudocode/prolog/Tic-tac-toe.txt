@@ -1,0 +1,192 @@
+```
+% Pseudocode for tic-tac-toe game
+
+load module 'min-max.pl'
+
+declare dynamic predicates box/2 and tic_tac_toe_window/1
+
+function tic-tac-toe(computer):
+    V = random(9)
+    TTT = [_,_,_,_,_,_ ,_,_,_]
+    nth0(V, TTT, o)
+    display_tic_tac_toe(TTT)
+
+function tic-tac-toe(me):
+    TTT = [_,_,_,_,_,_ ,_,_,_]
+    display_tic_tac_toe(TTT)
+
+function display_tic_tac_toe(TTT):
+    retract all box(_, _)
+    retract all tic_tac_toe_window(_)
+    D = new window('Tic-tac-Toe')
+    D.size = (170,170)
+    X = 10
+    Y = 10
+    display(D, X, Y, 0, TTT)
+    assert tic_tac_toe_window(D)
+    D.open()
+
+function display(D, X, Y, N, TTT):
+    if N >= length(TTT):
+        return
+    else:
+        display_line(D, X, Y, N, TTT)
+        Y = Y + 50
+        N = N + 3
+        display(D, X, Y, N, TTT)
+
+function display_line(D, X, Y, N, TTT):
+    if length(TTT) < N:
+        return
+    else:
+        C = TTT[N]
+        if C is not null:
+            C1 = C
+        else:
+            C1 = ' '
+        B = new tic_tac_toe_box(C1)
+        assert box(N, B)
+        D.display(B, point(X, Y))
+        X = X + 50
+        N = N + 1
+        display_line(D, X, Y, N, TTT)
+
+class tic_tac_toe_box extends box:
+    method initialise(Lbl):
+        self._initialise()
+        self.mess = Lbl
+        WS = 50
+        HS = 50
+        self.size = (WS, HS)
+        self.recogniser = new click_gesture(left, '', single, message(self, my_click))
+
+    method my_click(B):
+        B.set_val(x)
+        prolog.play()
+
+    method set_val(Val):
+        if self.mess == ' ':
+            self.mess = Val
+            self.redraw()
+            self.flush()
+
+    method '_redraw_area'(A:area):
+        self.'_redraw_area'(A)
+        Str1 = new string(self.mess)
+        self.draw_box(A.x, A.y, A.w, A.h)
+        self.draw_text(Str1, font(times, normal, 30), A.x, A.y, A.w, A.h, center, center)
+
+function play():
+    L = generate_list(0, 8)
+    maplist(init, L, TTT)
+    finished(x, TTT, Val)
+    if Val == 2:
+        display.inform('You win !')
+        D = tic_tac_toe_window()
+        D.destroy()
+    else if Val == 1:
+        display.inform('Draw !')
+        D = tic_tac_toe_window()
+        D.destroy()
+    else:
+        next_move(TTT, TT1)
+        maplist(display, L, TT1)
+        finished(o, TT1, V)
+        if V == 2:
+            display.inform('I win !')
+            D = tic_tac_toe_window()
+            D.destroy()
+        else if V == 1:
+            display.inform('Draw !')
+            D = tic_tac_toe_window()
+            D.destroy()
+
+function next_move(TTT, TT1):
+    minimax(o, 0, 1024, TTT, _V1- TT1)
+
+function display(I, V):
+    if V is not null:
+        V1 = box(I)
+        V1.set_val(V)
+
+function init(I, V):
+    V1 = box(I)
+    V1.mess = V
+
+function winned(P, TTT):
+    if is_winning_line(P, [TTT[0], TTT[1], TTT[2]]) or
+       is_winning_line(P, [TTT[3], TTT[4], TTT[5]]) or
+       is_winning_line(P, [TTT[6], TTT[7], TTT[8]]) or
+       is_winning_line(P, [TTT[0], TTT[3], TTT[6]]) or
+       is_winning_line(P, [TTT[1], TTT[4], TTT[7]]) or
+       is_winning_line(P, [TTT[2], TTT[5], TTT[8]]) or
+       is_winning_line(P, [TTT[0], TTT[4], TTT[8]]) or
+       is_winning_line(P, [TTT[2], TTT[4], TTT[6]):
+        return true
+    else:
+        return false
+
+function is_winning_line(P, line):
+    if line[0] == P and line[1] == P and line[2] == P:
+        return true
+    else:
+        return false
+
+function eval(Player, Deep, TTT, V):
+    if winned(Player, TTT):
+        if Player == o:
+            V = 1000 - 50 * Deep
+        else:
+            V = -1000 + 50 * Deep
+    else if winned(otherPlayer(Player), TTT):
+        if Player == x:
+            V = 1000 - 50 * Deep
+        else:
+            V = -1000 + 50 * Deep
+    else if allPositionsFilled(TTT):
+        V = 0
+
+function possible_move(TTT, LMove):
+    LMove = []
+    for I in range(0, 8):
+        if TTT[I] is null:
+            LMove.append(I)
+
+function assign_move(P, TTT, N, TT1):
+    TT1 = TTT.copy()
+    TT1[N] = P
+
+function get_next(Player, Deep, TTT, Player1, Deep1, L):
+    LMove = possible_move(TTT)
+    Player1 = otherPlayer(Player)
+    Deep1 = Deep + 1
+    L = []
+    for N in LMove:
+        TT1 = assign_move(Player, TTT, N)
+        L.append(TT1)
+
+function finished(P, TTT, Val):
+    if winned(P, TTT):
+        Val = 2
+    else if allPositionsFilled(TTT):
+        Val = 1
+    else:
+        Val = 0
+
+function minimax(Player, Deep, Alpha, Beta, TTT, Val- TT1):
+    if eval(Player, Deep, TTT, V):
+        Val = V
+    else:
+        get_next(Player, Deep, TTT, Player1, Deep1, L)
+        bestVal = -1
+        foreach TTT1 in L:
+            minimax(Player1, Deep1, -Beta, -Alpha, TTT1, Val- _)
+            Val = -Val
+            if Val > bestVal:
+                bestVal = Val
+                TT1 = TTT1
+            Alpha = max(Alpha, Val)
+            if Alpha >= Beta:
+                break
+        Val = bestVal
+```

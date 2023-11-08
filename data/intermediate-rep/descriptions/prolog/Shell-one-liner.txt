@@ -1,0 +1,1 @@
+This code uses the echo command to send a Prolog query to either SWI-Prolog or YAP (Yet Another Prolog) interpreter. The query checks the current Prolog dialect being used and prints the result. The output shows "swi" for SWI-Prolog and "yap" for YAP, indicating the current Prolog dialect being used by each interpreter.

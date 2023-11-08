@@ -1,0 +1,3 @@
+This code first imports the permutations function from the itertools module and the windowed function from the more_itertools module. It then defines a function called is_sorted, which takes a sequence as input and returns True if the sequence is sorted in non-decreasing order. 
+
+The code also defines a function called permutation_sort, which takes a sequence as input and returns the first permutation of the sequence that is sorted. It does this by generating all possible permutations of the input sequence and checking each permutation to see if it is sorted using the is_sorted function. Once a sorted permutation is found, it is returned.

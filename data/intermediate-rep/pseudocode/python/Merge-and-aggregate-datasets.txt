@@ -1,0 +1,27 @@
+```
+# Install pandas library
+# cd %USERPROFILE%\AppData\Local\Programs\Python\Python38-32\Scripts\
+# pip install pandas
+
+# Import pandas library
+import pandas as pd
+
+# Load data from csv files
+df_patients = pd.read_csv (r'patients.csv', sep = ",", decimal=".")
+df_visits = pd.read_csv (r'visits.csv', sep = ",", decimal=".")
+
+# Typecast from string to datetime
+df_visits['VISIT_DATE'] = pd.to_datetime(df_visits['VISIT_DATE'])
+
+# Merge on PATIENT_ID
+df_merge = df_patients.merge(df_visits, on='PATIENT_ID', how='left')
+
+# Groupby is an intermediate object
+df_group = df_merge.groupby(['PATIENT_ID','LASTNAME'], as_index=False)
+
+# Note: you can use 'sum' instead of the lambda function but that returns NaN as 0 (zero)
+df_result = df_group.agg({'VISIT_DATE': 'max', 'SCORE': [lambda x: x.sum(min_count=1),'mean']})
+
+# Print the result
+print(df_result)
+```

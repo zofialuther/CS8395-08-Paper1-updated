@@ -1,0 +1,1 @@
+This code defines a data type `Employee` and a list of employees. It also includes functions for sorting and grouping the employees based on their department and salary. The `main` function uses these functions to display the top 3 employees in each department with their names, departments, and salaries.

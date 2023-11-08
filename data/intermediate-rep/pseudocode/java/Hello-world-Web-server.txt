@@ -1,0 +1,11 @@
+1. Import the necessary libraries: java.io.IOException, java.io.PrintWriter, java.net.ServerSocket, java.net.Socket
+2. Create a class called HelloWorld
+3. Define a main method that throws IOException
+4. Within the main method, create a ServerSocket called listener and initialize it with port 8080
+5. Start a while loop that continues indefinitely
+6. Inside the while loop, accept incoming connections using listener.accept() and store it in a Socket variable called sock
+7. Create a new PrintWriter object to write to the output stream of the socket and print the message "Goodbye, World!"
+8. Close the socket using sock.close()
+9. End the while loop
+10. End the main method
+11. End the class definition.

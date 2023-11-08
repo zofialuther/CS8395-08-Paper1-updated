@@ -1,0 +1,1 @@
+This code uses the hashlib library to create a SHA-1 hash of the string "Ars longa, vita brevis" encoded in ASCII. The resulting hash value is "e640d285242886eb96ab80cbf858389b3df52f43".

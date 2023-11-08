@@ -1,0 +1,9 @@
+1. Import necessary libraries
+2. Define testdoc as an object with key-value pairs
+3. Define main function
+4. Encode testdoc using the encode function and store the result in a variable called out
+5. Print out using B.putStrLn
+6. Parse the encoded output using parseOnly and store the result in a variable called v
+7. If the parsing fails, throw an error with the message "strange error re-parsing json: " followed by the error
+8. If the parsing is successful and the parsed value is not equal to testdoc, throw an error with the message "documents not equal!"
+9. If the parsing is successful and the parsed value is equal to testdoc, print the parsed value.

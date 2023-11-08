@@ -1,0 +1,4 @@
+1. Prompt user to enter a variable name
+2. Store user input in the variable "name"
+3. Create a global variable using the value of "name" and assign it the value 42
+4. Print the value of the global variable "X"

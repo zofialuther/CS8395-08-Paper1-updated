@@ -1,0 +1,44 @@
+```
+plot_point(Row, Col) {
+    create a new 5x5 black box at position (Row, Col)
+}
+
+update_win() {
+    create a 500x500 window
+    find all the black points and plot them using plot_point function
+}
+
+direction(Row, Col, left) {
+    if black(Row, Col) is true, retract black(Row, Col)
+}
+
+direction(Row, Col, right) {
+    if black(Row, Col) is false, assert black(Row, Col)
+}
+
+move(direction, Row, Col) {
+    if Row < 0 or Col < 0 or Row > 99 or Col > 99, return
+    if direction is north {
+        if direction(Row, Col, left) is true, move west with new position (Row, Col-1)
+        if direction(Row, Col, right) is true, move east with new position (Row, Col+1)
+    }
+    if direction is south {
+        if direction(Row, Col, right) is true, move west with new position (Row, Col-1)
+        if direction(Row, Col, left) is true, move east with new position (Row, Col+1)
+    }
+    if direction is east {
+        if direction(Row, Col, right) is true, move south with new position (Row+1, Col)
+        if direction(Row, Col, left) is true, move north with new position (Row-1, Col)
+    }
+    if direction is west {
+        if direction(Row, Col, left) is true, move south with new position (Row+1, Col)
+        if direction(Row, Col, right) is true, move north with new position (Row-1, Col)
+    }
+}
+
+go() {
+    remove all black points
+    move north with starting position (49, 49)
+    call update_win function
+}
+```

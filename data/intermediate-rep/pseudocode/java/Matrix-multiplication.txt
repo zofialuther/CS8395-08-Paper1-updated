@@ -1,0 +1,24 @@
+FUNCTION mult(a[][], b[][])
+   IF a.length == 0 THEN
+      RETURN new double[0][0]
+   END IF
+   IF a[0].length != b.length THEN
+      RETURN null //invalid dims
+   END IF
+
+   n = a[0].length
+   m = a.length
+   p = b[0].length
+
+   ans[][] = new double[m][p]
+
+   FOR i = 0 TO m DO
+      FOR j = 0 TO p DO
+         FOR k = 0 TO n DO
+            ans[i][j] += a[i][k] * b[k][j]
+         END FOR
+      END FOR
+   END FOR
+
+   RETURN ans
+END FUNCTION

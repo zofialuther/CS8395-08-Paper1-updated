@@ -1,0 +1,8 @@
+1. Import the log2 function from the math module
+2. Import the Counter class from the collections module
+3. Define a function named entropy that takes a string s as input
+4. Inside the entropy function:
+   - Create a Counter object p to count the occurrences of each character in the string s
+   - Calculate the length of the string s and store it in lns as a float
+   - Return the result of the following expression: log2(lns) - (the sum of (count * log2(count)) for count in p.values()) divided by lns
+5. Print the result of calling the entropy function with the argument "1223334444"

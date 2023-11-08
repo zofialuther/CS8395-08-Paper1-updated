@@ -1,0 +1,13 @@
+BEGIN
+  FUNCTION repString with parameters n, s
+    INITIALIZE result as an empty string
+    FOR each pair (d, x) in the zip of the binary decomposition of n and the iterative duplication of s
+      IF d > 0 THEN
+        result = result + x
+      END IF
+    END FOR
+    RETURN result
+  END FUNCTION
+
+  CALL repString with arguments 500 and "ha" and print the result
+END

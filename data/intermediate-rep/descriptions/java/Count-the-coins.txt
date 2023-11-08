@@ -1,0 +1,1 @@
+This Java code defines a class called CountTheCoins and a method called countChanges that calculates the number of ways to make change for a given amount using a given set of coins. The method uses dynamic programming to efficiently compute the number of possible combinations. The main method tests the countChanges method with different sets of coins and different amounts.

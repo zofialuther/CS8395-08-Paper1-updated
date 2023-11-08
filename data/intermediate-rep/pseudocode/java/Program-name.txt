@@ -1,0 +1,6 @@
+1. Start
+2. Declare a public class named ScriptName
+3. Declare a public static method named main with a parameter of String array args
+4. Set a variable program to store the result of System.getProperty("sun.java.command").split(" ")[0]
+5. Print the value of program using System.out.println
+6. End

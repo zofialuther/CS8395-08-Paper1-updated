@@ -1,0 +1,101 @@
+START
+  FUNCTION readLines (f)
+    r = new BufferedReader (new InputStreamReader (f, "US-ASCII"))
+    lines = new ArrayList<String>()
+    line = ""
+    WHILE line = r.readLine() is not null
+      lines.add (line)
+    END WHILE
+    RETURN lines.toArray(new String[0])
+  END FUNCTION
+
+  FUNCTION decimateHorizontally (lines)
+    width = (lines[0].length() + 1) / 2
+    c = new char[lines.length][width]
+    FOR i = 0 to lines.length
+      FOR j = 0 to width
+        c[i][j] = lines[i].charAt (j * 2)
+      END FOR
+    END FOR
+    RETURN c
+  END FUNCTION
+
+  FUNCTION solveMazeRecursively (maze, x, y, d)
+    ok = false
+    FOR i = 0 to 4 AND NOT ok
+      IF i != d THEN
+        SWITCH i
+          CASE 0
+            IF maze[y-1][x] == ' ' THEN
+              ok = solveMazeRecursively (maze, x, y - 2, 2)
+            END IF
+          CASE 1
+            IF maze[y][x+1] == ' ' THEN
+              ok = solveMazeRecursively (maze, x + 2, y, 3)
+            END IF
+          CASE 2
+            IF maze[y+1][x] == ' ' THEN
+              ok = solveMazeRecursively (maze, x, y + 2, 0)
+            END IF
+          CASE 3
+            IF maze[y][x-1] == ' ' THEN
+              ok = solveMazeRecursively (maze, x - 2, y, 1)
+            END IF
+        END SWITCH
+      END IF
+    END FOR
+    IF x == 1 AND y == 1 THEN
+      ok = true
+    END IF
+    IF ok THEN
+      maze[y][x] = '*'
+      SWITCH d
+        CASE 0
+          maze[y-1][x] = '*'
+        CASE 1
+          maze[y][x+1] = '*'
+        CASE 2
+          maze[y+1][x] = '*'
+        CASE 3
+          maze[y][x-1] = '*'
+      END SWITCH
+    END IF
+    RETURN ok
+  END FUNCTION
+
+  FUNCTION solveMaze (maze)
+    solveMazeRecursively (maze, maze[0].length - 2, maze.length - 2, -1)
+  END FUNCTION
+
+  FUNCTION expandHorizontally (maze)
+    tmp = new char[3]
+    lines = new String[maze.length]
+    FOR i = 0 to maze.length
+      sb = new StringBuilder(maze[i].length * 2)
+      FOR j = 0 to maze[i].length
+        IF j % 2 == 0 THEN
+          sb.append (maze[i][j])
+        ELSE
+          tmp[0] = tmp[1] = tmp[2] = maze[i][j]
+          IF tmp[1] == '*' THEN
+            tmp[0] = tmp[2] = ' '
+          END IF
+          sb.append (tmp)
+        END IF
+      END FOR
+      lines[i] = sb.toString()
+    END FOR
+    RETURN lines
+  END FUNCTION
+
+  FUNCTION main (args)
+    f = (args.length > 0) ?  new FileInputStream (args[0]) :  System.in
+    lines = readLines (f)
+    maze = decimateHorizontally (lines)
+    solveMaze (maze)
+    solvedLines = expandHorizontally (maze)
+    FOR i = 0 to solvedLines.length
+      System.out.println (solvedLines[i])
+    END FOR
+  END FUNCTION
+END

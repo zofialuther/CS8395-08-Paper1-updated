@@ -1,0 +1,13 @@
+// Create a new map with String keys and Integer values
+Map<String, Integer> map = new HashMap<>();
+
+// Add key-value pairs to the map
+map.put("key1", 10);
+map.put("key2", 20);
+map.put("key3", 30);
+
+// Retrieve a value from the map
+Integer value = map.get("key2");
+
+// Print the value
+print(value);

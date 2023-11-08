@@ -1,0 +1,47 @@
+```
+Start
+  Import java.util.Vector
+  Import java.util.regex.Matcher
+  Import java.util.regex.Pattern
+
+  Function main
+    Create new instance of Fractran with "17/91 78/85 19/51 23/38 29/33 77/29 95/23 77/19 1/17 11/13 13/11 15/14 15/2 55/1" and 2 as arguments
+
+  Function Fractran
+    Set limit to 15
+    Create new Vector num
+    Create new Vector den
+    Call compile with prog as argument
+    Call dump
+    Call exec with 2 as argument
+
+  Function compile with prog as parameter
+    Create new Pattern regexp and set it to Pattern.compile("\\s*(\\d*)\\s*\\/\\s*(\\d*)\\s*(.*)")
+    Create new Matcher matcher and set it to regexp.matcher(prog)
+    While matcher finds a match
+      Add Integer.parseInt(matcher.group(1)) to num
+      Add Integer.parseInt(matcher.group(2)) to den
+      Set matcher to regexp.matcher(matcher.group(3))
+
+  Function exec with val as parameter
+    Set n to 0
+    While val is not null and n is less than limit
+      Print n and val
+      Set val to step(val)
+      Increment n by 1
+
+  Function step with val as parameter
+    Set i to 0
+    While i is less than den.size() and val mod den.get(i) is not 0
+      Increment i by 1
+    If i is less than den.size()
+      Return num.get(i) multiplied by val divided by den.get(i)
+    Else
+      Return null
+
+  Function dump
+    For each element i in den.size()
+      Print num.get(i) + "/" + den.get(i) + " "
+    Print a new line
+End
+```

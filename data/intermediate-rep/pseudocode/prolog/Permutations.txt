@@ -1,0 +1,12 @@
+FUNCTION permut_Prolog(P, L)
+    IF P is empty AND L is empty
+        RETURN true
+    END IF
+    IF P is not empty AND L is empty
+        RETURN false
+    END IF
+    SET H to first element of P
+    SET T to rest of elements in P
+    CALL select(H, L, NL1)
+    CALL permut_Prolog(T, NL1)
+END FUNCTION

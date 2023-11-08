@@ -1,0 +1,12 @@
+```
+function nthFib(n) 
+    function go(ab, _)
+        return ab[1], add(*ab)
+    end function
+    return reduce(go, range(1, n), (0, 1))[1]
+end function
+
+if __name__ == '__main__':
+    print('1000th term: ' + repr(nthFib(1000)))
+end if
+```

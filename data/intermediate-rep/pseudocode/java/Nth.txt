@@ -1,0 +1,26 @@
+FUNCTION ordinalAbbrev(n)
+    ans = "th"
+    IF n % 100 / 10 == 1 THEN
+        RETURN ans
+    END IF
+    SWITCH n % 10
+        CASE 1: ans = "st"
+        CASE 2: ans = "nd"
+        CASE 3: ans = "rd"
+    END SWITCH
+    RETURN ans
+END FUNCTION
+
+FUNCTION main()
+    FOR i = 0 TO 25
+        PRINT i + ordinalAbbrev(i) + " "
+    END FOR
+    PRINT new line
+    FOR i = 250 TO 265
+        PRINT i + ordinalAbbrev(i) + " "
+    END FOR
+    PRINT new line
+    FOR i = 1000 TO 1025
+        PRINT i + ordinalAbbrev(i) + " "
+    END FOR
+END FUNCTION

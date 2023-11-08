@@ -1,0 +1,8 @@
+1. Create a list of elements: [a, b, c, d, e, f, g, h, i, j]
+2. Choose a random element from the list and assign it to variable M
+3. Return M
+
+Pseudocode:
+1. List = [a, b, c, d, e, f, g, h, i, j]
+2. Randomly select an element from List and assign it to M
+3. Return M

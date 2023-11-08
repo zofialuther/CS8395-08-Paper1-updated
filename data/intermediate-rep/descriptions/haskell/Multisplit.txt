@@ -1,0 +1,3 @@
+The given code defines a function `multisplit` that takes a list of delimiters and a string, and splits the string at the delimiters. The result is a list of tuples containing the substring before each delimiter, the delimiter itself, and the offset position of the delimiter in the original string. The function uses a helper function `trysplit` to attempt splitting the string at each delimiter.
+
+The code also includes a `main` function that demonstrates the usage of the `multisplit` function by applying it to a specific string and printing out the split results in a formatted way.

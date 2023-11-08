@@ -1,0 +1,14 @@
+function select(list, prompt):
+    if list.size() is equal to 0
+        return empty string
+    create a new scanner object named sc
+    create a variable named ret and set it to null
+    do
+        for each i in range from 0 to list.size()
+            print i and the corresponding element in list
+        print prompt
+        create a variable named index and set it to the user input as an integer
+        if index is greater than or equal to 0 and index is less than list.size()
+            set ret to the element in list at the index
+    while ret is still null
+    return ret

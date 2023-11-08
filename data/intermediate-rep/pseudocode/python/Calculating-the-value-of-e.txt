@@ -1,0 +1,24 @@
+'''
+eApprox :: () -> Float
+eApprox():
+    return reduce(
+        lambda a, x: a + 1 / x,
+        scanl(mul)(1)(
+            range(1, 18)
+        ),
+        0
+    )
+
+main :: IO ()
+main():
+    print(eApprox())
+
+scanl :: (b -> a -> b) -> b -> [a] -> [b]
+scanl(f):
+    return lambda a: lambda xs: (
+        accumulate(chain([a], xs), f)
+    )
+
+if __name__ == '__main__':
+    main()
+'''

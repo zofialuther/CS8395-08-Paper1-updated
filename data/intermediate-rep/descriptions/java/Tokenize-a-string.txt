@@ -1,0 +1,1 @@
+This code takes a string "Hello,How,Are,You,Today" and splits it into individual words using the comma as a delimiter. It then joins the words back together using a period as the delimiter and prints the result.

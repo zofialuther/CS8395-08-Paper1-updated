@@ -1,0 +1,5 @@
+SET i = 10
+WHILE i >= 0
+    PRINT i
+    DECREMENT i by 1
+END WHILE

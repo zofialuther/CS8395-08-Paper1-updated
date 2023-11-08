@@ -1,0 +1,6 @@
+FUNCTION isPerfect(n: Integer) -> Boolean
+    lows = filter((0 ==) . rem n, [1 .. floor(sqrt(fromIntegral n))])
+    return 1 < n && n == quot(sum(lows ++ [y | x <- lows, let y = quot n x, x /= y]), 2)
+
+FUNCTION main() -> Void
+    print(filter isPerfect([1 .. 10000]))

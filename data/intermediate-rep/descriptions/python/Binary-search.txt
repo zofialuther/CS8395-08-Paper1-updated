@@ -1,0 +1,5 @@
+This is a Python function for performing a binary search on a list of values. The function takes in the list (l) and the value to be searched for. It also includes optional parameters for the low and high indices of the list, which default to 0 and -1 respectively. 
+
+The function first checks if the list is empty and returns -1 if it is. It then sets the high index to the length of the list minus 1 if it hasn't been provided. 
+
+The function then uses a recursive approach to divide the list in half and search for the value. If the value is found, it returns the index of the value. If the value is not found, it returns -1.

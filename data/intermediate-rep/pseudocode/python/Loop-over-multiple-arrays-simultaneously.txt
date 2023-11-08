@@ -1,0 +1,4 @@
+1. Create a function called "print_zip" that takes three strings as parameters: str1, str2, and str3.
+2. Initialize a variable "zipped" to store the result of zipping str1, str2, and str3 together.
+3. Initialize a variable "joined" to store the result of joining each group of characters in "zipped".
+4. Print the "joined" variable with each group separated by a new line.

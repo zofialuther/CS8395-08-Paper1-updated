@@ -1,0 +1,52 @@
+FUNCTION properDivsSum(n):
+    sum = 0
+    FOR i = 1 TO (n + 1) / 2 DO
+        IF n % i == 0 AND n != i THEN
+            sum = sum + i
+        END IF
+    END FOR
+    RETURN sum
+
+FUNCTION aliquot(n, maxLen, maxTerm):
+    s = new ArrayList of maxLen
+    s.add(n)
+    newN = n
+    WHILE s.size() <= maxLen AND newN < maxTerm DO
+        newN = properDivsSum(s.get(s.size() - 1))
+        IF s.contains(newN) THEN
+            IF s.get(0) == newN THEN
+                SWITCH s.size():
+                    CASE 1:
+                        RETURN report("Perfect", s)
+                    CASE 2:
+                        RETURN report("Amicable", s)
+                    DEFAULT:
+                        RETURN report("Sociable of length " + s.size(), s)
+                END SWITCH
+            ELSE IF s.get(s.size() - 1) == newN THEN
+                RETURN report("Aspiring", s)
+            ELSE
+                RETURN report("Cyclic back to " + newN, s)
+            END IF
+        ELSE
+            s.add(newN)
+            IF newN == 0 THEN
+                RETURN report("Terminating", s)
+            END IF
+        END IF
+    END WHILE
+    RETURN report("Non-terminating", s)
+
+FUNCTION report(msg, result):
+    PRINT msg + ": " + result
+    RETURN false
+
+FUNCTION main():
+    arr = [11, 12, 28, 496, 220, 1184, 12496, 1264460, 790, 909, 562, 1064, 1488]
+    FOR n IN 1 TO 10 DO
+        aliquot(n, 16, 1 << 47)
+    END FOR
+    FOR n IN arr DO
+        aliquot(n, 16, 1 << 47)
+    END FOR
+END FUNCTION

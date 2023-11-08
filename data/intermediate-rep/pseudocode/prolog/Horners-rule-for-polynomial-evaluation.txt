@@ -1,0 +1,4 @@
+```
+horner(L, X) :=
+    foldr((''(H,V0,V) :- V is V0*X + H), L, 0).
+```

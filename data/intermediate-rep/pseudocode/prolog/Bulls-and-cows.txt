@@ -1,0 +1,53 @@
+```
+initialize Solution
+initialize LenGuess
+initialize Digits
+initialize Max
+
+function bulls_and_cows_server:
+    LenGuess = proposition
+    Solution = empty list of size LenGuess
+    call choose with Solution
+    repeat
+        print 'Your guess : '
+        read Guess
+        if study(Solution, Guess, Bulls, Cows) is true
+            format 'Bulls : ~w Cows : ~w~n', [Bulls, Cows]
+            if Bulls = LenGuess
+                return
+            if not
+                Digits = digits
+                Max = Digits + 1
+                format 'Guess must be of ~w digits between 1 and ~w~n', [LenGuess, Max]
+                fail
+
+function choose(Solution):
+    Digits = digits
+    Max = Digits + 1
+    repeat
+        for each element X in Solution
+            X = random(Max) + 1
+        all elements in Solution are distinct
+        exit loop
+
+function study(Solution, Guess, Bulls, Cows):
+    LenGuess = proposition
+    Digits = digits
+    Chars = convert Guess to list of characters
+    Ms = convert Chars to list of numbers
+    if length of Ms is not equal to LenGuess
+        return false
+    for each element X in Ms
+        if X <= 0 or X > Digits + 1
+            return false
+    Bulls = count of digits in Ms that match corresponding element in Solution
+    TT = 0
+    for each element Y1 in Solution
+        TT1 = 0
+        for each element X2 in Ms
+            if X2 = Y1
+                TT1 = TT1 + 1
+        TT = TT + TT1
+    Cows = TT - Bulls
+    return true
+```

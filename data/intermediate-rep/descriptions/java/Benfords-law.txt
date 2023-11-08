@@ -1,0 +1,1 @@
+This Java program calculates and compares the frequency of first digits in a series of Fibonacci numbers to Benford's Law. It first generates a sequence of Fibonacci numbers using BigInteger, then counts the frequency of first digits in the sequence. Finally, it compares the observed frequency to the expected frequency based on Benford's Law, and prints the results.

@@ -1,0 +1,8 @@
+BEGIN
+  Import Data.List (sortOn)
+
+  FUNCTION main
+    SET result = sortOn(show, [1 .. 13])
+    PRINT result
+  END FUNCTION
+END

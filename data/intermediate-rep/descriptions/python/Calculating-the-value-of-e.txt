@@ -1,0 +1,1 @@
+This code calculates an approximate value for the mathematical constant 'e' (Euler's number). It uses the scanl function to generate a succession of intermediate values, and then applies reduce to sum these values in order to produce the approximation. The main function is used to test and print the calculated approximation for 'e'.

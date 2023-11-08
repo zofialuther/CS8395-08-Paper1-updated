@@ -1,0 +1,6 @@
+1. Start
+2. Prompt user for input
+3. Read input as two numbers (a and b)
+4. Calculate the sum of a and b
+5. Display the sum
+6. End

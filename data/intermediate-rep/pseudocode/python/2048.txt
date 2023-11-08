@@ -1,0 +1,27 @@
+```
+Start
+  Import necessary libraries
+  Initialize letter_codes, actions, and actions_dict
+  Define get_user_action function
+  Define transpose function
+  Define invert function
+  Define GameField class
+    Define __init__ method
+    Define reset method
+    Define move method
+    Define is_win method
+    Define is_gameover method
+    Define draw method
+    Define spawn method
+    Define move_is_possible method
+  Define main function
+    Initialize curses
+    Create game_field object
+    Define state_actions dictionary
+    Define init function
+    Define not_game function
+    Define game function
+    Set initial state to 'Init'
+    Start game loop
+End
+```

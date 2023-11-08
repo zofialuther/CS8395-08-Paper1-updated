@@ -1,0 +1,23 @@
+START
+  Import Scanner from java.util
+  Define class LCM
+    Define main function
+      Create a new Scanner object called aScanner
+      Print "Enter the value of m:"
+      Set m as the next integer input from the user
+      Print "Enter the value of n:"
+      Set n as the next integer input from the user
+      Set lcm as (n == m || n == 1) ? m :(m == 1 ? n : 0)
+      If lcm is equal to 0
+        Set mm as m
+        Set nn as n
+        While mm is not equal to nn
+          While mm is less than nn
+            Add m to mm
+          While nn is less than mm
+            Add n to nn
+        Set lcm as mm
+      Print "lcm(" + m + ", " + n + ") = " + lcm
+  End of main function
+End of class LCM
+END

@@ -1,0 +1,7 @@
+1. Create a new ArrayList called "arrayList"
+2. Add a new Integer object with value 0 to the "arrayList"
+3. Add the integer 0 to the "arrayList" (auto-boxed to an Integer object)
+4. Create a new ArrayList called "myarrlist" with type Integer
+5. Create a variable "sum" to store the sum of values in the "myarrlist"
+6. Use a for loop to add integers 0 to 9 to the "myarrlist"
+7. End of pseudocode.

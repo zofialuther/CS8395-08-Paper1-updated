@@ -1,0 +1,19 @@
+function isPrime(p):
+    coefficients = calculateCoefficients(p)
+    Cs = coefficients[1:]
+    for each C in Cs:
+        if C % p != 0:
+            return false
+    return true
+
+function calculateCoefficients(p):
+    // implementation of AKS test for calculating coefficients
+    // returns list of coefficients for p
+    return coefficients
+
+// main program
+input p
+if isPrime(p):
+    print "p is prime"
+else:
+    print "p is not prime"

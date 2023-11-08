@@ -1,0 +1,14 @@
+```
+Function uppersAndLowers:
+  Create a list of characters from 1 to 0x10ffff
+  Map each character to a printable character
+  Filter the printable characters to get only the lowercase and uppercase letters
+  Partition the filtered characters into two lists based on whether they are uppercase or lowercase
+  Return the second list of lowercase letters and the first list of uppercase letters
+
+Function main:
+  Call the uppersAndLowers function
+  Split the results into chunks of 70 characters
+  Concatenate "Upper:" with the first list and "\nLower:" with the second list
+  Print the concatenated strings with a newline between Upper and Lower
+```

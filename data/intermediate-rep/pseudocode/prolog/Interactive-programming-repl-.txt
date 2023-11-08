@@ -1,0 +1,22 @@
+
+```
+LoadLibrary(win_menu)
+LoadLibrary(swi_hooks)
+
+Print "The graphical front-end will be used for subsequent tracing"
+
+LoadFile("c:/users/joel-seven/appdata/roaming/swi-prolog/pl.ini")
+
+Print "XPCE 6.6.66, July 2009 for Win32: NT,2000,XP"
+Print "Copyright (C) 1993-2009 University of Amsterdam."
+Print "XPCE comes with ABSOLUTELY NO WARRANTY. This is free software,"
+Print "and you are welcome to redistribute it under certain conditions."
+Print "The host-language is SWI-Prolog version 5.10.0"
+
+Print "For HELP on prolog, please type help. or apropos(topic)."
+Print "on xpce, please type manpce."
+
+AssertPredicate(f(A, B, C), format('~w~w~w~w~n', [A, C, C, B]))
+
+QueryPredicate(f('Rosetta', 'Code', ':'))
+```

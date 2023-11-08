@@ -1,0 +1,3 @@
+if comparable[a].compareTo(comparable[b] is less than 0
+    //swap values of comparable[a] and comparable[b] 
+end if

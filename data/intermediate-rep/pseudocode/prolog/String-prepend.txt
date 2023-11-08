@@ -1,0 +1,3 @@
+1. Set Str as "World!"
+2. Set "Hello, " as the concatenation of "Hello, " and Str
+3. Display Str as "Hello, World!"

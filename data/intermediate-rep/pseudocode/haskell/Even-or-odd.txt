@@ -1,0 +1,10 @@
+Function evenOdd(num)
+  If num % 2 == 0
+    Return "True"
+  Else
+    Return "False"
+    
+Print evenOdd(5)
+Print evenOdd(42)
+Print evenOdd(5)
+Print evenOdd(42)

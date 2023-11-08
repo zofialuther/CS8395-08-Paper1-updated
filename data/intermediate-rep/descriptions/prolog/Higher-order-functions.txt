@@ -1,0 +1,1 @@
+This code defines two predicates, first and second. The first predicate calls the predicate passed to it as an argument using the call/1 built-in predicate. The second predicate writes the argument passed to it. Finally, the code invokes the first predicate with the second predicate as its argument, passing the string 'Hello World!' to be written to the console.

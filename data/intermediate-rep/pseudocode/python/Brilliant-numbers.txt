@@ -1,0 +1,50 @@
+```
+FUNCTION smallest_brilliant(lb):
+    pos = 1
+    root = find_square_root(lb)
+
+    FOR blk in blocks:
+        n = length(blk)
+        IF blk[-1]*blk[-1] < lb THEN
+            pos = pos + n*(n + 1)//2
+            CONTINUE
+        END IF
+
+        i = search_for_value_in_array(blk, root, 'left')
+        i = i + blk[i]*blk[i] < lb
+
+        IF NOT i THEN
+            RETURN blk[0]*blk[0], pos
+        END IF
+
+        p = blk[:i + 1]
+        q = (lb - 1)//p
+        idx = search_for_value_in_array(blk, q, 'right')
+
+        sel = idx < n
+        p, idx = p[sel], idx[sel]
+        q = blk[idx]
+
+        sel = q >= p
+        p, q, idx = p[sel], q[sel], idx[sel]
+
+        pos = pos + sum(idx - range(length(idx)))
+        RETURN min(p*q), pos
+    END FOR
+END FUNCTION
+
+res = []
+p = 0
+FOR i in range(100):
+    p, _ = smallest_brilliant(p + 1)
+    res.append(p)
+END FOR
+
+PRINT 'first 100 are {res}'
+
+FOR i in range(max_order*2):
+    thresh = 10**i
+    p, pos = smallest_brilliant(thresh)
+    PRINT 'Above 10^{i:2d}: {p:20d} at #{pos}'
+END FOR
+```

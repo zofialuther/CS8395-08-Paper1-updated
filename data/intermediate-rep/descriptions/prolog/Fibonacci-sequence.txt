@@ -1,0 +1,1 @@
+This code uses Prolog to generate the first 15 numbers in the Fibonacci sequence. It first calculates the Fibonacci sequence and assigns it to the variable X. Then it creates a list A with a length of 15 and appends it to the beginning of the Fibonacci sequence. Finally, it prints the resulting list A.

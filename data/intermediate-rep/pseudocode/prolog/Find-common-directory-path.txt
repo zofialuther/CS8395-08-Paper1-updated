@@ -1,0 +1,46 @@
+```
+FUNCTION directory_prefix(PATHs, STOP0, PREFIX)
+    IF PATHs is empty THEN
+        RETURN ''
+    ELSE
+        IF longest_prefix(PATHs, STOP0, LONGEST_PREFIX) is true THEN
+            PREFIX = PREFIX + STOP0 + LONGEST_PREFIX
+        ELSE
+            PREFIX = ''
+        END IF
+    END IF
+END FUNCTION
+
+FUNCTION longest_prefix(PATHs, STOP0, PREFIX)
+    QUERY = shortest_prefix(PATHs, STOP0, SHORTEST_PREFIX)
+    SHORTEST_PREFIXs = findall(SHORTEST_PREFIX, QUERY)
+    LONGEST_PREFIXs = reverse(SHORTEST_PREFIXs)
+    PREFIX is a member of LONGEST_PREFIXs
+END FUNCTION
+
+FUNCTION shortest_prefix(PATHs, STOP0, PREFIX)
+    IF PATHs is empty THEN
+        RETURN
+    ELSE
+        IF starts_with(PATH0, PREFIX) AND ends_with(PREFIX, STOP0) THEN
+            shortest_prefix(PATHs, STOP0, PREFIX)
+        END IF
+    END IF
+END FUNCTION
+
+FUNCTION starts_with(TARGET, START)
+    IF concatenation of START and anything equals TARGET THEN
+        RETURN true
+    ELSE
+        RETURN false
+    END IF
+END FUNCTION
+
+FUNCTION ends_with(TARGET, END)
+    IF concatenation of anything and END equals TARGET THEN
+        RETURN true
+    ELSE
+        RETURN false
+    END IF
+END FUNCTION
+```

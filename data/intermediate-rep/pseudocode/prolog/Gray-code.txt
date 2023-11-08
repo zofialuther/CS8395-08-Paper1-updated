@@ -1,0 +1,25 @@
+```
+1. Load the apply library
+2. Define a predicate to_gray with input N and output G
+    - Set N0 to N shifted right by 1
+    - Set G to the result of N xor N0
+3. Define a predicate from_gray with input G and output N
+    - If G is greater than 0
+        - Set S to G shifted right by 1
+        - Call from_gray with input S and output N0
+        - Set N to the result of G xor N0
+    - Otherwise, set N to G
+4. Define a predicate make_num with input In and output Out
+    - Convert In to a term and assign it to Out
+    - Check if Out is an integer
+5. Define a predicate write_record with inputs Number, Gray, and Decoded
+    - Format and print the values of Number, Number in binary, Gray, Decoded, and Decoded in a specific format
+6. Define a predicate go
+    - Use setof to generate a list of numbers from 0 to 31 and assign it to Numbers
+    - Use maplist to apply to_gray to each element of Numbers and assign the result to Grays
+    - Use maplist to apply from_gray to each element of Grays and assign the result to Decodeds
+    - Format and print the headers for the table
+    - Format and print the separator for the table
+    - Use maplist to apply write_record to each corresponding element of Numbers, Grays, and Decodeds
+7. Define another predicate go which halts with an error code if the first go predicate fails
+```

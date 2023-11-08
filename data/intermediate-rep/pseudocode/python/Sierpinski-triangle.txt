@@ -1,0 +1,11 @@
+```
+function sierpinski(n)
+    xs = ["*"]
+    for i from 0 to n-1
+        s = " " repeated 2^i times
+        xs = map(concatMap(lambda x: [s + x + s]), xs) + concatMap(lambda x: [x + ' ' + x], xs)
+    return join(xs, "\n")
+
+function concatMap(f)
+    return lambda xs: reduce(add, map(f, xs), [])
+```

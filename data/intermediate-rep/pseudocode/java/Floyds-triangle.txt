@@ -1,0 +1,24 @@
+```
+FUNCTION main
+    printTriangle(5)
+    printTriangle(14)
+END FUNCTION
+
+FUNCTION printTriangle(n)
+    PRINT n + " rows:"
+    rowNum = 1
+    printMe = 1
+    numsPrinted = 0
+    WHILE rowNum <= n
+        cols = CEIL(LOG10(n*(n-1)/2 + numsPrinted + 2))
+        PRINTF "%"+cols+"d ", printMe
+        IF numsPrinted == rowNum
+            PRINT
+            rowNum = rowNum + 1
+            numsPrinted = 0
+        END IF
+        printMe = printMe + 1
+        numsPrinted = numsPrinted + 1
+    END WHILE
+END FUNCTION
+```

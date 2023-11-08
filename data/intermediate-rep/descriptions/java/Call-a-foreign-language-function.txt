@@ -1,0 +1,1 @@
+This Java code demonstrates the use of Java Native Interface (JNI) to call a native method from a C/C++ library. The code loads the "JNIDemo" library and invokes the native method "callStrdup" to duplicate a given string and print the result.

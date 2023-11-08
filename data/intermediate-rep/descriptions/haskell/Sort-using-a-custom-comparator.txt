@@ -1,0 +1,1 @@
+This code defines two custom comparators for sorting strings. The first one, lengthThenAZ, compares strings first by length and then alphabetically. The second one, descLengthThenAZ, compares strings first by length in descending order and then alphabetically. The main function tests these custom comparators by sorting a list of sample strings and printing the results.

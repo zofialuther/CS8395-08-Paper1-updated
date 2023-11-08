@@ -1,0 +1,4 @@
+1. Import the subprocess module
+2. Set exit_code to the result of subprocess.check_call(['ls', '-l'])
+3. Assert that exit_code is equal to 0
+4. Set output to the result of subprocess.check_output(['ls', '-l'])

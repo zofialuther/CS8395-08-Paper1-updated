@@ -1,0 +1,6 @@
+factorsO n
+    factors = []
+    for i from 1 to n
+        if n mod i == 0
+            add i to factors
+    return factors

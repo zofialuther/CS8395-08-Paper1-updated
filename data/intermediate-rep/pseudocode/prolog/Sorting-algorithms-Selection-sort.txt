@@ -1,0 +1,33 @@
+```
+function selection_sort(inputList, outputList) {
+    if (inputList is empty) {
+        outputList is empty
+    } else {
+        let H = first element of inputList
+        let L = rest of the elements of inputList
+        let H1 = first element of outputList
+        let L2 = rest of the elements of outputList
+        exchange(H, L, H1, L1)
+        selection_sort(L1, L2)
+    }
+}
+
+function exchange(H, L, H1, L1) {
+    if (L is empty) {
+        H1 is H
+        L1 is empty
+    } else {
+        let H2 = minimum value in L
+        if (H is less than H2) {
+            H1 is H
+            L1 is L
+        } else {
+            H1 is H2
+            Ind is index of H2 in L
+            replace H1 at Ind in L1 with H
+            replace H at Ind in L with H1
+            L1 is L2
+        }
+    }
+}
+```

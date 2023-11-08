@@ -1,0 +1,24 @@
+Function commentstripper(sample):
+   Declare a variable result and set it to an empty string
+   Declare a variable insideComment and set it to False
+   Declare a variable insideString and set it to False
+   For each character c in sample:
+      If c is not inside a string:
+         If c is '/' and the next character is '*':
+            Set insideComment to True
+         Else if c is '*' and the next character is '/':
+            Set insideComment to False
+         Else if not insideComment:
+            Add c to result
+   Return result
+
+Function test():
+   Print '\nNON-NESTED BLOCK COMMENT EXAMPLE:'
+   Set sample to a string containing non-nested block comments
+   Print commentstripper(sample)
+   Print '\nNESTED BLOCK COMMENT EXAMPLE:'
+   Set sample to a string containing nested block comments
+   Print commentstripper(sample)
+
+If __name__ is '__main__':
+   Call test()

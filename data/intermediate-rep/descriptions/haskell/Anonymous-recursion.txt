@@ -1,0 +1,1 @@
+This code uses the map function to apply the fib function to a list of numbers from -4 to 10. The fib function calculates the Fibonacci sequence, and the output is a list of Maybe Int values, where negative numbers and 0 result in Nothing, and positive numbers result in Just the Fibonacci number.

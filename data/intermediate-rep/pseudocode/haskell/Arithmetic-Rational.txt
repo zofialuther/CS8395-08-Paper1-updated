@@ -1,0 +1,19 @@
+1. Import the Data.Ratio module to use the (%) operator.
+
+2. Define the main function to print the first N perfect numbers.
+
+3. Set the value of N to 4.
+
+4. Use the mapM_ function to print each element in the list of perfect numbers.
+
+5. Use the take function to get the first N elements from the list of perfect numbers.
+
+6. Generate the list of perfect numbers using a list comprehension, where each candidate is checked for being a perfect number.
+
+7. Define the getSum function to calculate the sum of the factors of a candidate number.
+
+8. Calculate the sum of the factors using the formula 1 % candidate + sum of (1 % factor + 1 % (candidate `div` factor)) for each factor in the range 2 to the square root of the candidate number.
+
+9. The candidate number must also satisfy the condition that the modulo of candidate and factor is equal to 0.
+
+10. End of the pseudocode.

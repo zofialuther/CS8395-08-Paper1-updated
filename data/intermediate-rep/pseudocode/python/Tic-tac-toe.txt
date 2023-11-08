@@ -1,0 +1,84 @@
+'''
+START
+    board = list('123456789')
+    wins = ((0,1,2), (3,4,5), (6,7,8),
+            (0,3,6), (1,4,7), (2,5,8),
+            (0,4,8), (2,4,6))
+
+    FUNCTION printboard()
+        PRINT '\n-+-+-\n'.join('|'.join(board[x:x+3]) for x in(0,3,6))
+    
+    FUNCTION score(board)
+        FOR each w in wins
+            SET b = board[w[0]]
+            IF b is in 'XO' and all(board[i] == b for i in w) THEN
+                RETURN b, [i+1 for i in w]
+        RETURN None
+    
+    FUNCTION finished()
+        RETURN all(b in 'XO' for b in board)
+    
+    FUNCTION space(board)
+        RETURN [b for b in board if b not in 'XO']
+    
+    FUNCTION my_turn(xo, board)
+        options = space()
+        choice = random.choice(options)
+        SET board[int(choice)-1] = xo
+        RETURN choice
+    
+    FUNCTION my_better_turn(xo, board)
+        SET ox = 'O' IF xo =='X' ELSE 'X'
+        SET oneblock = None
+        SET options  = [int(s)-1 for s in space(board)]
+        FOR each choice in options
+            SET brd = board[:]
+            SET brd[choice] = xo
+            IF score(brd) THEN
+                BREAK
+            IF oneblock is None THEN
+                SET brd[choice] = ox
+                IF score(brd) THEN
+                    SET oneblock = choice
+        ELSE
+            SET choice = oneblock IF oneblock is not None ELSE random.choice(options)
+        SET board[choice] = xo
+        RETURN choice+1
+    
+    FUNCTION your_turn(xo, board)
+        options = space()
+        WHILE True
+            SET choice = INPUT("\nPut your %s in any of these positions: %s " % (xo, ''.join(options))).strip()
+            IF choice in options THEN
+                BREAK
+            PRINT "Whoops I don't understand the input"
+        SET board[int(choice)-1] = xo
+        RETURN choice
+    
+    FUNCTION me(xo='X')
+        PRINT printboard()
+        PRINT '\nI go at', my_better_turn(xo, board)
+        RETURN score()
+    
+    FUNCTION you(xo='O')
+        PRINT printboard()
+        PRINT '\nYou went at', your_turn(xo, board)
+        RETURN score()
+
+    PRINT __doc__
+    WHILE NOT finished()
+        SET s = me('X')
+        IF s THEN
+            PRINT printboard()
+            PRINT "\n%s wins along %s" % s
+            BREAK
+        IF NOT finished() THEN
+            SET s = you('O')
+            IF s THEN
+                PRINT printboard()
+                PRINT "\n%s wins along %s" % s
+                BREAK
+    ELSE
+        PRINT '\nA draw'
+END
+'''

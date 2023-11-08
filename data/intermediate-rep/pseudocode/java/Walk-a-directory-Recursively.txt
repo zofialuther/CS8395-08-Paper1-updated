@@ -1,0 +1,19 @@
+function walkin(File dir) {
+    pattern = ".mp3"
+    listFile = dir.listFiles()
+    if (listFile is not null) {
+        for i = 0 to listFile.length-1 {
+            if (listFile[i] is a directory) {
+                walkin(listFile[i])
+            } else {
+                if (listFile[i].getName() ends with pattern) {
+                    print listFile[i].getPath()
+                }
+            }
+        }
+    }
+}
+
+function main() {
+    walkin(new File("/home/user"))
+}

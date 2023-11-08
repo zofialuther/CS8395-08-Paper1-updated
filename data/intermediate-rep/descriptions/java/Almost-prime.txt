@@ -1,0 +1,1 @@
+This Java code defines a class called AlmostPrime with a main method that prints the first 5 almost prime numbers for each value of k from 1 to 5. An almost prime number is a positive integer that has exactly k distinct prime factors. The kprime method is used to determine if a number is almost prime by counting its distinct prime factors.

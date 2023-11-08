@@ -1,0 +1,1 @@
+This code defines a function called multiply that takes two parameters, x and y, and returns the product of the two numbers. This function can be used to perform multiplication operations on any two numbers.

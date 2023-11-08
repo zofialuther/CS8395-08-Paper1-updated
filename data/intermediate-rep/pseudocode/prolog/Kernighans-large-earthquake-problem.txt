@@ -1,0 +1,35 @@
+```
+main:-
+    read(FileName),
+    process_file(FileName).
+
+process_line(Line):-
+    split_line(Line, Magnitude_string),
+    parse_magnitude(Magnitude_string, Magnitude),
+    check_magnitude(Magnitude, Line).
+
+process_stream(Stream):-
+    read_line(Stream, String),
+    process_line(String),
+    process_stream(Stream).
+
+process_file(File):-
+    open(File, read, Stream),
+    process_stream(Stream),
+    close(Stream).
+
+split_line(Line, Magnitude_string):-
+    split_string(Line, " \s\t", " \s\t", [_, _, Magnitude_string]).
+
+parse_magnitude(Magnitude_string, Magnitude):-
+    read_term_from_atom(Magnitude_string, Magnitude, []).
+
+check_magnitude(Magnitude, Line):-
+    Magnitude > 6,
+    !,
+    write_line(Line).
+check_magnitude(_, _).
+
+write_line(Line):-
+    writef('%w\n', [Line]).
+```

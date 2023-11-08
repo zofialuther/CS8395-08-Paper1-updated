@@ -1,0 +1,10 @@
+function gcd(X, Y)
+    if Y = 0 then
+        return X
+    else if X = 0 then
+        return Y
+    else if X <= Y then
+        Z = Y - X
+        return gcd(X, Z)
+    else 
+        return gcd(Y, X)

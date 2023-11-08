@@ -1,0 +1,9 @@
+1. import Data.List (tails, stripPrefix)
+2. import Data.Maybe (catMaybes)
+3. 
+4. function count with parameters sub and list
+5.     set result to 0
+6.     for each element in the list, do the following
+7.         if the element starts with sub
+8.             increment result by 1
+9.     return result

@@ -1,0 +1,38 @@
+```
+IMPORT Data.Ratio
+
+FUNCTION faulhaber(p: Integer, n: Rational) -> Rational
+    result = sum(zipWith((n ^) * [1..] faulhaberTriangle[p]))
+
+VARIABLE faulhaberTriangle: List of List of Rational
+    faulhaberTriangle = tail(scanl(\rs n -> let xs = zipWith((n %) * [2..] rs in 1 - sum xs : xs), [] [0..])
+
+FUNCTION main() -> Void
+    triangle = take 10 faulhaberTriangle
+    widths = maxWidths(triangle)
+    mapM_ putStrLn([unlines((justifyRatio widths 8 ' ' =<<) <$> triangle), (show . numerator) (faulhaber 17 1000)])
+
+FUNCTION justifyRatio(wn: Integer, wd: Integer, n: Integer, c: Char, nd: Rational) -> String
+    w = max(n, wn + wd + 2)
+    IF den = 1
+        result = center(w, c, show(num))
+    ELSE
+        q, r = quotRem(w - 1, 2)
+        result = concat[justifyRight(q, c, show(num)), "/", justifyLeft(q + r, c, show(den))]
+
+FUNCTION justifyLeft(n: Integer, c: Char, s: List of a) -> List of a
+    result = take(n, s ++ replicate(n, c))
+
+FUNCTION justifyRight(n: Integer, c: Char, s: List of a) -> List of a
+    result = drop(length(s))((replicate(n, c) ++) s)
+
+FUNCTION center(n: Integer, c: Char, s: List of a) -> List of a
+    q, r = quotRem(n - length(s), 2)
+    pad = replicate(q, c)
+    result = concat[concat[pad, s, pad, replicate(r, c)]
+
+FUNCTION maxWidths(xss: List of List of Rational) -> (Integer, Integer)
+    widest(f: Function, xs: List of Rational) -> Integer
+        result = maximum(fmap(length . show . f, xs))
+    result = (widest(numerator, xss), widest(denominator, xss))
+```

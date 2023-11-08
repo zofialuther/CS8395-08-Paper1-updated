@@ -1,0 +1,14 @@
+Function carpet takes an integer as input and returns a string.
+Set carpet to be equal to the result of applying unlines to the result of applying iterate to weave with an initial input of ["██"] and then taking the input integer as the index.
+Function weave takes a list of strings as input and returns a list of strings.
+Define thread as the result of applying zipWith to the function <>, which concatenates two strings.
+Set weave to be the result of applying the following composition of functions:
+  - (>>=) with arguments:
+    - (:)
+    - ((:) with argument being the result of applying fmap to the function fmap with argument (const ' ')
+    - return
+  - (.) with arguments:
+    - flip thread
+    - thread
+Function main does not take any input and returns nothing.
+Set main to the result of applying mapM_ to the function (putStrLn . carpet) with the input being a list of integers from 0 to 2.

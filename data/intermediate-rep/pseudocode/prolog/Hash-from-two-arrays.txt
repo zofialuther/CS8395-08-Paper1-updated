@@ -1,0 +1,19 @@
+```
+function make_hash(list1, list2) {
+    for each element H in list1 {
+        assert hash(H, corresponding element in list2);
+    }
+}
+
+function make_hash_pure(list1, list2, result) {
+    for each element H in list1 {
+        append hash(H, corresponding element in list2) to result list;
+    }
+}
+
+make_hash([un,deux,trois], [[a,b,c],[d,e,f],[g,h,i]]);
+make_hash_pure([un,deux,trois], [[a,b,c],[d,e,f],[g,h,i]], L);
+for each element M in L {
+    assert(M);
+}
+```

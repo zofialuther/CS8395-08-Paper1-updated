@@ -1,0 +1,48 @@
+```
+function levenshtein(S, T, R) {
+    M = length(S);
+    M1 = M + 1;
+    N = length(T);
+    N1 = N + 1;
+    Lev = new array(N1);
+
+    for (i = 0; i < N1; i++) {
+        Lev[i] = new array(M1);
+    }
+
+    for (i = 0; i < N1; i++) {
+        for (j = 0; j < M1; j++) {
+            Lev[i][j] = 0;
+        }
+    }
+
+    LN = [];
+    for (i = 0; i < N; i++) {
+        LN.push(i);
+    }
+
+    for (i = 0; i < N; i++) {
+        Lev[i][0] = i;
+    }
+
+    for (i = 0; i < M; i++) {
+        Lev[0][i] = i;
+    }
+
+    for (i = 1; i < N1; i++) {
+        for (j = 1; j < M1; j++) {
+            if (T[i-1] === S[j-1]) {
+                Lev[i][j] = Lev[i-1][j-1];
+            } else {
+                VD = Lev[i][j-1] + 1;
+                VI = Lev[i-1][j] + 1;
+                VS = Lev[i-1][j-1] + 1;
+                V = Math.min(VD, VI, VS);
+                Lev[i][j] = V;
+            }
+        }
+    }
+
+    R = Lev[N][M];
+}
+```

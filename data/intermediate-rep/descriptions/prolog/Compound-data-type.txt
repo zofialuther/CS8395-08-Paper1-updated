@@ -1,0 +1,1 @@
+This code defines a predicate "person_location" that takes a person's name and age as input, along with a point in 2D space. It is used to associate a person with a specific location represented by the point in the 2D space.

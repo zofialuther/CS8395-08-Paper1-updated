@@ -1,0 +1,1 @@
+This code defines a function called is_repeated that takes a string as input and checks if the first part of the string is repeated throughout the string. It then iterates through a given set of strings and prints whether each string has a repetition and if so, the length of the repetition and the repeated substring.

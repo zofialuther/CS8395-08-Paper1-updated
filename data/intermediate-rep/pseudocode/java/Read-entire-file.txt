@@ -1,0 +1,11 @@
+1. Import the necessary libraries: java.util.List, java.nio.charset.Charset, java.nio.file.*
+
+2. Create a public class called ReadAll.
+
+3. Define a static method called readAllLines that takes a string parameter filename and returns a List of strings.
+	- Create a Path object called file and set it to Paths.get(filename).
+	- Return the result of Files.readAllLines(file, Charset.defaultCharset()).
+
+4. Define a static method called readAllBytes that takes a string parameter filename and returns an array of bytes.
+	- Create a Path object called file and set it to Paths.get(filename).
+	- Return the result of Files.readAllBytes(file).

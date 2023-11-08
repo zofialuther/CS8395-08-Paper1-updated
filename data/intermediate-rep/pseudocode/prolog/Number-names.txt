@@ -1,0 +1,51 @@
+```
+spell(N, S) :
+    if N < 0
+        NegN = -N
+        spell(NegN, S0)
+        S = "negative " + S0
+    else if N = 0
+        S = "zero"
+    else if N is between 1 and 19
+        ones(N, S)
+    else if N < 100
+        Tens = floor(N / 10)
+        Ones = N mod 10
+        tens(Tens, StrTens)
+        ones_part(Ones, StrOnes)
+        S = StrTens + StrOnes
+    else if N < 1000
+        Hundreds = floor(N / 100)
+        Tens = N mod 100
+        ones(Hundreds, H)
+        StrHundreds = H + " hundred"
+        tens_part(Tens, StrTens)
+        S = StrHundreds + StrTens
+    else
+        spellgroup(N, G)
+        group(G, StrG)
+        M = 10^(3*G)
+        Group = floor(N / M)
+        Rest = N mod M
+        spell(Group, S1)
+        spell_remaining(Rest, S2)
+        S = S1 + " " + StrG + S2
+
+ones_part(0, "") :
+    S = ""
+ones_part(N, S) :
+    ones(N, StrN)
+    S = "-" + StrN
+
+tens_part(0, "") :
+    S = ""
+tens_part(N, S) :
+    spell(N, Tens)
+    S = " and " + Tens
+
+spell_remaining(0, "") :
+    S = ""
+spell_remaining(N, S) :
+    spell(N, Rest)
+    S = ", " + Rest
+```

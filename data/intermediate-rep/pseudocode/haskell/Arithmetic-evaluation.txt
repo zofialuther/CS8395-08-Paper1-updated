@@ -1,0 +1,13 @@
+```
+1. Import necessary modules and language extensions
+2. Create a data type Exp with constructors for Num, Add, Sub, Mul, and Div
+3. Define a function expr that takes a Stream and ParsecT and returns a parsed expression
+    a. Use buildExpressionParser with table and factor
+        i. Table contains a list of operators and their associativity
+        ii. Factor is a combination of parentheses and numbers
+4. Define a function eval that takes an Exp and returns its evaluated value
+    a. Pattern match for each constructor and perform the corresponding operation
+5. Define a function solution that takes a string and returns the evaluated expression
+    a. Use parse to parse the string into an expression and then evaluate it using eval
+6. Define a main function that prints the result of solution for a given input string
+```

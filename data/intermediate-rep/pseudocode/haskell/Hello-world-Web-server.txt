@@ -1,0 +1,6 @@
+1. Set up the language extension for OverloadedStrings
+2. Import the necessary modules: Data.ByteString.Char8, Data.Conduit, Data.Conduit.Network
+3. Define the main function as an IO action
+4. Within the main function, call the runTCPServer function with the ServerSettings for port 8080 and host "127.0.0.1"
+5. Pass a function that takes no arguments and yields the response to the runTCPServer function
+6. Define the response as "HTTP/1.0 200 OK\nContent-Length: 16\n\nGoodbye, World!\n"

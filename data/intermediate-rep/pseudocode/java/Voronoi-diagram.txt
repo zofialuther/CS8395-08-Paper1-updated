@@ -1,0 +1,23 @@
+1. Import necessary libraries: java.awt.Color, java.awt.Graphics, java.awt.Graphics2D, java.awt.geom.Ellipse2D, java.awt.image.BufferedImage, java.io.File, java.io.IOException, java.util.Random, javax.imageio.ImageIO, javax.swing.JFrame
+
+2. Create a class Voronoi that extends JFrame
+
+3. Declare and initialize static variables: p = 3, I (BufferedImage), px[], py[], color[], cells = 100, size = 1000
+
+4. Create a constructor Voronoi()
+	- Set the title and size of the window
+	- Initialize variables n = 0 and rand as a new Random object
+	- Initialize BufferedImage I with size, size, and type BufferedImage.TYPE_INT_RGB
+	- Initialize arrays px[], py[], color[] with size cells
+	- Use a for loop to generate random values for px[], py[], and color[]
+	- Use nested for loops to calculate the color for each pixel in the BufferedImage I based on the distance from the random points
+	- Create a Graphics2D object g from the BufferedImage I and draw black ellipses at the random points
+	- Use try-catch to write the BufferedImage I to a file "voronoi.png"
+
+5. Create a paint method to draw the BufferedImage I onto the JFrame
+
+6. Create a static method distance to calculate the distance between two points using the Euclidean method
+
+7. Create a main method to instantiate and display a new Voronoi object
+
+8. End of pseudocode.

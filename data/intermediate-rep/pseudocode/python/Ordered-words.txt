@@ -1,0 +1,7 @@
+1. Import the urllib.request module
+2. Set the variable "url" to the URL 'http://www.puzzlers.org/pub/wordlists/unixdict.txt'
+3. Use urllib.request.urlopen() to open the URL and read the data, then decode it using "utf-8" and split the words into a list called "words"
+4. Create a new list called "ordered" by iterating through each word in the "words" list and checking if it is equal to its sorted version
+5. Find the maximum length of the words in the "ordered" list and store it in the variable "maxlen"
+6. Create a new list called "maxorderedwords" by iterating through each word in the "ordered" list and checking if its length is equal to "maxlen"
+7. Print the words in "maxorderedwords" joined by a space.

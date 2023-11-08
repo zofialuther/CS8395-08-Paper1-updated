@@ -1,0 +1,1 @@
+This Python code utilizes the concurrent.futures module to create a ProcessPoolExecutor, which allows for parallel processing of tasks. The code then uses the executor to print each word in the string 'Enjoy Rosetta Code' on a separate line. The result is the words 'Enjoy', 'Rosetta', and 'Code' printed sequentially.

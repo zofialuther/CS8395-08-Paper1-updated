@@ -1,0 +1,6 @@
+1. Set variable "是" to true.
+2. Set variable "不是" to false.
+3. Set predicate "test" with input variables X and Y.
+4. Set X to "boy" and Y to "delta".
+5. Set predicate "test2" with input variable 1 and Result.
+6. Set Result to 2.

@@ -1,0 +1,6 @@
+1. Set up the function rule with parameters n, l, x, and r
+2. Inside the function, calculate the result using the formula n `div` (2^(4*l + 2*x + r)) `mod` 2 and return the result
+3. Set up the initial function with parameter n
+4. Inside the initial function, create a list array with values from 0 to n-1
+5. Define a function padRight with parameters n and lst to add 0s to the end of the list to make its length n
+6. Define a function center to take n elements from the middle of the list created by repeating the original list.

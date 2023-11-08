@@ -1,0 +1,29 @@
+```
+function digit_sum(N, Base, Sum) {
+    digit_sum_helper(N, Base, Sum, 0);
+}
+
+function digit_sum_helper(N, Base, Sum, S1) {
+    if (N < Base) {
+        Sum = S1 + N;
+    } else {
+        let M = N / Base;
+        let Digit = N % Base;
+        let S2 = S1 + Digit;
+        digit_sum_helper(M, Base, Sum, S2);
+    }
+}
+
+function test_digit_sum(N, Base) {
+    let Sum;
+    digit_sum(N, Base, Sum);
+    print('Sum of digits of ' + N + ' in base ' + Base + ' is ' + Sum + '.');
+}
+
+function main() {
+    test_digit_sum(1, 10);
+    test_digit_sum(1234, 10);
+    test_digit_sum(0xfe, 16);
+    test_digit_sum(0xf0e, 16);
+}
+```

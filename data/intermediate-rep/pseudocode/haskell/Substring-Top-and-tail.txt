@@ -1,0 +1,10 @@
+remFirst, remLast, remBoth(String s)
+  if s is empty
+    return ""
+  else 
+    return tail(s)
+
+main
+  let s = "Some string."
+  for each function f in [remFirst, remLast, remBoth]
+    print f(s)

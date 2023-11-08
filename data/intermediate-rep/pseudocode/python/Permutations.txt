@@ -1,0 +1,29 @@
+```
+function perm1(n):
+    a = create a list of integers from 0 to n-1
+    function sub(i):
+        if i is equal to n - 1:
+            yield a as a tuple
+        else:
+            for each k in the range from i to n:
+                swap a[i] and a[k]
+                yield from sub(i + 1)
+                swap a[i] and a[k]
+    yield from sub(0)
+
+function perm2(n):
+    a = create a list of integers from 0 to n-1
+    function sub(i):
+        if i is equal to n - 1:
+            yield a as a tuple
+        else:
+            for each k in the range from i to n:
+                swap a[i] and a[k]
+                yield from sub(i + 1)
+            x = a[i]
+            for each k in the range from i + 1 to n:
+                a[k - 1] = a[k]
+            a[n - 1] = x
+    yield from sub(0)
+
+```

@@ -1,0 +1,27 @@
+Start
+Set k to 1
+While k is less than or equal to 5
+    Print "k = " + k + ":"
+    Set i to 2
+    Set c to 0
+    While c is less than 10
+        If kprime(i, k) is true
+            Print " " + i
+            Increment c by 1
+        Increment i by 1
+    End While
+    Print new line
+    Increment k by 1
+End While
+
+Function kprime with parameters n and k
+    Set f to 0
+    For p equals 2, while f is less than k and p multiplied by p is less than or equal to n
+        While n modulus p is 0
+            Set n to n divided by p
+            Increment f by 1
+        End While
+    End For
+    Return f plus (if n is greater than 1, return 1, else return 0) equals k
+End Function
+End

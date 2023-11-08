@@ -1,0 +1,1 @@
+This code creates a simple server that listens for connections on port 8080. When a connection is established, it sends the message "Goodbye, World!" to the client and then closes the connection. The server will continue to listen for new connections in an infinite loop.

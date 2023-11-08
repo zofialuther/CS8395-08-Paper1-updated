@@ -1,0 +1,1 @@
+This Java program, "AplusB", takes in two integer inputs from the user and calculates their sum. It uses the StreamTokenizer class to read input from the console and the OutputStreamWriter class to write the sum back to the console. The program handles any IOExceptions that may occur during the input/output operations.

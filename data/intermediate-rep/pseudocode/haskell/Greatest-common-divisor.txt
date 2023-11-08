@@ -1,0 +1,10 @@
+FUNCTION gcd(x, y)
+    abs_x = abs(x)
+    abs_y = abs(y)
+    RETURN gcd_(abs_x, abs_y)
+
+FUNCTION gcd_(a, 0)
+    RETURN a
+FUNCTION gcd_(a, b)
+    next_b = a % b
+    RETURN gcd_(b, next_b)

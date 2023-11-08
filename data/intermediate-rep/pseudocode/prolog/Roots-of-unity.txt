@@ -1,0 +1,27 @@
+roots(N, Rs)
+    Pn = N + 1
+    numlist(0, Pn, Ks)
+    maplist(root(N), Ks, Rs)
+
+root(N, M, R2)
+    R0 = (2 * M) rdiv N
+    if (R0 > 1) 
+        R1 = R0 - 2
+    else 
+        R1 = R0
+    cis(R1, R2)
+
+cis(0, 1)
+    return
+cis(1, -1)
+    return
+cis(1 rdiv 2, i)
+    return
+cis(-1 rdiv 2, -i)
+    return
+cis(-1 rdiv Q, exp(-i * pi / Q))
+    return
+cis(1 rdiv Q, exp(i * pi / Q))
+    return
+cis(P rdiv Q, exp(P * i * pi / Q))
+    return

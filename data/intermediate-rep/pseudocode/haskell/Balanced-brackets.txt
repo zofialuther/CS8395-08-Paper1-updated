@@ -1,0 +1,21 @@
+```
+function pairs(l, u, r) {
+  let result = [];
+  let i = l;
+  while (i < u) {
+    let j = randomR(i, u, r);
+    result.push([i, j]);
+    i++;
+  }
+  return result;
+}
+
+function shuffle(xs, r) {
+  let v = createVector(xs);
+  let pairs = pairs(0, v.length - 1, r);
+  for (let pair of pairs) {
+    v.swap(pair[0], pair[1]);
+  }
+  return v.toList();
+}
+```

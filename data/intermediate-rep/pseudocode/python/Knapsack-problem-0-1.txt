@@ -1,0 +1,40 @@
+FUNCTION total_value(items, max_weight):
+    IF sum of weights in items <= max_weight THEN
+        RETURN sum of values in items
+    ELSE
+        RETURN 0
+
+cache = {}
+
+FUNCTION solve(items, max_weight):
+    IF items is empty THEN
+        RETURN ()
+    IF (items,max_weight) not in cache THEN
+        head = first item in items
+        tail = items excluding first item
+        include = (head,) + solve(tail, max_weight - weight of head)
+        dont_include = solve(tail, max_weight)
+        IF total_value(include, max_weight) > total_value(dont_include, max_weight) THEN
+            answer = include
+        ELSE
+            answer = dont_include
+        cache[(items,max_weight)] = answer
+    RETURN cache[(items,max_weight)]
+
+items = (
+    ("map", 9, 150), ("compass", 13, 35), ("water", 153, 200), ("sandwich", 50, 160),
+    ("glucose", 15, 60), ("tin", 68, 45), ("banana", 27, 60), ("apple", 39, 40),
+    ("cheese", 23, 30), ("beer", 52, 10), ("suntan cream", 11, 70), ("camera", 32, 30),
+    ("t-shirt", 24, 15), ("trousers", 48, 10), ("umbrella", 73, 40),
+    ("waterproof trousers", 42, 70), ("waterproof overclothes", 43, 75),
+    ("note-case", 22, 80), ("sunglasses", 7, 20), ("towel", 18, 12),
+    ("socks", 4, 50), ("book", 30, 10),
+    )
+max_weight = 400
+
+solution = solve(items, max_weight)
+PRINT "items:"
+FOR x in solution:
+    PRINT x[0]
+PRINT "value:", total_value(solution, max_weight)
+PRINT "weight:", sum of weights in solution

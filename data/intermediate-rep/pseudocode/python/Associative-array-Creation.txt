@@ -1,0 +1,11 @@
+# Initialize an empty dictionary
+hash = dict()
+
+# Add color values to the dictionary
+hash = dict(red="FF0000", green="00FF00", blue="0000FF")
+
+# Add key-value pairs to the dictionary
+hash = { 'key1':1, 'key2':2 }
+
+# Access the value associated with the key 'key' in the hash
+value = hash[key]

@@ -1,0 +1,5 @@
+This Prolog code sets the double quotes flag to 'chars' and defines a main predicate that calls the same_or_different predicate with different input strings. The same_or_different predicate formats the input string and then calls the examine predicate.
+
+The examine predicate takes a list as input and checks if all the characters are the same. If they are, it prints a message saying all the characters are the same. If not, it prints a message indicating which character is different and at which index it occurs.
+
+Overall, this code is designed to compare strings and identify if all the characters are the same or if there are any differences, providing informative output for each case.

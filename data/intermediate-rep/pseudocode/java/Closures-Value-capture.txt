@@ -1,0 +1,12 @@
+1. Start
+2. Import necessary Java libraries
+3. Create a public interface named "ValueCapture"
+4. Create a static method "main" with arguments of type String array
+5. Inside the main method:
+   a. Create a list of IntSupplier named "closures" and initialize it with the result of the following operations:
+      i. Generate a range of integers from 0 to 10 using IntStream.rangeClosed(0, 10)
+      ii. Map each integer to an IntSupplier that returns the square of the integer
+      iii. Collect the IntSuppliers into a list using the "toList" collector
+6. Get the IntSupplier at index 3 from the "closures" list and assign it to a variable "closure"
+7. Print the result of calling "closure.getAsInt()" to the console
+8. End

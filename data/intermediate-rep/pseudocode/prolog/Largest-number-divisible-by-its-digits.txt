@@ -1,0 +1,45 @@
+```
+1. Initialize trial/1 as a dynamic predicate
+
+2. Define a predicate to calculate the greatest common divisor (GCD) of two numbers:
+   - If the two numbers are equal, the GCD is equal to the numbers themselves
+   - If the second number is greater than the first, calculate the GCD recursively by subtracting the first number from the second
+   - If the first number is greater than the second, calculate the GCD recursively by subtracting the second number from the first
+
+3. Define a predicate to calculate the least common multiple (LCM) of two numbers using the GCD:
+   - If there is only one number, the LCM is equal to that number
+   - If there are multiple numbers, calculate the LCM recursively by finding the LCM of the tail of the list and the head of the list, using the previously defined GCD predicate
+
+4. Define a predicate to convert a list of digits into an integer number using a given radix:
+   - If the list is empty, the result is the given value
+   - If the list is not empty, calculate the new value by multiplying the existing value by the radix and adding the first element of the list, then recursively call the predicate with the updated value and the tail of the list
+
+5. Define a predicate to generate a list of digits from 1 to N:
+   - If N is 0, the list is empty
+   - If N is not 0, recursively generate the list by adding N to the list of digits for N-1
+
+6. Define a predicate to generate combinations of digits to test:
+   - If N is 0, the generated combination is the same as the input list of digits
+   - If N is not 0, remove N digits from the list and find the remaining combinations by recursively calling the predicate with N-1 and the tail of the list, then append the results
+
+7. Define a predicate to precalculate all possible digit combinations of a given length:
+   - Generate a list of digits from 1 to the given radix
+   - Calculate the number of digits to skip from the radix
+   - Generate all possible digit combinations with the specified length by making trials and storing the results
+
+8. Define a predicate to test if a generated number is divisible by the calculated least common multiple:
+   - Convert the list of digits into an integer number
+   - Check if the number is divisible by the least common multiple with no remainder
+
+9. Define a predicate to find the largest integer divisible by all its digits, with no digit repeated:
+   - Loop through decreasing lengths of combinations of digits
+   - Precalculate all possible digit combinations with the specified length
+   - For each combination, calculate the least common multiple and generate a permutation
+   - Test if the generated number is divisible by the least common multiple
+
+10. Define a predicate to find the largest decimal number that satisfies the conditions:
+   - Call the predicate to find the largest integer divisible by all its digits with no digit repeated
+
+11. Define a predicate to find the largest hexadecimal number that satisfies the conditions:
+   - Call the predicate to find the largest integer divisible by all its digits with no digit repeated, then convert the result to hexadecimal format
+```

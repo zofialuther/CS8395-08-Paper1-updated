@@ -1,0 +1,2 @@
+1. Initialize a variable test and assign the value "This {- is not the beginning of a block comment" -- Do your homework properly -} to it.
+2. Print the value of test.

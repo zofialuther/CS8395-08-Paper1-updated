@@ -1,0 +1,16 @@
+1. Prompt the user to input the value of 'a'
+2. Store the input value in variable 'a'
+3. Prompt the user to input the value of 'b'
+4. Store the input value in variable 'b'
+5. Print "a + b = " concatenated with the sum of 'a' and 'b'
+6. Print "a - b = " concatenated with the difference of 'a' and 'b'
+7. Print "a * b = " concatenated with the product of 'a' and 'b'
+8. Print "a to the power of b = " concatenated with 'a' raised to the power of 'b'
+9. Print "a to the power of b = " concatenated with 'a' raised to the power of 'b' using the ^ operator
+10. Print "a to the power of b = " concatenated with 'a' raised to the power of 'b' using the ^^ operator
+11. Print "a `div` b = " concatenated with the integer division of 'a' by 'b'
+12. Print "a `mod` b = " concatenated with the remainder of 'a' divided by 'b'
+13. Print "a `divMod` b = " concatenated with the result of 'a' divided by 'b' and the remainder
+14. Print "a `quot` b = " concatenated with the truncated division of 'a' by 'b'
+15. Print "a `rem` b = " concatenated with the remainder of 'a' divided by 'b' with the same sign as 'a'
+16. Print "a `quotRem` b = " concatenated with the truncated division of 'a' by 'b' and the remainder with the same sign as 'a'

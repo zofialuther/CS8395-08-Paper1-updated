@@ -1,0 +1,18 @@
+FUNCTION isPangram(test)
+    FOR a = 'A' to 'Z'
+        IF test.indexOf(a) < 0 AND test.indexOf(a + 32) < 0 THEN
+            RETURN false
+        END IF
+    END FOR
+    RETURN true
+END FUNCTION
+
+FUNCTION main(args)
+    OUTPUT isPangram("the quick brown fox jumps over the lazy dog") //true
+    OUTPUT isPangram("the quick brown fox jumped over the lazy dog") //false, no s
+    OUTPUT isPangram("ABCDEFGHIJKLMNOPQRSTUVWXYZ") //true
+    OUTPUT isPangram("ABCDEFGHIJKLMNOPQSTUVWXYZ") //false, no r
+    OUTPUT isPangram("ABCDEFGHIJKL.NOPQRSTUVWXYZ") //false, no m
+    OUTPUT isPangram("ABC.D.E.FGHI*J/KL-M+NO*PQ R\nSTUVWXYZ") //true
+    OUTPUT isPangram("") //false
+END FUNCTION

@@ -1,0 +1,11 @@
+```
+function between(start, end, result) {
+  for (let i = start; i <= end; i++) {
+    result = i;
+    print(result);
+    if (result < end) {
+      print(', ');
+    }
+  }
+}
+```

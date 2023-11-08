@@ -1,0 +1,1 @@
+This code creates a list called "haystack" containing several strings. It then iterates through another list containing the strings "Washington" and "Bush" and attempts to find their index within the "haystack" list. If the string is found, it prints the index and the string. If the string is not found, it prints a message indicating that the string is not in the "haystack" list.

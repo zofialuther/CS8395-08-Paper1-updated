@@ -1,0 +1,1 @@
+This code uses the os module to check if the file "input.txt" and directory "docs" exist in the current working directory and the root directory. It uses the isfile() and isdir() functions to perform these checks and returns a boolean value indicating whether the file or directory exists.

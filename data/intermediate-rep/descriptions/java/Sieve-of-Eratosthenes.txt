@@ -1,0 +1,1 @@
+This Java code implements an InfiniteSieve class that generates all prime numbers using the Sieve of Eratosthenes algorithm. It utilizes a priority queue to efficiently handle the sequences of non-prime numbers and ensures that the next prime number is generated. The main method demonstrates the functionality by printing the first 25 prime numbers.

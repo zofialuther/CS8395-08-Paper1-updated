@@ -1,0 +1,7 @@
+1. Set up the main function with IO type
+2. Use the until function to iterate until a condition is met
+3. The condition is defined as the first element of the list being greater than 0 and being divisible by 6
+4. The function to apply to the list in each iteration is defined as adding 1 to the first element of the list
+5. Start with a list containing 0
+6. Reverse the resulting list
+7. Print each element of the reversed list using mapM_ and the print function

@@ -1,0 +1,1 @@
+This code is a Prolog module that provides a spell/2 predicate to convert numbers into their word representations. It includes definitions for numbers from one to nonillion, as well as logic to handle negative numbers and group larger numbers into thousands, millions, and so on. The code uses string concatenation and recursion to build the word representation of the input number.

@@ -1,0 +1,1 @@
+This code imports modules for working with dates and calendars and defines a function called "longYear" which takes an integer representing a year and returns a boolean indicating whether that year has 53 weeks according to the ISO 8601 standard. The main function uses the "longYear" function to filter and print a list of years from 2000 to 2100 that have 53 weeks.

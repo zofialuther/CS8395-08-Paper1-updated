@@ -1,0 +1,9 @@
+1. Import the ast module
+2. Set the expression to "2 * (3 -1) + 2 * 5"
+3. Parse the expression using ast.parse with mode='eval' and store the result in the variable node
+4. Print the AST structure of the node using ast.dump and replace the commas with new lines
+5. Compile the node into a code object with filename='<string>' and mode='eval' and store it in the variable code_object
+6. Evaluate the code object using eval and print the result (should be 14)
+7. Modify the AST by changing the value of 5 to 6 in the expression
+8. Compile the modified node into a new code object and store it in the variable code_object
+9. Evaluate the new code object using eval and print the result (should be 16)

@@ -1,0 +1,36 @@
+BEGIN
+    FUNCTION sumDigits(num: long) : int
+        RETURN sumDigits(num, 10)
+    END FUNCTION
+    
+    FUNCTION sumDigits(num: long, base: int) : int
+        s = CONVERT num TO String USING base
+        result = 0
+        FOR i = 0 TO LENGTH(s) - 1
+            result = result + CONVERT s[i] TO digit USING base
+        END FOR
+        RETURN result
+    END FUNCTION
+    
+    FUNCTION sumDigits(num: BigInteger) : int
+        RETURN sumDigits(num, 10)
+    END FUNCTION
+    
+    FUNCTION sumDigits(num: BigInteger, base: int) : int
+        s = CONVERT num TO String USING base
+        result = 0
+        FOR i = 0 TO LENGTH(s) - 1
+            result = result + CONVERT s[i] TO digit USING base
+        END FOR
+        RETURN result
+    END FUNCTION
+    
+    FUNCTION main(args: String[])
+        OUTPUT sumDigits(1)
+        OUTPUT sumDigits(12345)
+        OUTPUT sumDigits(123045)
+        OUTPUT sumDigits(0xfe, 16)
+        OUTPUT sumDigits(0xf0e, 16)
+        OUTPUT sumDigits(new BigInteger("12345678901234567890"))
+    END FUNCTION
+END

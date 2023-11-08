@@ -1,0 +1,52 @@
+```
+shannon_entropy(String, Entropy):
+    atom_chars(String, Cs)
+    relative_frequencies(Cs, Frequencies)
+    findall(CI
+        ,(member(_C-F, Frequencies)
+         ,log2(F, L)
+         ,CI is F * L
+         )
+        ,CIs)
+    foldl(sum, CIs, 0, E)
+    Entropy is -E.
+
+relative_frequencies(List, Frequencies):
+    run_length_encoding(List, Rle)
+    keysort(Rle, Sorted_Rle)
+    group_pairs_by_key(Sorted_Rle, Elements_Run_lengths)
+    length(List, Elements_in_list)
+    findall(E-Frequency_of_E
+        ,(member(E-RLs, Elements_Run_lengths)
+         ,foldl(plus, RLs, 0, Occurences_of_E)
+         ,Frequency_of_E is Occurences_of_E / Elements_in_list
+         )
+        ,Frequencies).
+
+run_length_encoding([], []-0):
+    !.
+
+run_length_encoding([Head|List], Run_length_encoded_list):
+    run_length_encoding(List, [Head-1], Reversed_list)
+    reverse(Reversed_list, Run_length_encoded_list).
+
+run_length_encoding([], Fs, Fs).
+
+run_length_encoding([C|Cs],[C-F|Fs], Acc):
+    !
+    ,F_ is F + 1
+    ,run_length_encoding(Cs, [C-F_| Fs], Acc).
+
+run_length_encoding([C|Cs], Fs, Acc):
+    run_length_encoding(Cs,[C-1|Fs], Acc).
+
+log2(N, L2_N):
+    L_10 is log10(N)
+    ,L_2 is log10(2)
+    ,L2_N is L_10 / L_2.
+
+sum(A, B, Sum):
+    must_be(number, A)
+    ,must_be(number, B)
+    ,Sum is A + B.
+```

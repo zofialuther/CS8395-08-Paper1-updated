@@ -1,0 +1,22 @@
+```
+import System.Environment
+import System.Directory
+import System.FilePath.Find
+
+search pat = find always (fileName ~~? pat)
+
+main = do
+  [pat] <- getArgs
+  dir <- getCurrentDirectory
+  files <- search pat dir
+  mapM_ putStrLn files
+```
+
+Translated pseudocode:
+1. Import necessary modules: System.Environment, System.Directory, System.FilePath.Find
+2. Define a function called search that takes a pattern as input and uses the find function to search for files that match the pattern.
+3. Define the main function:
+   a. Get the command line argument as the pattern and store it in the variable [pat].
+   b. Get the current working directory and store it in the variable dir.
+   c. Use the search function to find files that match the pattern in the current directory and store the result in the variable files.
+   d. Print each file in the list of files.

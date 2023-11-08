@@ -1,0 +1,1 @@
+This code defines a function called comb1 that takes two parameters, m and n. The function then calls another function called comb with the first parameter m and a list of numbers from 1 to n as the second parameter. This code is likely used to calculate combinations of m elements from a set of n numbers.

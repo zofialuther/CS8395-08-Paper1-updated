@@ -1,0 +1,14 @@
+function foo() {
+    try {
+        throwsNumberFormatException();
+        throwsUnsupportedDataTypeException();
+        throwsFileNotFoundException();
+    } catch (ex) {
+        if (ex instanceof FileNotFoundException || ex instanceof NumberFormatException) {
+            //deal with these two Exceptions without duplicating code
+        } else if (ex instanceof IOException) {
+            //deal with the UnsupportedDataTypeException as well as any other unchecked IOExceptions
+            throw ex;
+        }
+    }
+}

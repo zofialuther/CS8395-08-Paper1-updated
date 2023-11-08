@@ -1,0 +1,23 @@
+```
+function rosetta_sort:
+    L = ["Here", "are", "some", "sample", "strings", "to", "be", "sorted" ]
+    L1 = predsort(my_comp, L)
+    writeln('Input list :')
+    maplist(my_write, L)
+    writeln('\n')
+    writeln('Sorted list :')
+    maplist(my_write, L1)
+
+function my_comp(Comp, W1, W2):
+    L1 = length(W1)
+    L2 = length(W2)
+    if L1 < L2:
+        Comp = '>'
+    else if L1 > L2:
+        Comp = '<'
+    else:
+        compare(Comp, W1, W2)
+
+function my_write(W):
+    format('~s ', [W])
+```

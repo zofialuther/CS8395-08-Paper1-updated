@@ -1,0 +1,11 @@
+Pseudocode:
+
+1. Import the lru_cache function from the functools module.
+2. Define a function ld with parameters s and t.
+3. If s is empty, return the length of t.
+4. If t is empty, return the length of s.
+5. If the first character of s is equal to the first character of t, call ld with the remaining strings s[1:] and t[1:].
+6. Otherwise, call ld with t[1:], s and s[1:], t, and s[1:], t[1:], and store the results in l1, l2, and l3 respectively.
+7. Return 1 plus the minimum of l1, l2, and l3.
+8. Apply lru_cache with a maxsize of 4095 to the ld function.
+9. Print the results of calling ld with "kitten" and "sitting", and "rosettacode" and "raisethysword".

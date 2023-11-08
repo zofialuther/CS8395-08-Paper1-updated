@@ -1,0 +1,1 @@
+This code defines a generic Pair class with two fields, and a generic swap function that takes a Pair as input and swaps the values of its two fields. This allows for easy swapping of any type of data stored in the Pair object.

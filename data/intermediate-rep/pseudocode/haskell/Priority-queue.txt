@@ -1,0 +1,133 @@
+```
+class PriorityQ {
+  constructor(k, v) {
+    this.k = k;
+    this.v = v;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function emptyPQ() {
+  return new PriorityQ(null, null);
+}
+
+function isEmptyPQ(pq) {
+  return pq.k === null && pq.v === null;
+}
+
+function sizePQ(pq) {
+  if (pq.k === null && pq.v === null) {
+    return 0;
+  } else {
+    let n = sizePQ(pq.right);
+    return 2 * n + rest(n, pq.left, pq.right);
+  }
+}
+
+function rest(n, p, q) {
+  if (n === 0 && p.k === null) {
+    return 1;
+  } else if (n === 0) {
+    return 2;
+  } else if (p.left !== null) {
+    return rest(n - 1, p.left, q.left);
+  } else {
+    return rest(n - 1, p.right, q.right);
+  }
+}
+
+function peekMinPQ(pq) {
+  if (pq.k === null && pq.v === null) {
+    return null;
+  } else {
+    return [pq.k, pq.v];
+  }
+}
+
+function pushPQ(wk, wv, pq) {
+  if (pq.k === null && pq.v === null) {
+    pq.k = wk;
+    pq.v = wv;
+  } else if (wk <= pq.k) {
+    let tempK = pq.k;
+    let tempV = pq.v;
+    pq.k = wk;
+    pq.v = wv;
+    pushPQ(tempK, tempV, pq.right);
+  } else {
+    pushPQ(wk, wv, pq.right);
+  }
+  return pq;
+}
+
+function replaceMinPQ(wk, wv, pq) {
+  if (pq.k === null && pq.v === null) {
+    return emptyPQ();
+  } else {
+    return siftdown(wk, wv, pq.left, pq.right);
+  }
+}
+
+function deleteMinPQ(pq) {
+  if (pq.k === null && pq.v === null) {
+    return emptyPQ();
+  } else if (pq.left === null) {
+    return pq.right;
+  } else {
+    let tempK = pq.k;
+    let tempV = pq.v;
+    let npl = leftrem(pq.left);
+    return siftdown(tempK, tempV, pq.right, npl);
+  }
+}
+
+function adjustPQ(f, pq) {
+  if (pq.k === null && pq.v === null) {
+    return emptyPQ();
+  } else {
+    return adjust(pq);
+  }
+}
+
+function fromListPQ(list) {
+  if (list.length === 0) {
+    return emptyPQ();
+  } else {
+    let pq = build(list.length, list);
+    return pq;
+  }
+}
+
+function mergePQ(pq1, pq2) {
+  if (pq1.k === null && pq1.v === null) {
+    return pq2;
+  } else if (pq2.k === null && pq2.v === null) {
+    return pq1;
+  } else {
+    return fromListPQ(zipper(pq1, pq2, []));
+  }
+}
+
+function popMinPQ(pq) {
+  let kv = peekMinPQ(pq);
+  if (kv === null) {
+    return null;
+  } else {
+    return [kv, deleteMinPQ(pq)];
+  }
+}
+
+function toListPQ(pq) {
+  if (pq.k === null && pq.v === null) {
+    return [];
+  } else {
+    return [[pq.k, pq.v], ...toListPQ(deleteMinPQ(pq))];
+  }
+}
+
+function sortPQ(list) {
+  let pq = fromListPQ(list);
+  return toListPQ(pq);
+}
+```

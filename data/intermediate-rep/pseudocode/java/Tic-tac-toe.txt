@@ -1,0 +1,149 @@
+```
+StartMatch()
+    br = new BufferedReader(new InputStreamReader(System.in))
+    print "Start?(y/n):"
+    choice = 'y'
+    try
+        choice = br.readLine().charAt(0)
+    catch Exception e
+        print e.getMessage()
+    
+    if choice == 'n' OR choice == 'N'
+        return
+    
+    print "Use a standard numpad as an entry grid, as so:\n"
+    display(numpad)
+    print "Begin"
+    playerscore = 0
+    compscore = 0
+    do
+        result = startGame()
+        if result == playerid
+            playerscore++
+        else if result == compid
+            compscore++
+        print "Score: Player-" + playerscore + " AI-" + compscore
+        print "Another?(y/n):"
+        try
+            choice = br.readLine().charAt(0)
+        catch Exception e
+            print e.getMessage()
+    while choice != 'n' OR choice == 'N'
+    
+    print "Game over."
+
+StartGame()
+    init()
+    display(grid)
+    status = playingid
+    while status == playingid
+        put(playerMove(), 0)
+        if override == 1
+            print "O wins."
+            return playerid
+        status = checkForWin()
+        if status != playingid
+            break
+        try
+            Thread.sleep(1000)
+        catch Exception e
+            print e.getMessage()
+        put(compMove(), 1)
+        status = checkForWin()
+    return status
+
+Init()
+    movesPlayer = ""
+    override = 0
+    marks = new int[8][6]
+    wins = new int[][]
+        {{7,8,9},
+        {4,5,6},
+        {1,2,3},
+        {7,4,1},
+        {8,5,2},
+        {9,6,3},
+        {7,5,3},
+        {9,5,1}}
+    weights = new int[] {3,2,3,2,4,2,3,2,3}
+    grid = new char[][] {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}}
+    crossbank = new Hashtable<Integer, Integer>()
+    knotbank = new Hashtable<Integer, Integer>()
+
+Put(int cell, int player)
+    i = -1, j = -1
+    switch cell
+        case 1: i = 2, j = 0
+        case 2: i = 2, j = 1
+        case 3: i = 2, j = 2
+        case 4: i = 1, j = 0
+        case 5: i = 1, j = 1
+        case 6: i = 1, j = 2
+        case 7: i = 0, j = 0
+        case 8: i = 0, j = 1
+        case 9: i = 0, j = 2
+        default: display(overridegrid)
+            return
+    mark = 'x'
+    if player == 0
+        mark = 'o'
+    grid[i][j] = mark
+    display(grid)
+
+PlayerMove()
+    print "What's your move?: "
+    br = new BufferedReader(new InputStreamReader(System.in))
+    cell = 0
+    okay = 0
+    while okay == 0
+        try
+            cell = Integer.parseInt(br.readLine())
+        catch Exception e
+            print e.getMessage()
+        if cell == 7494
+            override = 1
+            return -1
+        if cell < 1 OR cell > 9 OR weights[cell-1] == Integer.MIN_VALUE
+            print "Invalid move. Try again:"
+        else
+            okay = 1
+    playerMoved(cell)
+    return cell
+
+PlayerMoved(int cell)
+    movesPlayer += cell
+    mark(cell, 0)
+    fixWeights()
+    knotbank.put(cell, 0)
+
+CheckForWin()
+    crossflag = 0, knotflag = 0
+    for i = 0 to wins.length
+        if crossbank.containsKey(wins[i][0]) AND crossbank.containsKey(wins[i][1]) AND crossbank.containsKey(wins[i][2])
+            crossflag = 1
+            break
+        if knotbank.containsKey(wins[i][0]) AND knotbank.containsKey(wins[i][1]) AND knotbank.containsKey(wins[i][2])
+            knotflag = 1
+            break
+    if knotflag == 1
+        display(grid)
+        print "O wins."
+        return playerid
+    else if crossflag == 1
+        display(grid)
+        print "X wins."
+        return compid
+    for i = 0 to weights.length
+        if weights[i] != Integer.MIN_VALUE
+            return playingid
+    print "Truce"
+    return truceid
+
+Display(char[][] grid)
+    for i = 0 to 3
+        print "\n-------"
+        print "|"
+        for j = 0 to 2
+            print grid[i][j] + "|"
+    print "\n-------"
+```

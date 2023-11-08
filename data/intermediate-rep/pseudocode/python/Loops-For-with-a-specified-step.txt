@@ -1,0 +1,5 @@
+SET i to 2
+WHILE i is less than 9
+    PRINT i with a comma
+    INCREMENT i by 2
+PRINT "who do we appreciate?"

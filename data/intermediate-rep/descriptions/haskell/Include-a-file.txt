@@ -1,0 +1,1 @@
+This code snippet demonstrates how to import a module in Haskell using the import statement. It also mentions that textual inclusion using #include is rarely needed due to Haskell's module system, but the option is available for those who want to use the C preprocessor on source code.

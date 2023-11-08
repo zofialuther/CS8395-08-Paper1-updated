@@ -1,0 +1,21 @@
+
+Pseudocode:
+
+1. Create a Scanner object to read input from the user
+2. Read the first integer input and store it in the variable "first"
+3. Read the second integer input and store it in the variable "second"
+4. If the value of "first" is less than 0, make it positive and also make "second" negative
+5. Create a HashMap called "columns" to store pairs of integers
+6. Add a key-value pair to "columns" with "first" as the key and "second" as the value
+7. Initialize a variable "sum" to 0 if "first" is even, otherwise initialize it to the value of "second"
+8. Repeat the following steps while "first" is greater than 1:
+   a. Halve the value of "first" using the "halveInt" function and store the result back in "first"
+   b. Double the value of "second" using the "doubleInt" function and store the result back in "second"
+   c. Add a key-value pair to "columns" with the new value of "first" as the key and the new value of "second" as the value
+   d. If "first" is not even, add the value of "second" to the "sum"
+9. Print the value of "sum"
+
+Functions:
+- doubleInt: Takes an integer as input and returns the result of left shifting the integer by 1
+- halveInt: Takes an integer as input and returns the result of right shifting the integer by 1
+- isEven: Takes an integer as input and returns true if the integer is even, otherwise returns false

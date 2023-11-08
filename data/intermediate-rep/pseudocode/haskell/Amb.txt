@@ -1,0 +1,47 @@
+```
+function joins(left, right) {
+  return left.charAt(left.length - 1) === right.charAt(0);
+}
+
+function exampleBind() {
+  let result = [];
+  let words1 = ["the", "that", "a"];
+  for (let w1 of words1) {
+    let words2 = ["frog", "elephant", "thing"];
+    for (let w2 of words2) {
+      let words3 = ["walked", "treaded", "grows"];
+      for (let w3 of words3) {
+        let words4 = ["slowly", "quickly"];
+        for (let w4 of words4) {
+          if (joins(w1, w2) && joins(w2, w3) && joins(w3, w4)) {
+            result.push(`${w1} ${w2} ${w3} ${w4}`);
+          }
+        }
+      }
+    }
+  }
+  return result.join(" ");
+}
+
+function exampleConcatMap() {
+  let words1 = ["the", "that", "a"];
+  return words1.map(w1 => {
+    let words2 = ["frog", "elephant", "thing"];
+    return words2.map(w2 => {
+      let words3 = ["walked", "treaded", "grows"];
+      return words3.map(w3 => {
+        let words4 = ["slowly", "quickly"];
+        return words4.filter(w4 => joins(w1, w2) && joins(w2, w3) && joins(w3, w4))
+                    .map(w4 => `${w1} ${w2} ${w3} ${w4}`);
+      }).flat();
+    }).flat();
+  }).flat().join(" ");
+}
+
+function main() {
+  console.log(exampleBind());
+  console.log(exampleConcatMap());
+}
+
+main();
+```

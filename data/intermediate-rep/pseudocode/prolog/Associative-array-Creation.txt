@@ -1,0 +1,7 @@
+// Define the mymap predicate with key-value pairs
+mymap(key1, value1).
+mymap(key2, value2).
+
+// Query to find the value associated with key1
+?- mymap(key1, V).
+   V = value1.

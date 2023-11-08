@@ -1,0 +1,53 @@
+```
+function dutch_flag(N):
+    L = create empty list of length N
+    while True:
+        initialize each element of L using init function
+        if L is not a dutch flag:
+            print L
+            test_sorted(L)
+            TmpFlag = sort_dutch_flag(L)
+            append TmpFlag to Flag
+            print Flag
+            test_sorted(Flag)
+
+function sort_dutch_flag([]):
+    return [[], [], []]
+
+function sort_dutch_flag([blue | T]):
+    [R, W, B] = sort_dutch_flag(T)
+    return [R, W, [blue|B]]
+
+function sort_dutch_flag([red | T]):
+    [R, W, B] = sort_dutch_flag(T)
+    return [[red|R], W, B]
+
+function sort_dutch_flag([white | T]):
+    [R, W, B] = sort_dutch_flag(T)
+    return [R, [white | W], B]
+
+function init(C):
+    R = random number between 0 and 2
+    C = color at index R in [blue, red, white]
+
+function test_sorted(Flag):
+    if Flag is a dutch flag:
+        print 'it is a dutch flag'
+    else:
+        print 'it is not a dutch flag'
+
+function is_dutch_flag([red | T]):
+    return is_dutch_flag_red(T)
+
+function is_dutch_flag_red([red|T]):
+    return is_dutch_flag_red(T) or (T starts with white and is_dutch_flag_white(T1))
+
+function is_dutch_flag_white([white | T]):
+    return is_dutch_flag_white(T) or (T starts with blue and is_dutch_flag_blue(T1))
+
+function is_dutch_flag_blue([blue | T]):
+    return is_dutch_flag_blue(T)
+
+function is_dutch_flag_blue([]):
+    return true
+```

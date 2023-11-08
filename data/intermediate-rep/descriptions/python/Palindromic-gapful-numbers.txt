@@ -1,0 +1,1 @@
+This Python code generates and prints the last n of the first m gapful numbers binned by last digit, where a gapful number is a number that is divisible by the number formed by its first and last digit. It includes functions to generate palindrome numbers and check for gapful numbers, and uses itertools, pprint, re, and heapq modules for various operations.

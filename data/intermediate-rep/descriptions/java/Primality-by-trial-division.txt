@@ -1,0 +1,1 @@
+This code is a method that takes an integer input and checks if it is a prime number. It does so by creating a new string of length n and using a regular expression to check if the string matches the pattern of a prime number. If the input is a prime number, the method will return true, otherwise it will return false.

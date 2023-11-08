@@ -1,0 +1,8 @@
+1. Import javax.swing.JFrame;
+
+2. Create a class called Main
+   1. Create a public static void main method that takes in a String array args and throws Exception
+      1. Create a new JFrame called w with the title "Title"
+      2. Set the default close operation of w to JFrame.EXIT_ON_CLOSE
+      3. Set the size of w to 800x600
+      4. Set w to be visible

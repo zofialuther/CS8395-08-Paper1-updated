@@ -1,0 +1,8 @@
+1. Create a list of strings called words containing the following elements: "", ".", "abcABC", "XYZ ZYX", "1234567890ABCDEFGHIJKLMN0PQRSTUVWXYZ"
+2. Iterate through each word in the list
+3. Create a set called seen to store the characters that have been seen
+4. Iterate through each character in the word
+5. Check if the character is already in the set, if so, find the first occurrence of the repeated character
+6. If a repeated character is found, print the word and the position of the repeated character
+7. If no repeated characters are found, print that the word has all unique characters
+8. Repeat for each word in the list.

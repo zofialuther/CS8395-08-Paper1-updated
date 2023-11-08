@@ -1,0 +1,1 @@
+This code sets up a TCP server on port 8080 at the localhost address. It uses the Data.Conduit and Data.Conduit.Network libraries to handle incoming connections and send a "Goodbye, World!" response to clients. The code is written in Haskell and utilizes the OverloadedStrings language extension.

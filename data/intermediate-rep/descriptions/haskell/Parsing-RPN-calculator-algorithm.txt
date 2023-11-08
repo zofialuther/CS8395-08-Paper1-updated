@@ -1,0 +1,1 @@
+This code defines a Logger typeclass with a write function for logging messages. It has instances for IO and Writer monads. The verbose2 function takes a function and two arguments, logs the input and output values, and returns the result of applying the function to the arguments.

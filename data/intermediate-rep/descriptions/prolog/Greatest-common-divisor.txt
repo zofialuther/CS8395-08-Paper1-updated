@@ -1,0 +1,1 @@
+This code defines a predicate `gcd` that calculates the greatest common divisor (GCD) of two numbers `X` and `Y`. It uses recursion and pattern matching to handle different cases, such as when one of the numbers is 0, and also ensures that the GCD is always a positive integer.

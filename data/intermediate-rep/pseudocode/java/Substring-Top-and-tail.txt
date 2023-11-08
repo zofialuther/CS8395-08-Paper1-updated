@@ -1,0 +1,12 @@
+START
+  PRINT "knight".substring( 1 )
+  PRINT "socks".substring( 0, 4 )
+  PRINT "brooms".substring( 1, 5 )
+  // first, do this by selecting a specific substring
+  // to exclude the first and last characters
+
+  PRINT "knight".replaceAll( "^.", "" )
+  PRINT "socks".replaceAll( ".$", "" )
+  PRINT "brooms".replaceAll( "^.|.$", "" )
+  // then do this using a regular expressions
+END

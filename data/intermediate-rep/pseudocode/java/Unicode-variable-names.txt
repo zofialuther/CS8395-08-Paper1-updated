@@ -1,0 +1,10 @@
+DECLARE Δ as integer
+DECLARE π as double
+DECLARE 你好 as string
+
+Δ = 1
+π = 3.141592
+你好 = "hello"
+
+Δ = Δ + 1
+PRINT Δ

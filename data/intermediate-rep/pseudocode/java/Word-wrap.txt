@@ -1,0 +1,37 @@
+```
+START
+  SET defaultLineWidth=80
+  SET defaultSpaceWidth=1
+  
+  FUNCTION minNumLinesWrap(text)
+    CALL minNumLinesWrap(text, defaultLineWidth)
+  END FUNCTION
+  
+  FUNCTION minNumLinesWrap(text, LineWidth)
+    INIT SpaceLeft=LineWidth
+    INIT SpaceWidth=defaultSpaceWidth
+    INIT st= new StringTokenizer(text)
+    
+    WHILE st.hasMoreTokens()
+      INIT word=st.nextToken()
+      IF (word.length + SpaceWidth) > SpaceLeft THEN
+        PRINT "\n"+word+" "
+        SpaceLeft=LineWidth-word.length
+      ELSE
+        PRINT word+" "
+        SpaceLeft-=(word.length+SpaceWidth)
+      END IF
+    END WHILE
+  END FUNCTION
+  
+  FUNCTION main(args)
+    INIT now=new WordWrap()
+    INIT wodehouse="Old Mr MacFarland (_said Henry_) started the place fifteen years ago..."
+    
+    PRINT "DEFAULT:"
+    CALL now.minNumLinesWrap(wodehouse)
+    PRINT "\n\nLINEWIDTH=120"
+    CALL now.minNumLinesWrap(wodehouse,120)
+  END FUNCTION
+END
+```

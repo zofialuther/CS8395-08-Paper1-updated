@@ -1,0 +1,4 @@
+1. Import the math module
+2. Create a list of floats
+3. Calculate the total sum of the floats using the math.fsum() function
+4. Store the result in the variable "total"

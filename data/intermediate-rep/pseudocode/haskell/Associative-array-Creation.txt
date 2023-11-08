@@ -1,0 +1,8 @@
+function lookup(key, dictionary):
+    for each pair in dictionary:
+        if pair[0] equals key:
+            return Just pair[1]
+    return Nothing
+
+dict = [("key1","val1"), ("key2","val2")]
+ans = lookup("key2", dict)

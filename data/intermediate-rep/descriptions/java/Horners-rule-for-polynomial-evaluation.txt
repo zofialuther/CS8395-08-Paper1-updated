@@ -1,0 +1,1 @@
+This Java program defines a class called Horner and a method called polyEval, which is used to evaluate a polynomial function. The main method initializes a list of coefficients and then calls the polyEval method to evaluate the polynomial at a specific value of x. The polyEval method uses the Horner's method to efficiently compute the value of the polynomial.

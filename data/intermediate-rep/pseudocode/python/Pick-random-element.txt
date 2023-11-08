@@ -1,0 +1,4 @@
+1. Import the random module
+2. Create a list containing the elements 'foo', 'bar', 'baz'
+3. Use the random.choice function to select a random element from the list
+4. Print the selected element

@@ -1,0 +1,26 @@
+```
+FUNCTION collatz(n: Integer) -> Integer
+    IF n is even
+        RETURN n / 2
+    ELSE
+        RETURN 1 + 3 * n
+
+FUNCTION hailstone(n: Integer) -> List of Integer
+    RETURN takeWhile (1 /=) (iterate collatz n)
+
+FUNCTION longestChain() -> Integer
+    SET maxChainLength = 0
+    SET numberWithMaxChain = 0
+    FOR i from 1 to 100000
+        SET chainLength = length(hailstone(i))
+        IF chainLength > maxChainLength
+            SET maxChainLength = chainLength
+            SET numberWithMaxChain = i
+    RETURN numberWithMaxChain
+
+FUNCTION main() -> Void
+    CALL putStrLn("Collatz sequence for 27: ")
+    CALL putStrLn(show(hailstone(27)))
+    CALL putStrLn("The number " <> show(longestChain()) <> " has the longest hailstone sequence for any number less than 100000.")
+    CALL putStrLn("The sequence has length: " <> show(length(hailstone(longestChain()))))
+```

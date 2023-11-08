@@ -1,0 +1,24 @@
+
+1. Import the necessary libraries: java.io.BufferedReader, java.io.FileReader
+
+2. Create a class named KernighansLargeEarthquakeProblem
+
+3. Define the main method with a throws Exception clause
+
+4. Create a BufferedReader object named reader and initialize it with a FileReader object that reads from "data.txt"
+
+5. Initialize a String variable inLine to null
+
+6. Create a while loop that continues as long as the value of inLine is not null
+
+7. Within the while loop, split the inLine string by whitespace and store the resulting array in a variable named split
+
+8. Parse the third element of the split array as a double and store it in a variable named magnitude
+
+9. Check if the magnitude is greater than 6
+
+10. If true, print the value of inLine
+
+11. Close the try-with-resources block
+
+12. End of the main method and class.

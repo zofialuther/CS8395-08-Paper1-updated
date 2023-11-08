@@ -1,0 +1,146 @@
+```
+START
+    IMPORT java.awt.*
+    IMPORT java.awt.event.*
+    IMPORT java.util.Random
+    IMPORT javax.swing.*
+
+    CLASS Game2048 EXTENDS JPanel
+        ENUM State
+            start, won, running, over
+        END ENUM
+
+        DECLARE colorTable AS Array of Colors
+        SET colorTable to {new Color(0x701710), new Color(0xFFE4C3), new Color(0xfff4d3), new Color(0xffdac3), new Color(0xe7b08e), new Color(0xe7bf8e), new Color(0xffc4c3), new Color(0xE7948e), new Color(0xbe7e56), new Color(0xbe5e56), new Color(0x9c3931), new Color(0x701710)}
+
+        DECLARE target AS 2048
+        DECLARE highest AS 0
+        DECLARE score AS 0
+
+        DECLARE gridColor AS Color
+        DECLARE emptyColor AS Color
+        DECLARE startColor AS Color
+
+        DECLARE rand AS Random
+        DECLARE tiles AS Array of Tiles
+        DECLARE side AS 4
+        DECLARE gamestate AS State
+        DECLARE checkingAvailableMoves AS boolean
+
+        FUNCTION Game2048()
+            CALL setPreferredSize(new Dimension(900, 700))
+            CALL setBackground(new Color(0xFAF8EF))
+            CALL setFont(new Font("SansSerif", Font.BOLD, 48))
+            CALL setFocusable(true)
+
+            ADD MouseListener
+                FUNCTION mousePressed(MouseEvent e)
+                    CALL startGame()
+                    CALL repaint()
+                END FUNCTION
+            END MouseListener
+
+            ADD KeyListener
+                FUNCTION keyPressed(KeyEvent e)
+                    SWITCH e.getKeyCode()
+                        CASE KeyEvent.VK_UP
+                            CALL moveUp()
+                        CASE KeyEvent.VK_DOWN
+                            CALL moveDown()
+                        CASE KeyEvent.VK_LEFT
+                            CALL moveLeft()
+                        CASE KeyEvent.VK_RIGHT
+                            CALL moveRight()
+                    END SWITCH
+                    CALL repaint()
+                END FUNCTION
+            END KeyListener
+        END FUNCTION
+
+        FUNCTION paintComponent(Graphics gg)
+            CALL super.paintComponent(gg)
+            DECLARE g AS Graphics2D
+            SET g to (Graphics2D) gg
+            CALL g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
+            CALL drawGrid(g)
+        END FUNCTION
+
+        FUNCTION startGame()
+            IF gamestate is not equal to State.running THEN
+                SET score to 0
+                SET highest to 0
+                SET gamestate to State.running
+                SET tiles to new Tile[side][side]
+                CALL addRandomTile()
+                CALL addRandomTile()
+            END IF
+        END FUNCTION
+
+        FUNCTION drawGrid(Graphics2D g)
+            ...
+            [Drawing grid and tiles]
+            ...
+        END FUNCTION
+
+        FUNCTION addRandomTile()
+            ...
+            [Logic for adding a random tile]
+            ...
+        END FUNCTION
+
+        FUNCTION move(int countDownFrom, int yIncr, int xIncr)
+            ...
+            [Logic for moving tiles]
+            ...
+        END FUNCTION
+
+        FUNCTION moveUp()
+            RETURN move(0, -1, 0)
+        END FUNCTION
+
+        FUNCTION moveDown()
+            RETURN move(side * side - 1, 1, 0)
+        END FUNCTION
+
+        FUNCTION moveLeft()
+            RETURN move(0, 0, -1)
+        END FUNCTION
+
+        FUNCTION moveRight()
+            RETURN move(side * side - 1, 0, 1)
+        END FUNCTION
+
+        FUNCTION clearMerged()
+            ...
+            [Logic for clearing merged tiles]
+            ...
+        END FUNCTION
+
+        FUNCTION movesAvailable()
+            ...
+            [Logic for checking available moves]
+            ...
+        END FUNCTION
+
+        FUNCTION main(String[] args)
+            CALL SwingUtilities.invokeLater(() -> {
+                DECLARE f AS JFrame
+                SET f to new JFrame()
+                CALL f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
+                CALL f.setTitle("2048")
+                CALL f.setResizable(true)
+                CALL f.add(new Game2048(), BorderLayout.CENTER)
+                CALL f.pack()
+                CALL f.setLocationRelativeTo(null)
+                CALL f.setVisible(true)
+            })
+        END FUNCTION
+    END CLASS
+
+    CLASS Tile
+        ...
+        [Implementation of Tile class]
+        ...
+    END CLASS
+END
+```

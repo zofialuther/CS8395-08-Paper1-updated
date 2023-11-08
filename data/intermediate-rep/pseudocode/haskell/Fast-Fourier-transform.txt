@@ -1,0 +1,53 @@
+```
+FUNCTION fft(xs)
+    IF xs IS EMPTY THEN
+        RETURN []
+    ELSE IF LENGTH(xs) = 1 THEN
+        RETURN xs
+    ELSE
+        n = LENGTH(xs)
+        evens, odds = split(xs)
+        ys = fft(evens)
+        zs = fft(odds)
+        ts = []
+        FOR k = 0 TO n-1 DO
+            ts[k] = exp'(zs[k], k, n)
+        ENDFOR
+        result = []
+        FOR i = 0 TO n-1 DO
+            result[i] = ys[i] + ts[i]
+        ENDFOR
+        RETURN result
+    ENDIF
+END FUNCTION
+
+FUNCTION split(xs)
+    IF LENGTH(xs) = 0 THEN
+        RETURN ([], [])
+    ELSE IF LENGTH(xs) = 1 THEN
+        RETURN (xs, [])
+    ELSE
+        xt = []
+        yt = []
+        FOR i = 0 TO LENGTH(xs)-1 DO
+            IF i MOD 2 = 0 THEN
+                xt.append(xs[i])
+            ELSE
+                yt.append(xs[i])
+            ENDIF
+        ENDFOR
+        RETURN (xt, yt)
+    ENDIF
+END FUNCTION
+
+FUNCTION exp'(z, k, n)
+    RETURN cis(-2 * pi * k / n) * z
+END FUNCTION
+
+FUNCTION main()
+    result = fft([1, 1, 1, 1, 0, 0, 0, 0])
+    FOR i = 0 TO LENGTH(result)-1 DO
+        PRINT result[i]
+    ENDFOR
+END FUNCTION
+```

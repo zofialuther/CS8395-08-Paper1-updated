@@ -1,0 +1,15 @@
+repeat(Callable, 0) :-
+    true.
+
+repeat(Callable, Times) :-
+    Times > 0,
+    call(Callable),
+    Times1 is Times - 1,
+    repeat(Callable, Times1).
+
+test:-
+    write('Hello, World'),
+    nl.
+
+test(Name):-
+    format('Hello, ~w~n', [Name]).

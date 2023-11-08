@@ -1,0 +1,1 @@
+This code defines a predicate called printAll, which takes a List as an input. It uses the forall predicate to iterate through each element in the List and print it to the console followed by a new line.

@@ -1,0 +1,40 @@
+```
+class VectorProds
+    class Vector3D<T extends Number>
+        T a, b, c
+
+        Vector3D(T a, T b, T c)
+            this.a = a
+            this.b = b
+            this.c = c
+
+        double dot(Vector3D<?> vec)
+            return (a.doubleValue() * vec.a.doubleValue() +
+                    b.doubleValue() * vec.b.doubleValue() +
+                    c.doubleValue() * vec.c.doubleValue())
+
+        Vector3D<Double> cross(Vector3D<?> vec)
+            newA = b.doubleValue()*vec.c.doubleValue() - c.doubleValue()*vec.b.doubleValue()
+            newB = c.doubleValue()*vec.a.doubleValue() - a.doubleValue()*vec.c.doubleValue()
+            newC = a.doubleValue()*vec.b.doubleValue() - b.doubleValue()*vec.a.doubleValue()
+            return new Vector3D<Double>(newA, newB, newC)
+
+        double scalTrip(Vector3D<?> vecB, Vector3D<?> vecC)
+            return this.dot(vecB.cross(vecC))
+
+        Vector3D<Double> vecTrip(Vector3D<?> vecB, Vector3D<?> vecC)
+            return this.cross(vecB.cross(vecC))
+
+        override toString()
+            return "<" + a.toString() + ", " + b.toString() + ", " + c.toString() + ">"
+
+    main(String[] args)
+        a = new Vector3D<Integer>(3, 4, 5)
+        b = new Vector3D<Integer>(4, 3, 5)
+        c = new Vector3D<Integer>(-5, -12, -13)
+
+        print(a.dot(b))
+        print(a.cross(b))
+        print(a.scalTrip(b, c))
+        print(a.vecTrip(b, c))
+```

@@ -1,0 +1,66 @@
+```
+FUNCTION printwithspace(i)
+    WRITE "%i " % i
+
+CLASS Node
+    FUNCTION __init__(self, data, left, right)
+        self.data = data
+        self.left = left
+        self.right = right
+
+    FUNCTION preorder(self, visitor)
+        IF self IS NOT None THEN
+            visitor(self.data)
+            Node.preorder(self.left, visitor)
+            Node.preorder(self.right, visitor)
+
+    FUNCTION inorder(self, visitor)
+        IF self IS NOT None THEN
+            Node.inorder(self.left, visitor)
+            visitor(self.data)
+            Node.inorder(self.right, visitor)
+
+    FUNCTION postorder(self, visitor)
+        IF self IS NOT None THEN
+            Node.postorder(self.left, visitor)
+            Node.postorder(self.right, visitor)
+            visitor(self.data)
+
+    FUNCTION levelorder(self, visitor, more=NULL)
+        IF self IS NOT None THEN
+            IF more IS NULL THEN
+                more = []
+            END IF
+            more += [self.left, self.right]
+            visitor(self.data)
+        END IF
+        IF more THEN
+            Node.levelorder(more[0], visitor, more[1:])
+        END IF
+END CLASS
+
+tree = Node(1,
+            Node(2,
+                 Node(4,
+                      Node(7, None, None),
+                      None),
+                 Node(5, None, None)),
+            Node(3,
+                 Node(6,
+                      Node(8, None, None),
+                      Node(9, None, None)),
+                 None))
+
+
+IF __name__ == '__main__' THEN
+    WRITE '  preorder: '
+    tree.preorder(printwithspace)
+    WRITE '\n   inorder: '
+    tree.inorder(printwithspace)
+    WRITE '\n postorder: '
+    tree.postorder(printwithspace)
+    WRITE '\nlevelorder: '
+    tree.levelorder(printwithspace)
+    WRITE '\n'
+END IF
+```

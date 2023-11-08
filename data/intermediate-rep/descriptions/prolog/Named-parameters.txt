@@ -1,0 +1,1 @@
+This Prolog code initializes a main predicate and then defines a sum predicate that takes in named arguments and calculates the sum of two values. The named_args predicate is used to match the named arguments with their corresponding values. The main predicate calls the sum predicate with specified named arguments and then prints the result.

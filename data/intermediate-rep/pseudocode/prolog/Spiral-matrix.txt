@@ -1,0 +1,81 @@
+```
+FUNCTION replace(list, index, element, result)
+    IF index = 0 THEN
+        result = [element|rest_of_list]
+    ELSE
+        result = [first_element|replace(rest_of_list, index-1, element, rest_of_result)]
+
+FUNCTION replace_in(grid, coordinates, element, result)
+    IF coordinates.x = 0 THEN
+        new_row = replace(grid[coordinates.x], coordinates.y, element, new_row)
+        result = [new_row|rest_of_grid]
+    ELSE
+        new_row = grid[coordinates.x]
+        new_row = replace(new_row, coordinates.y, element, new_row)
+        result = [new_row|replace_in(rest_of_grid, (coordinates.x-1, coordinates.y), element, rest_of_result)]
+
+FUNCTION get_in(grid, coordinates, element)
+    element = grid[coordinates.x][coordinates.y]
+
+FUNCTION create(size, matrix)
+    FOR i = 1 to size
+        Ns.append(i)
+    FOR each in Ns
+        Ls.append(nil)
+    FOR each in Ns
+        X.append(Ls)
+    matrix = X
+
+FUNCTION ops(direction, coordinates, result1, result2, new_direction1, new_direction2)
+    IF direction = right THEN
+        result1.x = coordinates.x
+        result1.y = coordinates.y + 1
+        new_direction1 = right
+        result2.x = coordinates.x + 1
+        result2.y = coordinates.y
+        new_direction2 = down
+    ELSE IF direction = left THEN
+        result1.x = coordinates.x
+        result1.y = coordinates.y - 1
+        new_direction1 = left
+        result2.x = coordinates.x - 1
+        result2.y = coordinates.y
+        new_direction2 = up
+    ELSE IF direction = up THEN
+        result1.x = coordinates.x - 1
+        result1.y = coordinates.y
+        new_direction1 = up
+        result2.x = coordinates.x
+        result2.y = coordinates.y + 1
+        new_direction2 = right
+    ELSE IF direction = down THEN
+        result1.x = coordinates.x + 1
+        result1.y = coordinates.y
+        new_direction1 = down
+        result2.x = coordinates.x
+        result2.y = coordinates.y - 1
+        new_direction2 = left
+
+FUNCTION next(direction, matrix, coordinates, new_coordinates, new_direction)
+    ops(direction, coordinates, C1, C2, D1, D2)
+    IF get_in(matrix, C1) = nil THEN
+        new_coordinates = C1
+        new_direction = D1
+    ELSE
+        new_coordinates = C2
+        new_direction = D2
+
+FUNCTION spiralH(direction, matrix, coordinates, elements, result)
+    replace_in(matrix, coordinates, elements[0], new_matrix)
+    IF elements = [] THEN
+        result = new_matrix
+    ELSE
+        next(direction, matrix, coordinates, new_coordinates, new_direction)
+        spiralH(new_direction, new_matrix, new_coordinates, elements[1:], result)
+
+FUNCTION spiral(size, matrix)
+    Sq = size*size - 1
+    Ns = [0, 1, 2, ..., Sq]
+    create(size, EMx)
+    spiralH(right, EMx, (0, 0), Ns, matrix)
+```

@@ -1,0 +1,1 @@
+This code utilizes the ParallelListComp language extension to generate and print a list of all possible combinations of characters from the strings "abc", "ABC", and "123" in a parallel list comprehension. The main function then uses the sequence function to execute the IO action of printing each combination to the console.

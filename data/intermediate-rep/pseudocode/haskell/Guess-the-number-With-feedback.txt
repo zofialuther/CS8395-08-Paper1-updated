@@ -1,0 +1,46 @@
+```
+import Control.Monad
+import System.Random
+
+-- Repeat the action until the predicate is true.
+function until_ (act, pred) {
+  return act.then(pred).then(result => {
+    if (!result) {
+      return until_(act, pred);
+    }
+  });
+}
+
+function answerIs(ans, guess) {
+  let comparison = compare(ans, guess);
+  if (comparison === "LT") {
+    putStrLn("Too high. Guess again.");
+    return false;
+  } else if (comparison === "EQ") {
+    putStrLn("You got it!");
+    return true;
+  } else {
+    putStrLn("Too low. Guess again.");
+    return false;
+  }
+}
+
+-- Repeatedly read until the input *starts* with a number.  (Since
+-- we use "reads" we allow garbage to follow it, though.)
+function ask() {
+  let line = getLine();
+  let num = parseInt(line);
+  if (!isNaN(num)) {
+    return num;
+  } else {
+    putStrLn("Please enter a number.");
+    return ask();
+  }
+}
+
+function main() {
+  let ans = randomRIO(1, 100);
+  putStrLn("Try to guess my secret number between 1 and 100.");
+  return until_(ask(), answerIs(ans));
+}
+```

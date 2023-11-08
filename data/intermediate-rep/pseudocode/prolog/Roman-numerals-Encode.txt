@@ -1,0 +1,52 @@
+```
+Load library(clpfd)
+
+Function roman:
+    LA = [_, 2010, _, 1449, _]
+    LR = ['MDCCLXXXIX', _, 'CX', _, 'MDCLXVI']
+    Maplist(roman, LA, LR)
+    Maplist(my_print, LA, LR)
+
+Function roman(A, R):
+    If A > 0:
+        roman(A, [u, t, h, th], LR, [])
+        Label([A])
+        Parse_Roman(CR, LR, [])
+        Atom_chars(R, CR)
+
+Function roman(0, []):
+    Return []
+
+Function roman(N, [H | T]):
+    N1 = N / 10
+    N2 = N mod 10
+    Roman(N1, T)
+    Unity(N2, H)
+
+Function unity(1, u):
+    Return ['I']
+
+Function unity(1, t):
+    Return ['X']
+
+Function unity(1, h):
+    Return ['C']
+
+Function unity(1, th):
+    Return ['M']
+
+... (similar for other unity functions)
+
+Function parse_Roman(['C','M'|T]):
+    ['CM']
+    Parse_Roman(T)
+
+Function parse_Roman(['C','D'|T]):
+    ['CD']
+    Parse_Roman(T)
+
+... (similar for other parse_Roman functions)
+
+Function my_print(A, R):
+    Format('~w in roman is ~w~n', [A, R])
+```

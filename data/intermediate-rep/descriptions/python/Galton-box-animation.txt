@@ -1,0 +1,1 @@
+This Python code creates a simulation of falling balls in a well. It defines a Ball class and a Board class, with methods to update the position of the balls and print the current state of the board. The main function initializes the board and continuously updates and prints the board until all the balls have fallen. The simulation visualizes the falling balls using ASCII art.

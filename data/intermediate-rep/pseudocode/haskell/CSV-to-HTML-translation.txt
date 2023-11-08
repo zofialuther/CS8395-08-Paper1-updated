@@ -1,0 +1,7 @@
+
+1. Create a table with two columns: "Character" and "Speech"
+2. Add a row with the characters "The multitude" and "The messiah! Show us the messiah!" in the respective columns
+3. Add a row with the characters "Brians mother" and "&lt;angry&gt;Now you listen here! He's not the messiah; he's a very naughty boy! Now go away!&lt;/angry&gt;" in the respective columns
+4. Add a row with the characters "The multitude" and "Who are you?" in the respective columns
+5. Add a row with the characters "Brians mother" and "I'm his mother; that's who!" in the respective columns
+6. Add a row with the characters "The multitude" and "Behold his mother! Behold his mother!" in the respective columns

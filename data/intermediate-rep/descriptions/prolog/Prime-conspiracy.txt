@@ -1,0 +1,1 @@
+This code generates a table of the nth prime values up to 100,000 and then uses a conspiracy function to perform calculations on the prime numbers. It then counts the results and implements a prime sieve to remove multiples. The show function displays the results in a formatted manner, and the tally function counts the occurrences of certain digits in the prime numbers.

@@ -1,0 +1,20 @@
+```
+function count_substring(String, Sub, Total) {
+    count_substring(String, Sub, 0, Total);
+}
+
+function count_substring(String, Sub, Count, Total) {
+    if (substring_rest(String, Sub, Rest)) {
+        NextCount = Count + 1;
+        count_substring(Rest, Sub, NextCount, Total);
+    } else {
+        Total = Count;
+    }
+}
+
+function substring_rest(String, Sub, Rest) {
+    sub_string(String, Before, Length, Remain, Sub);
+    DropN = Before + Length;
+    sub_string(String, DropN, Remain, 0, Rest);
+}
+```

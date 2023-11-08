@@ -1,0 +1,13 @@
+Set i code to True
+Print "I am a comment"
+Print "I am also a comment"
+Print "comments can be nested"
+Define a function u with parameter x
+  Set u x to x x
+  Print "this code not compiled"
+Print "Are you?"
+Print "This is a Haddock documentation comment for the following code"
+Set i code to True
+Print "This is a Haddock documentation comment for the preceding code"
+Print "This is a Haddock documentation block comment"
+Set i code to True

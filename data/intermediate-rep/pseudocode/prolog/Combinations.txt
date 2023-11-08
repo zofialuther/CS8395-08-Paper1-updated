@@ -1,0 +1,15 @@
+function comb_Prolog(L, M, N) {
+    length(L, M);
+    fill(L, 1, N);
+}
+
+function fill([], _, _){
+    // do nothing
+}
+
+function fill([H, ...T], Min, Max) {
+    if (H >= Min && H <= Max) {
+        H1 = H + 1;
+        fill(T, H1, Max);
+    }
+}

@@ -1,0 +1,1 @@
+This code represents the classic Christmas song "The Twelve Days of Christmas" in Haskell. It includes two lists, one for the gifts and one for the days. The verseOfTheDay function takes an input for the day and outputs the corresponding verse of the song. The main function then uses mapM_ to print out all twelve verses of the song.

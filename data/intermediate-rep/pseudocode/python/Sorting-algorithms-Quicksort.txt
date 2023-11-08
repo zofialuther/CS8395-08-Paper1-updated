@@ -1,0 +1,24 @@
+FUNCTION quicksort(array)
+    _quicksort(array, 0, length(array) - 1)
+END FUNCTION
+
+FUNCTION _quicksort(array, start, stop)
+    IF stop - start > 0 THEN
+        pivot, left, right = array[start], start, stop
+        WHILE left <= right DO
+            WHILE array[left] < pivot DO
+                left = left + 1
+            END WHILE
+            WHILE array[right] > pivot DO
+                right = right - 1
+            END WHILE
+            IF left <= right THEN
+                SWAP array[left], array[right]
+                left = left + 1
+                right = right - 1
+            END IF
+        END WHILE
+        _quicksort(array, start, right)
+        _quicksort(array, left, stop)
+    END IF
+END FUNCTION

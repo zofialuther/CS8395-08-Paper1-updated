@@ -1,0 +1,4 @@
+FUNCTION multiply(x, y)
+    result = x * y
+    RETURN result
+END FUNCTION

@@ -1,0 +1,9 @@
+1. Import the "Numeric" library and import the "showOct" function from it.
+
+2. Define the main function with the type signature "IO ()".
+
+3. Inside the main function, use the mapM_ function to apply the following steps to each element in the range from 1 to the maximum value of the Int data type:
+    a. Convert the current element to its octal representation using the showOct function.
+    b. Print the octal representation to the console using the putStrLn function.
+
+4. End of the main function.

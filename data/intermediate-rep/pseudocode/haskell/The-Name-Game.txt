@@ -1,0 +1,32 @@
+```
+FUNCTION isVowel(c)
+    IF toUpper(c) = 'A' OR toUpper(c) = 'E' OR toUpper(c) = 'I' OR toUpper(c) = 'O' OR toUpper(c) = 'U' THEN
+        RETURN True
+    ELSE
+        RETURN False
+
+FUNCTION isSpecial(c)
+    IF toUpper(c) = 'B' OR toUpper(c) = 'F' OR toUpper(c) = 'M' THEN
+        RETURN True
+    ELSE
+        RETURN False
+
+FUNCTION shorten(name)
+    IF isVowel(head(name)) THEN
+        RETURN map(toLower, name)
+    ELSE
+        RETURN map(toLower, tail(name))
+
+FUNCTION line(prefix, letter, name)
+    IF toLower(head(name)) = letter THEN
+        RETURN prefix + shorten(name) + "\n"
+    ELSE
+        RETURN prefix + toLower(letter) + shorten(name) + "\n"
+
+FUNCTION theNameGame(name)
+    RETURN line(name + ", " + name + ", bo-", 'b', name) + line("Banana-fana fo-", 'f', name) + line("Fee-fi-mo-", 'm', name) + name + "!\n"
+
+FUNCTION main
+    FOR EACH name IN ["Gary", "Earl", "Billy", "Felix", "Mike", "Steve"] DO
+        PRINT theNameGame(name)
+```

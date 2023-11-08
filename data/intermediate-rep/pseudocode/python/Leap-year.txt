@@ -1,0 +1,7 @@
+FUNCTION is_leap_year(year)
+    IF year % 100 = 0 THEN
+        RETURN NOT (year % 400)
+    ELSE
+        RETURN NOT (year % 4)
+    END IF
+END FUNCTION

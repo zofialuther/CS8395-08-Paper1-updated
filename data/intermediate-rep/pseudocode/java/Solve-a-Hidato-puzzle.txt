@@ -1,0 +1,36 @@
+1. Create a new class Hidato
+
+2. Declare private static int array board
+
+3. Declare private static int arrays given and start
+
+4. Create a main method
+   - Create a String array input with the given input values
+   - Call the setup method with the input array
+   - Call the printBoard method to print the initial state of the board
+   - Print "Found:"
+   - Call the solve method with start[0], start[1], 1, and 0 as parameters
+   - Call the printBoard method to print the final state of the board
+
+5. Create a setup method with String array input as parameter
+   - Create a 2D String array puzzle and split the input to populate it
+   - Get the number of columns and rows from the puzzle array
+   - Create a new ArrayList list with the size of nRows * nCols
+   - Initialize the board array with dimensions nRows + 2 and nCols + 2, and set all values to -1
+   - Loop through the puzzle array and populate the board array based on the values in the puzzle array
+   - Sort the list and populate the given array with its values
+
+6. Create a solve method with int r, int c, int n, and int next as parameters
+   - Check if n is greater than the last value in the given array, return true
+   - Check if the value in the board array at position r and c is not 0 and not equal to n, return false
+   - Check if the value in the board array at position r and c is 0 and the next value in given array is equal to n, return false
+   - Create a variable back and set it to the value in the board array at position r and c
+   - Check if back is equal to n, increment next
+   - Set the value in the board array at position r and c to n
+   - Loop through the adjacent cells and recursively call the solve method with updated parameters
+   - Set the value in the board array at position r and c back to its original value and return false
+
+7. Create a printBoard method
+   - Loop through the board array and print the values with appropriate formatting
+
+8. End of class Hidato.

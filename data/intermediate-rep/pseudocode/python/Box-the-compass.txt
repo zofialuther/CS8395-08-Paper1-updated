@@ -1,0 +1,38 @@
+BEGIN
+  majors = 'north east south west'.split()
+  majors *= 2
+  quarter1 = 'N,N by E,N-NE,NE by N,NE,NE by E,E-NE,E by N'.split(',')
+  FOR each p in quarter1
+    IF p contains 'NE' THEN
+      REPLACE 'NE' with 'EN'
+    END IF
+  END FOR
+
+  FUNCTION degrees2compasspoint(d)
+    d = (d % 360) + 360/64
+    majorindex, minor = divmod(d, 90.)
+    majorindex = int(majorindex)
+    minorindex  = int( (minor*4) // 45 )
+    p1, p2 = majors[majorindex: majorindex+2]
+    IF p1 in {'north', 'south'} THEN
+      q = quarter1
+    ELSE
+      q = quarter2
+    END IF
+    RETURN q[minorindex].replace('N', p1).replace('E', p2).capitalize()
+  END FUNCTION
+
+  IF __name__ == '__main__' THEN
+    FOR i in range(33)
+      d = i * 11.25
+      m = i % 3
+      IF m == 1 THEN
+        d += 5.62
+      ELSE IF m == 2 THEN
+        d -= 5.62
+      END IF
+      n = i % 32 + 1
+      PRINT '%2i %-18s %7.2f°' % (n, degrees2compasspoint(d), d)
+    END FOR
+  END IF
+END

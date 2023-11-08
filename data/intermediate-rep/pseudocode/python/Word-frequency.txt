@@ -1,0 +1,9 @@
+1. Import the necessary libraries: collections, re, string, sys
+
+2. Define the main function:
+   a. Create a Counter object called "counter" and use re.findall to find all the words in the text file (specified by sys.argv[1]). Convert all the words to lowercase.
+   b. Use collections.Counter to count the occurrences of each word.
+   c. Print the most common words based on the number specified in sys.argv[2].
+
+3. Check if the current script is being run as the main program:
+   a. If it is, call the main function.

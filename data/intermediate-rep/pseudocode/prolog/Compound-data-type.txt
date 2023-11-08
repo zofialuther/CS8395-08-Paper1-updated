@@ -1,0 +1,7 @@
+FUNCTION person_location(person, point)
+    SET person_name = person.name
+    SET person_age = person.age
+    SET point_X = point.X
+    SET point_Y = point.Y
+    PRINT "Person", person_name, "is at location", point_X, ",", point_Y, "and is", person_age, "years old"
+END FUNCTION

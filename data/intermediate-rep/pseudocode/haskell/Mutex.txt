@@ -1,0 +1,21 @@
+
+```
+function takeMVar(mVar)
+    return mVar.value
+
+function putMVar(mVar, value)
+    mVar.value = value
+
+function tryTakeMVar(mVar)
+    if mVar.value is not null
+        return Just mVar.value
+    else
+        return Nothing
+
+function tryPutMVar(mVar, value)
+    if mVar.value is null
+        mVar.value = value
+        return True
+    else
+        return False
+```

@@ -1,0 +1,1 @@
+This code defines a generator function called iprimes2 that yields prime numbers up to a specified limit. It uses the Sieve of Eratosthenes algorithm to efficiently find the prime numbers within the given range. The function starts by yielding the first prime number, 2, and then uses the algorithm to find and yield the remaining prime numbers within the limit.

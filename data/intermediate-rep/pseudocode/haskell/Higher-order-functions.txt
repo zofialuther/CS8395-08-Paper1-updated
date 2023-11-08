@@ -1,0 +1,9 @@
+func1(f):
+  return f("a string")
+
+func2(s):
+  return "func2 called with " + s
+
+main:
+  result = func1(func2)
+  print(result)

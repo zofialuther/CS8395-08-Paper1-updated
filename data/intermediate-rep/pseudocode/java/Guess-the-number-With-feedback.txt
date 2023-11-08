@@ -1,0 +1,18 @@
+1. Import the necessary libraries: java.util.Random and java.util.Scanner
+2. Define the Main class
+3. Define the main method
+4. Create a new Scanner object called "scan" to read input from the user
+5. Create a new Random object called "random" to generate random numbers
+6. Set the range for the random number generation (from 1 to 100)
+7. Generate a random number within the specified range and store it in the variable "randomNumber"
+8. Initialize the variable "guessedNumber" to 0
+9. Display the message "The number is between from and to" using the values of "from" and "to"
+10. Start a do-while loop
+11. Prompt the user to guess the number and store their input in the variable "guessedNumber"
+12. Check if the guessed number is higher than the random number and display "Your guess is too high!" if true
+13. Check if the guessed number is lower than the random number and display "Your guess is too low!" if true
+14. If neither of the above conditions are true, display "You got it!"
+15. Continue looping until the guessed number is equal to the random number
+16. End of the do-while loop
+17. End of the main method
+18. End of the Main class

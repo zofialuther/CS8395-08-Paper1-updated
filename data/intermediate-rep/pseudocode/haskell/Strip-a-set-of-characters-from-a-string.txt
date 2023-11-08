@@ -1,0 +1,6 @@
+FUNCTION stripChars
+  INPUT: String str, String chars
+  OUTPUT: String result
+  
+  result = filter(str, (char) => char not in chars)
+  RETURN result

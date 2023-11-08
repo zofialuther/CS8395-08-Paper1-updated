@@ -1,0 +1,17 @@
+1. Import necessary libraries:
+   - import Data.List (group, sort)
+   - import Text.Printf (printf)
+   - import Data.Numbers.Primes (primes)
+
+2. Define the frequency function:
+   - freq :: [(Int, Int)] -> Float
+   - freq xs = realToFrac (length xs) / 100
+
+3. Define the line function to print the results:
+   - line :: [(Int, Int)] -> IO ()
+   - line t@((n1, n2):xs) = printf "%d -> %d count: %5d frequency: %2.2f %%\n" n1 n2 (length t) (freq t)
+
+4. Define the main function:
+   - main :: IO ()
+   - main = mapM_ line $ groups primes
+     - Where groups = tail . group . sort . (\n -> zip (0: n) n) . fmap (`mod` 10) . take 10000

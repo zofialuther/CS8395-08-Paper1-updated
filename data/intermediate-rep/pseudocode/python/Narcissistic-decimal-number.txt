@@ -1,0 +1,23 @@
+Pseudocode:
+
+Import print_function from __future__
+Import count, islice from itertools
+
+Function narcissists:
+    For digits in count starting at 0:
+        Set digitpowers to an empty list
+        For i in range 0 to 9:
+            Append i raised to the power of digits to digitpowers
+        For n in range 10^(digits-1) to 10^digits:
+            Set div to n
+            Set digitpsum to 0
+            While div is not 0:
+                Set div and mod to divmod(div, 10)
+                Add digitpowers[mod] to digitpsum
+            If n is equal to digitpsum:
+                Yield n
+
+For i, n in enumerate the first 25 elements of narcissists:
+    Print n with a space as the end character
+    If i is divisible by 5, print a new line
+Print a new line to finish the output.

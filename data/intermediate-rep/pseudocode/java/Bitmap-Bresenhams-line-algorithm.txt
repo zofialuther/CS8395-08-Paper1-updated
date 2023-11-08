@@ -1,0 +1,105 @@
+```
+function main()
+    SwingUtilities.invokeLater(run)
+end function
+
+function run()
+    f = new JFrame()
+    f.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE)
+    f.setTitle("Bresenham")
+
+    f.getContentPane().add(new BresenhamPanel())
+    f.pack()
+
+    f.setLocationRelativeTo(null)
+    f.setVisible(true)
+end function
+
+class BresenhamPanel extends JPanel
+    pixelSize = 10
+
+    BresenhamPanel()
+        setPreferredSize(new Dimension(600, 500))
+        setBackground(Color.WHITE)
+    end function
+
+    function paintComponent(Graphics g)
+        super.paintComponent(g)
+
+        w = (getWidth() - 1) / pixelSize
+        h = (getHeight() - 1) / pixelSize
+        maxX = (w - 1) / 2
+        maxY = (h - 1) / 2
+        x1 = -maxX, x2 = maxX * -2 / 3, x3 = maxX * 2 / 3, x4 = maxX
+        y1 = -maxY, y2 = maxY * -2 / 3, y3 = maxY * 2 / 3, y4 = maxY
+
+        drawLine(g, 0, 0, x3, y1) // NNE
+        drawLine(g, 0, 0, x4, y2) // ENE
+        drawLine(g, 0, 0, x4, y3) // ESE
+        drawLine(g, 0, 0, x3, y4) // SSE
+        drawLine(g, 0, 0, x2, y4) // SSW
+        drawLine(g, 0, 0, x1, y3) // WSW
+        drawLine(g, 0, 0, x1, y2) // WNW
+        drawLine(g, 0, 0, x2, y1) // NNW
+    end function
+
+    function plot(Graphics g, x, y)
+        w = (getWidth() - 1) / pixelSize
+        h = (getHeight() - 1) / pixelSize
+        maxX = (w - 1) / 2
+        maxY = (h - 1) / 2
+
+        borderX = getWidth() - ((2 * maxX + 1) * pixelSize + 1)
+        borderY = getHeight() - ((2 * maxY + 1) * pixelSize + 1)
+        left = (x + maxX) * pixelSize + borderX / 2
+        top = (y + maxY) * pixelSize + borderY / 2
+
+        g.setColor(Color.black)
+        g.drawOval(left, top, pixelSize, pixelSize)
+    end function
+
+    function drawLine(Graphics g, x1, y1, x2, y2)
+        d = 0
+
+        dx = Math.abs(x2 - x1)
+        dy = Math.abs(y2 - y1)
+
+        dx2 = 2 * dx
+        dy2 = 2 * dy
+
+        ix = x1 < x2 ? 1 : -1
+        iy = y1 < y2 ? 1 : -1
+
+        x = x1
+        y = y1
+
+        if dx >= dy
+            while true
+                plot(g, x, y)
+                if x == x2
+                    break
+                end if
+                x += ix
+                d += dy2
+                if d > dx
+                    y += iy
+                    d -= dx2
+                end if
+            end while
+        else
+            while true
+                plot(g, x, y)
+                if y == y2
+                    break
+                end if
+                y += iy
+                d += dx2
+                if d > dy
+                    x += ix
+                    d -= dy2
+                end if
+            end while
+        end if
+    end function
+end class
+```

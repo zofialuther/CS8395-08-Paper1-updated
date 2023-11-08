@@ -1,0 +1,18 @@
+```
+1. Define type Result as a list of tuples where the first element is a String and the second element is a list of Integers.
+
+2. Define function oneMillionPrimes to generate a list of primes less than 1,000,000.
+
+3. Define function getGroups that takes a list of Integers and returns a Result. 
+   If the list is empty, return an empty list.
+   If the list has at least 4 elements, check the differences between the elements and add the corresponding tuple to the Result list.
+   If the list has less than 4 elements, call getGroups recursively with the tail of the list.
+
+4. Define a global variable groups that stores the Result obtained by calling getGroups with oneMillionPrimes.
+
+5. Define function showGroup that takes a String and prints information about the groups that match the given String.
+   Print the number of groups that match the String and the first and last elements of each matching group.
+
+6. Define the main function to call showGroup with specific Strings in a sequence.
+```
+There is the pseudocode for the given code.

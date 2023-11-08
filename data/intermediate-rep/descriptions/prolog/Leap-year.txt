@@ -1,0 +1,3 @@
+This code defines a predicate `leap_year` that takes a list of years `L` as input. It uses the `partition` predicate to separate the leap years from the non-leap years in the input list. It then uses the `format` predicate to print out the leap years and non-leap years in separate lines. 
+
+The `is_leap_year` predicate is also defined, which checks if a given year is a leap year by performing the necessary calculations and checks according to the leap year rules (divisible by 4 but not by 100, or divisible by 400).

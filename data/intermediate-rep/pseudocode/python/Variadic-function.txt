@@ -1,0 +1,5 @@
+function print_all(things)
+    for each x in things
+        print x
+    end for
+end function

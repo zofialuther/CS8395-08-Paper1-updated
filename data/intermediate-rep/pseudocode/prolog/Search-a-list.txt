@@ -1,0 +1,29 @@
+search_a_list(N1, N2):
+    L = ["Zig", "Zag", "Wally", "Ronald", "Bush", "Krusty", "Charlie", "Bush", "Boz", "Zag"]
+    write 'List is :'
+    maplist my_write L
+    write newline, newline
+
+    if N1 is in L at position Ind1:
+        format '%s is in position %w' N1 Ind1
+    else:
+        format '%s is not present' N1
+
+    if N2 is in L at position Ind2:
+        format '%s is in position %w' N2 Ind2
+    else:
+        format '%s is not present' N2
+
+    if N1 is in L at last position Ind3:
+        format '%s last position is %w' N1 Ind3
+    else:
+        format '%s is not present' N1
+
+reverse_nth1(Ind, L, N):
+    RL = reverse L
+    Len = length L
+    nth1 Ind1 of RL is N
+    Ind = Len - Ind1 + 1
+
+my_write(Name):
+    writef ' %s' Name

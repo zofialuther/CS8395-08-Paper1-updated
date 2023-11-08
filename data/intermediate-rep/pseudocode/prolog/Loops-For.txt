@@ -1,0 +1,12 @@
+set I to 1
+while I is less than or equal to 5 do
+    output I
+    output a new line
+    set J to 1
+    while J is less than or equal to I do
+        output '*'
+        fail
+        increment J
+    end while
+    increment I
+end while

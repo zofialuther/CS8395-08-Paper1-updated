@@ -1,0 +1,12 @@
+// Pseudocode
+import java.util.HashMap
+
+function main(args: String[]){
+    keys = ["a", "b", "c"]
+    vals = [1, 2, 3]
+    hash = new HashMap<String, Integer>()
+
+    for i=0 to length(keys) do
+        hash.put(keys[i], vals[i])
+    end for
+}

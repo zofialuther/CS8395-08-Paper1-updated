@@ -1,0 +1,1 @@
+This code implements the Tower of Hanoi puzzle solution using recursion. The hanoi function takes the number of disks and the start and end pegs as parameters. It recursively solves the puzzle by moving disks from one peg to another while obeying the rules of the game. The code then calls the hanoi function with 4 disks to solve the puzzle.

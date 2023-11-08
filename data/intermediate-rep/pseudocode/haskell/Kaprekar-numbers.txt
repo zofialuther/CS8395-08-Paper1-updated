@@ -1,0 +1,49 @@
+```
+function isPrime(x)
+  return all((0 !=) . mod x) (takeWhile((<=x) . join(*)) primes)
+
+function unitFactors(n)
+  return map(product) (group(f(n, takeWhile((<=n) . join(*)) primes)))
+  function f(n, [])
+    if n == 1 then
+      return []
+    else if n == 0 then
+      return [n]
+    else
+      if n `mod` p == 0 then
+        return p : f(n `div` p, (p : ps))
+      else
+        return f(n, ps)
+
+function factors(n)
+  return foldM(f, 1, unitFactors(n))
+  function f(x, a)
+    return [x, x * a]
+
+function inverse(x, y)
+  (a, b) = extEuclid(x, y)
+  if a < 0 then
+    a = a + y
+  return a
+  function extEuclid(x, 0)
+    return (1, 0)
+  function extEuclid(x, y)
+    t = extEuclid(y, r)
+    q, r = divMod(x, y)
+    s, t = extEuclid(y, r)
+    return (t, s - q * t)
+
+function kaprekars(base, top)
+  pb = (\x -> base ^ x - 1) <$> [1 ..]
+  return nub(sort(concatMap(kaps, takeWhile(<= top * top `div` base ^ 2, pb))))
+  function kaps(pb)
+    return filter(<= top, f) (factors(pb))
+    function f(x)
+      if x == pb then 
+        return pb
+      else
+        return x * inverse(x, (pb `div` x))
+
+function main()
+  mapM_(print, kaprekars(10, 10000000))
+```

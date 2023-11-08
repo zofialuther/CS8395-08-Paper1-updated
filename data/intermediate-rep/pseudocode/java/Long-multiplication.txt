@@ -1,0 +1,15 @@
+1. Import the necessary library for the code
+2. Create a class called LongMultBinary
+3. Create a nested class called MyLongNum which implements Cloneable
+4. Declare private instance variables digits and digitsUsed
+5. Implement the clone method to create a deep copy of the MyLongNum object
+6. Create a private method resize to resize the digits array
+7. Create a private method adjustDigitsUsed to adjust the number of digits used in the array
+8. Implement the multiply method to perform short multiplication by one digit
+9. Implement the add method to perform short addition (adding a one-digit number)
+10. Implement the divide method to perform short division (dividing by a one-digit number)
+11. Create a constructor for MyLongNum that takes a String value and initializes the MyLongNum object with the given value
+12. Implement the toString method to convert the MyLongNum object to a String
+13. Implement the multiply method to perform long multiplication
+14. Create the main method
+15. Inside the main method, create two MyLongNum objects, initialize them with a string value, multiply them, and print the result.

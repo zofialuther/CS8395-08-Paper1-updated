@@ -1,0 +1,1 @@
+This code uses the Data.Array module to create an array called 'ary' with values from 1 to 10. It then creates a new array called 'evens' that contains only the even numbers from the 'ary' array. The length of the 'l' array is assigned to 'n' and the even numbers are filtered using a list comprehension.

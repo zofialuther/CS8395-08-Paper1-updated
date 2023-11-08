@@ -1,0 +1,1 @@
+This code calculates and prints the "long years" between two given years as per the ISO week date system. A year is considered a "long year" if the remainder when divided by 4 is 4 or when divided by 4 is 3 and when divided by 100 is not 3. The main function calls on the print_long_years function to display the long years between the years 1800 and 2100.

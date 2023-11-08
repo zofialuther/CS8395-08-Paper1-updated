@@ -1,0 +1,97 @@
+```
+import qualified Data.List as L
+import System.IO
+import System.Random
+
+data CoinToss = H | T deriving (Read, Show, Eq)
+
+function parseToss (String) -> [CoinToss]
+  if String is empty
+    return an empty list
+  else
+    for each character s in String
+      if s is 'h' or 'H'
+        add H to the result list
+      else if s is 't' or 'T'
+        add T to the result list
+      else
+        continue to the next character
+    return the result list
+
+function notToss (CoinToss) -> CoinToss
+  if CoinToss is H
+    return T
+  else if CoinToss is T
+    return H
+
+instance Random CoinToss
+  function random g
+    let (b, gb) = random g
+    if b
+      return (H, gb)
+    else
+      return (T, gb)
+  function randomR
+    return undefined
+
+function prompt (String, String, (String -> Maybe a)) -> IO a
+  print the message
+  line = read a line from input
+  ans = parse(line)
+  if ans is Nothing
+    print error message
+    call prompt with the same parameters
+  else
+    return ans
+
+function showCat ([a]) -> String
+  concatenate and convert each element to string and return the result
+
+data Winner = Player | CPU
+
+function runToss ([CoinToss], [CoinToss], g) -> ([CoinToss], Winner)
+  stream = randoms g
+  function run ([CoinToss])
+    if player sequence is prefix of the input sequence
+      return player sequence
+    else if cpu sequence is prefix of the input sequence
+      return cpu sequence
+    else
+      return input sequence
+  winner = run(stream)
+  if player sequence is suffix of winner
+    return (winner, Player)
+  else
+    return (winner, CPU)
+
+function game (Bool, a, a, g) -> IO()
+  print the current score
+  let (genA, genB) = split g
+  function promptPlayer (function) -> tosses
+    prompt the player to pick 3 coin sides
+    if the input is valid
+      return the parsed tosses
+    else
+      repeat until valid input is received
+  function promptCpu (list) -> void
+    print the CPU's choice
+  if it's the CPU's turn
+    generate CPU's choice
+    prompt player for their choice
+    run the toss and return the winner
+  else
+    prompt player for their choice
+    calculate CPU's choice based on player's choice
+    prompt CPU's choice
+    run the toss and return the winner
+  print the sequence tossed
+  handle the winner and update scores
+  if the game is not over
+    call game recursively with updated parameters
+
+function main () -> IO()
+  set input buffering
+  get a random generator
+  generate CPU's first turn
+  start the game
+```

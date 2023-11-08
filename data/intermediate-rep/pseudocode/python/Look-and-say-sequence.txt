@@ -1,0 +1,9 @@
+1. Import the regular expression module
+2. Define a function called lookandsay that takes a string as input
+3. Inside the function, use the re.sub() method to replace characters in the string using a regular expression pattern and a lambda function
+4. The regular expression pattern matches a single character followed by zero or more occurrences of the same character
+5. In the lambda function, return the length of the matched group followed by the character itself
+6. Outside the function, initialize a variable called num with the value "1"
+7. Use a for loop to iterate 10 times
+8. Inside the loop, print the value of num
+9. Update the value of num by calling the lookandsay function with num as the argument and assigning the result back to num.

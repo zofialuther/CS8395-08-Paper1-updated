@@ -1,0 +1,6 @@
+START
+  CREATE StringBuilder sb with initial capacity of 26
+  FOR each character ch from 'a' to 'z'
+    APPEND ch to sb
+  PRINT "lower ascii: " + sb + ", length: " + sb.length()
+END

@@ -1,0 +1,1 @@
+This code defines a function to determine whether a given year is a leap year or not. It uses the isleapsf function to check if the year is divisible by 100 and 400, and then uses the leaptext function to generate a text output indicating whether the year is a leap year or not. The code utilizes Data.List, Control.Monad, and Control.Arrow modules for its functionality.

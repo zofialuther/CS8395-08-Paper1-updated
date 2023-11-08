@@ -1,0 +1,1 @@
+This Java program contains methods to calculate and display Chowla numbers, count primes, and find perfect numbers. The main method uses these methods to print the results for chowla numbers, count of primes up to a certain limit, and the perfect numbers found. The program uses a combination of loops, conditions, and arrays to perform the calculations and display the results.

@@ -1,0 +1,1 @@
+This code defines a lambda function called x that takes a single parameter and multiplies it by 5. It then calls the function with the argument "ha" and prints the result.

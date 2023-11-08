@@ -1,0 +1,66 @@
+```
+FUNCTION point_construct(X, Y, point(X1,Y1)):
+    IF X is unbound
+        SET X1 to 0
+    ELSE
+        SET X1 to X
+    IF Y is unbound
+        SET Y1 to 0
+    ELSE
+        SET Y1 to Y
+
+FUNCTION circle_construct(X, Y, R, circle(X1,Y1,R1)):
+    IF X is unbound
+        SET X1 to 0
+    ELSE
+        SET X1 to X
+    IF Y is unbound
+        SET Y1 to 0
+    ELSE
+        SET Y1 to Y
+    IF R is unbound
+        SET R1 to 0
+    ELSE
+        SET R1 to R
+
+FUNCTION shape_x_y_set(point(_, _), X, Y, point(X,Y)):
+    SET X and Y values of point to X and Y
+
+FUNCTION shape_x_y_set(circle(_,_,R), X, Y, circle(X,Y,R)):
+    SET X and Y values of circle to X and Y
+
+FUNCTION cicle_r_set(circle(X,Y,_), R, circle(X,Y,R)):
+    SET R value of circle to R
+
+FUNCTION print_shape(point(X,Y)):
+    PRINT "Point (~p,~p)" with X and Y values
+
+FUNCTION print_shape(circle(X,Y,R)):
+    PRINT "Circle (~p,~p,~p)" with X, Y, and R values
+
+FUNCTION default(N, 0):
+    IF N is unbound
+        SET N to 0
+    ELSE IF N is a number
+        SET N to itself
+
+FUNCTION default(N, N):
+    IF N is unbound
+        SET N to itself
+
+FUNCTION test_point():
+    point_construct(2,3,P)
+    test_poly(P)
+
+FUNCTION test_circle():
+    circle_construct(3,4,_,C)
+    cicle_r_set(C, 5, C1)
+    test_poly(C1)
+
+FUNCTION test_poly(T):
+    shape_x_y_set(_, X, Y, T)
+    X1 = X * 2
+    Y1 = Y * 2
+    shape_x_y_set(T, X1, Y1, T1)
+    print_shape(T1)
+```

@@ -1,0 +1,1 @@
+This code takes a list of numbers and uses the mapM_ function to print out each number alongside its corresponding ordinal form (e.g. "1st", "2nd", "3rd"). The spellOrdinal function is used to convert each number to its ordinal form before printing it to the console. The provided list includes various numbers to demonstrate the functionality of the code.

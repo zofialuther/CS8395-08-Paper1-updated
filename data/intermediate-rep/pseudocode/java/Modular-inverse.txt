@@ -1,0 +1,9 @@
+1. Import the necessary library for BigInteger operations.
+
+2. Create a BigInteger object and assign the value 42 to it.
+
+3. Create another BigInteger object and assign the value 2017 to it.
+
+4. Call the modInverse method on the first BigInteger object, passing the second BigInteger object as an argument.
+
+5. Print the result of the modInverse method to the console using System.out.println.

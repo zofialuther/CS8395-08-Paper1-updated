@@ -1,0 +1,18 @@
+FUNCTION egyptianFraction(n: Ratio a) -> [Ratio a]
+    IF n < 0 THEN
+        RETURN map(negate, egyptianFraction(-n))
+    ELSE IF n == 0 THEN
+        RETURN []
+    ELSE IF x == 1 THEN
+        RETURN [n]
+    ELSE IF x > y THEN
+        newFraction = x div y % 1
+        RETURN newFraction : egyptianFraction(x mod y % y)
+    ELSE
+        newFraction = 1 % r
+        RETURN newFraction : egyptianFraction((-y) mod x % (y * r))
+    END IF
+    x = numerator(n)
+    y = denominator(n)
+    r = y div x + 1
+END FUNCTION

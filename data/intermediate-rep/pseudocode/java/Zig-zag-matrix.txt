@@ -1,0 +1,30 @@
+FUNCTION Zig_Zag(size)
+    data = new int[size][size]
+    i = 1
+    j = 1
+    FOR element = 0 TO size*size
+        data[i - 1][j - 1] = element
+        IF (i + j) MOD 2 == 0 THEN
+            // Even stripes
+            IF j < size THEN
+                j++
+            ELSE
+                i += 2
+            END IF
+            IF i > 1 THEN
+                i--
+            END IF
+        ELSE
+            // Odd stripes
+            IF i < size THEN
+                i++
+            ELSE
+                j += 2
+            END IF
+            IF j > 1 THEN
+                j--
+            END IF
+        END IF
+    END FOR
+    RETURN data
+END FUNCTION

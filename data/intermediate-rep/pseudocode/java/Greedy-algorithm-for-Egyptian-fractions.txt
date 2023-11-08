@@ -1,0 +1,199 @@
+BEGIN
+    FUNCTION gcd(a, b)
+        IF b equals 0 THEN
+            RETURN a
+        ELSE
+            RETURN gcd(b, a mod b)
+        END IF
+    END FUNCTION
+    
+    CLASS Frac
+        FUNCTION Frac(n, d)
+            IF d equals 0 THEN
+                RAISE IllegalArgumentException("Parameter d may not be zero.")
+            END IF
+            nn = n
+            dd = d
+            IF nn equals 0 THEN
+                dd = 1
+            ELSE IF dd < 0 THEN
+                nn = -nn
+                dd = -dd
+            END IF
+            g = gcd(nn, dd).abs()
+            IF g > 0 THEN
+                nn = nn.divide(g)
+                dd = dd.divide(g)
+            END IF
+            num = nn
+            denom = dd
+        END FUNCTION
+        
+        FUNCTION Frac(n, d)
+            CALL Frac(BigInteger.valueOf(n), BigInteger.valueOf(d))
+        END FUNCTION
+        
+        FUNCTION plus(rhs)
+            RETURN Frac(
+                num.multiply(rhs.denom).add(denom.multiply(rhs.num)),
+                rhs.denom.multiply(denom)
+            )
+        END FUNCTION
+        
+        FUNCTION unaryMinus()
+            RETURN Frac(num.negate(), denom)
+        END FUNCTION
+        
+        FUNCTION minus(rhs)
+            RETURN plus(rhs.unaryMinus())
+        END FUNCTION
+        
+        FUNCTION compareTo(rhs)
+            diff = toBigDecimal().subtract(rhs.toBigDecimal())
+            IF diff < 0 THEN
+                RETURN -1
+            ELSE IF diff > 0 THEN
+                RETURN 1
+            ELSE
+                RETURN 0
+            END IF
+        END FUNCTION
+        
+        FUNCTION equals(obj)
+            IF obj equals null OR !(obj instanceof Frac) THEN
+                RETURN false
+            END IF
+            rhs = (Frac) obj
+            RETURN compareTo(rhs) equals 0
+        END FUNCTION
+        
+        FUNCTION toString()
+            IF denom equals 1 THEN
+                RETURN num.toString()
+            ELSE
+                RETURN String.format("%s/%s", num, denom)
+            END IF
+        END FUNCTION
+        
+        FUNCTION toBigDecimal()
+            bdn = new BigDecimal(num)
+            bdd = new BigDecimal(denom)
+            RETURN bdn.divide(bdd, MathContext.DECIMAL128)
+        END FUNCTION
+        
+        FUNCTION toEgyptian()
+            IF num equals 0 THEN
+                RETURN Collections.singletonList(this)
+            END IF
+            fracs = new ArrayList<Frac>()
+            IF num.abs().compareTo(denom.abs()) >= 0 THEN
+                div = new Frac(num.divide(denom), BigInteger.ONE)
+                rem = this.minus(div)
+                fracs.add(div)
+                CALL toEgyptian(rem.num, rem.denom, fracs)
+            ELSE
+                CALL toEgyptian(num, denom, fracs)
+            END IF
+            RETURN fracs
+        END FUNCTION
+        
+        FUNCTION toEgyptian(n, d, fracs)
+            IF n equals 0 THEN
+                RETURN
+            END IF
+            n2 = new BigDecimal(n)
+            d2 = new BigDecimal(d)
+            divRem = d2.divideAndRemainder(n2, MathContext.UNLIMITED)
+            div = divRem[0].toBigInteger()
+            IF divRem[1] > 0 THEN
+                div = div.add(BigInteger.ONE)
+            END IF
+            fracs.add(new Frac(BigInteger.ONE, div))
+            n3 = d.negate().mod(n)
+            IF n3 < 0 THEN
+                n3 = n3.add(n)
+            END IF
+            d3 = d.multiply(div)
+            f = new Frac(n3, d3)
+            IF f.num equals 1 THEN
+                fracs.add(f)
+                RETURN
+            END IF
+            CALL toEgyptian(f.num, f.denom, fracs)
+        END FUNCTION
+    END CLASS
+    
+    FUNCTION main
+        fracs = List.of(
+            new Frac(43, 48),
+            new Frac(5, 121),
+            new Frac(2014, 59)
+        )
+        FOR EACH frac IN fracs
+            list = frac.toEgyptian()
+            first = list.get(0)
+            IF first.denom equals 1 THEN
+                PRINT frac + " -> [" + first + "] + "
+            ELSE
+                PRINT frac + " -> " + first
+            END IF
+            FOR i = 1 TO list.size() - 1
+                PRINT " + " + list.get(i)
+            END FOR
+            PRINTLN
+        END FOR
+        
+        FOR EACH r IN List.of(98, 998)
+            IF r equals 98 THEN
+                PRINTLN "\nFor proper fractions with 1 or 2 digits:"
+            ELSE
+                PRINTLN "\nFor proper fractions with 1, 2 or 3 digits:"
+            END IF
+            maxSize = 0
+            maxSizeFracs = new ArrayList<Frac>()
+            maxDen = BigInteger.ZERO
+            maxDenFracs = new ArrayList<Frac>()
+            sieve = new boolean[r + 1][r + 2]
+            FOR i = 1 TO r - 1
+                FOR j = i + 1 TO r
+                    IF sieve[i][j] THEN
+                        CONTINUE
+                    END IF
+                    f = new Frac(i, j)
+                    list = f.toEgyptian()
+                    listSize = list.size()
+                    IF listSize > maxSize THEN
+                        maxSize = listSize
+                        maxSizeFracs.clear()
+                        maxSizeFracs.add(f)
+                    ELSE IF listSize equals maxSize THEN
+                        maxSizeFracs.add(f)
+                    END IF
+                    listDen = list.get(list.size() - 1).denom
+                    IF listDen.compareTo(maxDen) > 0 THEN
+                        maxDen = listDen
+                        maxDenFracs.clear()
+                        maxDenFracs.add(f)
+                    ELSE IF listDen equals maxDen THEN
+                        maxDenFracs.add(f)
+                    END IF
+                    IF i < r / 2 THEN
+                        k = 2
+                        WHILE TRUE
+                            IF j * k > r + 1 THEN
+                                BREAK
+                            END IF
+                            sieve[i * k][j * k] = true
+                            k++
+                        END WHILE
+                    END IF
+                END FOR
+            END FOR
+            PRINTLN "  largest number of items = " + maxSize
+            PRINTLN "fraction(s) with this number : " + maxSizeFracs
+            md = maxDen.toString()
+            PRINTLN "  largest denominator = " + md.length() + " digits, " + md.substring(0, 20) + "..." + md.substring(md.length() - 20, md.length())
+            PRINTLN "fraction(s) with this denominator : " + maxDenFracs
+        END FOR
+    END FUNCTION
+END

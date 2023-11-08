@@ -1,0 +1,22 @@
+1. Create a function called divide that takes in two parameters: dividend and divisor
+
+2. Create an empty list called powersOf2
+3. Create an empty list called doublings
+
+4. Initialize a variable called line to 0
+5. While (2 raised to the power of line multiplied by divisor) is less than or equal to dividend
+6.     - Add 2 raised to the power of line to the powersOf2 list
+7.     - Add (2 raised to the power of line) multiplied by divisor to the doublings list
+8.     - Increment line by 1
+
+9. Initialize the answer variable to 0
+10. Initialize the accumulator variable to 0
+
+11. Loop through the powersOf2 list in reverse order
+12.     - If accumulator plus the value at index i in the doublings list is less than or equal to dividend
+13.         - Add the value at index i in the doublings list to the accumulator
+14.         - Add the value at index i in the powersOf2 list to the answer
+
+15. Print the answer and the remainder (dividend minus accumulator) to the console
+
+16. In the main function, call the divide function with the values 580 and 34 as parameters.

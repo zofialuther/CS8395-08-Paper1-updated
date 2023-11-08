@@ -1,0 +1,17 @@
+```
+function commonPath(paths)
+    commonPath = ""
+    folders = new Array(paths.length)
+
+    for i from 0 to paths.length-1
+        folders[i] = paths[i].split("/")
+
+    for j from 0 to folders[0].length-1
+        s = folders[0][j]
+        for i from 1 to paths.length-1
+            if s is not equal to folders[i][j]
+                return commonPath
+        commonPath += s + "/"
+
+    return commonPath
+```

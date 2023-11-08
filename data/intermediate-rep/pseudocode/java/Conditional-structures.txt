@@ -1,0 +1,3 @@
+if (obj is not equal to null and obj.foo() returns true) {
+   call aMethod();
+}

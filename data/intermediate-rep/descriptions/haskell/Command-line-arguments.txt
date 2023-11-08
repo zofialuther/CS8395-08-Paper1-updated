@@ -1,0 +1,1 @@
+This code is written in Haskell and imports the System module. The main function takes command line arguments and uses the bind operator to pass them to the print function, which will then display them as output.

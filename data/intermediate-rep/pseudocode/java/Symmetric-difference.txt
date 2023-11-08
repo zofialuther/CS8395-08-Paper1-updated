@@ -1,0 +1,14 @@
+START
+  Import necessary libraries
+  Create a class SymmetricDifference
+    Create a main method
+      Create setA and setB with initial values
+      Print the initial data set for setA and setB
+      Find the elements that are not in setA but are in setB and store in notInSetA
+      Find the elements that are not in setB but are in setA and store in notInSetB
+      Combine notInSetA and notInSetB to get symmetricDifference
+      Combine setA and setB to get union
+      Find the intersection of setA and setB and store in intersection
+      Find the symmetric difference using union and intersection and store in symmetricDifference2
+      Print the results for notInSetA, notInSetB, symmetricDifference, and symmetricDifference2
+  END

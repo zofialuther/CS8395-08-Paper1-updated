@@ -1,0 +1,44 @@
+FUNCTION pd(num)
+    factors = []
+    FOR divisor in range(1, 1 + num // 2)
+        IF num % divisor == 0 THEN 
+            factors.append(divisor)
+    RETURN factors
+
+FUNCTION pdc(num)
+    count = 0
+    FOR divisor in range(1, 1 + num // 2)
+        IF num % divisor == 0 THEN 
+            count += 1
+    RETURN count
+
+FUNCTION fmtres(title, lmt, best, bestc)
+    RETURN "The " + title + " number up to and including " + str(lmt) + " with the highest number of proper divisors is " + str(best) + ", which has " + str(bestc)
+
+FUNCTION showcount(limit)
+    best, bestc, bh, bhc = 0, 0, 0, 0
+    FOR i in range(limit + 1)
+        divc = pdc(i)
+        IF divc > bestc THEN 
+            bestc, best = divc, i
+        IF divc >= bhc THEN 
+            bhc, bh = divc, i
+    IF best == bh THEN
+        PRINT(fmtres("only", limit, best, bestc))
+    ELSE 
+        PRINT(fmtres("lowest", limit, best, bestc))
+        PRINT(fmtres("highest", limit, bh, bhc))
+    PRINT()
+
+lmt = 10
+FOR i in range(1, lmt + 1)
+    divs = pd(i)
+    IF length(divs) == 0 THEN
+        PRINT("There are no proper divisors of", i)
+    ELSE IF length(divs) == 1 THEN
+        PRINT(divs[0], "is the only proper divisor of", i)
+    ELSE 
+        PRINT(divs, "are the proper divisors of", i)
+PRINT()
+showcount(20000)
+showcount(25000)

@@ -1,0 +1,21 @@
+START
+  import numpy as np
+  from PIL import Image
+  from scipy.spatial import KDTree
+  
+  FUNCTION generate_voronoi_diagram(X, Y, num_cells)
+    colors = generate random colors of size (num_cells, 3) with dtype uint8
+    points = generate random points of size (num_cells, 2)
+    
+    idx = create indices array of size (Y, X)
+    coords = move axis of indices and reshape to (-1, 2)
+    
+    _d, labels = find closest points using KDTree(points).query(coords)
+    labels = reshape labels to (Y, X)
+    
+    rgb = assign colors to labels
+    img = create image from rgb array with mode 'RGB'
+    save img as 'VoronoiDiagram.png' in PNG format
+    display img
+    return rgb
+END

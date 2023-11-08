@@ -1,0 +1,16 @@
+arr1 = [1, 2, 3]
+arr2 = [4, 5, 6]
+arr3 = [7, 8, 9]
+arr4 = arr1 + arr2
+assert arr4 == [1, 2, 3, 4, 5, 6]
+arr4.extend(arr3)
+assert arr4 == [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Pseudocode:
+1. Create an array arr1 with values [1, 2, 3]
+2. Create an array arr2 with values [4, 5, 6]
+3. Create an array arr3 with values [7, 8, 9]
+4. Create an array arr4 by concatenating arr1 and arr2
+5. Check if arr4 is equal to [1, 2, 3, 4, 5, 6], if not, raise an error
+6. Extend arr4 with arr3
+7. Check if arr4 is equal to [1, 2, 3, 4, 5, 6, 7, 8, 9], if not, raise an error

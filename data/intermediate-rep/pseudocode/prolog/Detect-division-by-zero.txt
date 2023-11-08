@@ -1,0 +1,7 @@
+1. Start
+2. Function div(A, B, C, Ex)
+3.     Try
+4.         C = A/B
+5.     Catch Ex
+6.         C = infinity
+7. End Function

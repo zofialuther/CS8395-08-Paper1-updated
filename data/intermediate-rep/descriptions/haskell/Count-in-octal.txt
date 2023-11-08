@@ -1,0 +1,1 @@
+This code imports the showOct function from the Numeric module and defines a main function that uses mapM_ to apply the showOct function to each number in the range from 1 to the maximum value of the Int type. The output is then printed to the console.

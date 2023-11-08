@@ -1,0 +1,1 @@
+This code snippet uses Prolog to perform addition. When prompted with the query "plus," and then given the input "4 5," it returns the result "9" and confirms that the query is true.

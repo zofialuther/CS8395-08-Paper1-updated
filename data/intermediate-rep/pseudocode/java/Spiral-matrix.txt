@@ -1,0 +1,46 @@
+
+```
+function main
+  array = getSpiralArray(5)
+  print2dArray(array)
+
+function getSpiralArray(dimension)
+  spiralArray = create 2D array of dimension x dimension
+  numConcentricSquares = ceil(dimension / 2)
+  sideLen = dimension
+  currNum = 0
+
+  for i = 0 to numConcentricSquares
+    for j = 0 to sideLen
+      spiralArray[i][i + j] = currNum
+      currNum = currNum + 1
+    end for
+
+    for j = 1 to sideLen
+      spiralArray[i + j][dimension - 1 - i] = currNum
+      currNum = currNum + 1
+    end for
+
+    for j = sideLen - 2 to 0
+      spiralArray[dimension - 1 - i][i + j] = currNum
+      currNum = currNum + 1
+    end for
+
+    for j = sideLen - 2 to 1
+      spiralArray[i + j][i] = currNum
+      currNum = currNum + 1
+    end for
+
+    sideLen = sideLen - 2
+  end for
+
+  return spiralArray
+
+function print2dArray(array)
+  for each row in array
+    for each element in row
+      print element with 3 spaces
+    end for
+    print a new line
+  end for
+```

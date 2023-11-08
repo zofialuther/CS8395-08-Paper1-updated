@@ -1,0 +1,7 @@
+1. start(Port):
+2.     create Socket using socket('AF_INET',Socket)
+3.     connect Socket to localhost and Port using socket_connect(Socket, 'AF_INET'(localhost,Port), Input, Output)
+4.     write 'hello socket world' to Output using write(Output, 'hello socket world')
+5.     flush the Output using flush_output(Output)
+6.     close the Output using close(Output)
+7.     close the Input using close(Input)

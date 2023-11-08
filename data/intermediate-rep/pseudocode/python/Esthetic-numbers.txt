@@ -1,0 +1,103 @@
+'''
+FUNCTION estheticNumbersInBase(b)
+    RETURN concatMap(compose(lambda deltas,
+        concatMap(lambda headDigit,
+            concatMap(compose(fromBaseDigits(b),
+                scanl(add)(headDigit)
+            ))(deltas)
+        )(range(1, b)),
+        replicateList([-1, 1])
+    )(count(0))
+
+FUNCTION main()
+    FOR b IN range(2, 17)
+        PRINT samples(b)
+    FOR (lo, hi) IN [(1000, 9999), (100_000_000, 130_000_000)]
+        PRINT "Base 10 Esthetics in range [{lo}..{hi}]:"
+        PRINT unlines(wrap(unwords(str(x) for x in takeInRange(lo, hi)(estheticNumbersInBase(10)), 60))
+
+FUNCTION samples(b)
+    i, j = b * 4, b * 6
+    RETURN 'Esthetics [' + i + '..' + j + '] for base ' + b + ':' +
+        unlines(wrap(unwords(showInBase(b)(n) for n in compose(drop(i - 1), take(j))(estheticNumbersInBase(b))), 60))
+
+FUNCTION takeInRange(a, b)
+    RETURN compose(dropWhile(lambda x: x < a), takeWhile(lambda x: x <= b))
+
+FUNCTION fromBaseDigits(b)
+    FUNCTION go(digitList)
+        maybeNum = reduce(lambda r, d: None if r is None or (0 > d or d >= b) else r * b + d, digitList, 0)
+        RETURN [] IF maybeNum IS None ELSE [maybeNum]
+    RETURN go
+
+FUNCTION toBaseDigits(b)
+    FUNCTION f(x)
+        RETURN None IF x == 0 ELSE divmod(x, b)[::-1]
+    RETURN lambda n: list(reversed(unfoldr(f)(n)))
+
+FUNCTION showInBase(b)
+    charSet = digits + ascii_lowercase
+    RETURN lambda n: ''.join(charSet[i] for i in toBaseDigits(b)(n))
+
+FUNCTION compose(*fs)
+    FUNCTION go(f, g)
+        FUNCTION fg(x)
+            RETURN f(g(x))
+        RETURN fg
+    RETURN reduce(go, fs, lambda x: x)
+
+FUNCTION concatMap(f)
+    FUNCTION go(xs)
+        RETURN chain.from_iterable(map(f, xs))
+    RETURN go
+
+FUNCTION drop(n)
+    FUNCTION go(xs)
+        RETURN xs[n:] IF xs IS list OR tuple OR str ELSE take(n)(xs)
+    RETURN go
+
+FUNCTION dropWhile(p)
+    RETURN lambda xs: list(dropwhile(p, xs))
+
+FUNCTION replicateList(xs)
+    FUNCTION rep(n)
+        FUNCTION go(x)
+            RETURN [[]] IF x < 1 ELSE [([a] + b) for (a, b) in product(xs, go(x - 1))]
+        RETURN go(n)
+    RETURN rep
+
+FUNCTION scanl(f)
+    FUNCTION go(a)
+        FUNCTION g(xs)
+            RETURN accumulate(chain([a], xs), f)
+        RETURN g
+    RETURN go
+
+FUNCTION take(n)
+    FUNCTION go(xs)
+        RETURN list(islice(xs, n))
+    RETURN go
+
+FUNCTION takeWhile(p)
+    RETURN lambda xs: list(takewhile(p, xs))
+
+FUNCTION unfoldr(f)
+    FUNCTION go(v)
+        xr = v, v
+        xs = []
+        WHILE True
+            xr = f(xr[1])
+            IF xr IS NOT None
+                xs.append(xr[0])
+            ELSE
+                RETURN xs
+
+FUNCTION unlines(xs)
+    RETURN '\n'.join(xs)
+
+FUNCTION unwords(xs)
+    RETURN ' '.join(xs)
+
+IF __name__ == '__main__'
+    main()
+'''

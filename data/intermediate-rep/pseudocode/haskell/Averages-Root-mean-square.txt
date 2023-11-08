@@ -1,0 +1,7 @@
+1. Define a function rootMeanSquare that takes a list of Doubles and returns a Double
+2. Set rootMeanSquare to be equal to the square root of the result of the following function:
+3.   a. Use the foldr function to apply the following steps to the list of Doubles:
+4.       i. Add the square of each Double to the accumulator (starting at 0)
+5.     b. Divide the result of the foldr function by the genericLength of the original list
+6. Define the main function that takes no input and returns IO ()
+7. Set the main function to print the result of calling rootMeanSquare with the list [1 .. 10]

@@ -1,0 +1,22 @@
+1. Import necessary libraries: 
+   - import java.awt.Color;
+   - import java.awt.Graphics;
+   - import javax.swing.JFrame;
+   - import javax.swing.JPanel;
+
+2. Create a class XorPattern that extends JFrame:
+   - Define a private JPanel called xorPanel.
+
+3. Create a constructor for XorPattern:
+   - Initialize xorPanel as a new JPanel with overridden paint method.
+   - Inside the paint method:
+     - Use nested loops to iterate through the height and width of the panel.
+     - Set the color of the graphics object using the XOR operation on x and y coordinates, and modulo 256.
+     - Draw a line at the current x and y coordinates using the set color.
+   - Add xorPanel to the frame.
+   - Set the size of the frame to 300x300.
+   - Set default close operation to EXIT_ON_CLOSE.
+   - Set the frame to be visible.
+
+4. Create a main method:
+   - Instantiate a new XorPattern object.

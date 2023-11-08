@@ -1,0 +1,1 @@
+In this code, a variable named Δ😄 is assigned a value of 1 using the let function. Then, the inc function is used to increment the value of Δ😄 by 1.

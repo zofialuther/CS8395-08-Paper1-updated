@@ -1,0 +1,1 @@
+This code is using the os module to check for a problem, and if a problem is detected, it will abort the program using the os.abort() function.

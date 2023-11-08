@@ -1,0 +1,53 @@
+```
+function print_top_words(File, N) {
+    String = read_file_to_string(File, [encoding(utf8)]);
+    Words = re_split("\\w+", String);
+    Lower = lower_case(Words);
+    Sorted = sort(1, @=<, Lower);
+    Counted = merge_words(Sorted);
+    Top_words = sort(2, @>, Counted);
+    writef("Top %w words:\nRank\tCount\tWord\n", [N]);
+    print_top_words(Top_words, N, 1);
+}
+
+function lower_case([_], []) {
+    return [];
+}
+
+function lower_case([_, Word|Words], [Lower - 1|Rest]) {
+    Lower = string_lower(Word);
+    return [Lower - 1|Rest] + lower_case(Words);
+}
+
+function merge_words([]) {
+    return [];
+}
+
+function merge_words([Word - C1, Word - C2|Words]) {
+    C = C1 + C2;
+    return merge_words([Word - C|Words]);
+}
+
+function merge_words([W|Words]) {
+    return [W] + merge_words(Words);
+}
+
+function print_top_words([], _, _) {
+    return;
+}
+
+function print_top_words(_, 0, _) {
+    return;
+}
+
+function print_top_words([Word - Count|Rest], N, R) {
+    writef("%w\t%w\t%w\n", [R, Count, Word]);
+    N1 = N - 1;
+    R1 = R + 1;
+    print_top_words(Rest, N1, R1);
+}
+
+function main() {
+    print_top_words("135-0.txt", 10);
+}
+```

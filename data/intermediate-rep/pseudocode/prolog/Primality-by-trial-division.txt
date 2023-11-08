@@ -1,0 +1,12 @@
+function prime(N)
+    if N = 2 then
+        return true
+    else if N > 2 then
+        for i from 3 to infinity do
+            if 1 is N mod 2 then
+                M = floor(sqrt(N+1))
+                Max = (M-1) // 2
+                for j from 1 to Max do
+                    if N mod (2*j+1) <= 0 then
+                        return false
+        return true

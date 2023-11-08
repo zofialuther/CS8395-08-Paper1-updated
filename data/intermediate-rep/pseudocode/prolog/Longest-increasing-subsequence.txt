@@ -1,0 +1,11 @@
+1. Start lis(In, Out) function
+2. Use aggregate function to find the maximum length (N) and the corresponding sequence (Is) by iterating through the input list using one_is predicate and calculating the length of each sequence
+3. Reverse the resulting sequence (Res) to get the output sequence (Out)
+
+one_is([], Current, Current):
+1. If the input list is empty, set the final sequence (Final) to be the same as the current sequence (Current)
+
+one_is([H | T], Current, Final):
+1. If the current sequence (Current) is empty, recursively call one_is with the tail of the input list (T) and the head of the input list (H) added to the current sequence, and set the result as the final sequence (Final)
+2. If the current sequence (Current) is not empty and the first element (H1) is less than the head of the input list (H), recursively call one_is with the tail of the input list (T) and the head of the input list (H) added to the current sequence, and set the result as the final sequence (Final)
+3. If none of the above conditions are met, recursively call one_is with the tail of the input list (T) and the current sequence (Current) as is, and set the result as the final sequence (Final)

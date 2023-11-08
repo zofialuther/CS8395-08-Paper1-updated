@@ -1,0 +1,1 @@
+This Prolog code defines a predicate leftfact(N) which calculates the left factorial of a given number N. The left factorial of a number M is the sum of the factorials of all the numbers from 1 to M, inclusive. The code uses recursion to calculate the left factorial and prints out the results. The main predicate calls leftfact with N=10001.

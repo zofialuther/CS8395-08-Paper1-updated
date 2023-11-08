@@ -1,0 +1,12 @@
+1. Import necessary libraries
+2. Define a class called SocketSend
+3. Define the main method
+4. Call the sendData method with the arguments "localhost" and "hello socket world"
+5. Define the sendData method with parameters host and msg
+6. Create a new Socket object with the host and port number 256
+7. Get the output stream from the socket and write the message as bytes
+8. Flush the output stream
+9. Close the socket
+10. End the sendData method
+11. End the main method
+12. End the class

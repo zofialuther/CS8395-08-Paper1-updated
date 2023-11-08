@@ -1,0 +1,28 @@
+Pseudocode:
+
+Function allEq
+    Input: List of elements [a]
+    Output: Boolean
+
+    if input list is empty
+        return True
+    else
+        set a tuple (h, t) to the input list
+        until (lambda x, xs: null xs || x != head xs)
+            set (h, t) to (h, t) by removing the first element
+
+    return True if the loop completes without finding any unequal elements, otherwise False
+
+
+Function allInc
+    Input: List of elements [a]
+    Output: Boolean
+
+    if input list is empty
+        return True
+    else
+        set a tuple (h, t) to the input list
+        until (lambda x, xs: null xs || x >= head xs)
+            set (h, t) to (h, t) by removing the first element
+
+    return True if the loop completes without finding any decreasing elements, otherwise False

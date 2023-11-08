@@ -1,0 +1,11 @@
+```
+main :-
+    get_command_line_arguments(Arguments),
+    get_first_argument(Arguments, File),
+    read_file_to_string(File, String, []).
+
+get_command_line_arguments(Arguments) :-
+    current_prolog_flag(argv, Arguments).
+
+get_first_argument([First|_], First).
+```

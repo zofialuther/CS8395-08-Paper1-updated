@@ -1,0 +1,5 @@
+// Initialize a list
+list = ['apple', 'orange']
+
+// Print the length of the list
+print(len(list)) // Output: 2

@@ -1,0 +1,29 @@
+```
+declare dynamic predicate click/1
+
+define dialog with title 'Simple windowed application'
+  create Simple_windowed_application object
+  add parts:
+    - dialog with title 'Simple windowed application'
+    - label with id 'name' and text 'There have been no clicks yet'
+    - button with id 'button' and label 'Click me !'
+  modify button label to 'Click me !'
+  define layout:
+    - position and size of label 'name'
+    - position and size of button 'button'
+  define behavior:
+    - button click event to trigger btnclick predicate with label 'name'
+
+define btnclick with parameter Label
+  retrieve value of click(V) and retract
+  increment V by 1 and store in V1
+  assert new value of click(V1)
+  format text A as '~w click(s)' with value V1
+  update label with A
+
+define simple_windowed
+  remove all existing click facts
+  assert click with initial value 0
+  create dialog 'Simple windowed application'
+  open the dialog
+```

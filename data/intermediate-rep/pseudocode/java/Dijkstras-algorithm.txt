@@ -1,0 +1,13 @@
+1. Create a class Dijkstra
+2. Inside the class, create a constant GRAPH array containing Edge objects with source, destination, and distance values
+3. Create constant string variables START and END
+4. Create a main method that initializes a new Graph object using the GRAPH array, runs Dijkstra's algorithm on the graph, and prints the shortest path from START to END
+5. Create a class Graph
+6. Inside the class, create a private final Map graph to store Vertex objects
+7. Create a static class Edge with v1, v2, and dist variables
+8. Create a static class Vertex with name, dist, previous, and neighbours variables
+9. Create a constructor for the Graph class that takes an array of Edge objects and builds the graph
+10. Create a dijkstra method that initializes the source vertex and sets up the vertices, then calls the private dijkstra method
+11. Create a private dijkstra method that implements Dijkstra's algorithm using a binary heap
+12. Create a printPath method that prints the path from the source to a specified vertex
+13. Create a printAllPaths method that prints the path from the source to every vertex

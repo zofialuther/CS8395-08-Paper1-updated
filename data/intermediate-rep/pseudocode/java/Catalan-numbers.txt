@@ -1,0 +1,53 @@
+```
+Create a class CatlanNumbers
+    Define a main method
+        Create an instance f1 of Catlan1
+        Create an instance f2 of Catlan2
+        Create an instance f3 of Catlan3
+        Print "           Formula 1     Formula 2     Formula 3" to the console
+        Iterate through values of n from 0 to 15
+            Print the values of C(n) for each formula for the current value of n
+    Define an interface Catlan
+        Define a method catlin that takes a long n and returns a BigInteger
+    Define a class Catlan1 that implements the Catlan interface
+        Override the catlin method
+            Create an empty list numerator
+            Iterate through values of k from n+2 to 2*n
+                Add k to the numerator list
+            Create an empty list denominator
+            Iterate through values of k from 2 to n
+                Add k to the denominator list
+            Iterate through values of i from the length of numerator list - 1 to 0
+                Iterate through values of j from the length of denominator list - 1 to 0
+                    If the value at index j in the denominator list is 1, continue to the next iteration
+                    If the remainder of the division of the value at index i in the numerator list by the value at index j in the denominator list is 0
+                        Set val to the result of the division
+                        Set the value at index i in the numerator list to val
+                        Remove the value at index j from the denominator list
+                        If val is 1, break the loop
+            Create a BigInteger catlin and set it to 1
+            Iterate through values of i from 0 to the length of numerator list
+                Multiply catlin by the value at index i in the numerator list
+            Iterate through values of i from 0 to the length of denominator list
+                Divide catlin by the value at index i in the denominator list
+            Return catlin
+    Define a class Catlan2 that implements the Catlan interface
+        Create a static Map CACHE and add the key-value pair (0L, BigInteger.ONE)
+        Override the catlin method
+            If the CACHE contains the key n
+                Return the value associated with the key n in the CACHE
+            Create a BigInteger catlin and set it to 0
+            Decrement n by 1
+            Iterate through values of i from 0 to n
+                Add the product of catlin(i) and catlin(n-i) to catlin
+            Add the key-value pair (n+1, catlin) to the CACHE
+            Return catlin
+    Define a class Catlan3 that implements the Catlan interface
+        Create a static Map CACHE and add the key-value pair (0L, BigInteger.ONE)
+        Override the catlin method
+            If the CACHE contains the key n
+                Return the value associated with the key n in the CACHE
+            Create a BigInteger catlin and set it to 2 multiplied by 2*n-1 multiplied by catlin(n-1) and then divided by n+1
+            Add the key-value pair (n, catlin) to the CACHE
+            Return catlin
+```

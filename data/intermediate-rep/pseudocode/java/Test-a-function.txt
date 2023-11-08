@@ -1,0 +1,7 @@
+```
+class RunTests{
+  function main(args){
+    JUnitCore.runClasses(PalindromeTest.class/*, other classes here if you have more*/);
+  }
+}
+```

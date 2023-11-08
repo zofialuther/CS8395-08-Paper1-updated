@@ -1,0 +1,11 @@
+1. Create a variable called "number" and set it to 1
+2. Start a while loop with the condition "number <= 100"
+3. Inside the while loop, use a ternary operator to check if "number % 15 == 0"
+4. If true, print "FizzBuzz"
+5. If false, use another ternary operator to check if "number % 3 == 0"
+6. If true, print "Fizz"
+7. If false, use another ternary operator to check if "number % 5 == 0"
+8. If true, print "Buzz"
+9. If false, print the value of "number"
+10. Increment "number" by 1
+11. End the while loop.

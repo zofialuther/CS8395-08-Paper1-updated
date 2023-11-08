@@ -1,0 +1,9 @@
+class Multiply:
+    function init():
+        pass
+
+    function call(a, b):
+        return a * b
+
+multiply = new Multiply()
+print multiply(2, 4)  // prints 8

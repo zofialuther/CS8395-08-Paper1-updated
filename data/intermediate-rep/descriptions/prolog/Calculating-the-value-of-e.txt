@@ -1,0 +1,1 @@
+This code uses Newton's method to calculate the value of e (Euler's number) as the base of the natural logarithm. It sets a tolerance level for the calculation and then iteratively applies the Newton's method to approximate the value of e. The main function then prints the calculated value of e.

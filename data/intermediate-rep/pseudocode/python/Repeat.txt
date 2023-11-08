@@ -1,0 +1,91 @@
+```
+function applyN(n) {
+    function go(f) {
+        return function(x) {
+            return reduce(function(a, g) {
+                return g(a);
+            }, repeat(f, n), x);
+        };
+    }
+    return function(f) {
+        return go(f);
+    };
+}
+
+function main() {
+    function f(x) {
+        return x + 'Example\n';
+    }
+
+    function g(x) {
+        return 2 * x;
+    }
+
+    function h(x) {
+        return 1.05 * x;
+    }
+
+    console.log(
+        fTable(__doc__ + ':')(
+            function(fx) {
+                return '\nRepeated * 3:\n (' + (
+                    getsource(fst(fx)).strip() + ')(' +
+                    repr(snd(fx)) + ')'
+                );
+            }
+        )(str)(
+            liftA2(applyN(3))(fst)(snd)
+        )([(f, '\n'), (g, 1), (h, 100)])
+    );
+}
+
+function compose(g) {
+    return function(f) {
+        return function(x) {
+            return g(f(x));
+        };
+    };
+}
+
+function fst(tpl) {
+    return tpl[0];
+}
+
+function liftA2(op) {
+    return function(f) {
+        return function(g) {
+            return function(x) {
+                return op(
+                    f(x)
+                )(g(x));
+            };
+        };
+    };
+}
+
+function snd(tpl) {
+    return tpl[1];
+}
+
+function fTable(s) {
+    return function(xShow) {
+        return function(fxShow) {
+            return function(f) {
+                return function(xs) {
+                    var ys = xs.map(xShow);
+                    var w = Math.max.apply(Math, ys.map(function(y) {
+                        return y.length;
+                    }));
+                    return s + '\n' + xs.map(function(x, index) {
+                        return ys[index].rjust(w, ' ') + ' -> ' + fxShow(f(x));
+                    }).join('\n');
+                };
+            };
+        };
+    };
+}
+
+if (require.main === module) {
+    main();
+}
+```

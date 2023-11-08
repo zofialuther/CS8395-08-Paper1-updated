@@ -1,0 +1,61 @@
+```
+function traverse(f, arr){
+  let result = []
+  for(let i = 0; i < arr.length; i++){
+    result.push(f(arr[i]))
+  }
+  return result
+}
+
+function tf(arr){
+  return traverse(function(){ return [1, 0]}, arr)
+}
+
+function wrongness(ns, ps){
+  let result = []
+  for(let i = 0; i < ns.length; i++){
+    if(ns[i] !== ps[i](ns)){
+      result.push(i)
+    }
+  }
+  return result
+}
+
+function statements(n){
+  let result = []
+  if(n === 12){
+    result.push(function(arr){ return arr.length === 12 })
+  }
+  if(3 ⊂ [statements.length - 6]){
+    result.push(function(arr){ return arr[3] < arr.length - 6 })
+  }
+  // ... continue with the rest of the statements in a similar manner
+}
+
+function testall(s, n){
+  let result = []
+  for(let i = 0; i < s.length; i++){
+    for(let j = 0; j < tf(s).length; j++){
+      let b = tf(s)[j]
+      let w = wrongness(b, s)
+      if(w.length === n){
+        result.push([b, w])
+      }
+    }
+  }
+  return result
+}
+
+function main(){
+  let t = testall(statements, 0)
+  console.log("Answer")
+  t.forEach((item) => {
+    console.log(item)
+  })
+  console.log("Near misses")
+  let t1 = testall(statements, 1)
+  t1.forEach((item) => {
+    console.log(item)
+  })
+}
+```

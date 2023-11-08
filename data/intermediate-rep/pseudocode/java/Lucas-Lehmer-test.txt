@@ -1,0 +1,46 @@
+BEGIN
+    FUNCTION isPrime(p)
+        IF p = 2 THEN
+            RETURN true
+        ELSE IF p <= 1 OR p mod 2 = 0 THEN
+            RETURN false
+        ELSE
+            to = squareRoot(p)
+            FOR i = 3 TO to STEP 2
+                IF p mod i = 0 THEN
+                    RETURN false
+                END IF
+            END FOR
+            RETURN true
+        END IF
+    END FUNCTION
+
+    FUNCTION isMersennePrime(p)
+        IF p = 2 THEN
+            RETURN true
+        ELSE
+            m_p = 1 shifted left p subtract 1
+            s = 4
+            FOR i = 3 TO p
+                s = s multiplied by s subtract 2 mod m_p
+            END FOR
+            RETURN s equals 0
+        END IF
+    END FUNCTION
+
+    FUNCTION main(args)
+        IF args length = 0 THEN
+            upb = 500
+        ELSE
+            upb = parseInt(args[0])
+        END IF
+
+        OUTPUT " Finding Mersenne primes in M[2.." + upb + "]:\nM2 "
+        FOR p = 3 TO upb STEP 2
+            IF isPrime(p) AND isMersennePrime(p) THEN
+                OUTPUT " M" + p
+            END IF
+        END FOR
+        OUTPUT new line
+    END FUNCTION
+END

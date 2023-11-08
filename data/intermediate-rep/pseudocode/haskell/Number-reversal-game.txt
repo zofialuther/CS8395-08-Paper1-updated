@@ -1,0 +1,46 @@
+'''
+import Data.List
+import Control.Arrow
+import Rosetta.Knuthshuffle
+
+function shuffle(xs) {
+  if (xs is not equal to goal) {
+    return xs
+  } else {
+    return shuffle(knuthShuffle(xs))
+  }
+}
+
+function prefixFlipAt(k) {
+  return uncurry(++) + first(reverse) + splitAt(k)
+}
+
+function prompt(r, ry) {
+  print r + ". " + concatMap(flip(++) + " " + show, ry) + " How many to flip? "
+  answ = readLine()
+  n = parseInt(answ)
+  if (n < 10 && n > 0) {
+    return n
+  } else {
+    print "Error. The number should be between 0 and 10. Try again"
+    return prompt(r, ry)
+  }
+}
+
+function playNRG(r, nrs) {
+  if (nrs is equal to goal) {
+    print "The answer is: " + concatMap(flip(++) + " " + show, nrs)
+    print "It took you " + r + " attempts to sort the numbers."
+    print ""
+  } else {
+    answ = prompt(r, nrs)
+    playNRG(r + 1, prefixFlipAt(answ, nrs))
+  }
+}
+
+goal = [1..9]
+
+start = shuffle(goal)
+
+playNRG(1, start)
+'''

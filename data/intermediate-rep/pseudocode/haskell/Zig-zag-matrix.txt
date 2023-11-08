@@ -1,0 +1,15 @@
+FUNCTION show2d
+  INPUT: a (2D array of integers)
+  l, h = bounds of a
+  FOR y in range of axis snd
+    FOR x in range of axis fst
+      PRINT formatted integer at position (x, y) in a
+    PRINT new line
+  END FOR
+END FUNCTION
+
+FUNCTION main
+  FOR each pair in [(3, 3), (4, 4), (10, 2)]
+    PRINT formatted 2D array of integers using zigZag function
+  END FOR
+END FUNCTION

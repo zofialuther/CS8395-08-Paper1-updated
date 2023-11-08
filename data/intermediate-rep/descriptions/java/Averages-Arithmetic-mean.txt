@@ -1,0 +1,1 @@
+This code defines a method named "avg" that takes in a variable number of double values and calculates their average. It iterates through the input array and adds up all the values, then divides the sum by the number of elements in the array to get the average. The average is then returned as a double.

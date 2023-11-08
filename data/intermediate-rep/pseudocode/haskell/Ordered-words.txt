@@ -1,0 +1,22 @@
+1. Define a function isSorted that takes a list of strings and checks if the strings are sorted in ascending order.
+2. Define a function getLines that reads the lines from a file and returns them as a list of strings.
+3. In the main function:
+   a. Read the lines from the file "unixdict.txt" using getLines and store them in ls.
+   b. Filter the list ls using isSorted and store the result in ow.
+   c. Find the maximum length of strings in ow and store it in maxl.
+   d. Print the strings from ow that have the maximum length. 
+
+Pseudocode:
+
+function isSorted(wws):
+    return and(zipWith(<=, wws, tail(wws)))
+
+function getLines(filename):
+    lines = readFile(filename)
+    return lines
+
+function main():
+    ls = getLines("unixdict.txt")
+    ow = filter(isSorted, ls)
+    maxl = foldr(max, 0, map(length, ow))
+    print(filter(lambda w: length(w) == maxl, ow))

@@ -1,0 +1,23 @@
+FUNCTION generateFibonacci(n)
+    DECLARE fib as an array of BigInteger with size n
+    fib[0] = 1
+    fib[1] = 1
+    FOR i = 2 to n-1
+        fib[i] = fib[i - 2] + fib[i - 1]
+    END FOR
+    RETURN fib
+END FUNCTION
+
+FUNCTION main(args)
+    DECLARE numbers as an array of BigInteger
+    numbers = generateFibonacci(1000)
+    
+    DECLARE firstDigits as an array of integers with size 10
+    FOR EACH number in numbers
+        firstDigits[Integer.valueOf(number.toString().substring(0, 1))]++;
+    END FOR
+    
+    FOR i = 1 to 9
+        PRINT i, (double) firstDigits[i] / numbers.length, Math.log10(1.0 + 1.0 / i)
+    END FOR
+END FUNCTION

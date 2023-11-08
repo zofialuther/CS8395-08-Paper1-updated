@@ -1,0 +1,2 @@
+while stack:
+    # do something

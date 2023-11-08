@@ -1,0 +1,1 @@
+This Prolog code creates a new window object called 'Prolog Window' and then sends a message to open the window, resulting in the window being displayed on the screen.

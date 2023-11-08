@@ -1,0 +1,8 @@
+For each value in the list "values", square the value and store the result in a new list "squared_values". 
+
+Pseudocode:
+1. Create an empty list called "squared_values"
+2. For each value in the list "values", do the following:
+   a. Calculate the square of the value
+   b. Append the squared value to the "squared_values" list
+3. Return the "squared_values" list.

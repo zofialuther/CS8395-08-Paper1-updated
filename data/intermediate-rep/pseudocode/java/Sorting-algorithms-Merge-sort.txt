@@ -1,0 +1,46 @@
+FUNCTION mergeSort(m: List<E>) -> List<E> 
+    IF m.size() <= 1 THEN 
+        RETURN m
+    END IF
+    middle = m.size() / 2
+    left = m.subList(0, middle)
+    right = m.subList(middle, m.size())
+    right = mergeSort(right)
+    left = mergeSort(left)
+    result = merge(left, right)
+    RETURN result
+END FUNCTION
+
+FUNCTION merge(left: List<E>, right: List<E>) -> List<E> 
+    result = new ArrayList<E>()
+    it1 = left.iterator()
+    it2 = right.iterator()
+    x = it1.next()
+    y = it2.next()
+    WHILE true DO 
+        IF x.compareTo(y) <= 0 THEN 
+            result.add(x)
+            IF it1.hasNext() THEN 
+                x = it1.next()
+            ELSE 
+                result.add(y)
+                WHILE it2.hasNext() DO 
+                    result.add(it2.next())
+                END WHILE
+                BREAK
+            END IF
+        ELSE 
+            result.add(y)
+            IF it2.hasNext() THEN 
+                y = it2.next()
+            ELSE 
+                result.add(x)
+                WHILE it1.hasNext() DO 
+                    result.add(it1.next())
+                END WHILE
+                BREAK
+            END IF
+        END IF
+    END WHILE
+    RETURN result
+END FUNCTION

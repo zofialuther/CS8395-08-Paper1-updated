@@ -1,0 +1,1 @@
+This Java code implements the Egyptian Division algorithm to divide 580 by 34. The algorithm uses lists to store powers of 2 and their corresponding doublings, and then iterates through the lists to find the answer. The result is printed to the console along with the remainder. The main method runs the divide method with the specified values.

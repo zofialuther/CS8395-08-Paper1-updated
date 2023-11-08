@@ -1,0 +1,53 @@
+```
+FUNCTION b_not(in, out)
+    IF in == hi THEN
+        out = lo
+    ELSE
+        out = hi
+
+FUNCTION b_and(in1, in2, out)
+    IF in1 == hi AND in2 == hi THEN
+        out = hi
+    ELSE
+        out = lo
+
+FUNCTION b_or(in1, in2, out)
+    IF in1 == hi OR in2 == hi THEN
+        out = hi
+    ELSE
+        out = lo
+
+FUNCTION b_xor(in, out)
+    b_not(in, NotA)
+    b_not(in, NotB)
+    b_and(in, NotB, P)
+    b_and(NotA, in, Q)
+    b_or(P, Q, out)
+
+FUNCTION b_half_adder(in, s, c)
+    b_xor(in, S)
+    b_and(in, S, C)
+
+FUNCTION b_full_adder(in, s, c)
+    b_half_adder(in, S0, C0)
+    b_half_adder(S0, s, C)
+    b_or(C0, C, C1)
+
+FUNCTION b_4_bit_adder(A, B, S, V)
+    b_full_adder(A0, B0, lo, S0, C0)
+    b_full_adder(A1, B1, C0, S1, C1)
+    b_full_adder(A2, B2, C1, S2, C2)
+    b_full_adder(A3, B3, C2, S3, V)
+
+FUNCTION test_add(A, B, T)
+    b_4_bit_adder(A, B, R, C)
+    WRITEF('%w + %w is %w %w  \t(%w)\n', [A, B, R, C, T])
+
+FUNCTION go
+    test_add(hi, lo, lo, lo, hi, lo, lo, lo, '1 + 1 = 2')
+    test_add(lo, hi, lo, lo, lo, hi, lo, lo, '2 + 2 = 4')
+    test_add(hi, lo, hi, lo, hi, lo, lo, hi, '5 + 9 = 14')
+    test_add(hi, hi, lo, hi, hi, lo, lo, hi, '11 + 9 = 20')
+    test_add(lo, lo, lo, hi, lo, lo, lo, hi, '8 + 8 = 16')
+    test_add(hi, hi, hi, hi, hi, lo, lo, lo, '15 + 1 = 16')
+```

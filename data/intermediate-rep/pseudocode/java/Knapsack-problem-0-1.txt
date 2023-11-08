@@ -1,0 +1,144 @@
+```
+Start
+  Create a class ZeroOneKnapsack
+    Initialize itemList as an empty list of Items
+    Initialize maxWeight as 0
+    Initialize solutionWeight as 0
+    Initialize profit as 0
+    Initialize calculated as false
+    
+    Create a default constructor ZeroOneKnapsack()
+    
+    Create a constructor ZeroOneKnapsack with parameter _maxWeight
+      Call setMaxWeight(_maxWeight)
+    
+    Create a constructor ZeroOneKnapsack with parameter _itemList
+      Call setItemList(_itemList)
+    
+    Create a constructor ZeroOneKnapsack with parameters _itemList and _maxWeight
+      Call setItemList(_itemList)
+      Call setMaxWeight(_maxWeight)
+    
+    Create a method calcSolution()
+      Set n as the size of itemList
+      Call setInitialStateForCalculation()
+      If n is greater than 0 and maxWeight is greater than 0 then
+        Create a list c as an empty list of lists of integers
+        Create a list curr as an empty list of integers
+        Add curr to c
+        For j from 0 to maxWeight do
+          Add 0 to curr
+        End For
+        For i from 1 to n do
+          Set prev as curr
+          Add curr as a new empty list to c
+          For j from 0 to maxWeight do
+            If j is greater than 0 then
+              Set wH as the weight of the item at index i-1 in itemList
+              Add the result of the conditional expression to curr at index j
+                If wH is greater than j
+                  Set prev at index j as the value of curr at index j
+                Else
+                  Set the result of the max function with arguments prev at index j and the sum of the value of the item at index i-1 in itemList and prev at index j-wH as the value of curr at index j
+                End If
+            Else
+              Add 0 to curr
+            End If
+          End For
+        End For
+        Set profit as the value of curr at index maxWeight
+        Set i as n
+        Set j as maxWeight
+        While i is greater than 0 and j is greater than or equal to 0 do
+          Set tempI as the value of c at index i, j
+          Set tempI_1 as the value of c at index i-1, j
+          If (i is equal to 0 and tempI is greater than 0) or (i is greater than 0 and tempI is not equal to tempI_1) then
+            Set iH as the item at index i-1 in itemList
+            Set wH as the weight of iH
+            Set the value of iH's inKnapsack member to 1
+            Subtract wH from j
+            Add wH to solutionWeight
+          End If
+        End While
+        Set calculated as true
+      End If
+      Return itemList
+    End Method
+    
+    Create a method add with parameters name, weight, and value
+      If name is an empty string then
+        Set name as the concatenation of "itemList.size() + 1"
+      End If
+      Add a new Item with name, weight, and value to itemList
+      Call setInitialStateForCalculation()
+    End Method
+    
+    Create a method add with parameters weight and value
+      Call add with parameters an empty string for name, weight, and value
+    End Method
+    
+    Create a method remove with parameter name
+      Iterate over each item in itemList
+        If the name of the current item is equal to the input name then
+          Remove the current item from itemList
+        End If
+      End For
+      Call setInitialStateForCalculation()
+    End Method
+    
+    Create a method removeAllItems
+      Clear itemList
+      Call setInitialStateForCalculation()
+    End Method
+    
+    Create a method getProfit
+      If calculated is false then
+        Call calcSolution()
+      End If
+      Return profit
+    End Method
+    
+    Create a method getSolutionWeight
+      Return solutionWeight
+    End Method
+    
+    Create a method isCalculated
+      Return calculated
+    End Method
+    
+    Create a method getMaxWeight
+      Return maxWeight
+    End Method
+    
+    Create a method setMaxWeight with parameter _maxWeight
+      Set maxWeight as the maximum of _maxWeight and 0
+    End Method
+    
+    Create a method setItemList with parameter _itemList
+      If _itemList is not null then
+        Set itemList as _itemList
+        For each item in _itemList do
+          Call checkMembers() on the item
+        End For
+      End If
+    End Method
+    
+    Create a method setInKnapsackByAll with parameter inKnapsack
+      For each item in itemList do
+        If inKnapsack is greater than 0 then
+          Set the value of the item's inKnapsack member to 1
+        Else
+          Set the value of the item's inKnapsack member to 0
+        End If
+      End For
+    End Method
+    
+    Create a method setInitialStateForCalculation
+      Call setInKnapsackByAll with parameter 0
+      Set calculated as false
+      Set profit as 0
+      Set solutionWeight as 0
+    End Method
+  End Class
+End
+```

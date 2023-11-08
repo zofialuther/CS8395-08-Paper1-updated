@@ -1,0 +1,8 @@
+START
+  String s = "";
+  IF s is not equal to null AND s is empty THEN
+    PRINT "s is empty"
+  ELSE
+    PRINT "s is not empty"
+  ENDIF
+END

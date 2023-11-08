@@ -1,0 +1,40 @@
+'''
+Days of the week
+
+FUNCTION xmasIsSunday(y):
+    RETURN 6 == date(y, 12, 25).weekday()
+
+FUNCTION main():
+    xs = FILTER xmasIsSunday, enumFromTo(2008)(2121)
+    total = LENGTH xs
+    PRINT fTable(main.__doc__ + ':\n\n' + '(Total ' + str(total) + ')\n')(
+        LAMBDA i: str(1 + i)
+    )(str)(index(xs))(
+        enumFromTo(0)(total - 1)
+    )
+
+FUNCTION enumFromTo(m):
+    RETURN LAMBDA n: list(range(m, 1 + n))
+
+FUNCTION index(xs):
+    RETURN LAMBDA n: None IF 0 > n ELSE (
+        xs[n] IF (
+            hasattr(xs, "__getitem__")
+        ) ELSE next(islice(xs, n, None))
+    )
+
+FUNCTION fTable(s):
+    FUNCTION go(xShow, fxShow, f, xs):
+        ys = MAP xShow(xs)
+        w = MAXIMUM(MAP LENGTH ys)
+        RETURN s + '\n' + '\n'.join(
+            LAMBDA x, y: y.rjust(w, ' ') + ' -> ' + fxShow(f(x))
+            FOR x, y IN ZIP(xs, ys)
+        )
+    RETURN LAMBDA xShow: LAMBDA fxShow: LAMBDA f: LAMBDA xs: go(
+        xShow, fxShow, f, xs
+    )
+
+IF __name__ == '__main__':
+    main()
+'''

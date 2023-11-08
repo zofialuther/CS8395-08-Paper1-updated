@@ -1,0 +1,1 @@
+This code defines a predicate called rosetta_sort that sorts a list of sample strings in ascending order based on their length. It uses a custom comparison predicate called my_comp, which compares the length of two strings and then compares the strings themselves if their lengths are equal. The sorted list is then printed along with the original input list.

@@ -1,0 +1,23 @@
+BEGIN
+    PRINT "Police  Sanitation  Fire"
+    PRINT "------  ----------  ----"
+    count = 0
+    FOR i = 2 TO 6 STEP 2
+        FOR j = 1 TO 7
+            IF j == i THEN
+                CONTINUE
+            END IF
+            FOR k = 1 TO 7
+                IF k == i OR k == j THEN
+                    CONTINUE
+                END IF
+                IF i + j + k != 12 THEN
+                    CONTINUE
+                END IF
+                PRINT "  " + i + "         " + j + "         " + k
+                count++
+            END FOR
+        END FOR
+    END FOR
+    PRINT "\n" + count + " valid combinations"
+END

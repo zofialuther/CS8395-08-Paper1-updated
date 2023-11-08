@@ -1,0 +1,16 @@
+FUNCTION intersectPoint(rayVector, rayPoint, planeNormal, planePoint)
+    diff = rayPoint.minus(planePoint)
+    prod1 = diff.dot(planeNormal)
+    prod2 = rayVector.dot(planeNormal)
+    prod3 = prod1 / prod2
+    return rayPoint.minus(rayVector.times(prod3))
+END FUNCTION
+
+FUNCTION main(args)
+    rv = new Vector3D(0.0, -1.0, -1.0)
+    rp = new Vector3D(0.0, 0.0, 10.0)
+    pn = new Vector3D(0.0, 0.0, 1.0)
+    pp = new Vector3D(0.0, 0.0, 5.0)
+    ip = intersectPoint(rv, rp, pn, pp)
+    PRINT "The ray intersects the plane at " + ip
+END FUNCTION

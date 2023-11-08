@@ -1,0 +1,1 @@
+This code is a nested loop that prints a pattern of stars in the shape of a right-angled triangle. The outer loop controls the number of rows in the triangle, while the inner loop controls the number of stars in each row. As the loops iterate, the number of stars printed in each row increases, creating a visually appealing triangle pattern.

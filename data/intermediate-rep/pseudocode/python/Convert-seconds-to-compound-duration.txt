@@ -1,0 +1,15 @@
+FUNCTION duration(seconds)
+    t = []
+    FOR dm in (60, 60, 24, 7) DO
+        seconds, m = divmod(seconds, dm)
+        t.append(m)
+    END FOR
+    t.append(seconds)
+    RETURN ', '.join('%d %s' % (num, unit)
+             FOR num, unit IN zip(t[::-1], 'wk d hr min sec'.split())
+             IF num)
+END FUNCTION
+
+FOR seconds IN [7259, 86400, 6000000] DO
+    PRINT("%7d sec = %s" % (seconds, duration(seconds))
+END FOR

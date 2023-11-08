@@ -1,0 +1,1 @@
+This code prompts the user to enter a variable name and assigns the value 42 to the variable entered. In this case, the user entered "X" as the variable name, so the value 42 is assigned to the variable "X".

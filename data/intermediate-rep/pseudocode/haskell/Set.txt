@@ -1,0 +1,14 @@
+1. Import the Data.List module
+2. Create a list s3 with unique elements from the list [1,2,3,4,3]
+3. Print the list s3
+4. Create a list s4 with elements [3,4,5,6]
+5. Find the union of lists s3 and s4 and store the result in a new list
+6. Print the union list
+7. Find the intersection of lists s3 and s4 and store the result in a new list
+8. Print the intersection list
+9. Find the difference between lists s3 and s4 and store the result in a new list
+10. Print the difference list
+11. Insert the element 42 at the beginning of the list s3 and store the result in a new list
+12. Print the new list with 42 inserted at the beginning
+13. Delete the first occurrence of the element 3 from the list s3 and store the result in a new list
+14. Print the new list with the first occurrence of 3 removed.

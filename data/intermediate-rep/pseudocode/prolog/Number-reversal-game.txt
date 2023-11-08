@@ -1,0 +1,39 @@
+```
+play :-
+    generate_random_numbers(L),
+    take_turn(0, L),
+    !.
+
+take_turn(N, L) :-
+    print_list(L),
+    determine_number_to_flip(F),
+    flip(L, F, [], NewList),
+    N1 is N + 1,
+    check_if_sorted(N1, NewList).
+
+determine_number_to_flip(F) :-
+    read_line_to_codes(user_input, Line),
+    number_codes(F, Line),
+    between(1, 9, F).
+
+flip(L, 0, C, R) :-
+    append(C, L, R).
+flip([Head|Tail], N, C, R) :-
+    N \= 0,
+    N1 is N - 1,
+    flip(Tail, N1, [Head|C], R).
+
+check_if_sorted(N, L) :-
+    (   sort(L, L)
+    ->  print_list(L),
+        format('-> ~p~n', N)
+    ;   take_turn(N, L)
+    ).
+
+generate_random_numbers(L) :-
+    random_permutation([1, 2, 3, 4, 5, 6, 7, 8, 9], L).
+
+print_list(L) :-
+    atomic_list_concat(L, ' ', FormattedList),
+    format('(~w) ', FormattedList).
+```

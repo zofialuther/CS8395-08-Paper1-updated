@@ -1,0 +1,5 @@
+foobar = 15
+
+function f(x) {
+  return x + foobar
+}

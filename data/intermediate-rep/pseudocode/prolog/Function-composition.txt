@@ -1,0 +1,8 @@
+```
+function compose(F, G, FG) {
+    FG = function(X, Z) {
+        Y = G(X);
+        return F(Y, Z);
+    }
+}
+```

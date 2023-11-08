@@ -1,0 +1,11 @@
+
+function main(args)
+    vars = new HashMap<String, Integer>()
+    vars.put("Variable name", 3)
+    vars.put("Next variable name", 5)
+    sc = new Scanner(System.in)
+    str = sc.next()
+    vars.put(str, sc.nextInt())
+    print(vars.get("Variable name"))
+    print(vars.get(str))
+end function

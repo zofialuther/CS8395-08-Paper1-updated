@@ -1,0 +1,50 @@
+```
+FUNCTION posd
+    count = 1
+    odd = 3
+    WHILE True
+        YIELD count
+        YIELD odd
+        count = count + 1
+        odd = odd + 2
+
+FUNCTION pos_gen
+    val = 1
+    diff = posd()
+    WHILE True
+        YIELD val
+        val = val + NEXT(diff)
+
+FUNCTION plus_minus
+    n = 0
+    sign = [1, 1]
+    p_gen = pos_gen()
+    out_on = NEXT(p_gen)
+    WHILE True
+        n = n + 1
+        IF n = out_on
+            next_sign = sign.pop(0)
+            IF NOT sign
+                sign = [-next_sign, -next_sign]
+            YIELD -n, next_sign
+            out_on = NEXT(p_gen)
+        ELSE
+            YIELD 0
+
+FUNCTION part(n)
+    p = [1]
+    p_m = plus_minus()
+    mods = []
+    FOR _ in range(n)
+        next_plus_minus = NEXT(p_m)
+        IF next_plus_minus
+            mods.append(next_plus_minus)
+        p.append(SUM(p[offset] * sign FOR offset, sign IN mods))
+    RETURN p[-1]
+
+PRINT "(Intermediaries):"
+PRINT "    posd:", LIST(ISLICE(posd(), 10))
+PRINT "    pos_gen:", LIST(ISLICE(pos_gen(), 10))
+PRINT "    plus_minus:", LIST(ISLICE(plus_minus(), 15))
+PRINT "\nPartitions:", [part(x) FOR x IN RANGE(15)]
+```

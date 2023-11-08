@@ -1,0 +1,29 @@
+```
+FUNCTION multisplit(delims: List[String], input: String) -> List[Tuple(String, String, Int)]
+    acc = []
+    pos = 0
+    WHILE input is not empty
+        IF trysplit(delims, input) is None
+            THEN
+                acc.append(input)
+                pos = pos + 1
+                input = input without first element
+        ELSE
+            d, sxx = trysplit(delims, input)
+            acc, d, pos = (acc, d, pos)
+            pos = pos + length of d
+            input = sxx
+    RETURN [(acc, [], pos)]
+
+FUNCTION trysplit(delims: List[String], s: String) -> Tuple(String, String) or None
+    FOR EACH d in delims
+        IF d is prefix of s
+            THEN RETURN (d, s without prefix d)
+    RETURN None
+
+FUNCTION main()
+    parsed = multisplit(["==", "!=", "="], "a!===b=!=c")
+    FOR EACH (a, _, _) in parsed
+        PRINT a
+    PRINT parsed
+```

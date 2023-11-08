@@ -1,0 +1,43 @@
+```
+FUNCTION delimiters
+  delimiters <- ",;:"
+
+FUNCTION fields
+  IF xs is empty
+    RETURN empty list
+  ELSE
+    item, rest <- break xs at delimiters
+    _, next <- break rest at non-delimiters
+    RETURN item concatenated with fields next
+
+FUNCTION unfields
+  IF a is Nothing
+    RETURN empty list
+  ELSE
+    fieldNumber <- bounds of a
+    RETURN every nth element in a
+      FOR EACH element in a
+        y, z <- splitAt n xs
+        RETURN intercalate "," y concatenated with every n z
+
+FUNCTION fieldArray
+  IF xs is empty
+    RETURN Nothing
+  ELSE
+    RETURN Just listArray with bounds and concatenated xs
+
+FUNCTION fieldsFromFile
+  READ file at FilePath
+  RETURN fieldArray with map of fields and lines of file
+
+FUNCTION fieldsToFile
+  WRITE unlines of unfields at FilePath
+
+FUNCTION someChanges
+  RETURN fmap with updated elements in a
+
+FUNCTION main
+  a <- fieldsFromFile "example.txt"
+  IF a is Just
+    fieldsToFile "output.txt" with someChanges a
+```

@@ -1,0 +1,16 @@
+FUNCTION zigzag(n)
+    FUNCTION compare(xy)
+        x, y = xy
+        RETURN (x + y, -y IF (x + y) MOD 2 ELSE y)
+    END FUNCTION
+    xs = range(n)
+    RETURN {index: n FOR n, index IN enumerate(sorted(((x, y) FOR x IN xs FOR y IN xs), key=compare))}
+END FUNCTION
+
+FUNCTION printzz(myarray)
+    n = int(sqrt(length(myarray)) + 0.5)
+    xs = range(n)
+    PRINT('\n'.join([''.join("%3i" % myarray[(x, y)] FOR x IN xs) FOR y IN xs]))
+END FUNCTION
+
+printzz(zigzag(6))

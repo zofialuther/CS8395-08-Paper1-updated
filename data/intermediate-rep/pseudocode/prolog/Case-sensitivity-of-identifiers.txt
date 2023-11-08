@@ -1,0 +1,4 @@
+1. Set DoG to 'Benjamin'
+2. Set Dog to 'Samba'
+3. Set DOG to 'Bernie'
+4. Print the message "The three dogs are named <DoG>, <Dog> and <DOG>."

@@ -1,0 +1,9 @@
+FUNCTION odd(N)
+    IF N = 0 THEN
+        RETURN false
+    ELSE IF 0 is lsb(abs(N)) THEN
+        RETURN true
+    ELSE
+        RETURN false
+    ENDIF
+END FUNCTION

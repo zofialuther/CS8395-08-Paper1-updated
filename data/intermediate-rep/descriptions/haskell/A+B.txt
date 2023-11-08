@@ -1,0 +1,1 @@
+This code takes a line of input from the user, splits it into individual words, converts each word to a number, then calculates the sum of all the numbers and prints the result.

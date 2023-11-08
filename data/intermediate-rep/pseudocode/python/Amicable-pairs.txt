@@ -1,0 +1,45 @@
+```
+FUNCTION amicablePairsUpTo(n):
+    sigma = compose(sum)(properDivisors)
+    
+    FUNCTION amicable(x):
+        y = sigma(x)
+        IF (x < y AND x == sigma(y)) THEN
+            RETURN [(x, y)]
+        ELSE
+            RETURN []
+    
+    RETURN concatMap(amicable)(enumFromTo(1)(n))
+
+FUNCTION main():
+    FOR EACH x IN amicablePairsUpTo(20000):
+        PRINT x
+
+FUNCTION compose(g):
+    RETURN (lambda f: lambda x: g(f(x)))
+
+FUNCTION concatMap(f):
+    RETURN (lambda xs: (''.join if isinstance(xs, str) else list)(
+        chain.from_iterable(map(f, xs))
+        )
+    )
+
+FUNCTION enumFromTo(m):
+    FUNCTION go(n):
+        RETURN list(range(m, 1 + n))
+    RETURN go
+
+FUNCTION properDivisors(n):
+    root_ = sqrt(n)
+    intRoot = int(root_)
+    blnSqr = root_ == intRoot
+    lows = [x for x in range(1, 1 + intRoot) if 0 == n % x]
+    RETURN lows + [
+        n // x for x in reversed(
+            lows[1:-1] if blnSqr else lows[1:]
+        )
+    ]
+
+IF __name__ == '__main__':
+    main()
+```

@@ -1,0 +1,19 @@
+START
+  FUNCTION is_palindrome(s)
+    IF s is equal to s[::-1]
+      RETURN True
+    ELSE
+      RETURN False
+    END IF
+  END FUNCTION
+
+  FUNCTION _test()
+    IMPORT doctest
+    doctest.testmod()
+    #doctest.testmod(verbose=True)
+  END FUNCTION
+
+  IF __name__ is equal to "__main__"
+    CALL _test()
+  END IF
+END

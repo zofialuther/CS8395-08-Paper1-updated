@@ -1,0 +1,1 @@
+This code creates three separate threads to print the messages "Enjoy", "Rosetta", and "Code" with a random delay between them. The main thread then waits for each of the three threads to finish before terminating. This allows the messages to be printed concurrently and asynchronously.

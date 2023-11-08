@@ -1,0 +1,5 @@
+1. Initialize a table with a header and body
+2. Create a row in the table for each character and their speech
+3. Set the style for each cell in the table with the specified color, background, border, and padding
+4. Populate the table with the characters and their respective speeches
+5. Display the table on the webpage.

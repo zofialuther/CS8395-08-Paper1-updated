@@ -1,0 +1,5 @@
+This Python code calculates the months within a specific date range that have five weekends. It uses the `datetime` module to work with dates and timedelta. The code defines a function `five_weekends_per_month` that takes start and stop dates as input and returns a list of dates representing the months with five weekends.
+
+It iterates through each day within the date range, keeping track of the number of weekend days in each month. It then identifies the months with at least 15 weekend days (indicating five weekends) and adds them to the list.
+
+The code also prints out the first and last five months with five weekends in a specific format. It calculates the years within the date range that do not have months with five weekends and provides this information as output.

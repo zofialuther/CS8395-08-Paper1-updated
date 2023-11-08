@@ -1,0 +1,12 @@
+1. Create a class named ListenerTest
+2. Create a main method within the class ListenerTest
+3. Create a JButton named testButton with the text "Test Button"
+4. Add an ActionListener to the testButton using an anonymous class
+5. Override the actionPerformed method to print "Click Detected by Anon Class"
+6. Add another ActionListener to the testButton using a lambda expression
+7. Print "Click Detected by Lambda Listener" in the lambda expression
+8. Create a JFrame named frame with the title "Listener Test"
+9. Set the default close operation of the frame to JFrame.EXIT_ON_CLOSE
+10. Add the testButton to the frame with BorderLayout.CENTER
+11. Pack the frame
+12. Set the visibility of the frame to true.

@@ -1,0 +1,92 @@
+```
+// Import necessary libraries
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+// Define the class BalancedBrackets
+public class BalancedBrackets {
+	
+	// Define a method to check if square brackets are balanced
+	public static boolean areSquareBracketsBalanced(String expr) {
+		return isBalanced(expr, "", "", "[", "]", false);
+	}
+	
+	// Define a method to check if brackets are balanced
+	public static boolean areBracketsBalanced(String expr) {
+		return isBalanced(expr, "", "", "{([", "})]", false);
+	}
+	
+	// Define a method to check if strings and brackets are balanced
+	public static boolean areStringAndBracketsBalanced(String expr) {
+		return isBalanced(expr, "'\"", "\\\\", "{([", "})]", true);
+	}
+	
+	// Define a method to check if the brackets are balanced
+	public static boolean isBalanced(String expr, String lit, String esc, String obr, String cbr, boolean other) {
+		// Initialize variables and stack
+		boolean[] inLit = new boolean[lit.length()];
+		Deque<Character> stack = new ArrayDeque<Character>();
+		
+		// Loop through the expression
+		for (int i=0; i<expr.length(); i+=1) {
+			char c = get(expr, i);
+			int x;
+			
+			// Check if the character is in a literal
+			if ((x = indexOf(inLit, true)) != -1) {
+				if (c == get(lit, x) && get(expr, i-1) != get(esc, x)) inLit[x] = false;
+			}
+			// Check if the character is a literal
+			else if ((x = indexOf(lit, c)) != -1)
+				inLit[x] = true;
+			// Check if the character is an opening bracket
+			else if ((x = indexOf(obr, c)) != -1)
+				stack.push(get(cbr, x));
+			// Check if the character is a closing bracket
+			else if (indexOf(cbr, c) != -1) {
+				if (stack.isEmpty() || stack.pop() != c) return false;
+			}
+			// Check for other characters if not allowed
+			else if (!other)
+				return false;
+		}
+		return stack.isEmpty();
+	}
+	
+	// Define a method to get the index of a boolean in an array
+	static int indexOf(boolean[] a, boolean b) {
+		for (int i=0; i<a.length; i+=1) if (a[i] == b) return i;
+		return -1;
+	}
+	
+	// Define a method to get the index of a character in a string
+	static int indexOf(String s, char c) {
+		return s.indexOf(c);
+	}
+	
+	// Define a method to get a character from a string at a given index
+	static char get(String s, int i) {
+		return s.charAt(i);
+	}
+
+	// Define the main method
+	public static void main(String[] args) {
+		System.out.println("With areSquareBracketsBalanced:");
+		// Test areSquareBracketsBalanced method
+		for (String s: new String[] {
+				"", "[]", "[][]", "[[][]]", "][", "][][", "[]][[]", "[", "]"
+			}
+		) {
+			System.out.printf("%s: %s\n", s, areSquareBracketsBalanced(s));
+		}
+		System.out.println("\nBut also with areStringAndBracketsBalanced:");
+		// Test areStringAndBracketsBalanced method
+		for (String s: new String[] {
+				"x[]", "[x]", "[]x", "([{}])", "([{}]()", "([{ '([{\\'([{' \"([{\\\"([{\" }])",
+			}
+		) {
+			System.out.printf("%s: %s\n", s, areStringAndBracketsBalanced(s));
+		}
+	}
+}
+```

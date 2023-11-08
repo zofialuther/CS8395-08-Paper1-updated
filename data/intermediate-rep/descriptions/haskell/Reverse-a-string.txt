@@ -1,0 +1,1 @@
+This code defines a function called accumulatingReverse that takes a list as input and returns a new list with the elements in reverse order. The function achieves this by using a helper function rev that accumulates the reverse of the input list using the foldl function. The initial accumulator value is set to an empty list.

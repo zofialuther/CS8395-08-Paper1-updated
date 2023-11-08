@@ -1,0 +1,44 @@
+```
+function multisplit(LSep, T)
+    if T is empty
+        return []
+    else
+        find_next_sep(LSep, T, [], Token, Sep, T1)
+        if Token is not empty
+            add Token to result
+        if Sep is not empty
+            add Sep to result
+        return result concatenated with multisplit(LSep, T1)
+
+function next_sep([], T, Lst, Token, Sep, T1)
+    if Lst is empty
+        Token = T
+        Sep = ''
+        T1 = ''
+    else
+        sort Lst to get nearest longest separator
+        get longest separator and its position in T
+        Token = substring of T up to the position of longest separator
+        Tmp = Token concatenated with longest separator
+        T1 = Tmp concatenated with the rest of T
+
+function next_sep([HSep|TSep], T, Lst, Token, Sep, T1)
+    find position and length of HSep in T
+    add (position, length, HSep) to Lst
+    call next_sep with TSep, T, updated Lst, Token, Sep, T1
+
+function next_sep([_HSep|TSep], T, Lst, Token, Sep, T1)
+    call next_sep with TSep, T, Lst, Token, Sep, T1
+
+function my_sort(<, (N1, _, _), (N2, _, _))
+    return N1 < N2
+
+function my_sort(>, (N1, _, _), (N2, _, _))
+    return N1 > N2
+
+function my_sort(>, (N, N1, _), (N, N2, _))
+    return N1 < N2
+
+function my_sort(<, (N, N1, _), (N, N2, _))
+    return N1 > N2
+```

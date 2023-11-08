@@ -1,0 +1,38 @@
+```
+function groupBySig(strings)
+    map each string to a tuple of (sorted string, set containing the string)
+    return the list of tuples
+
+function equivs(groups)
+    map each set of strings to a list of strings
+    use a Map to group the lists by the sorted string
+    return the lists of equivalent words
+
+function isDerangement(pair)
+    compare each character of the two strings and return false if any are equal
+    return true if all characters are different
+
+function pairs(list)
+    initialize an empty list
+    iterate over the input list and create pairs of elements
+    return the list of pairs
+
+function anagrams(strings)
+    group equivalent words
+    find all pairs of elements, ignoring order
+    return the list of anagram pairs
+
+function maxDerangedAnagram(strings)
+    find all anagram pairs
+    filter out pairs that are not deranged
+    find the pair with the longest first string
+    return the pair
+
+function main()
+    read input from "unixdict.txt"
+    find the longest deranged anagram pair
+    if no pair is found, print "No deranged anagrams were found."
+    else, print "Longest deranged anagrams: " followed by the two words
+
+call main()
+```

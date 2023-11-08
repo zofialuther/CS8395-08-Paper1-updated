@@ -1,0 +1,24 @@
+```
+FUNCTION knapsack(items, cap)
+    solu = foldr(f, listArray (0,cap) (repeat (0,[])), items)
+    RETURN solu[cap]
+END FUNCTION
+
+FUNCTION f(item, ss)
+    optimal = mapOptimal(ss, item)
+    RETURN listArray (0,cap) optimal
+END FUNCTION
+
+FUNCTION mapOptimal(ss, item)
+    maxVal = maximum(ss!ww, prepend(v*i, (name, i)) (ss!(ww - i*w)))
+    RETURN maxVal
+END FUNCTION
+
+FUNCTION prepend(x, n, y, s)
+    RETURN (x+y, n:s)
+END FUNCTION
+
+MAIN
+    PRINT knapsack(inv, 400)
+END MAIN
+```

@@ -1,0 +1,18 @@
+FUNCTION caesar(s, k, decode = False):
+    IF decode is True THEN
+        k = 26 - k
+    END IF
+    RETURN s.translate(
+        string.maketrans(
+            string.ascii_uppercase + string.ascii_lowercase,
+            string.ascii_uppercase[k:] + string.ascii_uppercase[:k] +
+            string.ascii_lowercase[k:] + string.ascii_lowercase[:k]
+            )
+        )
+END FUNCTION
+
+msg = "The quick brown fox jumped over the lazy dogs"
+print msg
+enc = caesar(msg, 11)
+print enc
+print caesar(enc, 11, decode = True)

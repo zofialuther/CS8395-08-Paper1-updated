@@ -1,0 +1,28 @@
+kaprekar_(Z, X) {
+    split_number(Z, 10, X)
+}
+
+split_number(Z, N, X) {
+    if (N < Z) {
+        A = Z // N
+        B = Z mod N
+        if (X is A+B and B\= 0) {
+            return true
+        } else {
+            N1 = N*10
+            split_number(Z, N1, X)
+        }
+    }
+}
+
+kaprekar(N, V) {
+    for X from 1 to N {
+        if (Z is X * X) {
+            if (kaprekar_(Z, X)) {
+                V.append(X)
+            }
+        } else if (X = 1) {
+            V.append(X)
+        }
+    }
+}

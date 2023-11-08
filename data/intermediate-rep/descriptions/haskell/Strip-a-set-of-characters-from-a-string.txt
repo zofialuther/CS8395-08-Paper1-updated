@@ -1,0 +1,1 @@
+This code defines a function called stripChars that takes two string arguments and returns a new string. It uses the filter and flip functions to remove any characters from the first string that are found in the second string, effectively stripping them out.

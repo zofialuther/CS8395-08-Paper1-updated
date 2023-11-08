@@ -1,0 +1,32 @@
+global mlck, nCons, cons
+
+function main()
+    mlck = create_mutex()
+    nCons = 0
+    cons = create_mutex(set())
+
+    while f = open(":12321","na"):
+        handle_client(f)
+        critical_section(mlck):
+            if nCons <= 0:
+                close(f)
+
+function handle_client(f)
+    critical_section(mlck):
+        nCons += 1
+
+    create_thread:
+        select(f, 1000) & {
+            writes(f, "Name? ")
+            nick = (read(f) ? tab(upto('\n\r')))
+            every write(!cons, nick, " has joined.")
+            insert(cons, f)
+
+            while s = read(f):
+                every write(!cons, nick, ": ", s)
+
+            delete(cons, f)
+            every write(!cons, nick, " has left.")
+
+            critical_section(mlck):
+                nCons -= 1

@@ -1,0 +1,37 @@
+```
+function data(name, value) {
+    // store data in memory
+}
+
+function abs(value, norm) {
+    // calculate absolute value
+}
+
+function negate(value, negValue) {
+    // calculate negative value
+}
+
+function conjugate(value, conValue) {
+    // calculate conjugate value
+}
+
+function add(value1, value2, sum) {
+    // calculate sum of two values
+}
+
+function mul(value1, value2, product) {
+    // calculate product of two values
+}
+
+function test() {
+    // perform tests on various operations
+}
+
+// Main program
+data(q,  qx(1,2,3,4)).
+data(q1, qx(2,3,4,5)).
+data(q2, qx(3,4,5,6)).
+data(r, 7).
+
+test.
+```

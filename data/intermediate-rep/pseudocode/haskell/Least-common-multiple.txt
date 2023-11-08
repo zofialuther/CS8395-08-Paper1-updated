@@ -1,0 +1,9 @@
+FUNCTION lcm(x, y)
+    IF y = 0 THEN
+        RETURN 0
+    END IF
+    IF x = 0 THEN
+        RETURN 0
+    END IF
+    RETURN ABS(((x DIV gcd(x, y)) * y))
+END FUNCTION

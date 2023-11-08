@@ -1,0 +1,13 @@
+1. Import System.Directory (getDirectoryContents)
+2. Import System.Environment (getArgs)
+
+3. Function isEmpty(x):
+   a. getDirectoryContents x
+   b. return f((== [".", ".."]))
+      i. where f(True) = "Directory is empty"
+      ii. f(False) = "Directory is not empty"
+
+4. Main function:
+   a. getArgs
+   b. isEmpty(!! 0)
+   c. putStrLn

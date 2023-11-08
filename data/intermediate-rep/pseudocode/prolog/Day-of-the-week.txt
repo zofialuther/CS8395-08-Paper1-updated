@@ -1,0 +1,13 @@
+
+main():
+    christmas_days_falling_on_sunday(2011, 2121, SundayList)
+    writeln(SundayList)
+
+christmas_days_falling_on_sunday(StartYear, EndYear, SundayList):
+    YearRangeList = numlist(StartYear, EndYear)
+    SundayList = filter_years_with_christmas_on_sunday(YearRangeList)
+    
+is_christmas_day_a_sunday(Year):
+    Date = date(Year, 12, 25)
+    DayOfTheWeek = get_day_of_the_week(Date)
+    return DayOfTheWeek == 7

@@ -1,0 +1,8 @@
+1. Import the regular expression module (re)
+2. Define a function called rangeexpand that takes a string parameter txt
+3. Create an empty list called lst
+4. Split the input string txt by commas and iterate through each range
+5. Use regular expression to match the start and end of the range
+6. If end is found, use xrange to generate a list of numbers from start to end+1 and add it to the lst
+7. If end is not found, append the start to the lst
+8. Return the list lst containing the expanded range.

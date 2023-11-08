@@ -1,0 +1,16 @@
+1. Import the necessary libraries: numpy as np
+2. Define the function LinePlaneCollision with the parameters planeNormal, planePoint, rayDirection, rayPoint, and optional parameter epsilon=1e-6
+3. Calculate ndotu by taking the dot product of planeNormal and rayDirection
+4. Check if the absolute value of ndotu is less than epsilon
+5. If the condition is true, raise a RuntimeError with the message "no intersection or line is within plane"
+6. Calculate w by subtracting planePoint from rayPoint
+7. Calculate si by taking the dot product of -planeNormal and w, divided by ndotu
+8. Calculate Psi by adding w, si multiplied by rayDirection, and planePoint
+9. Return Psi
+10. In the main block:
+    a. Define planeNormal as np.array([0, 0, 1])
+    b. Define planePoint as np.array([0, 0, 5])
+    c. Define rayDirection as np.array([0, -1, -1])
+    d. Define rayPoint as np.array([0, 0, 10])
+    e. Call the LinePlaneCollision function with the defined parameters and store the result in Psi
+    f. Print "intersection at" followed by the value of Psi.

@@ -1,0 +1,1 @@
+This code is using the consult predicate to load and consult the contents of a Prolog file named 'filename'. This allows the Prolog program to access and use the predicates and rules defined in the consulted file.

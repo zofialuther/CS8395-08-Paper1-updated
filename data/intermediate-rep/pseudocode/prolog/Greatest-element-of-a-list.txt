@@ -1,0 +1,9 @@
+max_list(L, V) {
+   R = select(V, L)
+   for each X in R {
+      if (X > V) {
+         return false
+      }
+   }
+   return true
+}

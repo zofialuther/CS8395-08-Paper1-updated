@@ -1,0 +1,1 @@
+This Python code uses the itertools library to generate all possible permutations of a set of numbers from 0 to 7. It then checks each permutation to see if it meets the condition that no two queens can attack each other in a standard 8x8 chessboard setup. If a permutation meets this condition, it is printed out.

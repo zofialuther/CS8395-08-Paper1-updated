@@ -1,0 +1,1 @@
+This code utilizes the lambda library to define a predicate called stripchars. This predicate takes a string, a list of characters to exclude, and returns a new string with the excluded characters removed. It achieves this by using the exclude function to filter out the specified characters from the original string, and then converts the resulting list back into a string.

@@ -1,0 +1,4 @@
+function palindrome(Word):
+    List = convertToList(Word)
+    reversedList = reverseList(List)
+    return isEqual(List, reversedList)

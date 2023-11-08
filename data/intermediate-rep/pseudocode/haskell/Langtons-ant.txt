@@ -1,0 +1,35 @@
+```
+FUNCTION step(State)
+    IF isBlack(State) THEN
+        setWhite(State)
+        turnRight(State)
+    ELSE
+        setBlack(State)
+        turnLeft(State)
+    move(State)
+END FUNCTION
+
+FUNCTION isBlack(State)
+    RETURN member(State.p, State.m)
+END FUNCTION
+
+FUNCTION setBlack(State)
+    State.m <- insert(State.p, State.m)
+END FUNCTION
+
+FUNCTION setWhite(State)
+    State.m <- delete(State.p, State.m)
+END FUNCTION
+
+FUNCTION turnRight(State)
+    State.d <- (State.d.y, -State.d.x)
+END FUNCTION
+
+FUNCTION turnLeft(State)
+    State.d <- (-State.d.y, State.d.x)
+END FUNCTION
+
+FUNCTION move(State)
+    State.p <- (State.p.x + State.d.x, State.p.y + State.d.y)
+END FUNCTION
+```

@@ -1,0 +1,9 @@
+1. Import the required libraries:
+   - import win32ui
+   - from pywin.mfc.dialog import Dialog
+
+2. Create a Dialog object with the IDD_SIMPLE_INPUT ID:
+   - d = Dialog(win32ui.IDD_SIMPLE_INPUT)
+
+3. Create the window for the dialog:
+   - d.CreateWindow()

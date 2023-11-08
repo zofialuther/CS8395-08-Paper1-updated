@@ -1,0 +1,4 @@
+1. Import the Network module
+2. Define the main function
+3. Use withSocketsDo to ensure proper socket handling
+4. Use the sendTo function to send the message "hello socket world" to "localhost" on port 256.

@@ -1,0 +1,1 @@
+s0 = State(lambda: guys0[0], guys0, lambda: [(_2, guys0[1][i][1][::-1]) for i, _2 in enumerate(girls0)])

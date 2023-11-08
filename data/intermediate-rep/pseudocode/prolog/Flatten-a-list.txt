@@ -1,0 +1,16 @@
+function flatten(List, FlatList) {
+  flattenHelper(List, [], FlatList);
+}
+
+function flattenHelper(Var, T, FlatList) {
+  if (Var is a variable) {
+    append Var to T and assign the result to FlatList;
+  } else if (Var is an empty list) {
+    assign T to FlatList;
+  } else if (Var is a list) {
+    recursively call flattenHelper with H as the first element of Var, FlatTail as the flattened H, and List as the result;
+    recursively call flattenHelper with T as the tail of Var, TailList as the result of the previous call, and FlatTail as the result;
+  } else {
+    append NonList to T and assign the result to FlatList;
+  }
+}

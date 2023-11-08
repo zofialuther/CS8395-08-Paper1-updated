@@ -1,0 +1,26 @@
+```
+function permutations(list) {
+  function ins(x, xs, n) {
+    let firstHalf = xs.slice(0, n);
+    let secondHalf = xs.slice(n);
+    return firstHalf.concat([x], secondHalf);
+  }
+
+  let result = [[]];
+
+  for (let i = 0; i < list.length; i++) {
+    let x = list[i];
+    let temp = [];
+    for (let j = 0; j <= result.length; j++) {
+      temp.push(ins(x, result[j], j));
+    }
+    result = temp;
+  }
+
+  return result;
+}
+
+function main() {
+  console.log(permutations([1, 2, 3]));
+}
+```

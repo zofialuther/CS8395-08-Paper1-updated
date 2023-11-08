@@ -1,0 +1,19 @@
+```
+function non_empty_file(file) {
+  if (file === '.' || file === '..') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function empty_dir(Dir) {
+  Files = directory_files(Dir);
+  for (file in Files) {
+    if (!non_empty_file(file)) {
+      return false;
+    }
+  }
+  return true;
+}
+```

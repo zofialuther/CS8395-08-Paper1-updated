@@ -1,0 +1,78 @@
+```
+FUNCTION bruteForceClosestPair(point)
+    numPoints = LENGTH(point)
+    IF numPoints < 2 THEN
+        RETURN infinity, (None, None)
+    END IF
+    RETURN MIN( ((ABS(point[i] - point[j]), (point[i], point[j]))
+                 FOR i IN RANGE(numPoints-1)
+                 FOR j IN RANGE(i+1,numPoints)),
+                KEY=GETITEM(0))
+
+FUNCTION closestPair(point)
+    xP = SORT(point, KEY=GETATTR('real'))
+    yP = SORT(point, KEY=GETATTR('imag'))
+    RETURN _closestPair(xP, yP)
+
+FUNCTION _closestPair(xP, yP)
+    numPoints = LENGTH(xP)
+    IF numPoints <= 3 THEN
+        RETURN bruteForceClosestPair(xP)
+    END IF
+    Pl = xP[:numPoints/2]
+    Pr = xP[numPoints/2:]
+    Yl = []
+    Yr = []
+    xDivider = GETITEM(Pl[-1], 'real')
+    FOR p IN yP
+        IF p.real <= xDivider THEN
+            Yl.APPEND(p)
+        ELSE
+            Yr.APPEND(p)
+        END IF
+    END FOR
+    dl, pairl = _closestPair(Pl, Yl)
+    dr, pairr = _closestPair(Pr, Yr)
+    dm, pairm = IF dl < dr THEN (dl, pairl) ELSE (dr, pairr)
+    closeY = [p FOR p IN yP  IF ABS(p.real - xDivider) < dm]
+    numCloseY = LENGTH(closeY)
+    IF numCloseY > 1 THEN
+        closestY = MIN( ((ABS(closeY[i] - closeY[j]), (closeY[i], closeY[j]))
+                         FOR i IN RANGE(numCloseY-1)
+                         FOR j IN RANGE(i+1,MIN(i+8, numCloseY))),
+                        KEY=GETITEM(0))
+        RETURN IF dm <= GETITEM(closestY, 0) THEN (dm, pairm) ELSE closestY
+    ELSE
+        RETURN dm, pairm
+    END IF
+END FUNCTION
+
+FUNCTION times()
+    IMPORT timeit
+    functions = [bruteForceClosestPair, closestPair]
+    FOR f IN functions
+        PRINT 'Time for', f.__name__, timeit.Timer(
+            '%s(pointList)' % f.__name__,
+            'from closestpair IMPORT %s, pointList' % f.__name__).timeit(number=1)
+    END FOR
+END FUNCTION
+
+pointList = [randint(0,1000)+1j*randint(0,1000) for i IN RANGE(2000)]
+
+IF __name__ == '__main__'
+    pointList = [(5+9j), (9+3j), (2+0j), (8+4j), (7+4j), (9+10j), (1+9j), (8+2j), 10j, (9+6j)]
+    PRINT pointList
+    PRINT '  bruteForceClosestPair:', bruteForceClosestPair(pointList)
+    PRINT '            closestPair:', closestPair(pointList)
+    FOR i IN RANGE(10)
+        pointList = [randrange(11)+1j*randrange(11) for i IN RANGE(10)]
+        PRINT '\n', pointList
+        PRINT ' bruteForceClosestPair:', bruteForceClosestPair(pointList)
+        PRINT '           closestPair:', closestPair(pointList)
+    END FOR
+    PRINT '\n'
+    times()
+    times()
+    times()
+END IF
+```

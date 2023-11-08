@@ -1,0 +1,7 @@
+START
+  DECLARE class HelloWorld
+    DECLARE main function
+      PRINT "Hello world!"
+    END main function
+  END class HelloWorld
+END

@@ -1,0 +1,107 @@
+START
+  IMPORT java.io.IOException
+  IMPORT java.nio.charset.StandardCharsets
+  IMPORT java.nio.file.Files
+  IMPORT java.nio.file.Paths
+  IMPORT java.util.ArrayList
+  IMPORT java.util.List
+  IMPORT org.apache.commons.lang3.StringUtils
+  
+  CLASS ColumnAligner
+    DECLARE words as List of String arrays
+    DECLARE columns as Integer
+    DECLARE columnWidths as List of Integers
+    
+    CONSTRUCTOR ColumnAligner(s)
+      SET lines as s.split("\\n")
+      FOR EACH line in lines
+        CALL processInputLine(line)
+      END FOR
+    END CONSTRUCTOR
+    
+    CONSTRUCTOR ColumnAligner(lines)
+      FOR EACH line in lines
+        CALL processInputLine(line)
+      END FOR
+    END CONSTRUCTOR
+    
+    METHOD processInputLine(line)
+      SET lineWords as line.split("\\$")
+      ADD lineWords to words
+      SET columns as MAX(columns, lineWords.length)
+      FOR i = 0 to lineWords.length
+        SET word as lineWords[i]
+        IF i >= columnWidths.size()
+          ADD word.length() to columnWidths
+        ELSE
+          SET columnWidths[i] as MAX(columnWidths[i], word.length())
+        END IF
+      END FOR
+    END METHOD
+    
+    INTERFACE AlignFunction
+      METHOD align(s, length)
+    
+    METHOD alignLeft()
+      RETURN CALL align(new AlignFunction() {
+        align(s, length) {
+          RETURN StringUtils.rightPad(s, length)
+        }
+      })
+    END METHOD
+    
+    METHOD alignRight()
+      RETURN CALL align(new AlignFunction() {
+        align(s, length) {
+          RETURN StringUtils.leftPad(s, length)
+        }
+      })
+    END METHOD
+    
+    METHOD alignCenter()
+      RETURN CALL align(new AlignFunction() {
+        align(s, length) {
+          RETURN StringUtils.center(s, length)
+        }
+      })
+    END METHOD
+    
+    METHOD align(a)
+      SET result as StringBuilder
+      FOR EACH lineWords in words
+        FOR i = 0 to lineWords.length
+          SET word as lineWords[i]
+          IF i == 0
+            result.append("|")
+          END IF
+          result.append(a.align(word, columnWidths[i]) + "|")
+        END FOR
+        result.append("\n")
+      END FOR
+      RETURN result.toString()
+    END METHOD
+    
+    METHOD main(args)
+      IF args.length < 1
+        PRINT "Usage: ColumnAligner file [left|right|center]"
+        RETURN
+      END IF
+      SET filePath as args[0]
+      SET alignment as "left"
+      IF args.length >= 2
+        SET alignment as args[1]
+      END IF
+      SET ca as new ColumnAligner(Files.readAllLines(Paths.get(filePath), StandardCharsets.UTF_8))
+      SWITCH alignment
+        CASE "left"
+          PRINT ca.alignLeft()
+        CASE "right"
+          PRINT ca.alignRight()
+        CASE "center"
+          PRINT ca.alignCenter()
+        DEFAULT
+          PRINT "Error! Unknown alignment: '" + alignment + "'"
+      END SWITCH
+    END METHOD
+END CLASS
+END START

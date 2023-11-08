@@ -1,0 +1,24 @@
+```
+rotate(Int,List,Rotated) :
+    if Int is an integer:
+        find the length of Suff
+        append Pre and Suff to List to get Rotated
+
+rotate(LoInts,LoLists,Rotated) :
+    if LoInts is a list:
+        apply rotate to each pair of elements in LoInts and LoLists to get Rotated
+
+append_(Suff,Pre,List) :
+    append Pre and Suff to List
+
+idmatrix(N,IdMatrix):
+    create a list of N 1s
+    create a list of N-1 0s
+    append the 0s to the 1s to create a matrix M
+    create a list of numbers from 0 to N-1 as Offsets
+    rotate each row of M using Offsets to get IdMatrix
+
+main :
+    create an identity matrix I with size 5
+    print each row of I
+```

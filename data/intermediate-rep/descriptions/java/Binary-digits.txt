@@ -1,0 +1,1 @@
+This code takes the integer 5 and converts it into a binary string representation.

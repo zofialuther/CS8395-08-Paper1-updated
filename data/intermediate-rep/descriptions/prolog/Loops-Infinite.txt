@@ -1,0 +1,1 @@
+This code uses Prolog to repeatedly write the word "SPAM" to the console and then move to a new line, before entering a failure loop to keep repeating the process.

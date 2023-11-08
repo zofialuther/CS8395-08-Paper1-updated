@@ -1,0 +1,29 @@
+FUNCTION compose(f, g)
+  RETURN FUNCTION
+    APPLY f.apply(g.apply(x))
+
+FUNCTION main(args)
+  functions = CREATE ArrayList OF Double to Double Functions
+  ADD new Function(Double, Double) 
+    RETURN Math.cos(x)
+  ADD new Function(Double, Double) 
+    RETURN Math.tan(x)
+  ADD new Function(Double, Double) 
+    RETURN x * x
+  
+  inverse = CREATE ArrayList OF Double to Double Functions
+  ADD new Function(Double, Double) 
+    RETURN Math.acos(x)
+  ADD new Function(Double, Double) 
+    RETURN Math.atan(x)
+  ADD new Function(Double, Double) 
+    RETURN Math.sqrt(x)
+
+  PRINT "Compositions:"
+  FOR i = 0 TO functions.size()
+    PRINT compose(functions.get(i), inverse.get(i)).apply(0.5)
+  
+  PRINT "Hard-coded compositions:"
+  PRINT Math.cos(Math.acos(0.5))
+  PRINT Math.tan(Math.atan(0.5))
+  PRINT Math.pow(Math.sqrt(0.5), 2)

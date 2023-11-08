@@ -1,0 +1,56 @@
+```
+class PermutationGenerator 
+    array = int[]
+    firstNum = int
+    firstReady = false
+
+    PermutationGenerator(n, firstNum_)
+        if n < 1
+            throw IllegalArgumentException("The n must be min. 1")
+        firstNum = firstNum_
+        array = new int[n]
+        reset()
+
+    reset()
+        for i = 0 to length of array
+            array[i] = i + firstNum
+        firstReady = false
+
+    hasMore()
+        end = firstReady
+        for i = 1 to length of array
+            end = end AND array[i] < array[i-1]
+        return NOT end
+
+    getNext()
+        if NOT firstReady
+            firstReady = true
+            return array
+        temp = int
+        j = length of array - 2
+        k = length of array - 1
+        for array[j] > array[j+1] do
+            j = j - 1
+        for array[j] > array[k] do
+            k = k - 1
+        temp = array[k]
+        array[k] = array[j]
+        array[j] = temp
+        r = length of array - 1
+        s = j + 1
+        while r > s do
+            temp = array[s]
+            array[s] = array[r]
+            array[r] = temp
+            s = s + 1
+            r = r - 1
+        return array
+
+    main(args)
+        pg = new PermutationGenerator(3, 1)
+        while pg.hasMore() do
+            temp = pg.getNext()
+            for i = 0 to length of temp
+                print temp[i] + " "
+            print a new line
+```

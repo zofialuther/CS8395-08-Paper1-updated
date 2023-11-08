@@ -1,0 +1,7 @@
+1. Import the bitmap module
+2. Import the bitmapIO module
+
+3. Define a function called write
+4. Create a new bitmap called AllBlack with dimensions [50,50] and color [0,0,0]
+5. Set a pixel in the AllBlack bitmap to color [255,255,255] at position [25,25]
+6. Write the AlmostAllBlack bitmap to a ppm file using the write_ppm_p6 function

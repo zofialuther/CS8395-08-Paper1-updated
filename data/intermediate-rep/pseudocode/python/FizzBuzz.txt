@@ -1,0 +1,9 @@
+import itertools
+
+fizzes = itertools.cycle([""] * 2 + ["Fizz"])
+buzzes = itertools.cycle([""] * 4 + ["Buzz"])
+both = (f + b for f, b in itertools.izip(fizzes, buzzes))
+fizzbuzz = (word or n for word, n in itertools.izip(both, itertools.count(1)))
+
+for i in itertools.islice(fizzbuzz, 100):
+    print(i)

@@ -1,0 +1,7 @@
+1. Import the numpy library as np
+
+2. Define the function np.dot(a,b) to calculate the dot product of arrays a and b
+    a. Input: arrays a and b
+    b. Output: dot product of arrays a and b
+
+3. If a is an array, calculate the dot product using the method a.dot(b)

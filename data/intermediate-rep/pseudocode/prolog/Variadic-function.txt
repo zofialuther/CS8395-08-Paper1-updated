@@ -1,0 +1,6 @@
+function printAll(List):
+    for each element X in List:
+        print X
+        print newline character
+    end for
+end function

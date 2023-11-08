@@ -1,0 +1,30 @@
+```
+function o(O) {
+  let list = [0,1,2,3,4,5,6,7];
+  if (list.includes(O)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function octal([O]) {
+  return o(O);
+}
+
+function octal([A|B]) {
+  let O = octal(O);
+  let T = octal(T);
+  let newList = O.concat([T]);
+  if (A !== 0) {
+    return newList;
+  }
+}
+
+function octalize() {
+  let X = octal(X);
+  for (let i = 0; i < X.length; i++) {
+    console.log(X[i]);
+  }
+}
+```

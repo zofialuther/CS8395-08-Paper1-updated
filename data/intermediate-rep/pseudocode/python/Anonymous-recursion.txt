@@ -1,0 +1,9 @@
+1. Import currentframe from inspect
+2. Import FunctionType from types
+3. Define a function called myself with *args and **kw as parameters
+4. Inside the function, get the caller's frame using currentframe(1) and store it in a variable called caller_frame
+5. Get the code from the caller's frame and store it in a variable called code
+6. Return a new FunctionType using the code and the caller's frame global variables, passing in *args and **kw
+7. Print "factorial(5) ="
+8. Print the result of calling a lambda function with a single parameter n, returning 1 if n is less than or equal to 1, otherwise n multiplied by the result of calling myself with n-1 as the argument
+9. Pass 5 as the argument to the lambda function.

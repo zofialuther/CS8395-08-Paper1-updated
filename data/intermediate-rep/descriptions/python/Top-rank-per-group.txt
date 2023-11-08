@@ -1,0 +1,1 @@
+This code takes a database of employee records and sorts them by department and salary. It uses the namedtuple and groupby functions from the collections and itertools modules, respectively. The code then prints the top N earners in each department, where N is specified at the beginning of the code.

@@ -1,0 +1,17 @@
+FUNCTION tabulateDB(DB ps, header, cols)
+  body = transpose(zipWith(pad, width, table))
+  table = transpose(header : map(showPatient, ps))
+  width = max(map(length, table))
+  RETURN intercalate("|", body)
+
+FUNCTION main
+  a = readDB(readFile("patients.csv"))
+  b = readDB(readFile("visits.csv"))
+  header = [ "PATIENT_ID", "LASTNAME", "VISIT_DATE", "SCORES SUM", "SCORES AVG"]
+  fields = [ pid, fromMaybe([], name), \p -> case visits(p) {[] -> []; l -> last(l)}
+           , \p -> case scores(p) {[] -> []; s -> show(sum(s))}
+           , \p -> case scores(p) {[] -> []; s -> show(mean(s))} ]
+  mapM_(putStrLn, tabulateDB(a <> b, header, fields))
+
+FUNCTION mean(lst) 
+  RETURN sum(lst) / genericLength(lst)

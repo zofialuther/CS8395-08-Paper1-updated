@@ -1,0 +1,1 @@
+This code utilizes the Network module to send a message "hello socket world" to the localhost on port 256. It ensures that the necessary network functionality is properly initialized with the withSocketsDo function.

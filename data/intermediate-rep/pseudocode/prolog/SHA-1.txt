@@ -1,0 +1,4 @@
+FUNCTION sha_hex(Str, Hex)
+    Hash = sha_hash(Str, [])
+    Hex = hash_atom(Hash)
+END FUNCTION

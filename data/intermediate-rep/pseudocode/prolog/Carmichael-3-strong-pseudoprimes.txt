@@ -1,0 +1,36 @@
+```
+show(Limit)
+    for each P1, P2, P3, C such that carmichael(Limit, P1, P2, P3, C) do
+        print P1 * P2 * P3 = C
+
+carmichael(Upto, P1, P2, P3, X)
+    for each P1 between 2 and Upto do
+        if prime(P1) then
+            Limit = P1 - 1
+            for each H3 between 2 and Limit do
+                MaxD = H3 + P1 - 1
+                for each D between 1 and MaxD do
+                    if (H3 + P1)*(P1 - 1) mod D = 0 and -P1*P1 mod H3 = D mod H3 then
+                        P2 = 1 + (P1 - 1)*(H3 + P1) div D
+                        if prime(P2) then
+                            P3 = 1 + P1*P2 div H3
+                            if prime(P3) then
+                                X = P1*P2*P3
+
+wheel235(L)
+    W = [4, 2, 4, 2, 4, 6, 2, 6 | W]
+    L = [1, 2, 2 | W]
+
+prime(N)
+    if N >= 2 then
+        wheel235(W)
+        prime(N, 2, W)
+
+prime(N, D, _)
+    if D*D > N then
+        exit
+    else
+        if N mod D != 0 then
+            D2 = D + A
+            prime(N, D2, As)
+```

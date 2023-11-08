@@ -1,0 +1,40 @@
+```
+FUNCTION sieve(limit)
+    composite = array of boolean values of size limit
+    composite[0] = true
+    composite[1] = true
+    max = square root of limit
+    FOR n = 2 to max
+        IF composite[n] is false THEN
+            FOR k = n*n to limit with step n
+                composite[k] = true
+            END FOR
+        END IF
+    END FOR
+    RETURN composite
+END FUNCTION
+
+FUNCTION main()
+    limit = 1000000
+    sieveLimit = 15500000
+    buckets = 2D array of int values of size 10x10
+    prevDigit = 2
+    notPrime = sieve(sieveLimit)
+    FOR n = 3, primeCount = 1; primeCount < limit; n++
+        IF notPrime[n] is true THEN
+            CONTINUE
+        END IF
+        digit = n % 10
+        buckets[prevDigit][digit]++
+        prevDigit = digit
+        primeCount++
+    END FOR
+    FOR i = 0 to 9
+        FOR j = 0 to 9
+            IF buckets[i][j] is not equal to 0 THEN
+                PRINT i, j, buckets[i][j] / (limit / 100.0)
+            END IF
+        END FOR
+    END FOR
+END FUNCTION
+```

@@ -1,0 +1,47 @@
+```
+function isPrime(n)
+    if n <= 1
+        return false
+    else if n <= 3
+        return true
+    else if n mod 2 == 0 or n mod 3 == 0
+        return false
+    i = 5
+    while i * i <= n
+        if n mod i == 0 or n mod (i + 2) == 0
+            return false
+        i = i + 6
+    return true
+
+function primes()
+    primeList = []
+    for i from 2 to infinity
+        if isPrime(i)
+            add i to primeList
+    return primeList
+
+function isKPrime(k, n)
+    if k = 1
+        return isPrime(n)
+    else
+        sprimes = []
+        for each prime p in primes()
+            if n mod p == 0
+                add p to sprimes
+        for each prime sp in sprimes
+            if isKPrime(k - 1, n / sp)
+                return true
+        return false
+
+function kPrimes(k)
+    kPrimeList = []
+    for i from 2 to infinity
+        if isKPrime(k, i)
+            add i to kPrimeList
+    return kPrimeList
+
+function main()
+    for k from 1 to 5
+        kPrimeList = kPrimes(k)
+        print "k = " + k + ": " + first 10 elements of kPrimeList
+```

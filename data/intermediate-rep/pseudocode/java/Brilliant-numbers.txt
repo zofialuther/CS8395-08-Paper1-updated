@@ -1,0 +1,76 @@
+FUNCTION getPrimesByDigits(limit)
+    primeGen = new PrimeGenerator(100000, 100000)
+    primesByDigits = new ArrayList<List<Integer>>()
+    primes = new ArrayList<Integer>()
+    p = 10
+    WHILE p <= limit DO
+        prime = primeGen.nextPrime()
+        IF prime > p THEN
+            primesByDigits.add(primes)
+            primes = new ArrayList<Integer>()
+            p *= 10
+        END IF
+        primes.add(prime)
+    END WHILE
+    RETURN primesByDigits
+END FUNCTION
+
+FUNCTION main()
+    primesByDigits = getPrimesByDigits(100000000)
+    PRINT "First 100 brilliant numbers:"
+    brilliantNumbers = new ArrayList<Integer>()
+    FOR EACH primes IN primesByDigits DO
+        n = primes.size()
+        FOR i = 0 TO n DO
+            prime1 = primes.get(i)
+            FOR j = i TO n DO
+                prime2 = primes.get(j)
+                brilliantNumbers.add(prime1 * prime2)
+            END FOR
+        END FOR
+        IF brilliantNumbers.size() >= 100 THEN
+            BREAK
+        END IF
+    END FOR
+    Collections.sort(brilliantNumbers)
+    FOR i = 0 TO 100 DO
+        c = (i + 1) % 10 == 0 ? '\n' : ' '
+        PRINT "%,5d%c", brilliantNumbers.get(i), c
+    END FOR
+    PRINT "\n"
+    power = 10
+    count = 0
+    FOR p = 1 TO 2 * primesByDigits.size() DO
+        primes = primesByDigits.get(p / 2)
+        position = count + 1
+        minProduct = 0
+        n = primes.size()
+        FOR i = 0 TO n DO
+            prime1 = primes.get(i)
+            primes2 = primes.subList(i, n)
+            q = (power + prime1 - 1) / prime1
+            j = Collections.binarySearch(primes2, q)
+            IF j == n THEN
+                CONTINUE
+            END IF
+            IF j < 0 THEN
+                j = -(j + 1)
+            END IF
+            prime2 = primes2.get(j)
+            product = prime1 * prime2
+            IF minProduct == 0 OR product < minProduct THEN
+                minProduct = product
+            END IF
+            position += j
+            IF prime1 >= prime2 THEN
+                BREAK
+            END IF
+        END FOR
+        PRINT "First brilliant number >= 10^%d is %,d at position %,d\n", p, minProduct, position
+        power *= 10
+        IF p % 2 == 1 THEN
+            size = primes.size()
+            count += size * (size + 1) / 2
+        END IF
+    END FOR
+END FUNCTION

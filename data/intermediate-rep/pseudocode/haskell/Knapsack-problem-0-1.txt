@@ -1,0 +1,19 @@
+FUNCTION combs(item, capacity)
+    IF item is empty THEN
+        RETURN [(0, [])]
+    ELSE
+        RETURN combs(rest of item, capacity) UNION
+               IF weight of item > capacity THEN
+                   []
+               ELSE
+                   PREPEND(item, combs(rest of item, capacity - weight of item))
+                   WHERE PREPEND(item, (value, list)) 
+                       RETURN (value + value of item, (item, weight, value): list)
+
+FUNCTION main
+    PRINT "Total value: "
+    PRINT value
+    FOR EACH item in items DO
+        PRINT item
+    END FOR
+    WHERE (value, items) = maximum value of combs(inv, 400)

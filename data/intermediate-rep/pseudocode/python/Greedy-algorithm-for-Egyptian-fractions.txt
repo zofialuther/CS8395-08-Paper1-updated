@@ -1,0 +1,35 @@
+```
+1. Define eqyptianFraction function
+    a. Define inner function go
+        i. Get numerator and denominator from x
+        ii. Calculate r
+        iii. If n is not 1
+            1. If n > d, calculate fractions fr(n % d, d) and fr(n // d, 1)
+            2. Else, calculate fractions fr(-d % n, d * r) and fr(1, r)
+        iv. If n is 1, return (0, x), else return result as Just
+        v. If n is 0, return Nothing
+    b. Define fr as Fraction
+    c. Apply unfoldr with go on nd
+    d. If nd is less than 0, map negate to the result of unfoldr, else return unfoldr result
+2. Define maxEqyptianFraction function
+    a. Define inner function maxima
+        i. If fx is greater than v, return (nd, fx) as a list, else return xs and v if fx is equal to v and nd not in xs
+    b. Define inner function go
+        i. Set iLast to nDigits * '9'
+        ii. Reduce maxima function with list comprehension on nd for n and d
+            1. Create Fraction with n and d
+            2. Enumerate from 1 to iLast for n
+            3. Enumerate from 1 + n to iLast for d
+        iii. Return result with f.__name__, list of fs and mx
+    c. Return go function
+3. Define main function
+    a. Set ef to eqyptianFraction and fr to Fraction
+    b. Print three values as Eqyptian fractions
+    c. Print proper fraction with up to i digits
+        i. Print maximum term count and maximum denominator
+4. Define Just function to return a populated Maybe type
+5. Define Nothing function to return an empty Maybe type
+6. Define enumFromTo function to return a range from m to n
+7. Define unfoldr function to build a list from a seed value
+8. Check if the script is being run directly and call main function
+```

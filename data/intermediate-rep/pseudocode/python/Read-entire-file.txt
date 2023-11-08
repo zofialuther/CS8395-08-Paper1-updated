@@ -1,0 +1,4 @@
+1. Set the variable filename to the name of the file to be opened.
+2. Open the file with the specified filename and encoding 'utf-8'.
+3. Read the contents of the file.
+4. Return the contents of the file.

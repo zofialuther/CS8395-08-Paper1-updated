@@ -1,0 +1,1 @@
+This Java program defines a class called Transpose, which contains a main method. The main method creates a 2D array 'm' and then transposes it to create a new 2D array 'ans'. The transposition involves swapping the rows and columns of the original array. The resulting transposed array is then printed to the console using the Arrays.toString() method.

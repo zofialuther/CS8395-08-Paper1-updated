@@ -1,0 +1,38 @@
+cR = [1]
+cS = [2]
+
+function extend_RS():
+    x = cR[length(cR) - 1] + cS[length(cR) - 1]
+    cR.append(x)
+    for i in range(cS[-1] + 1, x):
+        cS.append(i)
+    cS.append(x + 1)
+
+function ff_R(n):
+    assert n > 0
+    while n > length(cR):
+        extend_RS()
+    return cR[n - 1]
+
+function ff_S(n):
+    assert n > 0
+    while n > length(cS):
+        extend_RS()
+    return cS[n - 1]
+
+# tests
+result = []
+for i in range(1, 11):
+    result.append(ff_R(i))
+print(result)
+
+s = {}
+for i in range(1, 1001):
+    s[i] = 0
+for i in range(1, 41):
+    delete s[ff_R(i)]
+for i in range(1, 961):
+    delete s[ff_S(i)]
+
+# the fact that we got here without a key error
+print("Ok")

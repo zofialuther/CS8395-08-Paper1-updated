@@ -1,0 +1,1 @@
+This code defines a function called rootsOfUnity that takes a number n and returns a list of complex numbers representing the nth roots of unity. It then calls the rootsOfUnity function with the argument 3 and prints the resulting list of complex numbers.

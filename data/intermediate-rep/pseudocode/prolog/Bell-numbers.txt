@@ -1,0 +1,63 @@
+```
+function bell(N, Bell):
+    bell(N, Bell, [], _)
+
+function bell(0, [[1]|T], T, [1]):
+    return
+    // base case for N = 0
+    // initialize Bell with 1 as the first row
+
+function bell(N, Bell, B, Row):
+    N1 = N - 1
+    bell(N1, Bell, [Row|B], Last)
+    next_row(Row, Last)
+
+function next_row([Last|Bell], Bell1):
+    last(Bell1, Last)
+    next_row1(Last, Bell, Bell1)
+
+function next_row1(_, [], []):
+    return
+    // base case for empty Bell1
+    // no need to continue
+
+function next_row1(X, [Y|Rest], [B|Bell]):
+    Y = X + B
+    next_row1(Y, Rest, Bell)
+
+function print_bell_numbers(_, 0):
+    return
+    // base case for N = 0
+    // no need to print more numbers
+
+function print_bell_numbers([[Number|_]|Bell], N):
+    write(Number)
+    N1 = N - 1
+    print_bell_numbers(Bell, N1)
+
+function print_bell_rows(_, 0):
+    return
+    // base case for N = 0
+    // no need to print more rows
+
+function print_bell_rows([Row|Rows], N):
+    print_bell_row(Row)
+    N1 = N - 1
+    print_bell_rows(Rows, N1)
+
+function print_bell_row([Number]):
+    write(Number)
+
+function print_bell_row([Number|Numbers]):
+    write(Number + " ")
+    print_bell_row(Numbers)
+
+function main:
+    bell(49, Bell)
+    write('First 15 Bell numbers:\n')
+    print_bell_numbers(Bell, 15)
+    last(Bell, [Number|_])
+    write('\n50th Bell number: ' + Number + '\n')
+    write('\nFirst 10 rows of Bell triangle:\n')
+    print_bell_rows(Bell, 10)
+```

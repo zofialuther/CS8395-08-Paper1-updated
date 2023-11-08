@@ -1,0 +1,30 @@
+BEGIN
+    years = array of booleans with 201 elements
+    month31 = array of integers with values of the months with 31 days
+
+    FUNCTION main
+        months = empty StringBuilder
+        numMonths = 0
+        
+        FOR year from 1900 to 2100
+            FOR each month in month31
+                date = create new GregorianCalendar with year, month, and day 1
+                IF day of the week of date is Friday
+                    years at index (year - 1900) is true
+                    numMonths increment by 1
+                    Append (month + 1) + "-" + year +"\n" to months
+                END IF
+            END FOR
+        END FOR
+        
+        OUTPUT "There are " + numMonths + " months with five weekends from 1900 through 2100:"
+        OUTPUT months
+        OUTPUT "Years with no five-weekend months:"
+        
+        FOR year from 1900 to 2100
+            IF years at index (year - 1900) is false
+                OUTPUT year
+            END IF
+        END FOR
+    END FUNCTION
+END

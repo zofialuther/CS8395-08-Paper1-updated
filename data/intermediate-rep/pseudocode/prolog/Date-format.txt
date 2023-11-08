@@ -1,0 +1,6 @@
+1. Start
+2. Read current time
+3. Format the time to display in the format 'YYYY-MM-DD' and store it in Short
+4. Format the time to display in the format 'Day of the week, Month Day, Year' and store it in Long
+5. Display Short and Long
+6. End

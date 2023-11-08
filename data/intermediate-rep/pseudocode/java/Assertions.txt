@@ -1,0 +1,2 @@
+if valueA is not equal to valueB
+  print "Assertion Error: valueA is not equal to valueB"

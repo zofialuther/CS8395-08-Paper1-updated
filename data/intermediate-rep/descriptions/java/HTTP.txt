@@ -1,0 +1,1 @@
+This Java code uses the java.net.http package to send a GET request to the specified URI (in this case, "https://www.rosettacode.org"). It then asynchronously sends the request and prints the response body to the console. This code demonstrates how to use the HttpClient and HttpRequest classes to make HTTP requests and handle the response in a simple and concise manner.

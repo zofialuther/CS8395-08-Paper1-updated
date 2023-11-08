@@ -1,0 +1,21 @@
+```
+1. Import the http_open module
+2. Define the anagrams predicate
+3. Open the URL 'http://wiki.puzzlers.org/pub/wordlists/unixdict.txt'
+4. Read the file and store the output in Out
+5. Close the input stream
+6. Sort the list Out and store the result in MOut
+7. Group the pairs in MOut by key and store the result in GPL
+8. Sort the list GPL in decreasing order of the length of values and store the result in GPLSort
+9. Extract the first 6 items from GPLSort and store them in T1-T6
+10. Convert the lists of codes T1-T6 to strings and store the result in L
+11. Print each string in L
+12. Define the read_file predicate to read the file and store the result in L1
+13. Read a line from the input stream and store it in W
+14. If the line is the end of the file, set L1 to L
+15. Otherwise, sort the list of codes of the line and store the result in W1
+16. Create the key in alphabetic order and store it in A
+17. Add the pair A-W to the result list and call read_file recursively
+18. Define the my_compare predicate to sort the list of pairs Key-Values
+19. If the length of the values V1 and V2 is the same, compare the keys K1 and K2
+```

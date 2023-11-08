@@ -1,0 +1,23 @@
+```
+1. use_module(library(clpfd)).
+
+2. my_sum(Min, Max, Top, LL):
+3.     L = [A,B,C,D,E,F,G],
+4.     L ins Min..Max,
+5.     (   Top == 0
+6.     ->  all_distinct(L)
+7.     ;    true),
+8.     R #= A+B,
+9.     R #= B+C+D,
+10.     R #= D+E+F,
+11.     R #= F+G,
+12.     setof(L, labeling([ff], L), LL).
+
+13. my_sum_1(Min, Max) :
+14.     my_sum(Min, Max, 0, LL),
+15.     maplist(writeln, LL).
+
+16. my_sum_2(Min, Max, Len) :
+17.     my_sum(Min, Max, 1, LL),
+18.     length(LL, Len).
+```

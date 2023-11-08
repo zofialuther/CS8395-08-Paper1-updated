@@ -1,0 +1,8 @@
+function selectionSort(lst)
+    for i from 0 to length(lst) - 1
+        minIndex = i
+        for j from i+1 to length(lst)
+            if lst[j] < lst[minIndex]
+                minIndex = j
+        swap lst[i] with lst[minIndex]
+    return lst

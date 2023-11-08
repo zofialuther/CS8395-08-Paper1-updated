@@ -1,0 +1,1 @@
+This code generates a 2D array of size 'size' with a zig-zag pattern of numbers filled in. It iterates through the array and assigns each element a value based on its position in the zig-zag pattern, alternating between moving up and to the right and moving down and to the left. The resulting array represents a zig-zag pattern of numbers.

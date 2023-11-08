@@ -1,0 +1,1 @@
+This code defines a function called "is_even" which takes an integer as input and checks if it is an even number. The function returns True if the input number is even and False if it is not. When the function is called with the input 1, it returns False, and when called with the input 2, it returns True.

@@ -1,0 +1,5 @@
+1. Set up a dictionary called "numerals" with key-value pairs for Roman numerals and their corresponding numerical values.
+2. Create a function called "romannumeral2number" that takes a string "s" as input.
+3. Use the map function to iterate through each character in the input string "s" and convert it to its numerical value using the "numerals" dictionary. Convert all characters to uppercase.
+4. Use the reduce function to calculate the final numerical value by comparing each pair of values from the map and applying the appropriate subtraction or addition based on the Roman numeral rules.
+5. Return the final numerical value.

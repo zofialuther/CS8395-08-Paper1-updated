@@ -1,0 +1,69 @@
+```
+function main:
+    initialize
+    call play
+    halt
+
+function answer(number):
+    return 24
+
+function play:
+    call round
+    if true, call play
+    else, return true
+
+function round:
+    prompt Ns
+    call get_line with Input
+    if Input is not equal to "stop" then
+        if parse(Ns, []) is true then
+            Result = 'correct'
+        else
+            Result = 'wrong'
+        write Result
+        write new line
+        write new line
+
+function prompt(Ns):
+    get length of Ns and assign to variable
+    call maplist with random(1, 10) and Ns
+    write 'Digits: '
+    write Ns
+    write new line
+
+function parse([], [X]):
+    if answer(X) is true then
+        return true
+
+function parse(Ns, [Y, X, S]) with "+":
+    Z = X + Y
+    call parse with Ns, [Z, S]
+
+function parse(Ns, [Y, X, S]) with "-":
+    Z = X - Y
+    call parse with Ns, [Z, S]
+
+function parse(Ns, [Y, X, S]) with "*":
+    Z = X * Y
+    call parse with Ns, [Z, S]
+
+function parse(Ns, [Y, X, S]) with "/":
+    Z = X div Y
+    call parse with Ns, [Z, S]
+
+function parse(Ns, Stack) with " ":
+    call parse with Ns, Stack
+
+function parse(Ns, Stack) with N and Code:
+    select N from Ns and assign to Ns1
+    convert N to number and assign to variable
+    call parse with Ns1, [N, Stack]
+
+function get_line(Xs):
+    get code and assign to X
+    if X is equal to 10 then
+        Xs = []
+    else
+        Xs = [X, Ys]
+        call get_line with Ys
+```

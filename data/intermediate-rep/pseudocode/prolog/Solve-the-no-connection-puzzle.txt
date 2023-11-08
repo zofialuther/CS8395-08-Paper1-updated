@@ -1,0 +1,29 @@
+```
+1. Initialize the library clpfd.
+
+2. Define the edges between nodes.
+
+3. Define the predicate connected(A, B) to determine if two nodes are connected.
+
+4. Define the predicate no_connection_puzzle(Vs) to solve the puzzle.
+
+5. Create a list Lst of all nodes in the graph.
+
+6. Sort the list Lst and get its length Len.
+
+7. Create a list Vs to store the values of the nodes and ensure all values are distinct.
+
+8. Set constraints for the connected nodes in the graph.
+
+9. Label the values to solve the puzzle.
+
+10. Define the predicate set_constraints(L, Vs) to set constraints for connected nodes.
+
+11. Define the predicate set_constraint(H, T, VH, VT) to set constraints for connected nodes.
+
+12. Check if two nodes are connected and set constraints accordingly.
+
+13. Continue setting constraints for other connected nodes.
+
+14. End of pseudocode.
+```

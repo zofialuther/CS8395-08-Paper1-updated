@@ -1,0 +1,179 @@
+```
+function farey(n) {
+    return sorted(
+        nubBy(on(eq)(fromRatio))(
+            bind(enumFromTo(1)(n))(
+                function(k) {
+                    return bind(enumFromTo(0)(k))(
+                        function(m) {
+                            return ratio(m)(k);
+                        }
+                    );
+                }
+            )
+        ),
+        key=fromRatio
+    ) + [ratio(1)(1)];
+}
+
+function fareyLength(n) {
+    function go(x) {
+        return (x * (x + 3)) // 2 - sum(
+            go(x // k) for k in enumFromTo(2)(x)
+        );
+    }
+    return go(n);
+}
+
+function showFarey(xs) {
+    return '(' + ', '.join(map(showRatio, xs)) + ')';
+}
+
+function main() {
+    console.log(
+        fTable(
+            'Farey sequence for orders 1-11 (inclusive):\n'
+        )(str)(showFarey)(
+            farey
+        )(enumFromTo(1)(11))
+    );
+    console.log(
+        fTable(
+            '\n\nNumber of fractions in the Farey sequence ' +
+            'for order 100 through 1,000 (inclusive) by hundreds:\n'
+        )(str)(str)(
+            fareyLength
+        )(enumFromThenTo(100)(200)(1000))
+    );
+}
+
+function bind(xs) {
+    return function(f) {
+        return list(
+            chain.from_iterable(
+                map(f, xs)
+            )
+        );
+    };
+}
+
+function compose(g) {
+    return function(f) {
+        return function(x) {
+            return g(f(x));
+        };
+    };
+}
+
+function enumFromThenTo(m) {
+    function go(nxt, n) {
+        d = nxt - m;
+        return islice(count(0), m, d + n, d);
+    }
+    return function(nxt) {
+        return function(n) {
+            return list(go(nxt, n));
+        };
+    };
+}
+
+function enumFromTo(m) {
+    return function(n) {
+        return list(range(m, 1 + n));
+    };
+}
+
+function eq(a) {
+    return function(b) {
+        return a == b;
+    };
+}
+
+function fromRatio(r) {
+    return r.get('numerator') / r.get('denominator');
+}
+
+function nubBy(p) {
+    function go(xs) {
+        if (!xs) {
+            return [];
+        }
+        x = xs[0];
+        return [x] + go(
+            list(filter(
+                function(y) {
+                    return !p(x)(y);
+                },
+                xs[1:]
+            ))
+        );
+    }
+    return function(xs) {
+        return go(xs);
+    };
+}
+
+function on(f) {
+    return function(g) {
+        return function(a) {
+            return function(b) {
+                return f(g(a))(g(b));
+            };
+        };
+    };
+}
+
+function ratio(n) {
+    function go(n, d) {
+        g = gcd(n, d);
+        return {
+            'type': 'Ratio',
+            'numerator': n // g, 'denominator': d // g
+        };
+    }
+    return function(d) {
+        return go(n * signum(d), abs(d));
+    };
+}
+
+function showRatio(r) {
+    d = r.get('denominator');
+    return str(r.get('numerator')) + (
+        '/' + str(d) if 1 != d else ''
+    );
+}
+
+function signum(n) {
+    return -1 if 0 > n else (1 if 0 < n else 0);
+}
+
+function fTable(s) {
+    function go(xShow, fxShow, f, xs) {
+        ys = [xShow(x) for x in xs];
+        w = max(map(len, ys));
+        return s + '\n' + '\n'.join(map(
+            function(x, y) {
+                return y.rjust(w, ' ') + ' -> ' + fxShow(f(x));
+            },
+            xs, ys
+        ));
+    }
+    return function(xShow) {
+        return function(fxShow) {
+            return function(f) {
+                return function(xs) {
+                    return go(xShow, fxShow, f, xs);
+                };
+            };
+        };
+    };
+}
+
+function unlines(xs) {
+    return '\n'.join(xs);
+}
+
+if (name == 'main') {
+    main();
+}
+```

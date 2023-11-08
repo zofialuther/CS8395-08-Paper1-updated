@@ -1,0 +1,12 @@
+1. Initialize a class named BellTriangle with a private list of integers called arr.
+2. Create a constructor for BellTriangle that takes an integer n as a parameter.
+3. Calculate the length of the array using the formula length = n * (n + 1) / 2.
+4. Initialize the arr list with length number of elements, all set to 0.
+5. Set the value at index 1, 0 to 1.
+6. Use a nested loop to calculate the values for the Bell triangle using the set and get methods.
+7. Create a private method called index that takes row and col as parameters and returns the index in the arr list.
+8. Create public methods get and set that take row, col, and value as parameters to get and set values in the Bell triangle.
+9. In the main method, initialize a constant integer rows to 15 and create a new BellTriangle object called bt with rows as the parameter.
+10. Print "First fifteen Bell numbers:".
+11. Use a loop to iterate through the first 15 rows and print the Bell numbers.
+12. Use a nested loop to print the Bell triangle values for the first 10 rows.

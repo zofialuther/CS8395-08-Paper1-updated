@@ -1,0 +1,1 @@
+This code uses the GHC (Glasgow Haskell Compiler) to execute the 'putStrLn "Hello"' command, which prints the text "Hello" to the console.

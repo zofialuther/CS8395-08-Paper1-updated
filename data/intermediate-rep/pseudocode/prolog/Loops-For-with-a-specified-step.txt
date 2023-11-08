@@ -1,0 +1,12 @@
+function forLoop(Hi, Lo, Step) {
+    if (Step < 0 && Lo <= Hi) {
+        for (let i = Hi; i >= Lo; i += Step) {
+            // do something
+        }
+    } else if (Step < 0) {
+        let V = Hi + Step;
+        if (Lo <= V) {
+            forLoop(V, Lo, Step);
+        }
+    }
+}

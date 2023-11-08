@@ -1,0 +1,7 @@
+The given code defines two predicates, member1 and distinct. 
+
+The member1 predicate checks if an element X is a member of a given list. It uses recursion to iterate through the list and compares each element with X. If a match is found, it stops the iteration using the cut operator (!).
+
+The distinct predicate takes a list as input and returns a new list containing only the distinct elements of the input list. It uses the member1 predicate to check for the presence of an element in the list and then uses recursion to build the new list by adding only the distinct elements.
+
+Overall, this code provides a way to check for membership of an element in a list and to create a new list containing only the distinct elements from the input list.

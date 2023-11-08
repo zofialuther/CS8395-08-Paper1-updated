@@ -1,0 +1,1 @@
+This code is a Prolog program that generates the first 5 rows of Pascal's triangle. Each row is displayed as a list, with the numbers representing the coefficients of the terms in the expansion of (a + b)^n, where n is the row number.

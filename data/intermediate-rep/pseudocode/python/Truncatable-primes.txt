@@ -1,0 +1,27 @@
+maxprime = 1000000
+
+function primes(n):
+    multiples = set()
+    prime = []
+    for i = 2 to n+1:
+        if i not in multiples:
+            append i to prime
+            multiples.update(set(range(i*i, n+1, i)))
+    return prime
+
+function truncatableprime(n):
+    primelist = [string(x) for x in reverse(primes(n))]
+    primeset = set(primelist)
+    for n in primelist:
+        alltruncs = set([n[i:] for i in range(length(n))])
+        if alltruncs.issubset(primeset):
+            truncateleft = convert n to integer
+            break
+    for n in primelist:
+        alltruncs = set([n[:i+1] for i in range(length(n))])
+        if alltruncs.issubset(primeset):
+            truncateright = convert n to integer
+            break
+    return truncateleft, truncateright
+
+print(truncatableprime(maxprime))

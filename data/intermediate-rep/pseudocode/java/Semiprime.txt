@@ -1,0 +1,44 @@
+FUNCTION primeDecomp(a: BigInteger) -> List<BigInteger> 
+    IF a < 2 THEN
+        RETURN null
+    END IF
+    result = new ArrayList<BigInteger>()
+    WHILE a AND 1 == 0 DO
+        a = a.shiftRight(1)
+        result.add(2)
+    END WHILE
+    IF a != 1 THEN
+        b = 3
+        WHILE b < a DO
+            IF b.isProbablePrime(10) THEN
+                dr = a.divideAndRemainder(b)
+                IF dr[1] == 0 THEN
+                    result.add(b)
+                    a = dr[0]
+                END IF
+            END IF
+            b = b.add(2)
+        END WHILE
+        result.add(b)
+    END IF
+    RETURN result
+END FUNCTION
+
+FUNCTION isSemi(x: BigInteger) -> boolean
+    decomp = primeDecomp(x)
+    RETURN decomp != null AND decomp.size() == 2
+END FUNCTION
+
+FUNCTION main(args: String[])
+    FOR i = 2 TO 100 DO
+        IF isSemi(BigInteger.valueOf(i)) THEN
+            OUTPUT i + " "
+        END IF
+    END FOR
+    OUTPUT "\n"
+    FOR i = 1675 TO 1680 DO
+        IF isSemi(BigInteger.valueOf(i)) THEN
+            OUTPUT i + " "
+        END IF
+    END FOR
+END FUNCTION

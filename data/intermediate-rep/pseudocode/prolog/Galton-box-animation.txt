@@ -1,0 +1,24 @@
+```
+Pseudocode:
+
+1. Initialize the dynamic predicates for tubes, balls, and stop
+2. Define the number of rows of pins
+3. Define the main predicate for the Galton Box
+    a. Create and display the window for the Galton Box
+    b. Display the pins and tubes
+    c. Create and display the ball
+4. Define the pin class
+    a. Initialize method for pin
+5. Define the tube class
+    a. Initialize method for tube
+    b. Method to add a ball to the tube
+6. Define the ball class
+    a. Initialize method for ball
+    b. Method to choose the direction of the ball
+    c. Method to move the ball in pins
+    d. Method to move the ball in the tube
+7. Define the next_ball predicate to create a new ball
+8. Define the same_value predicate for testing
+9. Define the display_pins predicate to display the pins
+10. Define the display_tubes predicate to display the tubes
+```

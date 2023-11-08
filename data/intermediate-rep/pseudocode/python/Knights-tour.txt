@@ -1,0 +1,62 @@
+```
+START
+  import copy
+  boardsize = 6
+  _kmoves = ((2,1), (1,2), (-1,2), (-2,1), (-2,-1), (-1,-2), (1,-2), (2,-1))
+
+  FUNCTION chess2index(chess, boardsize)
+    chess = chess.strip().lower()
+    x = ord(chess[0]) - ord('a')
+    y = boardsize - int(chess[1:])
+    RETURN (x, y)
+
+  FUNCTION boardstring(board, boardsize)
+    r = range(boardsize)
+    lines = ''
+    FOR y in r
+      lines += '\n' + ','.join('%2i' % board[(x,y)] if board[(x,y)] else '  ' for x in r)
+    RETURN lines
+
+  FUNCTION knightmoves(board, P, boardsize)
+    Px, Py = P
+    kmoves = set((Px+x, Py+y) for x,y in _kmoves)
+    kmoves = set( (x,y) for x,y in kmoves if 0 <= x < boardsize and 0 <= y < boardsize and not board[(x,y)] )
+    RETURN kmoves
+
+  FUNCTION accessibility(board, P, boardsize)
+    access = []
+    brd = copy.deepcopy(board)
+    FOR pos in knightmoves(board, P, boardsize)
+      brd[pos] = -1
+      access.append( (len(knightmoves(brd, pos, boardsize)), pos) )
+      brd[pos] = 0
+    RETURN access
+
+  FUNCTION knights_tour(start, boardsize, _debug)
+    board = {(x,y):0 for x in range(boardsize) for y in range(boardsize)}
+    move = 1
+    P = chess2index(start, boardsize)
+    board[P] = move
+    move += 1
+    IF _debug
+      PRINT boardstring(board, boardsize)
+    WHILE move <= len(board)
+      P = min(accessibility(board, P, boardsize))[1]
+      board[P] = move
+      move += 1
+      IF _debug
+        PRINT boardstring(board, boardsize)
+        INPUT '\n%2i next: ' % move
+    RETURN board
+
+  IF __name__ == '__main__'
+    WHILE 1
+      boardsize = int(INPUT '\nboardsize: ')
+      IF boardsize < 5
+        CONTINUE
+      start = INPUT 'Start position: '
+      board = knights_tour(start, boardsize)
+      PRINT boardstring(board, boardsize)
+
+END
+```

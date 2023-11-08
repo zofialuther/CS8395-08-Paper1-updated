@@ -1,0 +1,29 @@
+1. Import the required modules:
+   import qualified Data.ByteString as BY (writeFile, pack)
+   import Data.Bits (xor)
+
+2. Define the main function:
+   main :: IO ()
+
+3. Inside the main function, write the output to a file using ByteString.writeFile:
+   BY.writeFile "out.pgm" (BY.pack (...))
+
+4. Inside the ByteString.pack function, concatenate the following:
+   - Convert the string "P5\n256 256\n256\n" to a list of bytes using fmap and fromEnum
+   - Concatenate the result with the list comprehension for the pixel values
+
+5. Inside the list comprehension, iterate over x from 0 to 255 and y from 0 to 255 and calculate the xor of x and y
+
+6. Pseudocode:
+   import qualified Data.ByteString as BY (writeFile, pack)
+   import Data.Bits (xor)
+
+   main :: IO ()
+   main =
+     BY.writeFile
+       "out.pgm"
+       (BY.pack
+          (fmap (fromIntegral . fromEnum) "P5\n256 256\n256\n" ++
+           [ x `xor` y
+           | x <- [0 .. 255]
+           , y <- [0 .. 255] ]))

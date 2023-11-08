@@ -1,0 +1,10 @@
+FUNCTION main
+    SET myIntArray to [1, 2, 3, 4, 5]
+    SET sum to 0
+    FOR EACH element in myIntArray
+        SET cube to element * element * element
+        OUTPUT cube
+        sum = sum + cube
+    END FOR EACH
+    OUTPUT "sum: " + sum
+END FUNCTION

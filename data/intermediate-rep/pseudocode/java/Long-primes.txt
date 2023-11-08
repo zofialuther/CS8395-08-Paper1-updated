@@ -1,0 +1,56 @@
+BEGIN
+  FUNCTION sieve(limit, primes)
+    c = array of boolean values of size limit
+    FOR i = 0 to limit
+      c[i] = false
+    p = 3
+    n = 0
+    p2 = p * p
+    WHILE p2 <= limit
+      FOR i = p2 to limit by 2 * p
+        c[i] = true
+      DO
+        p += 2
+      WHILE c[p] is true
+      p2 = p * p
+    FOR i = 3 to limit by 2
+      IF c[i] is false
+        add i to primes
+  END FUNCTION
+
+  FUNCTION findPeriod(n)
+    r = 1
+    period = 0
+    FOR i = 1 to n
+      r = (10 * r) % n
+    rr = r
+    DO
+      r = (10 * r) % n
+      period += 1
+    WHILE r is not equal to rr
+    RETURN period
+  END FUNCTION
+
+  numbers = array of integers {500, 1000, 2000, 4000, 8000, 16000, 32000, 64000}
+  totals = array of integers of size numbers.length
+  primes = new LinkedList of Integers
+  longPrimes = new LinkedList of Integers
+  sieve(64000, primes)
+  FOR each prime in primes
+    IF findPeriod(prime) is equal to prime - 1
+      add prime to longPrimes
+  count = 0
+  index = 0
+  FOR each longPrime in longPrimes
+    IF longPrime > numbers[index]
+      totals[index] = count
+      index += 1
+    count += 1
+  totals[numbers.length - 1] = count
+  OUTPUT "The long primes up to " + numbers[0] + " are:"
+  OUTPUT longPrimes.subList(0, totals[0])
+  OUTPUT new line
+  OUTPUT "The number of long primes up to:"
+  FOR i = 0 to 7
+    OUTPUT "  " + numbers[i] + " is " + totals[i]
+END

@@ -1,0 +1,59 @@
+```
+function do_it(N):
+    card_sets(N, Cards, Sets)
+    if card_sets(N, Cards, Sets) is successful:
+        print 'Cards: '
+        for each Card in Cards:
+            print_card(Card)
+        print 'Sets: '
+        for each Set in Sets:
+            print_set(Set)
+
+function print_card(Card):
+    print '  ' + Card[0] + ' ' + Card[1] + ' ' + Card[2] + ' ' + Card[3]
+
+function print_set(Set):
+    for each Card in Set:
+        print_card(Card)
+    print new line
+
+function n(9,4):
+    return
+function n(12,6):
+    return
+
+function card_sets(N, Cards, Sets):
+    n(N, L)
+    loop:
+        random_deal(N, Cards)
+        set = setof(Set, is_card_set(Cards, Set))
+        if length(Sets) = L:
+            return true
+
+function random_card(Card):
+    C = random choice from ['red', 'green', 'purple']
+    S = random choice from ['oval', 'squiggle', 'diamond']
+    N = random choice from ['one', 'two', 'three']
+    Sh = random choice from ['solid', 'open', 'striped']
+    Card = [C, S, N, Sh]
+
+function random_deal(N, Cards):
+    Cards = array of length N
+    for i = 1 to N:
+        Cards[i] = random_card()
+
+function is_card_set(Cards, Result):
+    select C1 from Cards, Rest
+    select C2 from Rest, Rest2
+    select C3 from Rest2
+    if match(C1, C2, C3):
+        Result = sort([C1, C2, C3])
+
+function match(T1, T2, T3):
+    if T1 = T2 = T3:
+        return true
+    else if T1 != T2 and T2 != T3 and T1 != T3:
+        return true
+    else:
+        return false
+```

@@ -1,0 +1,15 @@
+Pseudocode:
+
+1. Import the Arrays class from java.util package.
+
+2. Define a class called SumProd.
+
+3. Inside the SumProd class, define a main method that takes an array of strings as input.
+
+4. Initialize an integer array called arg with values {1,2,3,4,5}.
+
+5. Print the sum of the elements in the array using the Arrays.stream(arg).sum() method.
+
+6. Print the sum of the elements in the array using the Arrays.stream(arg).reduce(0, (a, b) -> a + b) method.
+
+7. Print the product of the elements in the array using the Arrays.stream(arg).reduce(1, (a, b) -> a * b) method.

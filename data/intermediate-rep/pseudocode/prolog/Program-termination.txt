@@ -1,0 +1,6 @@
+
+1. Set a variable "running" to true
+2. While "running" is true, do the following:
+    - Check for a halt command
+    - If a halt command is received, set "running" to false
+3. End program.

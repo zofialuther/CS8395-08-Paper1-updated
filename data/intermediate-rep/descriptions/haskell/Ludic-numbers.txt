@@ -1,0 +1,1 @@
+This code defines a function called "ludic" which generates a sequence of numbers based on a specific algorithm. The algorithm involves iterating through a list and dropping every nth element, while also performing additional calculations on the remaining elements. The main function then prints the 10,000th element of the generated sequence.

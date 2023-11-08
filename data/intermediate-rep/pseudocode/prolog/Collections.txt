@@ -1,0 +1,11 @@
+1. Create a list
+   L = [a, b, c, d]
+
+2. Prepend to the list
+   L2 = [before_a|L]
+
+3. Append to the list
+   L3 = append(L2, ['Hello'])
+
+4. Delete from list
+   L4 = exclude(=(b), L3)

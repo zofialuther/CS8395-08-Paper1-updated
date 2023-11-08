@@ -1,0 +1,13 @@
+FUNCTION gcd(a, b)
+    IF a = 0 THEN
+        RETURN b
+    END IF
+    IF b = 0 THEN
+        RETURN a
+    END IF
+    IF a > b THEN
+        RETURN gcd(b, a % b)
+    ELSE
+        RETURN gcd(a, b % a)
+    END IF
+END FUNCTION

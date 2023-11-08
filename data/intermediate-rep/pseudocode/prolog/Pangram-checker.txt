@@ -1,0 +1,23 @@
+Pseudocode:
+
+function pangram(L):
+    Alphabet = numlist(0'a, 0'z)
+    for each C in Alphabet:
+        if C is not in L:
+            return false
+    return true
+
+function pangram_example:
+    L1 = "the quick brown fox jumps over the lazy dog"
+    if pangram(L1):
+        R1 = "ok"
+    else:
+        R1 = "ko"
+    print L1, " --> ", R1
+
+    L2 = "the quick brown fox jumped over the lazy dog"
+    if pangram(L2):
+        R2 = "ok"
+    else:
+        R2 = "ko"
+    print L2, " --> ", R2

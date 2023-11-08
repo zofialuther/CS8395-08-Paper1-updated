@@ -1,0 +1,5 @@
+1. Set input string to "current_prolog_flag(dialect,D), writeln(D), halt."
+2. Use swipl to execute the input string with the -q flag for quiet mode.
+3. Print the output "swi"
+4. Use yap to execute the input string with the -q flag for quiet mode.
+5. Print the output "yap"

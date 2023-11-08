@@ -1,0 +1,8 @@
+1. Initialize a StreamTokenizer 'in' with a new InputStreamReader reading from System.in using the default Charset.
+2. Call in.nextToken() to read the next token.
+3. Convert the token to an integer and store it in variable 'a'.
+4. Call in.nextToken() again to read the next token.
+5. Convert the token to an integer and store it in variable 'b'.
+6. Use a try-with-resources statement to initialize a Writer 'out' with a new OutputStreamWriter writing to System.out using the default Charset.
+7. Write the result of a + b as a string to the output stream using out.write(Integer.toString(a + b)).
+8. End of program.

@@ -1,0 +1,54 @@
+Pseudocode:
+
+FUNCTION f90(dct)
+    RETURN LAMBDA x2, ab, a, b
+        dct.get(x2, None)
+
+FUNCTION f60(dct)
+    RETURN LAMBDA x2, ab, a, b
+        dct.get(x2 - ab, None)
+
+FUNCTION f120(dct)
+    RETURN LAMBDA x2, ab, a, b
+        dct.get(x2 + ab, None)
+
+FUNCTION f60unequal(dct)
+    RETURN LAMBDA x2, ab, a, b
+        IF a != b THEN
+            RETURN dct.get(x2 - ab, None)
+        ELSE
+            RETURN None
+
+FUNCTION triangles(f, n)
+    upto = enumFromTo(1)
+    xs = upto(n)
+    dctSquares = create dictionary with keys as xs and values as x^2 for x in xs
+    dctRoots = create dictionary with keys as values from dctSquares and values as keys from dctSquares
+    fr = f(dctRoots)
+    dct = empty dictionary
+    FOR a in xs
+        a2 = dctSquares[a]
+        FOR b in upto(a)
+            suma2b2 = a2 + dctSquares[b]
+            c = fr(suma2b2, a * b, a, b)
+            IF c is not None THEN
+                dct[str(sorted([a, b, c]))] = 1
+    RETURN list of keys from dct
+
+FUNCTION main()
+    PRINT 'Triangles of maximum side 13\n\n' + unlines(zipWith(lambda f, n: (lambda ks=triangles(f, 13): (str(len(ks)) + ' solutions for ' + str(n) + ' degrees:\n' + unlines(ks) + '\n'))() ([f120, f90, f60]) ([120, 90, 60])) + '\n\n' + '60 degrees - uneven triangles of maximum side 10000. Total:\n' + str(len(triangles(f60unequal, 10000)))
+
+FUNCTION enumFromTo(m)
+    RETURN LAMBDA n
+        RETURN list of integers from m to n
+
+FUNCTION unlines(xs)
+    RETURN string by joining elements of xs with newline
+
+FUNCTION zipWith(f)
+    RETURN LAMBDA xs
+        RETURN LAMBDA ys
+            RETURN list of results from applying f to each pair of elements from xs and ys
+
+IF __name__ == '__main__'
+    CALL main()

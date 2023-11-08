@@ -1,0 +1,1 @@
+This code defines a method called "printAll" that takes in a variable number of objects as arguments. It then iterates through the objects and prints each one to the console. This allows for flexible and dynamic printing of multiple objects without needing to know the exact number of objects in advance.

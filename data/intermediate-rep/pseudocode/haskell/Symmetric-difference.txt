@@ -1,0 +1,8 @@
+Set a = ["Serena", "Jim", "Tom"]
+Set b = ["Jim", "Tom", "Kate"]
+
+Set resultA = b - a
+Set resultB = a - b
+
+Display resultA
+Display resultB

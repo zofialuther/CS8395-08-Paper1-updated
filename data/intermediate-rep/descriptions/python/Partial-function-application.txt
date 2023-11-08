@@ -1,0 +1,5 @@
+The code defines a function `fs` that takes two arguments, a function `f` and a sequence `s`, and applies the function `f` to each element in the sequence `s`, returning a list of the results. It also defines two functions `f1` and `f2` that perform specific operations on a value.
+
+The code then uses the `functools.partial` function to create two new functions `fsf1` and `fsf2` which are partially applied versions of the `fs` function with `f1` and `f2` as the first argument, respectively.
+
+Finally, the code tests the functionality of the `fs`, `fsf1`, and `fsf2` functions by applying them to different sequences `s` and verifying that the results are as expected.

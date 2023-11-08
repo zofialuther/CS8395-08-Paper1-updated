@@ -1,0 +1,27 @@
+1. Set input strings:
+   string1 = "beginning-middle-ending"
+   string2 = "beginning-diddle-dum-ending"
+   
+2. Define function lcs(string1, string2):
+   a. Create a 2D array lcsArr with dimensions (length of string1 + 1) x (length of string2 + 1)
+   b. For i = 0 to length of string1 + 1:
+      - For j = 0 to length of string2 + 1:
+         * If i = 0 or j = 0, then lcsArr[i][j] = 0
+         * Else if character at index i-1 in string1 is equal to character at index j-1 in string2:
+            + lcsArr[i][j] = lcsArr[i-1][j-1] + 1
+         * Else:
+            + lcsArr[i][j] = maximum of lcsArr[i-1][j] and lcsArr[i][j-1]
+   c. Set i = length of string1, j = length of string2
+   d. Create an empty string lcsString
+   e. While i > 0 and j > 0:
+      - If character at index i-1 in string1 is equal to character at index j-1 in string2:
+         * Add character at index i-1 in string1 to lcsString
+         * Decrement i and j by 1
+      - Else if lcsArr[i-1][j] > lcsArr[i][j-1]:
+         * Decrement i by 1
+      - Else:
+         * Decrement j by 1
+   f. Return lcsString
+
+3. Call function lcs with string1 and string2 as input and store the result in Lcs
+4. Write the value of Lcs to the console.

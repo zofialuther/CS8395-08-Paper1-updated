@@ -1,0 +1,6 @@
+1. Import the Data.Array module
+2. Create an array "ary" using the listArray function with indices 1 to 10 and values 1 to 10
+3. Create an array "evens" using the listArray function with indices 1 to n and values from list "l" where
+    a. Calculate the length "n" of the array "ary"
+    b. Create list "l" containing elements from the array "ary" that are even
+4. End the pseudocode

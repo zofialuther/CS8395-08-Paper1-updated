@@ -1,0 +1,1 @@
+This code simulates a simple game where the player and the computer take turns removing dots from a pile. The player is prompted to input the number of dots they want to take, and then the computer makes its move based on a simple strategy. The game continues until there are no dots left, and then a message is displayed to indicate whether the player or the computer has won.

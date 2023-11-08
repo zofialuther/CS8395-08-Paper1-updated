@@ -1,0 +1,1 @@
+This code takes a string input with words and punctuation, then passes it through a Python script called odd.py. The odd.py script then reverses the order of the even-indexed letters in each word, while keeping the punctuation in place. The output is the original string with the even-indexed letters reversed in each word.

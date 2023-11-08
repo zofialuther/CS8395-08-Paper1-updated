@@ -1,0 +1,21 @@
+Pseudocode:
+
+FUNCTION pointName(index: Integer) -> String
+    dirs = [ "N", "NbE", "N-NE", ... ]  // list of compass directions
+    charMap = [ ('N', "north"), ('S', "south"), ('E', "east"), ('W', "west"), ('b', " by "), ('-', "-") ]  // mapping of characters to compass direction names
+    capitalizedDir = capitalize(concatMap(fromMaybe("?", fromChar(dirs[index]))))  // capitalize the compass direction
+    RETURN capitalizedDir
+
+FUNCTION pointIndex(degrees: Float) -> Integer
+    index = (round(degrees * 1000) + 5625) MOD 360000 DIV 11250  // calculate the compass point index
+    RETURN index
+
+FUNCTION printPointName(degrees: String) -> Void
+    deg = parseFloat(degrees)  // convert degrees to float
+    idx = pointIndex(deg)  // get compass point index
+    PRINT formattedString(idx + 1, pointName(idx), deg)  // print formatted compass point name
+
+FUNCTION main() -> Void
+    FOR i = 0 TO 31  // loop through 32 compass points
+        printPointName(i)  // print compass point name
+    END FOR

@@ -1,0 +1,1 @@
+This code initializes a variable 'val' to 0 and then enters a do-while loop. Inside the loop, the value of 'val' is incremented by 1 and printed to the console. The loop continues until 'val' is divisible by 6 with no remainder.

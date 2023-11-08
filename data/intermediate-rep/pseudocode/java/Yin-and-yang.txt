@@ -1,0 +1,51 @@
+```
+START PROGRAM YinYangGenerator
+    IMPORT java.awt.Color
+    IMPORT java.awt.Graphics
+    IMPORT java.awt.Image
+    IMPORT java.awt.image.BufferedImage
+    IMPORT javax.swing.ImageIcon
+    IMPORT javax.swing.JFrame
+    IMPORT javax.swing.JLabel
+
+    CLASS YinYangGenerator
+        DECLARE size as integer
+
+        FUNCTION YinYangGenerator(size)
+            this.size = size
+
+        FUNCTION drawYinYang(graphics)
+            colorSave = graphics.getColor()
+            graphics.setColor(Color.WHITE)
+            graphics.fillOval(0, 0, size-1, size-1)
+            graphics.setColor(Color.BLACK)
+            graphics.fillArc(0, 0, size-1, size-1, 270, 180)
+            graphics.fillOval(size/4, size/2, size/2, size/2)
+            graphics.setColor(Color.WHITE)
+            graphics.fillOval(size/4, 0, size/2, size/2)
+            graphics.fillOval(7*size/16, 11*size/16, size/8, size/8)
+            graphics.setColor(Color.BLACK)
+            graphics.fillOval(7*size/16, 3*size/16, size/8, size/8)
+            graphics.drawOval(0, 0, size-1, size-1)
+            graphics.setColor(colorSave)
+
+        FUNCTION createImage(bg)
+            image = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB)
+            graphics = image.getGraphics()
+            graphics.setColor(bg)
+            graphics.fillRect(0,0,size,size)
+            drawYinYang(graphics)
+            RETURN image
+
+        FUNCTION main(args)
+            size = Integer.parseInt(args[0])
+            generator = new YinYangGenerator(size)
+            frame = new JFrame("Yin Yang Generator")
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
+            yinYang = generator.createImage(frame.getBackground())
+            frame.add(new JLabel(new ImageIcon(yinYang)))
+            frame.pack()
+            frame.setVisible(true)
+```
+END PROGRAM YinYangGenerator
+```

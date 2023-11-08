@@ -1,0 +1,10 @@
+```
+ack(0,N,s(N)).
+
+ack(s(M),0,P):- 
+    ack(M,s(0),P).
+
+ack(s(M),s(N),P):- 
+    ack(s(M),N,S), 
+    ack(M,S,P).
+```

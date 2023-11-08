@@ -1,0 +1,29 @@
+```
+1. Import necessary modules
+2. Define the main function
+   a. Set the output buffering to NoBuffering
+   b. Print the instructions for the game
+   c. Generate 4 random digits between 1 and 9
+   d. Print the randomly generated digits
+   e. Call the guessLoop function with the digits as input
+3. Define the guessLoop function which takes a list of digits as input
+   a. Prompt the user for their expression guess
+   b. Process the user's guess using the processGuess function
+   c. If the guess is invalid, print an error message and call guessLoop again
+   d. If the guess is valid, print "Correct"
+4. Define the processGuess function which takes a list of digits and a list of expressions as input
+   a. If the list of expressions is empty, return an empty string
+   b. Check if the expressions match the digits, if not, return an error message
+   c. Otherwise, calculate the result of the expressions and check if it equals 24
+5. Define the calc function which takes a list of expressions as input
+   a. Use foldM to simplify the list of expressions using the simplify function
+   b. If there is only one value left in the list, return it as the result
+   c. Otherwise, return an error message
+6. Define the simplify function which takes a list of values and an expression as input
+   a. If the expression is an operator, apply it to the last two values in the list
+   b. If there are not enough values before the operator, return an error message
+   c. If the expression is a digit, add it to the list of values
+   d. If the expression is unrecognized, return an error message
+7. Define the isOp function to check if an expression is an operator
+8. Define the list of operators with their corresponding functions
+```

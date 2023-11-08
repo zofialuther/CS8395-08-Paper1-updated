@@ -1,0 +1,1 @@
+This code defines a function, findBabbageNumber, which calculates the first number whose square ends with the digits "269696". It then defines a main function that prints the result of findBabbageNumber and its square, along with a message indicating that the result is the square of the original number.

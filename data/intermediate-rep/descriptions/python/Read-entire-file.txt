@@ -1,0 +1,1 @@
+This code opens a file with the specified filename and reads its contents using the 'utf-8' encoding.

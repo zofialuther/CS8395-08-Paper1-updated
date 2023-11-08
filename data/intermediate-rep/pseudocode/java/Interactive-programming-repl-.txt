@@ -1,0 +1,9 @@
+function main
+    output concat("Rosetta", "Code", ":")
+end function
+
+function concat(a, b, c)
+    return a + c + c + b
+end function
+
+main()

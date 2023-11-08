@@ -1,0 +1,27 @@
+FUNCTION semiprime(n)
+    count = 0
+    FOR i from 2 to n
+        WHILE n is divisible by i
+            n = n / i
+            count = count + 1
+        END WHILE
+        IF count > 2
+            RETURN False
+        END IF
+    END FOR
+    IF count == 2
+        RETURN True
+    ELSE
+        RETURN False
+    END IF
+END FUNCTION
+
+PRINT semiprime(1679)
+
+result = []
+FOR n from 1 to 100
+    IF semiprime(n) is True
+        result.append(n)
+    END IF
+END FOR
+PRINT result

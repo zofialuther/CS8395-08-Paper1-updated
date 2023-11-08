@@ -1,0 +1,4 @@
+1. Import the os module
+2. Call the commonprefix function from the os.path module and pass in the list of paths ['/home/user1/tmp/coverage/test', '/home/user1/tmp/covert/operator', '/home/user1/tmp/coven/members']
+3. Store the result in a variable
+4. Print the variable to display the common prefix.

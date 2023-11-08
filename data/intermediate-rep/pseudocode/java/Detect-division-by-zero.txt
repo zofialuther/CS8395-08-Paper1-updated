@@ -1,0 +1,8 @@
+FUNCTION except(numer, denom)
+    TRY
+        dummy = (int)numer / (int)denom
+        RETURN false
+    CATCH ArithmeticException
+        RETURN true
+    END TRY
+END FUNCTION

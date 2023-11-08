@@ -1,0 +1,104 @@
+START
+
+CLASS MertensFunction
+    METHOD main
+        OUTPUT "First 199 terms of the merten function are as follows:%n    "
+        FOR n = 1 to 199
+            OUTPUT mertenFunction(n) + "  "
+            IF (n+1) % 20 == 0
+                OUTPUT "%n"
+            END IF
+        END FOR
+
+        FOR exponent = 3 to 8
+            zeroCount = 0
+            zeroCrossingCount = 0
+            positiveCount = 0
+            negativeCount = 0
+            mSum = 0
+            mMin = Integer.MAX_VALUE
+            mMinIndex = 0
+            mMax = Integer.MIN_VALUE
+            mMaxIndex = 0
+            nMax = Math.pow(10, exponent)
+            FOR n = 1 to nMax
+                m = mertenFunction(n)
+                mSum += m
+                IF m < mMin
+                    mMin = m
+                    mMinIndex = n
+                END IF
+                IF m > mMax
+                    mMax = m
+                    mMaxIndex = n
+                END IF
+                IF m > 0
+                    positiveCount++
+                END IF
+                IF m < 0
+                    negativeCount++
+                END IF
+                IF m == 0
+                    zeroCount++
+                END IF
+                IF m == 0 AND mertenFunction(n - 1) != 0
+                    zeroCrossingCount++
+                END IF
+            END FOR
+            OUTPUT "For M(x) with x from 1 to " + nMax
+            OUTPUT "The maximum of M(x) is M(" + mMaxIndex + ") = " + mMax
+            OUTPUT "The minimum of M(x) is M(" + mMinIndex + ") = " + mMin
+            OUTPUT "The sum of M(x) is " + mSum
+            OUTPUT "The count of positive M(x) is " + positiveCount + ", count of negative M(x) is " + negativeCount
+            OUTPUT "M(x) has " + zeroCount + " zeroes in the interval."
+            OUTPUT "M(x) has " + zeroCrossingCount + " crossings in the interval."
+        END FOR
+    END METHOD
+
+    VARIABLE MU_MAX = 100_000_000
+    VARIABLE MU = null
+    VARIABLE MERTEN = null
+
+    METHOD mertenFunction(n)
+        IF MERTEN is not null
+            RETURN MERTEN[n]
+        END IF
+
+        MU = new array of size MU_MAX+1
+        MERTEN = new array of size MU_MAX+1
+        MERTEN[1] = 1
+        sqrt = Math.sqrt(MU_MAX)
+        FOR i = 0 to MU_MAX
+            MU[i] = 1
+        END FOR
+
+        FOR i = 2 to sqrt
+            IF MU[i] == 1
+                FOR j = i to MU_MAX by i
+                    MU[j] *= -i
+                END FOR
+                FOR j = i*i to MU_MAX by i*i
+                    MU[j] = 0
+                END FOR
+            END IF
+        END FOR
+
+        sum = 1
+        FOR i = 2 to MU_MAX
+            IF MU[i] == i
+                MU[i] = 1
+            ELSE IF MU[i] == -i
+                MU[i] = -1
+            ELSE IF MU[i] < 0
+                MU[i] = 1
+            ELSE IF MU[i] > 0
+                MU[i] = -1
+            END IF
+            sum += MU[i]
+            MERTEN[i] = sum
+        END FOR
+        RETURN MERTEN[n]
+    END METHOD
+END CLASS
+
+END

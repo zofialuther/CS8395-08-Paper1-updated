@@ -1,0 +1,7 @@
+The given code defines two functions, perm1 and perm2, for generating permutations of a list of integers from 0 to n-1. 
+
+The perm1 function uses a recursive approach to generate permutations by swapping elements in the list and yielding each permutation as a tuple.
+
+The perm2 function also generates permutations using a recursive approach, but it includes an additional step to shift the elements in the list after each swap, resulting in a different order of permutations compared to perm1.
+
+Both functions utilize a sub-function to handle the recursive permutation generation process.

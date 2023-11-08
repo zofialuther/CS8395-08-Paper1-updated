@@ -1,0 +1,25 @@
+Pseudocode:
+
+function sort(n):
+    piles = new ArrayList of Pile<E>
+    for each x in n:
+        newPile = new Pile<E>
+        newPile.push(x)
+        i = binarySearch(piles, newPile)
+        if i < 0 then i = bitwiseNegation(i)
+        if i is not equal to piles.size() then
+            piles.get(i).push(x)
+        else
+            piles.add(newPile)
+    
+    heap = new PriorityQueue<Pile<E>>(piles)
+    for c = 0 to n.length:
+        smallPile = heap.poll()
+        n[c] = smallPile.pop()
+        if not smallPile.isEmpty() then
+            heap.offer(smallPile)
+    
+function main(args):
+    a = {4, 65, 2, -31, 0, 99, 83, 782, 1}
+    sort(a)
+    print(Arrays.toString(a))

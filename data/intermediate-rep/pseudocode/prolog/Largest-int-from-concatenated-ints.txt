@@ -1,0 +1,39 @@
+largest_int_v2(In, Out) 
+    LC = maplist(name, In)
+    LCS = predsort(my_sort, LC)
+    LC1 = append(LCS, LC)
+    Out = name(LC1)
+
+my_sort(R, L1, L2) 
+    V1 = append(L1, L2)
+    I1 = name(V1)
+    V2 = append(L2, L1)
+    I2 = name(V2)
+    if I1 < I2 
+        R = >
+    else if I1 = I2
+        R = =
+    else 
+        R = <
+
+my_sort(>, [H1], [H1, H2 | _]) 
+    if H1 > H2
+        R = >
+
+my_sort(<, [H1], [H1, H2 | _]) 
+    if H1 < H2
+        R = <
+
+my_sort(R, [H1], [H1, H1 | T]) 
+    my_sort(R, [H1], [H1 | T])
+
+my_sort(>, [H1, H2 | _], [H1]) 
+    if H1 > H2
+        R = >
+
+my_sort(<, [H1, H2 | _], [H1]) 
+    if H1 < H2
+        R = <
+
+my_sort(R, [H1, H1 | T], [H1]) 
+    my_sort(R, [H1 | T], [H1])

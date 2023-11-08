@@ -1,0 +1,1 @@
+This Python function takes two variables, a and b, and swaps their values. It returns the values of a and b in reversed order, effectively swapping their values.

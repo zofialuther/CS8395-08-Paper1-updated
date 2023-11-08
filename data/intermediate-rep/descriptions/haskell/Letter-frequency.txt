@@ -1,0 +1,1 @@
+This code reads the content of a file called "miserables.txt", counts the occurrences of each character in the file, and then prints the characters in descending order based on their occurrence frequency. It uses the Data.List and Data.Map.Strict modules to efficiently handle the character counting and sorting operations.

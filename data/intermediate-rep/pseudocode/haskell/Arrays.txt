@@ -1,0 +1,7 @@
+1. Import the IO module from Data.Array
+2. Define the main function
+3. Inside the main function, create a new IO array with values ranging from 1 to 10 and initialize all elements to 37
+4. Read the value at index 1 of the array and store it in variable a
+5. Update the value at index 1 of the array to 64
+6. Read the value at index 1 of the array and store it in variable b
+7. Print the values of a and b.

@@ -1,0 +1,17 @@
+FUNCTION prime(n)
+    IF n is less than 2
+        RETURN false
+    END IF
+    IF n is equal to 2
+        RETURN true
+    END IF
+    IF n is divisible by 2
+        RETURN false
+    END IF
+    FOR i from 3 to the square root of n, incrementing by 2
+        IF n is divisible by i
+            RETURN false
+        END IF
+    END FOR
+    RETURN true
+END FUNCTION

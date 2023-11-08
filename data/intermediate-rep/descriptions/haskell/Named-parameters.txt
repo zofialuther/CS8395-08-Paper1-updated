@@ -1,0 +1,1 @@
+This code defines three data types, X, Y, and Point, where Point represents a point in 2D space with integer coordinates. The function createPointAt takes an X, an integer x, a Y, and an integer y, and returns a Point with the given x and y coordinates. In the main function, it creates a Point at coordinates (5, 3) using the createPointAt function and prints the result.

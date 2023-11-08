@@ -1,0 +1,4 @@
+DECLARE String dog and SET value to "Benjamin"
+DECLARE String Dog and SET value to "Samba"
+DECLARE String DOG and SET value to "Bernie"
+OUTPUT "There are three dogs named " + dog + ", " + Dog + ", and " + DOG + "'"

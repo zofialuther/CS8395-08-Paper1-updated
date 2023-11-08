@@ -1,0 +1,9 @@
+```
+import Data.List (group)
+
+isCollapsible :: String -> Bool
+isCollapsible str = any ((1 <) . length) (group str)
+
+collapsed :: String -> String
+collapsed str = map head (group str)
+```

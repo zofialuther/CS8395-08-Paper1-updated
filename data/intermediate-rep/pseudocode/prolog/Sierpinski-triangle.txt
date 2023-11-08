@@ -1,0 +1,84 @@
+```
+function sierpinski_triangle(N) {
+    let Len = 2 ** (N + 1) - 1;
+    let L = [];
+    for (let i = 0; i < Len; i++) {
+        L.push('');
+    }
+    let LN = [];
+    for (let i = 1; i <= Len; i++) {
+        LN.push(i);
+    }
+    for (let i = 0; i < L.length; i++) {
+        L[i] = init(N, L[i], LN[i]);
+    }
+    let Line = L.join('');
+    console.log(Line);
+    let NbTours = 2 ** N - 1;
+    loop(NbTours, LN, Len, L);
+}
+
+function init(N, Cell, Num) {
+    if (Num === 2 ** N + 1) {
+        Cell = '*';
+    } else {
+        Cell = ' ';
+    }
+    return Cell;
+}
+
+function loop(N, LN, Len, L) {
+    if (N === 0) {
+        return;
+    }
+    let L1 = [];
+    for (let i = 0; i < Len; i++) {
+        L1.push('');
+    }
+    for (let i = 0; i < L.length; i++) {
+        L1[i] = compute_next_line(Len, L, LN[i], L1[i]);
+    }
+    let Line = L1.join('');
+    console.log(Line);
+    let N1 = N - 1;
+    loop(N1, LN, Len, L1);
+}
+
+function compute_next_line(Len, L, I, V) {
+    let I1 = I - 1;
+    let I2 = I + 1;
+    let V0, V1, V2;
+    if (I === 1) {
+        V0 = ' ';
+    } else {
+        V0 = L[I1 - 1];
+    }
+    V1 = L[I - 1];
+    if (I === Len) {
+        V2 = ' ';
+    } else {
+        V2 = L[I2 - 1];
+    }
+    return rule_90(V0, V1, V2, V);
+}
+
+function rule_90(V0, V1, V2, V) {
+    if (V0 === '*' && V1 === '*' && V2 === '*') {
+        return ' ';
+    } else if (V0 === '*' && V1 === '*' && V2 === ' ') {
+        return '*';
+    } else if (V0 === '*' && V1 === ' ' && V2 === '*') {
+        return ' ';
+    } else if (V0 === '*' && V1 === ' ' && V2 === ' ') {
+        return '*';
+    } else if (V0 === ' ' && V1 === '*' && V2 === '*') {
+        return '*';
+    } else if (V0 === ' ' && V1 === '*' && V2 === ' ') {
+        return ' ';
+    } else if (V0 === ' ' && V1 === ' ' && V2 === '*') {
+        return '*';
+    } else if (V0 === ' ' && V1 === ' ' && V2 === ' ') {
+        return ' ';
+    }
+}
+```

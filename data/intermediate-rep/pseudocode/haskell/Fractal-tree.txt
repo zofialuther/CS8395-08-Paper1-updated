@@ -1,0 +1,62 @@
+```
+function enumBase(n, m) {
+  let result = [];
+  for (let i = 0; i < n; i++) {
+    let sublist = [];
+    for (let j = 0; j < m; j++) {
+      sublist.push(j);
+    }
+    result.push(sublist);
+  }
+  return result;
+}
+
+function psPlus(a, b, p, q) {
+  return [a + p, b + q];
+}
+
+function toInt(num) {
+  return Math.round(num);
+}
+
+function intPoint(a, b) {
+  return [toInt(a), toInt(b)];
+}
+
+function pts(n) {
+  let r = 50;
+  let h = Math.PI / 5;
+  let sr = 0.9;
+  let sh = 0.75;
+  let rs = [];
+  for (let i = 0; i < n; i++) {
+    rs.push(r * Math.pow(sr, i));
+  }
+  let lhs = enumBase(n, 2).map(sublist => sublist.map(item => Math.pow(-1, item)));
+  let rhs = [];
+  for (let i = 0; i < n; i++) {
+    rhs.push(h * Math.pow(sh, i));
+  }
+  let hs = lhs.map((sublist, index) => sublist.map((item, i) => item * rhs[index][i]).reduce((acc, curr) => acc + curr, 0));
+  let result = [];
+  for (let i = 0; i < n; i++) {
+    let sublist = [];
+    for (let j = 0; j < n; j++) {
+      let x = (j === 0) ? 100 : rs[j] * Math.cos(hs[j] * i);
+      let y = (j === 0) ? 300 : rs[j] * Math.sin(hs[j] * i);
+      let point = intPoint(x, y);
+      sublist.push(point);
+    }
+    result.push(sublist);
+  }
+  return result;
+}
+
+function fractalTree(n) {
+  let window = createWindow("Fractal Tree", 500, 600);
+  setGraphic(window, overGraphics(pts(n - 1).map(sublist => polyline(sublist))));
+  getKey(window);
+}
+
+fractalTree(10);
+```

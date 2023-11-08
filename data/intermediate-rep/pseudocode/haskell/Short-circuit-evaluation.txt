@@ -1,0 +1,34 @@
+```
+module ShortCircuit where
+
+import Prelude hiding ((&&), (||))
+import Debug.Trace
+
+function and(a, b)
+    if a is False
+        return False
+    else if a is True and b is False
+        return False
+    else
+        return True
+
+function or(a, b)
+    if a is True
+        return True
+    else if a is False and b is True
+        return True
+    else
+        return False
+
+function a(p)
+    return trace("<a " ++ show(p) ++ ">")
+
+function b(p)
+    return trace("<b " ++ show(p) ++ ">")
+
+function main
+    for each p in [False, True]
+        for each q in [False, True]
+            print(or(a(p), b(q)))
+            print(and(a(p), b(q))
+```

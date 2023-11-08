@@ -1,0 +1,29 @@
+FUNCTION countDivisors(n)
+    IF n < 2 THEN
+        RETURN 1
+    END IF
+    count = 2  // 1 and n
+    FOR i = 2 to n/2
+        IF n % i == 0 THEN
+            count = count + 1
+        END IF
+    END FOR
+    RETURN count
+END FUNCTION
+
+FUNCTION main()
+    maxDiv = 0
+    count = 0
+    PRINT "The first 20 anti-primes are:"
+    n = 1
+    WHILE count < 20
+        d = countDivisors(n)
+        IF d > maxDiv THEN
+            PRINT n
+            maxDiv = d
+            count = count + 1
+        END IF
+        n = n + 1
+    END WHILE
+    PRINT
+END FUNCTION

@@ -1,0 +1,18 @@
+1. Import the combinations module from itertools as cmb
+2. Define a function called isP that takes an integer parameter n
+    a. If n is equal to 2, return True
+    b. If n is divisible by 2, return False
+    c. Return True if n is greater than 2 and all(n % x > 0 for x in range(3, int(n ** 0.5) + 1, 2))
+3. Define a function called genP that takes an integer parameter n
+    a. Create a list p with the value 2
+    b. Extend the list p with values of x for x in the range from 3 to n + 1, when isP(x) is True and x is odd
+    c. Return the list p
+4. Create a list of tuples called data
+5. Loop through each tuple in the data list
+    a. Get the first and second value of the tuple and assign them to n and cnt respectively
+    b. Create an iterator ci that generates combinations of prime numbers in genP(n) with cnt elements
+    c. While True, do the following
+        i. Try to get the next combination c from the iterator ci
+            i. If the sum of c is equal to n, print the tuple (n, cnt) and the combination c
+            ii. Break the loop
+        ii. If the StopIteration exception is raised, print that the combination is not possible and break the loop.

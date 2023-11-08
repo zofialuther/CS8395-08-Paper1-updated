@@ -1,0 +1,52 @@
+BEGIN
+    FUNCTION main
+        OUTPUT "Stirling numbers of the second kind:"
+        max = 12
+        OUTPUT "n/k"
+        FOR n = 0 to max
+            OUTPUT n
+        ENDFOR
+        OUTPUT ""
+        FOR n = 0 to max
+            OUTPUT n
+            FOR k = 0 to n
+                OUTPUT sterling2(n, k)
+            ENDFOR
+            OUTPUT ""
+        ENDFOR
+        OUTPUT "The maximum value of S2(100, k) = "
+        previous = 0
+        FOR k = 1 to 100
+            current = sterling2(100, k)
+            IF current > previous
+                previous = current
+            ELSE
+                OUTPUT previous
+                OUTPUT "(%d digits, k = %d)" % length(previous), k-1
+                BREAK
+            ENDIF
+        ENDFOR
+    ENDFUNCTION
+
+    FUNCTION sterling2(n, k)
+        key = n + "," + k
+        IF COMPUTED contains key
+            RETURN COMPUTED.get(key)
+        ENDIF
+        IF (n = 0 AND k = 0)
+            RETURN 1
+        ENDIF
+        IF (n > 0 AND k = 0) OR (n = 0 AND k > 0)
+            RETURN 0
+        ENDIF
+        IF n = k
+            RETURN 1
+        ENDIF
+        IF k > n
+            RETURN 0
+        ENDIF
+        result = k * sterling2(n-1, k) + sterling2(n-1, k-1)
+        COMPUTED.put(key, result)
+        RETURN result
+    ENDFUNCTION
+END

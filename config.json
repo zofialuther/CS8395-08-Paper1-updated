@@ -1,0 +1,6 @@
+{
+    "name": "Program Translation",
+    "model": "chatgpt-latest",
+    "run_test": "cd scripts",
+    "run_score": "python3 evaluate.py"
+}

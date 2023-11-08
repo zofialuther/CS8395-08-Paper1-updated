@@ -26,20 +26,25 @@ def translate_description_to_python(llm):
             continue  # Skip files, only interested in directories
 
         for description_file in tqdm(os.listdir(language_path)):
-            description_path = os.path.join(language_path, description_file)
-            with open(description_path, 'r') as file:
-                description = file.read()
-
-            # Translate the pseudocode to Python code
-            python_code = translate_to_python(description, llm)
-
             # Define the path for the translated Python code file
             problem_name = os.path.splitext(description_file)[0]  # Remove file extension to get problem name
             python_file_path = os.path.join(translated_code_dir, language, f"{problem_name}.py")
-            os.makedirs(os.path.dirname(python_file_path), exist_ok=True)
 
-            with open(python_file_path, 'w') as file:
-                file.write(python_code)
+            if not os.path.exists(python_file_path):
+                description_path = os.path.join(language_path, description_file)
+                with open(description_path, 'r') as file:
+                    description = file.read()
+
+                # Translate the pseudocode to Python code
+                python_code = translate_to_python(description, llm)
+
+                # Define the path for the translated Python code file
+                problem_name = os.path.splitext(description_file)[0]  # Remove file extension to get problem name
+                python_file_path = os.path.join(translated_code_dir, language, f"{problem_name}.py")
+                os.makedirs(os.path.dirname(python_file_path), exist_ok=True)
+
+                with open(python_file_path, 'w') as file:
+                    file.write(python_code)
 
 # Run the translation process
 llm = ChatOpenAI(model='gpt-3.5-turbo-1106')

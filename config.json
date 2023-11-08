@@ -2,5 +2,6 @@
     "name": "Program Translation",
     "model": "chatgpt-latest",
     "run_test": "cd scripts",
-    "run_score": "python3 evaluate.py"
+    "run_score": "python3 evaluate.py",
+    "tags": []
 }

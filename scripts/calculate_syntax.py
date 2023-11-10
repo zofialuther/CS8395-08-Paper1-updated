@@ -39,19 +39,27 @@ def check_translations_syntax():
 # Calculate and print the syntax accuracy for each type of translation by language and the cumulative average
 def report_syntax():
     syntax_results, cumulative_results = check_translations_syntax()
+    report_dict = {}
     for subdir, languages in syntax_results.items():
+        subdir_dict = {}
         print(f"Syntax accuracy for {subdir}:")
         for language, counts in languages.items():
             total = counts['valid'] + counts['invalid']
             if total > 0:
                 accuracy = counts['valid'] / total
                 print(f"  {language}: {accuracy:.4f} ({counts['valid']} valid out of {total})")
+                subdir_dict[language] = accuracy
         # Calculate the cumulative syntax accuracy for the translation type
         cumul_counts = cumulative_results[subdir]
         cumul_total = cumul_counts['valid'] + cumul_counts['invalid']
         if cumul_total > 0:
             cumul_accuracy = cumul_counts['valid'] / cumul_total
             print(f"  Cumulative: {cumul_accuracy:.4f} ({cumul_counts['valid']} valid out of {cumul_total})\n")
+            subdir_dict['Cumulative average'] = cumul_accuracy
+
+        report_dict[f'Average syntactical accuracy for {subdir}'] = subdir_dict
+
+    return report_dict
 
 if __name__ == "__main__":
     report_syntax()

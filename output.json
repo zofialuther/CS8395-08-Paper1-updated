@@ -1,3 +1,72 @@
 {
-    "output": 0
+    "output": 0,
+    "length": {
+        "Average length for direct-translations": {
+            "prolog": 32.880195599022,
+            "python": 31.009779951100246,
+            "java": 34.298288508557455,
+            "haskell": 25.885085574572127,
+            "Cumulative average": 31.01833740831296
+        },
+        "Average length for pseudo-to-python": {
+            "prolog": 31.929095354523227,
+            "python": 25.635696821515893,
+            "java": 30.665036674816626,
+            "haskell": 23.3080684596577,
+            "Cumulative average": 27.88447432762836
+        },
+        "Average length for desc-to-python": {
+            "prolog": 17.339853300733495,
+            "python": 18.376528117359413,
+            "java": 20.22249388753056,
+            "haskell": 17.47432762836186,
+            "Cumulative average": 18.353300733496333
+        }
+    },
+    "syntax": {
+        "Average syntactical accuracy for direct-translations": {
+            "prolog": 0.5501222493887531,
+            "python": 0.7212713936430318,
+            "java": 0.6112469437652812,
+            "haskell": 0.6308068459657702,
+            "Cumulative average": 0.628361858190709
+        },
+        "Average syntactical accuracy for pseudo-to-python": {
+            "prolog": 0.6821515892420538,
+            "python": 0.7799511002444988,
+            "java": 0.7897310513447433,
+            "haskell": 0.60880195599022,
+            "Cumulative average": 0.715158924205379
+        },
+        "Average syntactical accuracy for desc-to-python": {
+            "prolog": 0.28117359413202936,
+            "python": 0.5012224938875306,
+            "java": 0.27383863080684595,
+            "haskell": 0.36185819070904646,
+            "Cumulative average": 0.3545232273838631
+        }
+    },
+    "bleu": {
+        "Average BLEU score for direct": {
+            "prolog": 0.035469986378723554,
+            "python": 0.7134759145960274,
+            "java": 0.06454117505101531,
+            "haskell": 0.05653059402650804,
+            "Cumulative average": 0.21750441751306845
+        },
+        "Average BLEU score for pseudo": {
+            "prolog": 0.026228278270069176,
+            "python": 0.4767922170771321,
+            "java": 0.05467128064958415,
+            "haskell": 0.04700317175917868,
+            "Cumulative average": 0.15117373693899097
+        },
+        "Average BLEU score for desc": {
+            "prolog": 0.03164228115371537,
+            "python": 0.10452861186300703,
+            "java": 0.041773921294592294,
+            "haskell": 0.036381967539441507,
+            "Cumulative average": 0.053581695462689
+        }
+    }
 }

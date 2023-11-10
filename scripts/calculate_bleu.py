@@ -55,7 +55,9 @@ for trans_type, trans_dir in translation_dirs.items():
 def report_bleu():
     average_bleu_scores = defaultdict(dict)
     cumulative_bleu_scores = defaultdict(list)
+    report_dict = {}
     for trans_type, languages in bleu_scores.items():
+        subdir_dict = {}
         print(f"Average BLEU score for {trans_type} translations:")
         for language, scores in languages.items():
             if scores:
@@ -63,10 +65,16 @@ def report_bleu():
                 average_bleu_scores[trans_type][language] = avg_score
                 cumulative_bleu_scores[trans_type].extend(scores)  # For cumulative average
                 print(f"  {language}: {avg_score:.4f}")
+                subdir_dict[language] = avg_score
         # Calculate the cumulative average BLEU score for the translation type
         if cumulative_bleu_scores[trans_type]:
             cumul_avg_score = sum(cumulative_bleu_scores[trans_type]) / len(cumulative_bleu_scores[trans_type])
             print(f"  Cumulative average: {cumul_avg_score:.4f}\n")
+            subdir_dict['Cumulative average'] = cumul_avg_score
 
+        report_dict[f'Average BLEU score for {trans_type}'] = subdir_dict
+
+    return report_dict
+    
 if __name__ == "__main__":
     report_bleu()

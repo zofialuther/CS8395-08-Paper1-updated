@@ -32,7 +32,9 @@ def calculate_average_length():
 # Calculate and print the average length for each type of translation by language and the cumulative average
 def report_length():
     length_stats = calculate_average_length()
+    report_dict = {}
     for subdir, languages in length_stats.items():
+        subdir_dict = {}
         print(f"Average length for {subdir}:")
         all_lengths = []  # List to keep track of all lengths for cumulative average
         for language, lines_list in languages.items():
@@ -40,14 +42,22 @@ def report_length():
                 average_length = sum(lines_list) / len(lines_list)
                 all_lengths.extend(lines_list)  # Add all lengths to the cumulative list
                 print(f"  {language}: {average_length:.2f} LOC")
+                subdir_dict[language] = average_length
             else:
                 print(f"  No files found for {language}")
+                subdir_dict[language] = 'No files found'
         # Calculate the cumulative average length for the translation type
         if all_lengths:
             cumulative_average_length = sum(all_lengths) / len(all_lengths)
             print(f"  Cumulative average: {cumulative_average_length:.2f} LOC\n")
+            subdir_dict['Cumulative average'] = cumulative_average_length
         else:
             print("  No files found for cumulative average\n")
+            subdir_dict['Cumulative average'] = 'No files found'
+
+        report_dict[f'Average length for {subdir}'] = subdir_dict
+
+    return report_dict
 
 if __name__ == "__main__":
     report_length()
